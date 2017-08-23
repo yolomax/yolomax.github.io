@@ -423,7 +423,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">不融合，放在特征池中，供比较.</td>
 <td style="text-align:center">1. 学习一个矩阵，矩阵与两人特征差的乘即代表距离<br>2. 将两人的特征两两比较距离，最大的距离代表最后的距离</td>
 <td style="text-align:left">1. 只取图片的下半部分，定义能量函数FEP，能量值随帧变化<br> 2. 对每个图，在极大值与极小值点前后取共10帧<br></td>
-<td style="text-align:left">1. iLIDS-VID 28.9<br>2. PRID 23.3</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 28.9<br><strong>PRID</strong> 23.3</td>
 </tr>
 <tr>
 <td style="text-align:center">A Spatio-temporal Appearance Representation for <br>Video-based Perdestrian Re-identifacation</td>
@@ -434,7 +434,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">1. 空间上6部分特征级联得到帧表达<br>2. 时间上级联得到视频表达</td>
 <td style="text-align:center">最近邻分类器</td>
 <td style="text-align:left">1. 用傅里叶变换对FEP去噪 <br>2. 空间上按头，四肢，上身，将身体分为6个部分</td>
-<td style="text-align:left">1. iLIDS-VID 44.3<br>2. PRID 64.1</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 44.3<br><strong>PRID</strong> 64.1</td>
 </tr>
 <tr>
 <td style="text-align:center">Deep Recurrent Convolutional Networks for Video-based <br>Person Re-identification: An End-to-End Approach</td>
@@ -445,7 +445,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">GRU+average pooling</td>
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">GRU中用卷积操作代替了全连接层</td>
-<td style="text-align:left">1. iLIDS-VID 42.6<br>2. PRID 49.8</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 42.6<br><strong>PRID</strong> 49.8</td>
 </tr>
 <tr>
 <td style="text-align:center">Top-push Video-based Person Re-identification</td>
@@ -456,7 +456,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">级联</td>
 <td style="text-align:center">马氏距离</td>
 <td style="text-align:left">学习马氏距离的矩阵M</td>
-<td style="text-align:left">1. iLIDS-VID 56.33<br>2. PRID 56.74</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 56.33<br><strong>PRID</strong> 56.74</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification by Exploiting <br>Spatio-temporal Cues and Multi-view Metric Learning</td>
@@ -467,7 +467,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">级联</td>
 <td style="text-align:center">马氏距离</td>
 <td style="text-align:left">优化马氏距离中的W</td>
-<td style="text-align:left">1. iLIDS-VID 69.13<br>2. PRID 66.78</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 69.13<br><strong>PRID</strong> 66.78</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification via Recurrent Feature Aggregation</td>
@@ -478,7 +478,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">LSTM融合后再级联各时间输出</td>
 <td style="text-align:center">RankSVM</td>
 <td style="text-align:left">对噪声鲁棒性强</td>
-<td style="text-align:left">1. iLIDS-VID 49.3<br>2. PRID 64.1</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 49.3<br><strong>PRID</strong> 64.1</td>
 </tr>
 <tr>
 <td style="text-align:center">Learning Compact Appearance Representation for Video-based Person Re-identification</td>
@@ -489,7 +489,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Max Pooling</td>
 <td style="text-align:center">特征间的欧氏距离</td>
 <td style="text-align:left">1. 利用对于不同视频段提取到的特征，可以得到两个人之间的平均距离和最小距离<br>2. FEP选取关键帧</td>
-<td style="text-align:left">1. iLIDS-VID 60.4<br>2. PRID 83.3</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 60.4<br><strong>PRID</strong> 83.3</td>
 </tr>
 <tr>
 <td style="text-align:center">See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification</td>
@@ -500,7 +500,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">TAM+SRM</td>
 <td style="text-align:center">1. TAM输出特征间的标准化的欧氏距离<br>2.SRM输出的相似概率<br>3. 两个相似性度量的加权和</td>
 <td style="text-align:left">1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合</td>
-<td style="text-align:left">1. iLIDS-VID 55.2<br>2. PRID 79.4<br>3. MARS 70.6</td>
+<td style="text-align:left"><strong>iLIDS-VID</strong> 55.2<br><strong>PRID</strong> 79.4<br><strong>MARS</strong> 70.6</td>
 </tr>
 </tbody>
 </table>
@@ -530,7 +530,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">全连接层</td>
 <td style="text-align:left">网络输出为二分类，直接判断两者是否为同一个人</td>
 <td style="text-align:center">manually 20.65<br>detected 19.89</td>
-<td style="text-align:left">CUHK01 27.87</td>
+<td style="text-align:left"><strong>CUHK01</strong> 27.87</td>
 </tr>
 <tr>
 <td style="text-align:center">Learning Deep Feature Representations with Domain Guided Dropout for Person Re-identifacation</td>
@@ -541,7 +541,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">特征间的欧氏距离</td>
 <td style="text-align:left">通过比较某个神经元被置零前后loss的变化得到其是否为域敏感</td>
 <td style="text-align:center">all 75.3</td>
-<td style="text-align:left">CUHK01 66.6<br>PRID 64</td>
+<td style="text-align:left"><strong>CUHK01</strong> 66.6<br><strong>PRID</strong> 64</td>
 </tr>
 <tr>
 <td style="text-align:center">Semantics-Aware Deep Correspondence Structure Learning for Robust Person Re-identification</td>
@@ -552,7 +552,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">全连接层</td>
 <td style="text-align:left">1. 双路融合为一路<br>2. 融合时对两者特征图分别构建金字塔特征图<br>3. 两者同尺度的特征取Max操作<br>4. 网络最后为二分类</td>
 <td style="text-align:center">manually(100 testID) 80.2</td>
-<td style="text-align:left">CUHK01(100 testID) 89.60<br>CUHK01(486 testID) 76.54<br>VIPeR(316 testID) 44.62</td>
+<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 89.60<br><strong>CUHK01</strong>(486 testID) 76.54<br><strong>VIPeR</strong>(316 testID) 44.62</td>
 </tr>
 <tr>
 <td style="text-align:center">Joint Learning of Single-image and Cross-image Representations for Person Re-identification</td>
@@ -562,6 +562,8 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">三层CNN</td>
 <td style="text-align:center">欧氏距离+RankSVM</td>
 <td style="text-align:left">1. 可以应用到双路网络与三路网络</td>
+<td style="text-align:center">dected 52.17</td>
+<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 71.80<br><strong>VIPeR</strong> 35.76</td>
 </tr>
 </tbody>
 </table>
@@ -582,6 +584,8 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Large-scale Video Classification with Convolutional Neural Networks</td>
 <td style="text-align:center">Li FeiFei<br>Stanford University</td>
 <td style="text-align:center">CVPR 2014</td>
+<td style="text-align:left">利用多分辨率与漏斗状网络结构来更好的利用局部时空信息</td>
+<td style="text-align:left">1. 语境流：从低分辨率帧中学习特征<br>2. 中央流：从帧的中心部分的高分辨率区学习特征</td>
 </tr>
 </tbody>
 </table></body>
