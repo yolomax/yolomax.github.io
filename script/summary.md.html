@@ -369,7 +369,464 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 }
 </style>
   </head>
-  <body class='markdown-preview' data-use-github-style><h1 id="dataset">Dataset</h1>
+  <body class='markdown-preview' data-use-github-style><h1 id="video">Video</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:center">Feature</th>
+<th style="text-align:center">Fusion</th>
+<th style="text-align:center">Metric</th>
+<th style="text-align:left">Detail</th>
+<th style="text-align:left">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Person Re-identification by Video Ranking</td>
+<td style="text-align:center">Shenjing Wang<br>Queen Mary University of London</td>
+<td style="text-align:center">ECCV 2014</td>
+<td style="text-align:left">1. 能从有噪声的帧序列中选出关键帧<br> 2. 学习一个视频排序函数</td>
+<td style="text-align:center">HOG3D</td>
+<td style="text-align:center">不融合，放在特征池中，供比较.</td>
+<td style="text-align:center">1. 学习一个矩阵，矩阵与两人特征差的乘即代表距离<br>2. 将两人的特征两两比较距离，最大的距离代表最后的距离</td>
+<td style="text-align:left">1. 只取图片的下半部分，定义能量函数FEP，能量值随帧变化<br> 2. 对每个图，在极大值与极小值点前后取共10帧<br></td>
+<td style="text-align:left"><strong>iLIDS</strong> 28.9<br><strong>PRID</strong> 23.3</td>
+</tr>
+<tr>
+<td style="text-align:center">Sparse Re-ID: Block Sparsity for Person Re-identification</td>
+<td style="text-align:center">Richard J. Radke<br>RPI</td>
+<td style="text-align:center">CVPR 2015</td>
+<td style="text-align:left">Probe图片的特征向量可以近似看成<br>处于Gallery图片特征向量所处的embedding space</td>
+<td style="text-align:center">Color Histograms<br>Schmid &amp; Gabor Filters</td>
+<td style="text-align:center">级联构成字典的一部分</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">构建一个字典</td>
+<td style="text-align:left"><strong>iLIDS</strong> 24.9<br><strong>PRID</strong> 35.1</td>
+</tr>
+<tr>
+<td style="text-align:center">A Spatio-temporal Appearance Representation for <br>Video-based Perdestrian Re-identification</td>
+<td style="text-align:center">Rui Huang<br>Shandong University &amp; UCAS</td>
+<td style="text-align:center">ICCV 2015</td>
+<td style="text-align:left">1. 处理时间空间对齐问题 <br>2. 空间上按身体部位划分为不同的块<br>3. 时间上用FEP</td>
+<td style="text-align:center">Fiser vector</td>
+<td style="text-align:center">1. 空间上6部分特征级联得到帧表达<br>2. 时间上级联得到视频表达</td>
+<td style="text-align:center">最近邻分类器</td>
+<td style="text-align:left">1. 用傅里叶变换对FEP去噪 <br>2. 空间上按头，四肢，上身，将身体分为6个部分</td>
+<td style="text-align:left"><strong>iLIDS</strong> 44.3<br><strong>PRID</strong> 64.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Deep Recurrent Convolutional Networks for Video-based <br>Person Re-identification: An End-to-End Approach</td>
+<td style="text-align:center">Chunhua Shen<br>The University of Adelaide</td>
+<td style="text-align:center">Arxiv 2016</td>
+<td style="text-align:left">同时学习时间空间特征和相似性矩阵</td>
+<td style="text-align:center">四层卷积网络</td>
+<td style="text-align:center">GRU+average pooling</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">GRU中用卷积操作代替了全连接层</td>
+<td style="text-align:left"><strong>iLIDS</strong> 42.6<br><strong>PRID</strong> 49.8</td>
+</tr>
+<tr>
+<td style="text-align:center">Top-push Video-based Person Re-identification</td>
+<td style="text-align:center">Weishi Zheng<br>Sun Yat-sen University</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">不同的人有相似的表现而引发类间距离较小</td>
+<td style="text-align:center">HOG3D+color histograms+LBP</td>
+<td style="text-align:center">级联</td>
+<td style="text-align:center">马氏距离</td>
+<td style="text-align:left">学习马氏距离的矩阵M</td>
+<td style="text-align:left"><strong>iLIDS</strong> 56.33<br><strong>PRID</strong> 56.74</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification by Exploiting <br>Spatio-temporal Cues and Multi-view Metric Learning</td>
+<td style="text-align:center">Yuanyan Wang<br>Bejing Forestry University</td>
+<td style="text-align:center">IEEE SRL 2016</td>
+<td style="text-align:left">提出新的时空特征及匹配方法</td>
+<td style="text-align:center">从标准化的光流能量图中提取LBP</td>
+<td style="text-align:center">级联</td>
+<td style="text-align:center">马氏距离</td>
+<td style="text-align:left">优化马氏距离中的W</td>
+<td style="text-align:left"><strong>iLIDS</strong> 69.13<br><strong>PRID</strong> 66.78</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification via Recurrent Feature Aggregation</td>
+<td style="text-align:center">Xiaokang Yang<br>Shanghai Jioa Tong University</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">用LSTM融合时间信息</td>
+<td style="text-align:center">LBP+HSV+lab color channels</td>
+<td style="text-align:center">LSTM融合后再级联各时间输出</td>
+<td style="text-align:center">RankSVM</td>
+<td style="text-align:left">对噪声鲁棒性强</td>
+<td style="text-align:left"><strong>iLIDS</strong> 49.3<br><strong>PRID</strong> 64.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Recurrent Convolutional Network for Video-based Person Re-identification</td>
+<td style="text-align:center">Paul Miller<br>Queen&#39;s University Belfast</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">利用CNN提取空间特征，RNN提取空间特征</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">RNN + average pooling</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">Softmax Loss + Contrastive Loss</td>
+<td style="text-align:left"><strong>iLIDS</strong> 58<br><strong>PRID</strong> 70</td>
+</tr>
+<tr>
+<td style="text-align:center">Video-based Person Re-identification with Accumulative Motion Context</td>
+<td style="text-align:center">JiaShi Feng<br>Hefei University of Technology</td>
+<td style="text-align:center">Arxiv 2017</td>
+<td style="text-align:left">用网络学习光流，并整合到网络中</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">RNN+average pooling</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 先用光流训练一个网络，让其能预测光流<br>2. 将光流网络加入到原网络中一起使用</td>
+<td style="text-align:left"><strong>iLIDS</strong> 65.3<br><strong>PRID</strong> 78</td>
+</tr>
+<tr>
+<td style="text-align:center">Learning Compact Appearance Representation for Video-based Person Re-identification</td>
+<td style="text-align:center">Kan Liu<br>Shandong University</td>
+<td style="text-align:center">Arxiv 2017.02</td>
+<td style="text-align:left">从若干帧中提取特征而不是使用整个视频</td>
+<td style="text-align:center">五层卷积网络</td>
+<td style="text-align:center">Max Pooling</td>
+<td style="text-align:center">特征间的欧氏距离</td>
+<td style="text-align:left">1. 利用对于不同视频段提取到的特征，可以得到两个人之间的平均距离和最小距离<br>2. FEP选取关键帧</td>
+<td style="text-align:left"><strong>iLIDS</strong> 60.4<br><strong>PRID</strong> 83.3</td>
+</tr>
+<tr>
+<td style="text-align:center">See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification</td>
+<td style="text-align:center">Tieniu Tan<br>UCAS,CASIA,CEBSIT</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">能挑出关键帧并充分利用环境信息</td>
+<td style="text-align:center">CaffeNet</td>
+<td style="text-align:center">TAM+SRM</td>
+<td style="text-align:center">1. TAM输出特征间的标准化的欧氏距离<br>2.SRM输出的相似概率<br>3. 两个相似性度量的加权和</td>
+<td style="text-align:left">1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合</td>
+<td style="text-align:left"><strong>iLIDS</strong> 55.2<br><strong>PRID</strong> 79.4<br><strong>MARS</strong> 70.6</td>
+</tr>
+<tr>
+<td style="text-align:center">Quality Aware Network for Set to Set Recognition</td>
+<td style="text-align:center">Wanli Ouyang<br>University of Sydney</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">能自动学到图片的质量并用以加权图片特征</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">通过学习到的质量分数加权</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left"><strong>代码中的升级版本</strong><br>1. 三路网络，Triplet Loss,每一路又有一个分类Loss,正样本对又构建Contrastive loss(相当于只有正样本情况)<br>2. 对于每一个支路，都由GoogleNet组成，其后便是分类loss。每个支路中还有一个QAN网络，用于产生质量分数<br>3. QAN是两层卷积网络加全连接层，全连接输出维度为3，结构CPCPF，直接由原始图片数据学得<br>4. GoogleNet中间特征中沿高度均分得到三个特征，每个特征再均值池化压缩h维度。每个支路的QAN输出的3个数值标准化后分别对其加权<br>5. 加权后的特征经过L2 Norm便得到最后表达，进入Triplet Loss与Contrastive Loss</td>
+<td style="text-align:left"><strong>iLIDS</strong> 68.0<br><strong>PRID</strong> 90.3</td>
+</tr>
+<tr>
+<td style="text-align:center">Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification</td>
+<td style="text-align:center">Pan Zhou<br>Huazhong University of Science and Technology</td>
+<td style="text-align:center">ICCV 2017</td>
+<td style="text-align:left">在空间上与时间上都是注意力模型</td>
+<td style="text-align:center">三层CNN</td>
+<td style="text-align:center">RNN+注意力时间池化</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达</td>
+<td style="text-align:left"><strong>iLIDS</strong> 62<br><strong>PRID</strong> 77<br><strong>MARS</strong> 44</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="image">Image</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:center">Feature</th>
+<th style="text-align:center">Metric</th>
+<th style="text-align:left">Detail</th>
+<th style="text-align:center">CUHK03</th>
+<th style="text-align:left">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Viewpoint Invariant Perdestrian Recognition with an Ensemble of Localized Features</td>
+<td style="text-align:center">Hai Tao<br>University of California, Santa Cruz</td>
+<td style="text-align:center">ECCV 2008</td>
+<td style="text-align:left">定义了一个特征空间，让机器学习算法去寻找最好的表达</td>
+<td style="text-align:center">Color Channels<br>texture Filters(Schmid &amp; Gabor)<br>Feature Regions<br>Feature Binning</td>
+<td style="text-align:center">L1 Distance</td>
+<td style="text-align:left">使用了AdaBoost</td>
+<td style="text-align:center">--</td>
+<td style="text-align:left"><strong>VIPeR</strong> 12</td>
+</tr>
+<tr>
+<td style="text-align:center">DeepReID: Deep Filter Pairing Neural Network for Person Re-identification</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2014</td>
+<td style="text-align:left">1. 学习到的特征对能编码光照变化<br>2. 提出一个新的数据集</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">网络输出为二分类，直接判断两者是否为同一个人</td>
+<td style="text-align:center">manually 20.65<br>detected 19.89</td>
+<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 27.87</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification with Discriminatively Trained Viewpoint Invariant Dictionaries</td>
+<td style="text-align:center">Richard J. Radke<br>RPI</td>
+<td style="text-align:center">ICCV 2015</td>
+<td style="text-align:left">学习一个字典，能同时学习 Probe 和 Gallery 的表达</td>
+<td style="text-align:center">Color Histograms<br>Schmid &amp; Gabor Filters</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 用LFDA为特征降维<br>2. 训练时，在特征向量的稀疏表达上加上明确的限制去训练一个字典<br>3. 在测试时，从库图片中找出与榻侧图片，两者的稀疏表达在欧氏距离最近的一个</td>
+<td style="text-align:center">--</td>
+<td style="text-align:left"><strong>PRID</strong> 40.6<br><strong>iLIDS</strong> 25.9</td>
+</tr>
+<tr>
+<td style="text-align:center">An Improved Deep Learning Architecture for Person Re-identification</td>
+<td style="text-align:center">Tim K. Marks<br>MERL</td>
+<td style="text-align:center">CVPR 2015</td>
+<td style="text-align:left">新的块匹配方法</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">1. probe某区域块与同位置的邻域内gallery块皆做差分<br>2. 这样对于错位有一定的容忍性</td>
+<td style="text-align:center">manually 54.74 detected 44.96</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100) 65 (486) 47.53<br><strong>VIPeR</strong> 34.81</td>
+</tr>
+<tr>
+<td style="text-align:center">Deep Feature Learning with Relative Distance Comparison for Person Re-identification</td>
+<td style="text-align:center">Hongyang Chao<br>Sun Yat-sen University</td>
+<td style="text-align:center">PR 2015</td>
+<td style="text-align:left">基于深度学习的三路网络框架</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 在反向传播上做了优化，减少重复计算<br>2. 提供了构建Triplet三元组的方法</td>
+<td style="text-align:center">--</td>
+<td style="text-align:left"><strong>iLIDS</strong> 52.1<br> <strong>VIPeR</strong> 40.5</td>
+</tr>
+<tr>
+<td style="text-align:center">Learning Deep Feature Representations with Domain Guided Dropout for Person Re-identification</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">当在多个数据集上学习时，会发现有一些神经元跨域表达而一些神经元只会对指定的域有效</td>
+<td style="text-align:center">inception</td>
+<td style="text-align:center">特征间的欧氏距离</td>
+<td style="text-align:left">通过比较某个神经元被置零前后loss的变化得到其是否为域敏感</td>
+<td style="text-align:center">all 75.3</td>
+<td style="text-align:left"><strong>CUHK01</strong>(485 testID) 66.6<br><strong>PRID</strong> 64</td>
+</tr>
+<tr>
+<td style="text-align:center">Deep Neural Networks with Inexact Matching for Person Re-identification</td>
+<td style="text-align:center">Anurag Mittal<br>IITM</td>
+<td style="text-align:center">NIPS 2016</td>
+<td style="text-align:left">用相关系数改进块相似性度量</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">对于Probe图片，将区域块与Gallery相应位置整个条带上的块做相关性系数计算</td>
+<td style="text-align:center">manually 72.43<br> detected 72.04</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100) 81.23 (486) 65.04<br><strong>GRID</strong> 19.20</td>
+</tr>
+<tr>
+<td style="text-align:center">Gated Siamese Convolutional Neural Network Architecture for Huam Re-identification</td>
+<td style="text-align:center">Gang Wang<br>Nanyang Technology University</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">提出一个门函数，通过对比图片的中层特征，能选择性增强精细的局部模式</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 双路结构，信息向上传播时会有门结构对特征进行选择<br>2. 门结构是用两者的特征差，借助高斯激活函数作为门值</td>
+<td style="text-align:center">detected SQ 61.8 MQ 68.1</td>
+<td style="text-align:left"><strong>Market 1501</strong> (rank) SQ 65.88 MQ 76.04 (map) SQ 39.55 MQ 48.45<br><strong>VIPeR</strong> 37.8</td>
+</tr>
+<tr>
+<td style="text-align:center">Semantics-Aware Deep Correspondence Structure Learning for Robust Person Re-identification</td>
+<td style="text-align:center">Zhongfei Zhang<br>Zhejiang University</td>
+<td style="text-align:center">IJCAL 2016</td>
+<td style="text-align:left">希望得到语义层面的图像表达</td>
+<td style="text-align:center">改编的GoogleNet</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">1. 双路融合为一路<br>2. 融合时对两者特征图分别构建金字塔特征图<br>3. 两者同尺度的特征取Max操作<br>4. 网络最后为二分类</td>
+<td style="text-align:center">manually 80.2</td>
+<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 89.60<br><strong>CUHK01</strong>(486 testID) 76.54<br><strong>VIPeR</strong>(316 testID) 44.62</td>
+</tr>
+<tr>
+<td style="text-align:center">Joint Learning of Single-image and Cross-image Representations for Person Re-identification</td>
+<td style="text-align:center">Lei Zhang<br>Sun Yat-sen University</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">将分类与验证相结合</td>
+<td style="text-align:center">三层CNN</td>
+<td style="text-align:center">欧氏距离+RankSVM</td>
+<td style="text-align:left">1. 可以应用到双路网络与三路网络</td>
+<td style="text-align:center">detected 52.17</td>
+<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 71.80<br><strong>VIPeR</strong> 35.76</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification by Multi-Channel Parts-Based CNN with Improved Triplet Loss Function</td>
+<td style="text-align:center">Nanning Zheng<br>Xi&#39;an JiaoTong University</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">1. 多通道学习整个身体与局部肢体<br>2. 用新的Triplet loss 去加强学习效果</td>
+<td style="text-align:center">三层CNN</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. Conv1对整个图提特征<br>2. 沿高度将Conv1分为四部分，分别用四个支路去学习局部特征<br>3. 再训练一个支路对Conv1直接学习<br>4. 五个支路输出特征级联<br>5. 不仅要求正样本对距离小于负样本对，还要求正样本对距离小于某个值</td>
+<td style="text-align:center">--</td>
+<td style="text-align:left"><strong>iLIDS</strong> 60.4<br><strong>PRID</strong> 22.0<br><strong>VIPeR</strong> 47.8<br><strong>CUHK01</strong>(486 testID) 53.7</td>
+</tr>
+<tr>
+<td style="text-align:center">A siamese Long Short-Term Memory Architecture for Human Re-identification</td>
+<td style="text-align:center">Gang Wang<br>University of Sydney</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">通过上下文信息增强区分局部特征的能力</td>
+<td style="text-align:center">LOMO</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">沿高度分为多个水平条带，并依次送入LSTM聚合</td>
+<td style="text-align:center">detected 57.3</td>
+<td style="text-align:left"><strong>Market 1501</strong> MQ 61.6<br><strong>VIPeR</strong> 42.4</td>
+</tr>
+<tr>
+<td style="text-align:center">End-toEnd Comparative Attention Networks for Person Re-identification</td>
+<td style="text-align:center">Shucheng Yan<br></td>
+<td style="text-align:center">TIP 2016</td>
+<td style="text-align:left">学习到注意力模型</td>
+<td style="text-align:center">AlexNet VGG</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">CNN提取特征，再送入LSTM，用LSTM每一步的h学习mask矩阵，利用mask矩阵与原特征相乘得到有注意力的结果</td>
+<td style="text-align:center">manually 77.6<br>detected 69.2</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100 testID) 87.2<br><strong>Market 1501</strong> SQ 60.3 MQ 72.1<br><strong>VIPeR</strong> 54.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Spindle Net: Person Re-identification with Human Body Region Guided Feature Decomposition and Fusion</td>
+<td style="text-align:center">Xiaoou Tang<br>CUHK</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">利用行人的身体关键点辅助识别</td>
+<td style="text-align:center">inception</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 将人的肢体分为不同的粒度去提取特征，三个大区域，四个小区域<br>2. 先用CPM对图片提取关节点，再根据关节点位置框出7个区域<br> 3. 在提取特征时考虑了不同粒度，融合不同粒度时也有先后之分</td>
+<td style="text-align:center">all 88.5</td>
+<td style="text-align:left"><strong>CUHK01</strong>(485 testID) 79.9<br><strong>PRID</strong> 67<br><strong>VIPeR</strong> 53.8<br><strong>3DPeS</strong> 62.1<br><strong>iLIDS</strong> 66.3<br><strong>Market 1501</strong> SQ 76.9</td>
+</tr>
+<tr>
+<td style="text-align:center">Learning Deep Context-aware Features over Body and Latent Parts for Person Re-identification</td>
+<td style="text-align:center">Kaiqihuang<br>CRIPAC &amp; NLPR, CASIA</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">学习更好的基于整个身体和局部身体的特征</td>
+<td style="text-align:center">四层CNN</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 用不同膨胀率的卷积核构建类inception结构，可得到不同大小的感受野<br>2. 用google的STN网络学习抠图，得到身体划分，划分为三个部分<br>3. 整体与局部的特征级联的到最后的表达</td>
+<td style="text-align:center">manually 74.21<br>detected 67.99</td>
+<td style="text-align:left"><strong>Market 1501</strong> SQ 80.31 MQ 86.79<br><strong>MARS</strong> SQ 71.77 MQ 83.03</td>
+</tr>
+<tr>
+<td style="text-align:center">Beyond Triplet Loss: a Deep Quadruplet Network for Person Re-identification</td>
+<td style="text-align:center">Kaiqi Huang<br>CRIPAC&amp;NLPR,CASIA</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">四路网络+基于阈值的hard negative mining</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">1. 测试时相当于二分类<br>2. 相对于三路网络增加了负样本与负样本的限制</td>
+<td style="text-align:center">manually 75.53</td>
+<td style="text-align:left"><strong>CUHK01</strong> (486 testID) 62.55 (100 testID) 81<br><strong>VIPeR</strong> 49.05</td>
+</tr>
+<tr>
+<td style="text-align:center">A Multi-task Deep Network for Person Re-identification</td>
+<td style="text-align:center">Kaiqihuang<br>CRIPAC &amp; NLPR, CASIA</td>
+<td style="text-align:center">AAAI 2017</td>
+<td style="text-align:left">多任务框架，二分类模型与排序模型同时做，同时也考虑了跨数据集的半监督学习</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">主体为三路网络，在其基础上，正对与负对也被用来训练一个二分类分支</td>
+<td style="text-align:center">manually 74.68</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100) 78.5 (486) 59.67<br><strong>VIPeR</strong> 47.47<br><strong>iLIDS</strong> 58.38<br><strong>PRID</strong> 31</td>
+</tr>
+<tr>
+<td style="text-align:center">Point to Set Similarity Based Deep Feature Learning for Person Re-identification</td>
+<td style="text-align:center">Nanning Zheng<br> Xi&#39;an Jiaotong University</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">用点对集合来作为相似性度量</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. P2S改进的Triplet Loss + Contrastive Loss<br>2. 身体局部与整体的不同尺度学习</td>
+<td style="text-align:center">--</td>
+<td style="text-align:left"><strong>3DPeS</strong> 71.16<br><strong>CUHK01</strong> 77.34<br><strong>PRID</strong> 70.71<br><strong>Market 1501</strong> SQ 70.72 MQ 85.78</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="metric">Metric</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:center">Feature</th>
+<th style="text-align:center">Metric</th>
+<th style="text-align:left">Detail</th>
+<th style="text-align:left">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Deep Metric Learning for Practical Person Re-identification</td>
+<td style="text-align:center">Stan Z. Li<br> NLPR, CASIA</td>
+<td style="text-align:center">ICPR 2014</td>
+<td style="text-align:left">提出一个更通用的方式去从原始图片上学习距离度量</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Cosine + Binomial Distance</td>
+<td style="text-align:left">1. 双路网络，当做二分类，输出相似度<br>2. 每一支路分为三个小支路，分别输入图片的上中下三部分，最后级联再经全连接得到最后表达</td>
+<td style="text-align:left"><strong>VIPeR</strong> 34.4<br><strong>PRID</strong> 17.9</td>
+</tr>
+<tr>
+<td style="text-align:center">Multi-shot Re-identification with Random-Projection-Based Random Forests</td>
+<td style="text-align:center">Richard J. Radke<br>RPI</td>
+<td style="text-align:center">WACV 2015</td>
+<td style="text-align:left">基于视频的距离度量学习</td>
+<td style="text-align:center">Color Histograms<br>Schmid &amp; Gabor Filters</td>
+<td style="text-align:center">随机森林输出的相似性值</td>
+<td style="text-align:left">1. 通过随机投影对图片的特征向量降维<br>2. 在投影出的亚空间中，基于对层面训练随机森林<br>3. 随机投影增加了随机森林的分类多样性<br>4. 融合多个视频帧的方法：计算两者所有图片对的相似性值，再取平均</td>
+<td style="text-align:left"><strong>3DPeS</strong> 43(估计)</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification by LOcal Maximal Occurrence Representation and Metric Learning</td>
+<td style="text-align:center">Stan Z. Li<br>NLPR</td>
+<td style="text-align:center">CVPR 2015</td>
+<td style="text-align:left">新的手工特征和距离学习方法</td>
+<td style="text-align:center">SILTP histograms<br>Color Bins</td>
+<td style="text-align:center">在kissme的基础上加入了低维投影</td>
+<td style="text-align:left">1. 选取特征时有一系列的子窗口，并对窗口特征做max pooling<br>为了获得多尺度信息，用了有三种大小的图片金字塔</td>
+<td style="text-align:left"><strong>CUHK03</strong> manually 52.20 detected 46.25<br><strong>VIPeR</strong> 40.00<br><strong>GRID</strong> 16.56</td>
+</tr>
+<tr>
+<td style="text-align:center">Embedding Deep Metric for Person Re-identification: A Study Against Large Variations</td>
+<td style="text-align:center">Stan Z. Li<br>NLPR</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">提供了新的正样本对采集方法以及距离度量的方法</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 构成正样本对时，应选取与样本距离小的一些图片，距离太大的样本对会有害训练<br>2. 用全连接层将马氏距离的学习转化为欧氏距离</td>
+<td style="text-align:left"><strong>CUHK03</strong> manually 61.32 detected 52.09<br><strong>CUHK01</strong> (100) 86.59<br><strong>VIPeR</strong> 40.91</td>
+</tr>
+<tr>
+<td style="text-align:center">Re-ranking Person Re-identification with k-reciprocal Encoding</td>
+<td style="text-align:center">Shaozi Li<br>Xiamen University</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">对排序得到的结果再次处理重排</td>
+<td style="text-align:center">CaffeNet</td>
+<td style="text-align:center">Jaccard Distance + L2 Distance</td>
+<td style="text-align:left">1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和</td>
+<td style="text-align:left"><strong>Market 1501</strong> SQ 77.11<br><strong>CUHK03</strong> detected 61.6 manually 58.5<br><strong>MARS</strong> 73.94<br><strong>PRW</strong> 52.54</td>
+</tr>
+<tr>
+<td style="text-align:center">Relaxed Pairwise Learned Metric for Person Re-identification</td>
+<td style="text-align:center">Horst Bischof<br>Graz University of Technology</td>
+<td style="text-align:center">ECCV 2012</td>
+<td style="text-align:left">从不同摄像头下的采样中学习矩阵，注重摄像头之间的变换</td>
+<td style="text-align:center">Color + LBP</td>
+<td style="text-align:center">马氏距离</td>
+<td style="text-align:left">在距离度量学习前先对特征进行PCA降维</td>
+<td style="text-align:left"><strong>VIPeR</strong> 27<br><strong>PRID</strong> 15</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="dataset">Dataset</h1>
 <table>
 <thead>
 <tr>
@@ -394,117 +851,70 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">image</td>
 <td style="text-align:center">6</td>
 </tr>
-</tbody>
-</table>
-<hr>
-<h1 id="video">Video</h1>
-<table>
-<thead>
 <tr>
-<th style="text-align:center">Name</th>
-<th style="text-align:center">Author</th>
-<th style="text-align:center">Conference &amp; Year</th>
-<th style="text-align:left">Motivation</th>
-<th style="text-align:center">Feature</th>
-<th style="text-align:center">Fusion</th>
-<th style="text-align:center">Metric</th>
-<th style="text-align:left">Detail</th>
-<th style="text-align:left">Dataset</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Person Re-identifacation by Video Ranking</td>
-<td style="text-align:center">Shenjing Wang<br>Queen Mary University of London</td>
-<td style="text-align:center">ECCV 2014</td>
-<td style="text-align:left">1. 能从有噪声的帧序列中选出关键帧<br> 2. 学习一个视频排序函数</td>
-<td style="text-align:center">HOG3D</td>
-<td style="text-align:center">不融合，放在特征池中，供比较.</td>
-<td style="text-align:center">1. 学习一个矩阵，矩阵与两人特征差的乘即代表距离<br>2. 将两人的特征两两比较距离，最大的距离代表最后的距离</td>
-<td style="text-align:left">1. 只取图片的下半部分，定义能量函数FEP，能量值随帧变化<br> 2. 对每个图，在极大值与极小值点前后取共10帧<br></td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 28.9<br><strong>PRID</strong> 23.3</td>
-</tr>
-<tr>
-<td style="text-align:center">A Spatio-temporal Appearance Representation for <br>Video-based Perdestrian Re-identifacation</td>
-<td style="text-align:center">Rui Huang<br>Shandong University &amp; UCAS</td>
-<td style="text-align:center">ICCV 2015</td>
-<td style="text-align:left">1. 处理时间空间对齐问题 <br>2. 空间上按身体部位划分为不同的块<br>3. 时间上用FEP</td>
-<td style="text-align:center">Fiser vector</td>
-<td style="text-align:center">1. 空间上6部分特征级联得到帧表达<br>2. 时间上级联得到视频表达</td>
-<td style="text-align:center">最近邻分类器</td>
-<td style="text-align:left">1. 用傅里叶变换对FEP去噪 <br>2. 空间上按头，四肢，上身，将身体分为6个部分</td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 44.3<br><strong>PRID</strong> 64.1</td>
-</tr>
-<tr>
-<td style="text-align:center">Deep Recurrent Convolutional Networks for Video-based <br>Person Re-identification: An End-to-End Approach</td>
-<td style="text-align:center">Chunhua Shen<br>The University of Adelaide</td>
-<td style="text-align:center">Arxiv 2016</td>
-<td style="text-align:left">同时学习时间空间特征和相似性矩阵</td>
-<td style="text-align:center">四层卷积网络</td>
-<td style="text-align:center">GRU+average pooling</td>
-<td style="text-align:center">欧氏距离</td>
-<td style="text-align:left">GRU中用卷积操作代替了全连接层</td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 42.6<br><strong>PRID</strong> 49.8</td>
-</tr>
-<tr>
-<td style="text-align:center">Top-push Video-based Person Re-identification</td>
-<td style="text-align:center">Weishi Zheng<br>Sun Yat-sen University</td>
-<td style="text-align:center">CVPR 2016</td>
-<td style="text-align:left">不同的人有相似的表现而引发类间距离较小</td>
-<td style="text-align:center">HOG3D+color histograms+LBP</td>
-<td style="text-align:center">级联</td>
-<td style="text-align:center">马氏距离</td>
-<td style="text-align:left">学习马氏距离的矩阵M</td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 56.33<br><strong>PRID</strong> 56.74</td>
-</tr>
-<tr>
-<td style="text-align:center">Person Re-identification by Exploiting <br>Spatio-temporal Cues and Multi-view Metric Learning</td>
-<td style="text-align:center">Yuanyan Wang<br>Bejing Forestry University</td>
-<td style="text-align:center">IEEE SRL 2016</td>
-<td style="text-align:left">提出新的时空特征及匹配方法</td>
-<td style="text-align:center">从标准化的光流能量图中提取LBP</td>
-<td style="text-align:center">级联</td>
-<td style="text-align:center">马氏距离</td>
-<td style="text-align:left">优化马氏距离中的W</td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 69.13<br><strong>PRID</strong> 66.78</td>
-</tr>
-<tr>
-<td style="text-align:center">Person Re-identification via Recurrent Feature Aggregation</td>
-<td style="text-align:center">Xiaokang Yang<br>Shanghai Jioa Tong University</td>
+<td style="text-align:center">MARS: A Video Benchmark for Large-Scale Person Re-identification</td>
+<td style="text-align:center">Qi Tian<br>Tsinghua University</td>
 <td style="text-align:center">ECCV 2016</td>
-<td style="text-align:left">用LSTM融合时间信息</td>
-<td style="text-align:center">LBP+HSV+lab color channels</td>
-<td style="text-align:center">LSTM融合后再级联各时间输出</td>
-<td style="text-align:center">RankSVM</td>
-<td style="text-align:left">对噪声鲁棒性强</td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 49.3<br><strong>PRID</strong> 64.1</td>
+<td style="text-align:left">基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好</td>
+<td style="text-align:center">MARS</td>
+<td style="text-align:center">detected</td>
+<td style="text-align:center">Video</td>
+<td style="text-align:center">6</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="new-perspective">New Perspective</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:left">Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Deep Attributes Driven Multi-camera Person Re-identification</td>
+<td style="text-align:center">Qi Tian<br>Peking University</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">利用行人属性辅助行人重识别</td>
+<td style="text-align:left">1. 第一阶段，用一个带属性的独立数据集训练网络，并用该网络为目标数据集初始化属性标签<br>2. 第二阶段，基于属性的Triplet Loss,将属性与ID结合起来训练，让同一个人的属性相似，不同人的属性相差较远<br>3. 第三阶段，为目标数据集重新标定属性标签，将独立属性数据及与此相结合，用其微调属性预测网络</td>
 </tr>
 <tr>
-<td style="text-align:center">Learning Compact Appearance Representation for Video-based Person Re-identification</td>
-<td style="text-align:center">Kan Liu<br>Shandong University</td>
-<td style="text-align:center">Arxiv 2017.02</td>
-<td style="text-align:left">从若干帧中提取特征而不是使用整个视频</td>
-<td style="text-align:center">五层卷积网络</td>
-<td style="text-align:center">Max Pooling</td>
-<td style="text-align:center">特征间的欧氏距离</td>
-<td style="text-align:left">1. 利用对于不同视频段提取到的特征，可以得到两个人之间的平均距离和最小距离<br>2. FEP选取关键帧</td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 60.4<br><strong>PRID</strong> 83.3</td>
+<td style="text-align:center">Recurrent Attention Models for Depth-Based Person Identification</td>
+<td style="text-align:center">Li FeiFei<br>Stanford University</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">数据集是人的深度信息，立体的，无RGB信息</td>
+<td style="text-align:left">因数据集较大，结合了循环注意力模型，自动选择下一个关注点</td>
 </tr>
 <tr>
-<td style="text-align:center">See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification</td>
-<td style="text-align:center">Tieniu Tan<br>UCAS,CASIA,CEBSIT</td>
+<td style="text-align:center">End-to-End Deep Learning for Person Search</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">将检测与匹配结合起来做</td>
+<td style="text-align:left">1. 整体结构与Faster RCNN相同，当做分类问题<br>2. 分类的时候，一个batch只有少数图片，但整体类别很多，所以Softmax目标会很稀疏<br>3. 提出随机采样的Softmax loss，即每次随机选取Softmax神经元的一个子集</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search with Natural Language Description</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
 <td style="text-align:center">CVPR 2017</td>
-<td style="text-align:left">能挑出关键帧并充分利用环境信息</td>
-<td style="text-align:center">CaffeNet</td>
-<td style="text-align:center">TAM+SRM</td>
-<td style="text-align:center">1. TAM输出特征间的标准化的欧氏距离<br>2.SRM输出的相似概率<br>3. 两个相似性度量的加权和</td>
-<td style="text-align:left">1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合</td>
-<td style="text-align:left"><strong>iLIDS-VID</strong> 55.2<br><strong>PRID</strong> 79.4<br><strong>MARS</strong> 70.6</td>
+<td style="text-align:left">根据自然语言描述去搜索人物</td>
+<td style="text-align:left">1. VGG16提取图片特征<br>2. 单元级的注意力与单词级的门控制</td>
+</tr>
+<tr>
+<td style="text-align:center">Improving Person Re-identification by Attribute and Identity Learning</td>
+<td style="text-align:center">Liang Zheng<br>University of Technology Sydney</td>
+<td style="text-align:center">Arxiv 2017</td>
+<td style="text-align:left">主要研究属性标签如何在大规模学习问题上帮助Re-ID</td>
+<td style="text-align:left">这里的属性主要是与ID层面的属性，比如性别，年龄，而不是持续时间短的，或属于外界环境的属性，比如打电话，骑自行车</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h1 id="image">Image</h1>
+<h1 id="expansion">Expansion</h1>
 <table>
 <thead>
 <tr>
@@ -512,79 +922,165 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <th style="text-align:center">Author</th>
 <th style="text-align:center">Conference &amp; Year</th>
 <th style="text-align:left">Motivation</th>
-<th style="text-align:center">Feature</th>
-<th style="text-align:center">Metric</th>
 <th style="text-align:left">Detail</th>
-<th style="text-align:center">CUHK03</th>
-<th style="text-align:left">Dataset</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">DeepReID: Deep Filter Pairing Neural Network for Person Re-identification</td>
-<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">Local Fisher Discriminant Analysis for Supervised Dimensionality Reduction</td>
+<td style="text-align:center">Masashi Sugiyama<br>Tokyo Institute pf Technology</td>
+<td style="text-align:center">ICML 2006</td>
+<td style="text-align:left">传统Fisher Discriminant分析对于从若干独立簇中的类的采样没有区分性</td>
+<td style="text-align:left">考虑数据的内部结构，将FDA于LPP结合</td>
+</tr>
+<tr>
+<td style="text-align:center">A Spatial-Temporal Descriptor Based on 3D-Gradients</td>
+<td style="text-align:center">Cordelia Schmid<br>INRIA Grenoble</td>
+<td style="text-align:center">BMVC 2008</td>
+<td style="text-align:left">基于视频的时空描述子</td>
+<td style="text-align:left">将一个cell中的累加梯度值量化到中二十面体的面中心方向</td>
+</tr>
+<tr>
+<td style="text-align:center">Large Scale Metric Learning from Equivalence Constraints</td>
+<td style="text-align:center">Horst Bischof<br>Graz University of Technology</td>
+<td style="text-align:center">CVPR 2012</td>
+<td style="text-align:left">从统计推理的角度学习距离度量，不依赖于复杂的算法</td>
+<td style="text-align:left">利用最大似然估计得到马氏距离度量矩阵</td>
+</tr>
+<tr>
+<td style="text-align:center">DeepFace: Closing the Gap to Human-Level Performance in Face Verification</td>
+<td style="text-align:center">Lior Worf<br>Tel Aviv University</td>
 <td style="text-align:center">CVPR 2014</td>
-<td style="text-align:left">1. 学习到的特征对能编码光照变化<br>2. 提出一个新的数据集</td>
-<td style="text-align:center">CNN</td>
-<td style="text-align:center">全连接层</td>
-<td style="text-align:left">网络输出为二分类，直接判断两者是否为同一个人</td>
-<td style="text-align:center">manually 20.65<br>detected 19.89</td>
-<td style="text-align:left"><strong>CUHK01</strong> 27.87</td>
+<td style="text-align:left">联合对齐与表达操作</td>
+<td style="text-align:left">1. 用3D Face来对齐<br>2. 9层网络提特征</td>
 </tr>
 <tr>
-<td style="text-align:center">Learning Deep Feature Representations with Domain Guided Dropout for Person Re-identifacation</td>
-<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
-<td style="text-align:center">CVPR 2016</td>
-<td style="text-align:left">当在多个数据集上学习时，会发现有一些神经元跨域表达而一些神经元只会对指定的域有效</td>
-<td style="text-align:center">inception</td>
-<td style="text-align:center">特征间的欧氏距离</td>
-<td style="text-align:left">通过比较某个神经元被置零前后loss的变化得到其是否为域敏感</td>
-<td style="text-align:center">all 75.3</td>
-<td style="text-align:left"><strong>CUHK01</strong> 66.6<br><strong>PRID</strong> 64</td>
+<td style="text-align:center">Deep Learning Face Representation by Joint Identification-Verification</td>
+<td style="text-align:center">Xiaoou Tang<br>CUHK</td>
+<td style="text-align:center">NIPS 2014</td>
+<td style="text-align:left">用multi-task加强特征学习</td>
+<td style="text-align:left">双路，每一路都有一个Softmax classification loss。两路联合有一个Contrastive loss。</td>
 </tr>
 <tr>
-<td style="text-align:center">Semantics-Aware Deep Correspondence Structure Learning for Robust Person Re-identification</td>
-<td style="text-align:center">Zhongfei Zhang<br>Zhejiang University</td>
-<td style="text-align:center">IJCAL 2016</td>
-<td style="text-align:left">希望得到语义层面的图像表达</td>
-<td style="text-align:center">改编的GoogleNet</td>
-<td style="text-align:center">全连接层</td>
-<td style="text-align:left">1. 双路融合为一路<br>2. 融合时对两者特征图分别构建金字塔特征图<br>3. 两者同尺度的特征取Max操作<br>4. 网络最后为二分类</td>
-<td style="text-align:center">manually(100 testID) 80.2</td>
-<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 89.60<br><strong>CUHK01</strong>(486 testID) 76.54<br><strong>VIPeR</strong>(316 testID) 44.62</td>
+<td style="text-align:center">Deep Learning Face Representation from Predicting 10000 Classes</td>
+<td style="text-align:center">Xiaoou Tang<br>CUHK</td>
+<td style="text-align:center">CVPR 2014</td>
+<td style="text-align:left">用网络提取高层次特征</td>
+<td style="text-align:left">最后的特征表达维度只有160维</td>
 </tr>
 <tr>
-<td style="text-align:center">Joint Learning of Single-image and Cross-image Representations for Person Re-identification</td>
-<td style="text-align:center">Lei Zhang<br>Sun Yat-sen University</td>
-<td style="text-align:center">CVPR 2016</td>
-<td style="text-align:left">将分类与验证相结合</td>
-<td style="text-align:center">三层CNN</td>
-<td style="text-align:center">欧氏距离+RankSVM</td>
-<td style="text-align:left">1. 可以应用到双路网络与三路网络</td>
-<td style="text-align:center">dected 52.17</td>
-<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 71.80<br><strong>VIPeR</strong> 35.76</td>
+<td style="text-align:center">Two-Stream Convolutional Networks for Action Recognition in Videos</td>
+<td style="text-align:center">Andrew Zisserman<br>Oxford</td>
+<td style="text-align:center">NIPS 2014</td>
+<td style="text-align:left">双路结构处理时空信息</td>
+<td style="text-align:left">网络一个支路输入图片另一个支路输入光流</td>
 </tr>
-</tbody>
-</table>
-<hr>
-<h1 id="other">Other</h1>
-<table>
-<thead>
 <tr>
-<th style="text-align:center">Name</th>
-<th style="text-align:center">Author</th>
-<th style="text-align:center">Conference &amp; Year</th>
-<th style="text-align:left">Motivation</th>
-<th style="text-align:left">Detail</th>
+<td style="text-align:center">Recurrent Models of Visual Attention</td>
+<td style="text-align:center">Koray Kavukcuoglu<br>Google DeepMind</td>
+<td style="text-align:center">NIPS 2014</td>
+<td style="text-align:left">每次只看图片的一小块，网络会自动寻找下一次观察的点</td>
+<td style="text-align:left">1. 主体为RNN，每次输入整个图片和观察点坐标<br>2. 每一步输出两个分支，一个分类，另一个预测下一个位置<br>3. 使用增强学习，每一步分类对了reward为1，否则为0</td>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td style="text-align:center">Large-scale Video Classification with Convolutional Neural Networks</td>
 <td style="text-align:center">Li FeiFei<br>Stanford University</td>
 <td style="text-align:center">CVPR 2014</td>
 <td style="text-align:left">利用多分辨率与漏斗状网络结构来更好的利用局部时空信息</td>
 <td style="text-align:left">1. 语境流：从低分辨率帧中学习特征<br>2. 中央流：从帧的中心部分的高分辨率区学习特征</td>
+</tr>
+<tr>
+<td style="text-align:center">EpicFlow: Edge-Preserving Interpolation of Correspondences for Optical Flow</td>
+<td style="text-align:center">Cordelia Schmid<br>Inria</td>
+<td style="text-align:center">CVPR 2015</td>
+<td style="text-align:left">更好地处理冲突与运动边界的光流估计</td>
+<td style="text-align:left">1. 从稀疏匹配的边缘保留插值的密匹配<br>2. 用密匹配初始化的方差能量最小化</td>
+</tr>
+<tr>
+<td style="text-align:center">FlowNet： Learning Optical Flow with Convolutional Networks</td>
+<td style="text-align:center">Vladimir Golkov<br>Technical University of Munich</td>
+<td style="text-align:center">ICCV 2015</td>
+<td style="text-align:left">用网络提取光流</td>
+<td style="text-align:left">通过一系列的卷积与反卷积操作</td>
+</tr>
+<tr>
+<td style="text-align:center">Deep Captioning with Multimodal Recurrent Neural Networks</td>
+<td style="text-align:center">Junhua Mao<br>UCLA</td>
+<td style="text-align:center">ICLR 2015</td>
+<td style="text-align:left">用多模型RNN去处理自然图片说明</td>
+<td style="text-align:left">1. 为语言和图片分别构建模型，然后融合两者的信息<br>2. RNN的每一步输入都是某一单词的语言模型的输出<br>3. 每一步的RNN输出，语言模型输出，图像模型输出三者分别通过三个矩阵投影到一个共同的空间，再元素级相加得到融合后的表达</td>
+</tr>
+<tr>
+<td style="text-align:center">Learning Spatiotemporal Features with 3D Convolutional Networks</td>
+<td style="text-align:center">Manohar Paluri<br>Facebook AI Research</td>
+<td style="text-align:center">ICCV 2015</td>
+<td style="text-align:left">3D卷积核去处理视频</td>
+<td style="text-align:left">3D卷积核能有效学习时间与空间特征</td>
+</tr>
+<tr>
+<td style="text-align:center">MatchNet: Unifying Feature and Metric Learning for Patch-Based Matching</td>
+<td style="text-align:center">Alexander C. Berg<br>University of North Carolina at Chapel Hill</td>
+<td style="text-align:center">CVPR 2015</td>
+<td style="text-align:left">块匹配与特征学习一起做</td>
+<td style="text-align:left">两个支路通过全连接融合为一路，全连接层则相当于距离度量</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="pose-estimation">Pose Estimation</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:left">Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Convolutional Pose Machines</td>
+<td style="text-align:center">Yaser Sheikh<br>CMU</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">用很深的网络不断调整预测</td>
+<td style="text-align:left">1. 整体类似RNN,分为很多步<br>2. 第一步输入是用七层网络提取的各个关节点的自信图<br>3. 之后的每个阶段是一样的model，是5层卷积网，输入为前一阶段的自信图以及对原始图提取的特征<br>4. 每一阶段都会额外增加一个loss,是预测与真实自信图的误差，用以减轻梯度消失问题</td>
+</tr>
+<tr>
+<td style="text-align:center">Thin-Slicing Network: A Deep Structured Model for Pose Estimation in Videos</td>
+<td style="text-align:center">Otmar Hilliges<br>ETH Zurich</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">能端到端的训练，能同时表达交界处以及他们之间的时空关系</td>
+<td style="text-align:left">1. 先训练CPM，再与后面的网络结合起来优化<br>2. 对于前后帧，用弹簧能量模型定义变形损失</td>
+</tr>
+<tr>
+<td style="text-align:center">Realtime Multi-Person 2D Pose Estimation using Part Affinity Fileds</td>
+<td style="text-align:center">Yaser Sheikh<br>CMU</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">定义新的表达来更好的处理多人关节点估计</td>
+<td style="text-align:left">1. PAF是同一个人两个相邻关节点之间的向量场，有方向<br>2. 网络分为两路，一路用CPM预测自信图，另一路预测PAF<br>3.PAF主要解决多人情况下关节点的划分问题</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="network-architecture">Network Architecture</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:left">Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Densely Connected Convolutional Networks</td>
+<td style="text-align:center">Kilian Q. Weinberger<br>Cornell University</td>
+<td style="text-align:center">CVPR 2017 (best)</td>
+<td style="text-align:left">卷积层间密集连接，特征图重用</td>
+<td style="text-align:left">1. 网络可以很深，分为很多个block<br>2. 每个block由多个卷积层构成，每一层的特征图都会送到该block内它后面的所有卷积层<br>3. block内每一层的通道数不能太大，block之间用1x1卷积压缩通道数</td>
 </tr>
 </tbody>
 </table></body>
