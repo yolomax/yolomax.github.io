@@ -381,7 +381,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <th style="text-align:center">Fusion</th>
 <th style="text-align:center">Metric</th>
 <th style="text-align:left">Detail</th>
-<th style="text-align:left">Dataset</th>
+<th style="text-align:center">iLIDS</th>
+<th style="text-align:center">PRID</th>
+<th style="text-align:center">MARS</th>
 </tr>
 </thead>
 <tbody>
@@ -394,7 +396,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">不融合，放在特征池中，供比较.</td>
 <td style="text-align:center">1. 学习一个矩阵，矩阵与两人特征差的乘即代表距离<br>2. 将两人的特征两两比较距离，最大的距离代表最后的距离</td>
 <td style="text-align:left">1. 只取图片的下半部分，定义能量函数FEP，能量值随帧变化<br> 2. 对每个图，在极大值与极小值点前后取共10帧<br></td>
-<td style="text-align:left"><strong>iLIDS</strong> 28.9<br><strong>PRID</strong> 23.3</td>
+<td style="text-align:center">28.9</td>
+<td style="text-align:center">23.3</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Sparse Re-ID: Block Sparsity for Person Re-identification</td>
@@ -405,7 +409,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">级联构成字典的一部分</td>
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">构建一个字典</td>
-<td style="text-align:left"><strong>iLIDS</strong> 24.9<br><strong>PRID</strong> 35.1</td>
+<td style="text-align:center">24.9</td>
+<td style="text-align:center">35.1</td>
+<td style="text-align:center">---</td>
 </tr>
 <tr>
 <td style="text-align:center">A Spatio-temporal Appearance Representation for <br>Video-based Perdestrian Re-identification</td>
@@ -416,7 +422,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">1. 空间上6部分特征级联得到帧表达<br>2. 时间上级联得到视频表达</td>
 <td style="text-align:center">最近邻分类器</td>
 <td style="text-align:left">1. 用傅里叶变换对FEP去噪 <br>2. 空间上按头，四肢，上身，将身体分为6个部分</td>
-<td style="text-align:left"><strong>iLIDS</strong> 44.3<br><strong>PRID</strong> 64.1</td>
+<td style="text-align:center">44.3</td>
+<td style="text-align:center">64.1</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Deep Recurrent Convolutional Networks for Video-based <br>Person Re-identification: An End-to-End Approach</td>
@@ -427,7 +435,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">GRU+average pooling</td>
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">GRU中用卷积操作代替了全连接层</td>
-<td style="text-align:left"><strong>iLIDS</strong> 42.6<br><strong>PRID</strong> 49.8</td>
+<td style="text-align:center">42.6</td>
+<td style="text-align:center">49.8</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Top-push Video-based Person Re-identification</td>
@@ -438,7 +448,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">级联</td>
 <td style="text-align:center">马氏距离</td>
 <td style="text-align:left">学习马氏距离的矩阵M</td>
-<td style="text-align:left"><strong>iLIDS</strong> 56.33<br><strong>PRID</strong> 56.74</td>
+<td style="text-align:center">56.33</td>
+<td style="text-align:center">56.74</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification by Exploiting <br>Spatio-temporal Cues and Multi-view Metric Learning</td>
@@ -449,7 +461,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">级联</td>
 <td style="text-align:center">马氏距离</td>
 <td style="text-align:left">优化马氏距离中的W</td>
-<td style="text-align:left"><strong>iLIDS</strong> 69.13<br><strong>PRID</strong> 66.78</td>
+<td style="text-align:center">69.13</td>
+<td style="text-align:center">66.78</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification via Recurrent Feature Aggregation</td>
@@ -460,7 +474,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">LSTM融合后再级联各时间输出</td>
 <td style="text-align:center">RankSVM</td>
 <td style="text-align:left">对噪声鲁棒性强</td>
-<td style="text-align:left"><strong>iLIDS</strong> 49.3<br><strong>PRID</strong> 64.1</td>
+<td style="text-align:center">49.3</td>
+<td style="text-align:center">64.1</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Recurrent Convolutional Network for Video-based Person Re-identification</td>
@@ -471,7 +487,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">RNN + average pooling</td>
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">Softmax Loss + Contrastive Loss</td>
-<td style="text-align:left"><strong>iLIDS</strong> 58<br><strong>PRID</strong> 70</td>
+<td style="text-align:center">58</td>
+<td style="text-align:center">70</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Video-based Person Re-identification with Accumulative Motion Context</td>
@@ -482,7 +500,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">RNN+average pooling</td>
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">1. 先用光流训练一个网络，让其能预测光流<br>2. 将光流网络加入到原网络中一起使用</td>
-<td style="text-align:left"><strong>iLIDS</strong> 65.3<br><strong>PRID</strong> 78</td>
+<td style="text-align:center">65.3</td>
+<td style="text-align:center">78</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Learning Compact Appearance Representation for Video-based Person Re-identification</td>
@@ -493,7 +513,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Max Pooling</td>
 <td style="text-align:center">特征间的欧氏距离</td>
 <td style="text-align:left">1. 利用对于不同视频段提取到的特征，可以得到两个人之间的平均距离和最小距离<br>2. FEP选取关键帧</td>
-<td style="text-align:left"><strong>iLIDS</strong> 60.4<br><strong>PRID</strong> 83.3</td>
+<td style="text-align:center">60.4</td>
+<td style="text-align:center">83.3</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification</td>
@@ -504,7 +526,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">TAM+SRM</td>
 <td style="text-align:center">1. TAM输出特征间的标准化的欧氏距离<br>2.SRM输出的相似概率<br>3. 两个相似性度量的加权和</td>
 <td style="text-align:left">1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合</td>
-<td style="text-align:left"><strong>iLIDS</strong> 55.2<br><strong>PRID</strong> 79.4<br><strong>MARS</strong> 70.6</td>
+<td style="text-align:center">55.2</td>
+<td style="text-align:center">79.4</td>
+<td style="text-align:center">70.6</td>
 </tr>
 <tr>
 <td style="text-align:center">Quality Aware Network for Set to Set Recognition</td>
@@ -515,7 +539,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">通过学习到的质量分数加权</td>
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left"><strong>代码中的升级版本</strong><br>1. 三路网络，Triplet Loss,每一路又有一个分类Loss,正样本对又构建Contrastive loss(相当于只有正样本情况)<br>2. 对于每一个支路，都由GoogleNet组成，其后便是分类loss。每个支路中还有一个QAN网络，用于产生质量分数<br>3. QAN是两层卷积网络加全连接层，全连接输出维度为3，结构CPCPF，直接由原始图片数据学得<br>4. GoogleNet中间特征中沿高度均分得到三个特征，每个特征再均值池化压缩h维度。每个支路的QAN输出的3个数值标准化后分别对其加权<br>5. 加权后的特征经过L2 Norm便得到最后表达，进入Triplet Loss与Contrastive Loss</td>
-<td style="text-align:left"><strong>iLIDS</strong> 68.0<br><strong>PRID</strong> 90.3</td>
+<td style="text-align:center">68.0</td>
+<td style="text-align:center">90.3</td>
+<td style="text-align:center">--</td>
 </tr>
 <tr>
 <td style="text-align:center">Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification</td>
@@ -526,7 +552,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">RNN+注意力时间池化</td>
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达</td>
-<td style="text-align:left"><strong>iLIDS</strong> 62<br><strong>PRID</strong> 77<br><strong>MARS</strong> 44</td>
+<td style="text-align:center">62</td>
+<td style="text-align:center">77</td>
+<td style="text-align:center">44</td>
 </tr>
 </tbody>
 </table>
@@ -588,7 +616,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">CNN</td>
 <td style="text-align:center">Softmax Score</td>
 <td style="text-align:left">1. probe某区域块与同位置的邻域内gallery块皆做差分<br>2. 这样对于错位有一定的容忍性</td>
-<td style="text-align:center">manually 54.74 detected 44.96</td>
+<td style="text-align:center">manually 54.74<br>detected 44.96</td>
 <td style="text-align:left"><strong>CUHK01</strong> (100) 65 (486) 47.53<br><strong>VIPeR</strong> 34.81</td>
 </tr>
 <tr>
@@ -621,7 +649,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">CNN</td>
 <td style="text-align:center">Softmax Score</td>
 <td style="text-align:left">对于Probe图片，将区域块与Gallery相应位置整个条带上的块做相关性系数计算</td>
-<td style="text-align:center">manually 72.43<br> detected 72.04</td>
+<td style="text-align:center">manually 72.43<br>detected 72.04</td>
 <td style="text-align:left"><strong>CUHK01</strong> (100) 81.23 (486) 65.04<br><strong>GRID</strong> 19.20</td>
 </tr>
 <tr>
@@ -633,7 +661,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">1. 双路结构，信息向上传播时会有门结构对特征进行选择<br>2. 门结构是用两者的特征差，借助高斯激活函数作为门值</td>
 <td style="text-align:center">detected SQ 61.8 MQ 68.1</td>
-<td style="text-align:left"><strong>Market 1501</strong> (rank) SQ 65.88 MQ 76.04 (map) SQ 39.55 MQ 48.45<br><strong>VIPeR</strong> 37.8</td>
+<td style="text-align:left"><strong>Market 1501</strong><br>SQ rank 65.88 map 39.55<br>MQ rank 76.4 map 48.45<br><strong>VIPeR</strong> 37.8</td>
 </tr>
 <tr>
 <td style="text-align:center">Semantics-Aware Deep Correspondence Structure Learning for Robust Person Re-identification</td>
@@ -644,7 +672,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Softmax Score</td>
 <td style="text-align:left">1. 双路融合为一路<br>2. 融合时对两者特征图分别构建金字塔特征图<br>3. 两者同尺度的特征取Max操作<br>4. 网络最后为二分类</td>
 <td style="text-align:center">manually 80.2</td>
-<td style="text-align:left"><strong>CUHK01</strong>(100 testID) 89.60<br><strong>CUHK01</strong>(486 testID) 76.54<br><strong>VIPeR</strong>(316 testID) 44.62</td>
+<td style="text-align:left"><strong>CUHK01</strong><br>(100 testID) 89.60<br>(486 testID) 76.54<br><strong>VIPeR</strong>(316 testID) 44.62</td>
 </tr>
 <tr>
 <td style="text-align:center">Joint Learning of Single-image and Cross-image Representations for Person Re-identification</td>
@@ -677,10 +705,10 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">沿高度分为多个水平条带，并依次送入LSTM聚合</td>
 <td style="text-align:center">detected 57.3</td>
-<td style="text-align:left"><strong>Market 1501</strong> MQ 61.6<br><strong>VIPeR</strong> 42.4</td>
+<td style="text-align:left"><strong>Market 1501</strong><br>MQ rank 61.6 map 35.3<br><strong>VIPeR</strong> 42.4</td>
 </tr>
 <tr>
-<td style="text-align:center">End-toEnd Comparative Attention Networks for Person Re-identification</td>
+<td style="text-align:center">End-to-End Comparative Attention Networks for Person Re-identification</td>
 <td style="text-align:center">Shucheng Yan<br></td>
 <td style="text-align:center">TIP 2016</td>
 <td style="text-align:left">学习到注意力模型</td>
@@ -688,7 +716,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">CNN提取特征，再送入LSTM，用LSTM每一步的h学习mask矩阵，利用mask矩阵与原特征相乘得到有注意力的结果</td>
 <td style="text-align:center">manually 77.6<br>detected 69.2</td>
-<td style="text-align:left"><strong>CUHK01</strong> (100 testID) 87.2<br><strong>Market 1501</strong> SQ 60.3 MQ 72.1<br><strong>VIPeR</strong> 54.1</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100 testID) 87.2<br><strong>Market 1501</strong><br>SQ rank 60.3 map 35.9<br>MQ rank 72.1 map 47.9<br><strong>VIPeR</strong> 54.1</td>
 </tr>
 <tr>
 <td style="text-align:center">Spindle Net: Person Re-identification with Human Body Region Guided Feature Decomposition and Fusion</td>
@@ -699,7 +727,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">1. 将人的肢体分为不同的粒度去提取特征，三个大区域，四个小区域<br>2. 先用CPM对图片提取关节点，再根据关节点位置框出7个区域<br> 3. 在提取特征时考虑了不同粒度，融合不同粒度时也有先后之分</td>
 <td style="text-align:center">all 88.5</td>
-<td style="text-align:left"><strong>CUHK01</strong>(485 testID) 79.9<br><strong>PRID</strong> 67<br><strong>VIPeR</strong> 53.8<br><strong>3DPeS</strong> 62.1<br><strong>iLIDS</strong> 66.3<br><strong>Market 1501</strong> SQ 76.9</td>
+<td style="text-align:left"><strong>CUHK01</strong>(485 testID) 79.9<br><strong>PRID</strong> 67<br><strong>VIPeR</strong> 53.8<br><strong>3DPeS</strong> 62.1<br><strong>iLIDS</strong> 66.3<br><strong>Market 1501</strong> SQ rank 76.9</td>
 </tr>
 <tr>
 <td style="text-align:center">Learning Deep Context-aware Features over Body and Latent Parts for Person Re-identification</td>
@@ -710,7 +738,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">1. 用不同膨胀率的卷积核构建类inception结构，可得到不同大小的感受野<br>2. 用google的STN网络学习抠图，得到身体划分，划分为三个部分<br>3. 整体与局部的特征级联的到最后的表达</td>
 <td style="text-align:center">manually 74.21<br>detected 67.99</td>
-<td style="text-align:left"><strong>Market 1501</strong> SQ 80.31 MQ 86.79<br><strong>MARS</strong> SQ 71.77 MQ 83.03</td>
+<td style="text-align:left"><strong>Market 1501</strong><br>SQ rank 80.31 map 57.53<br>MQ rank 86.79 map 66.7<br><strong>MARS</strong> SQ 71.77 MQ 83.03</td>
 </tr>
 <tr>
 <td style="text-align:center">Beyond Triplet Loss: a Deep Quadruplet Network for Person Re-identification</td>
@@ -721,7 +749,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Softmax Score</td>
 <td style="text-align:left">1. 测试时相当于二分类<br>2. 相对于三路网络增加了负样本与负样本的限制</td>
 <td style="text-align:center">manually 75.53</td>
-<td style="text-align:left"><strong>CUHK01</strong> (486 testID) 62.55 (100 testID) 81<br><strong>VIPeR</strong> 49.05</td>
+<td style="text-align:left"><strong>CUHK01</strong><br>(486 testID) 62.55<br>(100 testID) 81<br><strong>VIPeR</strong> 49.05</td>
 </tr>
 <tr>
 <td style="text-align:center">A Multi-task Deep Network for Person Re-identification</td>
@@ -743,7 +771,29 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">1. P2S改进的Triplet Loss + Contrastive Loss<br>2. 身体局部与整体的不同尺度学习</td>
 <td style="text-align:center">--</td>
-<td style="text-align:left"><strong>3DPeS</strong> 71.16<br><strong>CUHK01</strong> 77.34<br><strong>PRID</strong> 70.71<br><strong>Market 1501</strong> SQ 70.72 MQ 85.78</td>
+<td style="text-align:left"><strong>3DPeS</strong> 71.16<br><strong>CUHK01</strong> 77.34<br><strong>PRID</strong> 70.71<br><strong>Market 1501</strong> SQ rank 70.72 map 44.27<br>MQ rank 85.78 map 55.73</td>
+</tr>
+<tr>
+<td style="text-align:center">Consistent-Aware Deep Learning for Person Re-identification in a Cammera Network</td>
+<td style="text-align:center">Jie Zhou<br>Tsinghua University</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">最大化整个网络的人物匹配，而不是每次只关注一个图片对或几个图片对</td>
+<td style="text-align:center">训练好的Domain Guide Model</td>
+<td style="text-align:center">Cosine Distance</td>
+<td style="text-align:left">1. 用网络提取的特征计算余弦距离，构建相似性矩阵C，行为一个摄像头下的人，列为另一个摄像头下的人<br>2. 构建C相对应的邻接矩阵，同一个人则为1否则为0<br>3. 训练时要最大化C与H的点点相乘，并使H的预测值与真实值误差尽可能小<br>4. C与H是交替优化的</td>
+<td style="text-align:center">--</td>
+<td style="text-align:left"><strong>Market 1501</strong><br>SQ rank 73.84 map 47.11<br>MQ rank 80.85 map 55.58</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification by Deep Joint Learning of Multi-Loss Classification</td>
+<td style="text-align:center">Shaogang Gong<br>Queen Mary University of London</td>
+<td style="text-align:center">IJCAI 2017</td>
+<td style="text-align:left">局部特征与整体特征一起学习</td>
+<td style="text-align:center">改编的ResNet</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 单路网络，作为多分类任务<br>2. 先在ImageNet上预训练，再在目标数据集上训练<br>3. 在两层公用结构之后便分为两部分，一部分是整体特征学习，另一部分是四个水平条带对应学习局部特征<br>5. 这两个部分各自有一个分类loss，并不融合,并用实验表明不融合更好<br>6. 测试时将两部分特征级联作为最后表达</td>
+<td style="text-align:center">manually 83.2<br>detected 80.6</td>
+<td style="text-align:left"><strong>Market 1501</strong><br>SQ ( rank 85.1 ) ( map 65.5 )<br>MQ ( rank 89.7 ) ( map 74.5 )<br><strong>CUHK01</strong><br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br><strong>VIPeR</strong> 50.2<br><strong>GRID</strong> 37.5</td>
 </tr>
 </tbody>
 </table>
