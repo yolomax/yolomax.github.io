@@ -580,7 +580,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Hai Tao<br>University of California, Santa Cruz</td>
 <td style="text-align:center">ECCV 2008</td>
 <td style="text-align:left">定义了一个特征空间，让机器学习算法去寻找最好的表达</td>
-<td style="text-align:center">Color Channels<br>texture Filters(Schmid &amp; Gabor)<br>Feature Regions<br>Feature Binning</td>
+<td style="text-align:center">Color Channels<br>Texture Filters(Schmid &amp; Gabor)<br>Feature Regions<br>Feature Binning</td>
 <td style="text-align:center">L1 Distance</td>
 <td style="text-align:left">使用了AdaBoost</td>
 <td style="text-align:center">--</td>
@@ -795,6 +795,17 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">manually 83.2<br>detected 80.6</td>
 <td style="text-align:left"><strong>Market 1501</strong><br>SQ ( rank 85.1 ) ( map 65.5 )<br>MQ ( rank 89.7 ) ( map 74.5 )<br><strong>CUHK01</strong><br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br><strong>VIPeR</strong> 50.2<br><strong>GRID</strong> 37.5</td>
 </tr>
+<tr>
+<td style="text-align:center">Deeply-Learned Part-Aligned Representations for Person Re-identification</td>
+<td style="text-align:center">Jingdong Wang<br>MSRA</td>
+<td style="text-align:center">ICCV 2017</td>
+<td style="text-align:left">学习对特征图加权，以此选出特征图中较为显著的区域</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 用GoogleNet提取的特征 HxWxC,用一个卷积层学习k个HxW的特征图:M<br>2. M 可以视为mask,即为对原特征的不同部分的响应，用每个HxW响应对原HxWxC加权得到新的k个HxWxC<br>对于新的特征图，经过Global Average Pooling和全连接层得到固定长度表达</td>
+<td style="text-align:center">manually 85.4<br>detected 81.6</td>
+<td style="text-align:left"><strong>Market 1501</strong> SQ rank 81.0 map 63.4<br><strong>CUHK01</strong><br>(100) 88.5<br>(486) 75<br><strong>VIPeR</strong> 48.7</td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -813,6 +824,16 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:center">Relaxed Pairwise Learned Metric for Person Re-identification</td>
+<td style="text-align:center">Horst Bischof<br>Graz University of Technology</td>
+<td style="text-align:center">ECCV 2012</td>
+<td style="text-align:left">从不同摄像头下的采样中学习矩阵，注重摄像头之间的变换</td>
+<td style="text-align:center">Color + LBP</td>
+<td style="text-align:center">马氏距离</td>
+<td style="text-align:left">在距离度量学习前先对特征进行PCA降维</td>
+<td style="text-align:left"><strong>VIPeR</strong> 27<br><strong>PRID</strong> 15</td>
+</tr>
 <tr>
 <td style="text-align:center">Deep Metric Learning for Practical Person Re-identification</td>
 <td style="text-align:center">Stan Z. Li<br> NLPR, CASIA</td>
@@ -862,16 +883,6 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Jaccard Distance + L2 Distance</td>
 <td style="text-align:left">1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和</td>
 <td style="text-align:left"><strong>Market 1501</strong> SQ 77.11<br><strong>CUHK03</strong> detected 61.6 manually 58.5<br><strong>MARS</strong> 73.94<br><strong>PRW</strong> 52.54</td>
-</tr>
-<tr>
-<td style="text-align:center">Relaxed Pairwise Learned Metric for Person Re-identification</td>
-<td style="text-align:center">Horst Bischof<br>Graz University of Technology</td>
-<td style="text-align:center">ECCV 2012</td>
-<td style="text-align:left">从不同摄像头下的采样中学习矩阵，注重摄像头之间的变换</td>
-<td style="text-align:center">Color + LBP</td>
-<td style="text-align:center">马氏距离</td>
-<td style="text-align:left">在距离度量学习前先对特征进行PCA降维</td>
-<td style="text-align:left"><strong>VIPeR</strong> 27<br><strong>PRID</strong> 15</td>
 </tr>
 </tbody>
 </table>
@@ -1073,6 +1084,44 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">CVPR 2015</td>
 <td style="text-align:left">块匹配与特征学习一起做</td>
 <td style="text-align:left">两个支路通过全连接融合为一路，全连接层则相当于距离度量</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="attribute">Attribute</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:center">Feature</th>
+<th style="text-align:center">Metric</th>
+<th style="text-align:left">Detail</th>
+<th style="text-align:left">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Attributes-Based Re-identification</td>
+<td style="text-align:center">Gong, Shaogang<br>Queen Mary Unifying of London</td>
+<td style="text-align:center">Springer London 2014</td>
+<td style="text-align:left">将属性与Re-ID结合，标注了PRID数据集</td>
+<td style="text-align:center">Color Channels<br>Texture Filters(Schmid &amp; Gabor)</td>
+<td style="text-align:center">加权欧氏距离</td>
+<td style="text-align:left">1. 一些属性在数据集中有很多正样本，但有的属性只有少数正样本<br>2. 对于每一个属性，用所有的正样本训练，负样本用相同数量的剩余数据的欠抽样<br>3. 用低层次特征训练属性分类器，由此将高维特征映射到低维的语义属性空间<br>4. 判断距离时，要分别计算各个属性或者低层次特征的距离，再给每个都分配一个加权值,最后使用加权后的距离<br>5. 当人工标出Probe图片的属性去匹配时（gallery还是用检测器得到属性），效果没有用检测器的好，可能是因为虽然检测器再标库的属性时会引入误差，但是在标Probe时也会引入相同的误差</td>
+<td style="text-align:left"><strong>PRID</strong> 41.5<br><strong>VIPeR</strong> 21.4</td>
+</tr>
+<tr>
+<td style="text-align:center">Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification</td>
+<td style="text-align:center">Qi Tian<br>Unifying of Texas at San Antonio</td>
+<td style="text-align:center">ICCV 2015</td>
+<td style="text-align:left">将属性特征与低层次特征结合起来帮助行人重识别</td>
+<td style="text-align:center">Color Channels<br>Texture Filters(Schmid &amp; Gabor)</td>
+<td style="text-align:center">欧式距离</td>
+<td style="text-align:left">1. 这里的Task指的是不同的摄像头<br>2. 属性之间是相关的，故用一个低秩矩阵Z将原属性映射到一个Embedding空间，可以将一些缺失的属性补全</td>
+<td style="text-align:left"><strong>iLIDS</strong> 43.0<br><strong>PRID</strong> 18.0<br><strong>VIPeR</strong> 42.3</td>
 </tr>
 </tbody>
 </table>

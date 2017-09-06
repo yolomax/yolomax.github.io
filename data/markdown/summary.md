@@ -19,7 +19,7 @@
 # Image
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|CUHK03|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:-----|:----:|:------|
-|Viewpoint Invariant Perdestrian Recognition with an Ensemble of Localized Features|Hai Tao<br>University of California, Santa Cruz|ECCV 2008|定义了一个特征空间，让机器学习算法去寻找最好的表达|Color Channels<br>texture Filters(Schmid & Gabor)<br>Feature Regions<br>Feature Binning|L1 Distance|使用了AdaBoost|--|**VIPeR** 12|
+|Viewpoint Invariant Perdestrian Recognition with an Ensemble of Localized Features|Hai Tao<br>University of California, Santa Cruz|ECCV 2008|定义了一个特征空间，让机器学习算法去寻找最好的表达|Color Channels<br>Texture Filters(Schmid & Gabor)<br>Feature Regions<br>Feature Binning|L1 Distance|使用了AdaBoost|--|**VIPeR** 12|
 |DeepReID: Deep Filter Pairing Neural Network for Person Re-identification| Xiaogang Wang<br>CUHK|CVPR 2014|1. 学习到的特征对能编码光照变化<br>2. 提出一个新的数据集|CNN|Softmax Score|网络输出为二分类，直接判断两者是否为同一个人|manually 20.65<br>detected 19.89|**CUHK01**(100 testID) 27.87|
 |Person Re-identification with Discriminatively Trained Viewpoint Invariant Dictionaries|Richard J. Radke<br>RPI|ICCV 2015|学习一个字典，能同时学习 Probe 和 Gallery 的表达|Color Histograms<br>Schmid & Gabor Filters|欧氏距离|1. 用LFDA为特征降维<br>2. 训练时，在特征向量的稀疏表达上加上明确的限制去训练一个字典<br>3. 在测试时，从库图片中找出与榻侧图片，两者的稀疏表达在欧氏距离最近的一个|--|**PRID** 40.6<br>**iLIDS** 25.9|
 |An Improved Deep Learning Architecture for Person Re-identification|Tim K. Marks<br>MERL|CVPR 2015|新的块匹配方法|CNN|Softmax Score|1. probe某区域块与同位置的邻域内gallery块皆做差分<br>2. 这样对于错位有一定的容忍性|manually 54.74<br>detected 44.96|**CUHK01** (100) 65 (486) 47.53<br>**VIPeR** 34.81|
@@ -39,17 +39,18 @@
 |Point to Set Similarity Based Deep Feature Learning for Person Re-identification|Nanning Zheng<br> Xi'an Jiaotong University|CVPR 2017|用点对集合来作为相似性度量|CNN|欧氏距离|1. P2S改进的Triplet Loss + Contrastive Loss<br>2. 身体局部与整体的不同尺度学习|--|**3DPeS** 71.16<br>**CUHK01** 77.34<br>**PRID** 70.71<br>**Market 1501** SQ rank 70.72 map 44.27<br>MQ rank 85.78 map 55.73|
 |Consistent-Aware Deep Learning for Person Re-identification in a Cammera Network|Jie Zhou<br>Tsinghua University|CVPR 2017|最大化整个网络的人物匹配，而不是每次只关注一个图片对或几个图片对|训练好的Domain Guide Model|Cosine Distance|1. 用网络提取的特征计算余弦距离，构建相似性矩阵C，行为一个摄像头下的人，列为另一个摄像头下的人<br>2. 构建C相对应的邻接矩阵，同一个人则为1否则为0<br>3. 训练时要最大化C与H的点点相乘，并使H的预测值与真实值误差尽可能小<br>4. C与H是交替优化的|--|**Market 1501**<br>SQ rank 73.84 map 47.11<br>MQ rank 80.85 map 55.58|
 |Person Re-identification by Deep Joint Learning of Multi-Loss Classification|Shaogang Gong<br>Queen Mary University of London|IJCAI 2017|局部特征与整体特征一起学习|改编的ResNet|欧氏距离|1. 单路网络，作为多分类任务<br>2. 先在ImageNet上预训练，再在目标数据集上训练<br>3. 在两层公用结构之后便分为两部分，一部分是整体特征学习，另一部分是四个水平条带对应学习局部特征<br>5. 这两个部分各自有一个分类loss，并不融合,并用实验表明不融合更好<br>6. 测试时将两部分特征级联作为最后表达|manually 83.2<br>detected 80.6|**Market 1501**<br>SQ ( rank 85.1 ) ( map 65.5 )<br>MQ ( rank 89.7 ) ( map 74.5 )<br>**CUHK01**<br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br>**VIPeR** 50.2<br>**GRID** 37.5|
+|Deeply-Learned Part-Aligned Representations for Person Re-identification|Jingdong Wang<br>MSRA|ICCV 2017|学习对特征图加权，以此选出特征图中较为显著的区域|GoogleNet|欧氏距离|1. 用GoogleNet提取的特征 HxWxC,用一个卷积层学习k个HxW的特征图:M<br>2. M 可以视为mask,即为对原特征的不同部分的响应，用每个HxW响应对原HxWxC加权得到新的k个HxWxC<br>对于新的特征图，经过Global Average Pooling和全连接层得到固定长度表达|manually 85.4<br>detected 81.6|**Market 1501** SQ rank 81.0 map 63.4<br>**CUHK01**<br>(100) 88.5<br>(486) 75<br>**VIPeR** 48.7|
 ---
 
 # Metric
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:-----|:------|
+|Relaxed Pairwise Learned Metric for Person Re-identification|Horst Bischof<br>Graz University of Technology|ECCV 2012|从不同摄像头下的采样中学习矩阵，注重摄像头之间的变换|Color + LBP|马氏距离|在距离度量学习前先对特征进行PCA降维|**VIPeR** 27<br>**PRID** 15|
 |Deep Metric Learning for Practical Person Re-identification|Stan Z. Li<br> NLPR, CASIA|ICPR 2014|提出一个更通用的方式去从原始图片上学习距离度量|CNN|Cosine + Binomial Distance|1. 双路网络，当做二分类，输出相似度<br>2. 每一支路分为三个小支路，分别输入图片的上中下三部分，最后级联再经全连接得到最后表达|**VIPeR** 34.4<br>**PRID** 17.9|
 |Multi-shot Re-identification with Random-Projection-Based Random Forests|Richard J. Radke<br>RPI|WACV 2015|基于视频的距离度量学习|Color Histograms<br>Schmid & Gabor Filters|随机森林输出的相似性值|1. 通过随机投影对图片的特征向量降维<br>2. 在投影出的亚空间中，基于对层面训练随机森林<br>3. 随机投影增加了随机森林的分类多样性<br>4. 融合多个视频帧的方法：计算两者所有图片对的相似性值，再取平均|**3DPeS** 43(估计)|
 |Person Re-identification by LOcal Maximal Occurrence Representation and Metric Learning|Stan Z. Li<br>NLPR|CVPR 2015|新的手工特征和距离学习方法|SILTP histograms<br>Color Bins|在kissme的基础上加入了低维投影|1. 选取特征时有一系列的子窗口，并对窗口特征做max pooling<br>为了获得多尺度信息，用了有三种大小的图片金字塔|**CUHK03** manually 52.20 detected 46.25<br>**VIPeR** 40.00<br>**GRID** 16.56|
 |Embedding Deep Metric for Person Re-identification: A Study Against Large Variations|Stan Z. Li<br>NLPR|ECCV 2016|提供了新的正样本对采集方法以及距离度量的方法|CNN|欧氏距离|1. 构成正样本对时，应选取与样本距离小的一些图片，距离太大的样本对会有害训练<br>2. 用全连接层将马氏距离的学习转化为欧氏距离|**CUHK03** manually 61.32 detected 52.09<br>**CUHK01** (100) 86.59<br>**VIPeR** 40.91|
 |Re-ranking Person Re-identification with k-reciprocal Encoding|Shaozi Li<br>Xiamen University|CVPR 2017|对排序得到的结果再次处理重排|CaffeNet|Jaccard Distance + L2 Distance|1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和|**Market 1501** SQ 77.11<br>**CUHK03** detected 61.6 manually 58.5<br>**MARS** 73.94<br>**PRW** 52.54|
-|Relaxed Pairwise Learned Metric for Person Re-identification|Horst Bischof<br>Graz University of Technology|ECCV 2012|从不同摄像头下的采样中学习矩阵，注重摄像头之间的变换|Color + LBP|马氏距离|在距离度量学习前先对特征进行PCA降维|**VIPeR** 27<br>**PRID** 15|
 ---
 
 # Dataset
@@ -85,6 +86,13 @@
 |Deep Captioning with Multimodal Recurrent Neural Networks|Junhua Mao<br>UCLA|ICLR 2015|用多模型RNN去处理自然图片说明|1. 为语言和图片分别构建模型，然后融合两者的信息<br>2. RNN的每一步输入都是某一单词的语言模型的输出<br>3. 每一步的RNN输出，语言模型输出，图像模型输出三者分别通过三个矩阵投影到一个共同的空间，再元素级相加得到融合后的表达|
 |Learning Spatiotemporal Features with 3D Convolutional Networks|Manohar Paluri<br>Facebook AI Research|ICCV 2015|3D卷积核去处理视频|3D卷积核能有效学习时间与空间特征|
 |MatchNet: Unifying Feature and Metric Learning for Patch-Based Matching|Alexander C. Berg<br>University of North Carolina at Chapel Hill|CVPR 2015|块匹配与特征学习一起做|两个支路通过全连接融合为一路，全连接层则相当于距离度量|
+---
+
+# Attribute
+| Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
+|:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:-----|:------|
+|Attributes-Based Re-identification|Gong, Shaogang<br>Queen Mary Unifying of London|Springer London 2014|将属性与Re-ID结合，标注了PRID数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|加权欧氏距离|1. 一些属性在数据集中有很多正样本，但有的属性只有少数正样本<br>2. 对于每一个属性，用所有的正样本训练，负样本用相同数量的剩余数据的欠抽样<br>3. 用低层次特征训练属性分类器，由此将高维特征映射到低维的语义属性空间<br>4. 判断距离时，要分别计算各个属性或者低层次特征的距离，再给每个都分配一个加权值,最后使用加权后的距离<br>5. 当人工标出Probe图片的属性去匹配时（gallery还是用检测器得到属性），效果没有用检测器的好，可能是因为虽然检测器再标库的属性时会引入误差，但是在标Probe时也会引入相同的误差|**PRID** 41.5<br>**VIPeR** 21.4|
+|Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification|Qi Tian<br>Unifying of Texas at San Antonio|ICCV 2015|将属性特征与低层次特征结合起来帮助行人重识别|Color Channels<br>Texture Filters(Schmid & Gabor)|欧式距离|1. 这里的Task指的是不同的摄像头<br>2. 属性之间是相关的，故用一个低秩矩阵Z将原属性映射到一个Embedding空间，可以将一些缺失的属性补全|**iLIDS** 43.0<br>**PRID** 18.0<br>**VIPeR** 42.3|
 ---
 
 # Pose Estimation
