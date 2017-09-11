@@ -89,10 +89,11 @@
 ---
 
 # Attribute
-| Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
-|:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:-----|:------|
-|Attributes-Based Re-identification|Gong, Shaogang<br>Queen Mary Unifying of London|Springer London 2014|将属性与Re-ID结合，标注了PRID数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|加权欧氏距离|1. 一些属性在数据集中有很多正样本，但有的属性只有少数正样本<br>2. 对于每一个属性，用所有的正样本训练，负样本用相同数量的剩余数据的欠抽样<br>3. 用低层次特征训练属性分类器，由此将高维特征映射到低维的语义属性空间<br>4. 判断距离时，要分别计算各个属性或者低层次特征的距离，再给每个都分配一个加权值,最后使用加权后的距离<br>5. 当人工标出Probe图片的属性去匹配时（gallery还是用检测器得到属性），效果没有用检测器的好，可能是因为虽然检测器再标库的属性时会引入误差，但是在标Probe时也会引入相同的误差|**PRID** 41.5<br>**VIPeR** 21.4|
-|Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification|Qi Tian<br>Unifying of Texas at San Antonio|ICCV 2015|将属性特征与低层次特征结合起来帮助行人重识别|Color Channels<br>Texture Filters(Schmid & Gabor)|欧式距离|1. 这里的Task指的是不同的摄像头<br>2. 属性之间是相关的，故用一个低秩矩阵Z将原属性映射到一个Embedding空间，可以将一些缺失的属性补全|**iLIDS** 43.0<br>**PRID** 18.0<br>**VIPeR** 42.3|
+| Name | Author | Conference & Year | Motivation |Feature|Metric|Detecter|Detail|Dataset|
+|:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:------:|:-----|:------|
+|Person Re-identification by Attributes| Shaogang Gong<br>QMUL|BMVC 2012|用属性辅助识别，标注了VIPeR数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|低维特征用巴氏距离，属性特征用欧氏距离|SVM|1. 属性检测子都是在VIPeR上训练的，其他数据集上直接用训好的检测子<br>2. 属性是可以高度依赖于视角或者人的姿态<br>3. 标注VIPeR时，分为三个大类：前方，后方，侧面<br>4. 对每个属性训练相应的检测子时确保三个角度的正样本都有，因此检测子有视角不变性<br>5. 属性的加权是在各个数据集上单独做的<br>6. 除了各个属性距离要加权，最后的属性距离与各种低维特征间也要加权求和<br>7. 在加入属性后，Rank1，VIPeR上准确率降低了一点，iLIDS上提升了，在Rank5上都提升了<br>**问题** 定义的一些与视角敏感的属性，应该会有损性能吧，因为不同的视角下，虽是同一个人，但是此属性却一个正一个负|**VIPeR** 16.5<br>**iLIDS** 52.1|
+|Attributes-Based Re-identification|Gong, Shaogang<br>Queen Mary Unifying of London|Springer London 2014|将属性与Re-ID结合，标注了PRID数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|加权欧氏距离|LIBSVM and investigate Linear, RBF, X2 and Intersection kernels|1. 一些属性在数据集中有很多正样本，但有的属性只有少数正样本<br>2. 对于每一个属性，用所有的正样本训练，负样本用相同数量的剩余数据的欠抽样<br>3. 用低层次特征训练属性分类器，由此将高维特征映射到低维的语义属性空间<br>4. 判断距离时，要分别计算各个属性或者低层次特征的距离，再给每个都分配一个加权值,最后使用加权后的距离<br>5. 当人工标出Probe图片的属性去匹配时（gallery还是用检测器得到属性），效果没有用检测器的好，可能是因为虽然检测器再标库的属性时会引入误差，但是在标Probe时也会引入相同的误差|**PRID** 41.5<br>**VIPeR** 21.4|
+|Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification|Qi Tian<br>Unifying of Texas at San Antonio|ICCV 2015|将属性特征与低层次特征结合起来帮助行人重识别|Color Channels<br>Texture Filters(Schmid & Gabor)|欧式距离|PRID，VIPeR : binary SVMs<br>iLIDS,SAIVT-SoftBio : 参见另一篇文章的无监督方法|1. 这里的Task指的是不同的摄像头<br>2. 属性之间是相关的，故用一个低秩矩阵Z将原属性映射到一个Embedding空间，可以将一些缺失的属性补全|**iLIDS** 43.0<br>**PRID** 18.0<br>**VIPeR** 42.3|
 ---
 
 # Pose Estimation
