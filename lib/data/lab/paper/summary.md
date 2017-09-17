@@ -53,13 +53,6 @@
 |Re-ranking Person Re-identification with k-reciprocal Encoding|Shaozi Li<br>Xiamen University|CVPR 2017|对排序得到的结果再次处理重排|CaffeNet|Jaccard Distance + L2 Distance|1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和|**Market 1501** SQ 77.11<br>**CUHK03** detected 61.6 manually 58.5<br>**MARS** 73.94<br>**PRW** 52.54|
 ---
 
-# Dataset
-| Name | Author | Conference & Year | Motivation | Name of Dataset|Label method|Video or Image|Cammera|
-|:----:|:------:|:-----------------:|:-----------|:--------------:|:----------:|:------------:|:-----:|
-|Person Re-identification in the Wild|LIang Zheng<br>UTS|CVPR 2017|提供一个端到端的大数据集，将行人检测与匹配一起做|PRW|hand|image|6|
-|MARS: A Video Benchmark for Large-Scale Person Re-identification| Qi Tian<br>Tsinghua University|ECCV 2016|基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好|MARS|detected|Video|6|
-----
-
 # New Perspective
 | Name | Author | Conference & Year | Motivation |Detail|
 |:----:|:------:|:-----------------:|:-----------|:-----|
@@ -69,6 +62,31 @@
 |Person Search with Natural Language Description|Xiaogang Wang<br>CUHK|CVPR 2017|根据自然语言描述去搜索人物|1. VGG16提取图片特征<br>2. 单元级的注意力与单词级的门控制|
 |Improving Person Re-identification by Attribute and Identity Learning|Liang Zheng<br>University of Technology Sydney|Arxiv 2017|主要研究属性标签如何在大规模学习问题上帮助Re-ID|这里的属性主要是与ID层面的属性，比如性别，年龄，而不是持续时间短的，或属于外界环境的属性，比如打电话，骑自行车|
 ---
+
+# Attribute
+| Name | Author | Conference & Year | Motivation |Feature|Metric|Detecter|Detail|Dataset|
+|:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:------:|:-----|:------|
+|Person Re-identification by Attributes| Shaogang Gong<br>QMUL|BMVC 2012|用属性辅助识别，标注了VIPeR数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|低维特征用巴氏距离，属性特征用欧氏距离|SVM|1. 属性检测子都是在VIPeR上训练的，其他数据集上直接用训好的检测子<br>2. 属性是可以高度依赖于视角或者人的姿态<br>3. 标注VIPeR时，分为三个大类：前方，后方，侧面<br>4. 对每个属性训练相应的检测子时确保三个角度的正样本都有，因此检测子有视角不变性<br>5. 属性的加权是在各个数据集上单独做的<br>6. 除了各个属性距离要加权，最后的属性距离与各种低维特征间也要加权求和<br>7. 在加入属性后，Rank1，VIPeR上准确率降低了一点，iLIDS上提升了，在Rank5上都提升了<br>**问题** 定义的一些与视角敏感的属性，应该会有损性能吧，因为不同的视角下，虽是同一个人，但是此属性却一个正一个负|**VIPeR** 16.5<br>**iLIDS** 52.1|
+|Attributes-Based Re-identification|Gong, Shaogang<br>Queen Mary Unifying of London|Springer London 2014|将属性与Re-ID结合，标注了PRID数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|加权欧氏距离|LIBSVM and investigate Linear, RBF, X2 and Intersection kernels|1. 一些属性在数据集中有很多正样本，但有的属性只有少数正样本<br>2. 对于每一个属性，用所有的正样本训练，负样本用相同数量的剩余数据的欠抽样<br>3. 用低层次特征训练属性分类器，由此将高维特征映射到低维的语义属性空间<br>4. 判断距离时，要分别计算各个属性或者低层次特征的距离，再给每个都分配一个加权值,最后使用加权后的距离<br>5. 当人工标出Probe图片的属性去匹配时（gallery还是用检测器得到属性），效果没有用检测器的好，可能是因为虽然检测器再标库的属性时会引入误差，但是在标Probe时也会引入相同的误差|**PRID** 41.5<br>**VIPeR** 21.4|
+|Pedestrian Attribute Recognition At Far Distance|Xiaoou Tang<br>CUHK|ACMM|标了一个远距离下行人属性数据集，任务是预测行人属性|Color Channels<br>Texture Filters(Schmid & Gabor)|--|ikSVM<br>MRF with Gaussian kernel<br>MRF with random forest|1. 用 Markov Random Field(MRF) 探索邻近图片间的上下文关系<br>2. MRF能量函数由 Unary Cost 和 Pairwise Cost组成<br>3. unary cost 利用预测属性分类概率（由ikSVM学习）的log函数构成<br>4. 用随机森林去学习Pairwise Cost|**PETA** 71.1|
+|Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification|Qi Tian<br>Unifying of Texas at San Antonio|ICCV 2015|将属性特征与低层次特征结合起来帮助行人重识别|Color Channels<br>Texture Filters(Schmid & Gabor)|欧式距离|PRID，VIPeR : binary SVMs<br>iLIDS,SAIVT-SoftBio : MRFr|1. 这里的Task指的是不同的摄像头<br>2. 属性之间是相关的，故用一个低秩矩阵Z将原属性映射到一个Embedding空间，可以将一些缺失的属性补全|**iLIDS** 43.0<br>**PRID** 18.0<br>**VIPeR** 42.3|
+---
+
+# Pose Estimation
+| Name | Author | Conference & Year | Motivation |Detail|
+|:----:|:------:|:-----------------:|:-----------|:-----|
+|Convolutional Pose Machines| Yaser Sheikh<br>CMU|CVPR 2016|用很深的网络不断调整预测|1. 整体类似RNN,分为很多步<br>2. 第一步输入是用七层网络提取的各个关节点的自信图<br>3. 之后的每个阶段是一样的model，是5层卷积网，输入为前一阶段的自信图以及对原始图提取的特征<br>4. 每一阶段都会额外增加一个loss,是预测与真实自信图的误差，用以减轻梯度消失问题|
+|Thin-Slicing Network: A Deep Structured Model for Pose Estimation in Videos|Otmar Hilliges<br>ETH Zurich|CVPR 2017|能端到端的训练，能同时表达交界处以及他们之间的时空关系|1. 先训练CPM，再与后面的网络结合起来优化<br>2. 对于前后帧，用弹簧能量模型定义变形损失|
+|Realtime Multi-Person 2D Pose Estimation using Part Affinity Fileds|Yaser Sheikh<br>CMU|CVPR 2017|定义新的表达来更好的处理多人关节点估计|1. PAF是同一个人两个相邻关节点之间的向量场，有方向<br>2. 网络分为两路，一路用CPM预测自信图，另一路预测PAF<br>3.PAF主要解决多人情况下关节点的划分问题|
+---
+
+# Dataset
+| Name | Author | Conference & Year | Motivation | Name of Dataset|Label method|Video or Image|Cammera|
+|:----:|:------:|:-----------------:|:-----------|:--------------:|:----------:|:------------:|:-----:|
+|Person Re-identification in the Wild|LIang Zheng<br>UTS|CVPR 2017|提供一个端到端的大数据集，将行人检测与匹配一起做|PRW|hand|image|6|
+|MARS: A Video Benchmark for Large-Scale Person Re-identification| Qi Tian<br>Tsinghua University|ECCV 2016|基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好|MARS|detected|Video|6|
+----
+
 # Expansion
 | Name | Author | Conference & Year | Motivation |Detail|
 |:----:|:------:|:-----------------:|:-----------|:-----|
@@ -86,23 +104,6 @@
 |Deep Captioning with Multimodal Recurrent Neural Networks|Junhua Mao<br>UCLA|ICLR 2015|用多模型RNN去处理自然图片说明|1. 为语言和图片分别构建模型，然后融合两者的信息<br>2. RNN的每一步输入都是某一单词的语言模型的输出<br>3. 每一步的RNN输出，语言模型输出，图像模型输出三者分别通过三个矩阵投影到一个共同的空间，再元素级相加得到融合后的表达|
 |Learning Spatiotemporal Features with 3D Convolutional Networks|Manohar Paluri<br>Facebook AI Research|ICCV 2015|3D卷积核去处理视频|3D卷积核能有效学习时间与空间特征|
 |MatchNet: Unifying Feature and Metric Learning for Patch-Based Matching|Alexander C. Berg<br>University of North Carolina at Chapel Hill|CVPR 2015|块匹配与特征学习一起做|两个支路通过全连接融合为一路，全连接层则相当于距离度量|
----
-
-# Attribute
-| Name | Author | Conference & Year | Motivation |Feature|Metric|Detecter|Detail|Dataset|
-|:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:------:|:-----|:------|
-|Person Re-identification by Attributes| Shaogang Gong<br>QMUL|BMVC 2012|用属性辅助识别，标注了VIPeR数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|低维特征用巴氏距离，属性特征用欧氏距离|SVM|1. 属性检测子都是在VIPeR上训练的，其他数据集上直接用训好的检测子<br>2. 属性是可以高度依赖于视角或者人的姿态<br>3. 标注VIPeR时，分为三个大类：前方，后方，侧面<br>4. 对每个属性训练相应的检测子时确保三个角度的正样本都有，因此检测子有视角不变性<br>5. 属性的加权是在各个数据集上单独做的<br>6. 除了各个属性距离要加权，最后的属性距离与各种低维特征间也要加权求和<br>7. 在加入属性后，Rank1，VIPeR上准确率降低了一点，iLIDS上提升了，在Rank5上都提升了<br>**问题** 定义的一些与视角敏感的属性，应该会有损性能吧，因为不同的视角下，虽是同一个人，但是此属性却一个正一个负|**VIPeR** 16.5<br>**iLIDS** 52.1|
-|Attributes-Based Re-identification|Gong, Shaogang<br>Queen Mary Unifying of London|Springer London 2014|将属性与Re-ID结合，标注了PRID数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|加权欧氏距离|LIBSVM and investigate Linear, RBF, X2 and Intersection kernels|1. 一些属性在数据集中有很多正样本，但有的属性只有少数正样本<br>2. 对于每一个属性，用所有的正样本训练，负样本用相同数量的剩余数据的欠抽样<br>3. 用低层次特征训练属性分类器，由此将高维特征映射到低维的语义属性空间<br>4. 判断距离时，要分别计算各个属性或者低层次特征的距离，再给每个都分配一个加权值,最后使用加权后的距离<br>5. 当人工标出Probe图片的属性去匹配时（gallery还是用检测器得到属性），效果没有用检测器的好，可能是因为虽然检测器再标库的属性时会引入误差，但是在标Probe时也会引入相同的误差|**PRID** 41.5<br>**VIPeR** 21.4|
-|Pedestrian Attribute Recognition At Far Distance|Xiaoou Tang<br>CUHK|ACMM|标了一个远距离下行人属性数据集|
-|Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification|Qi Tian<br>Unifying of Texas at San Antonio|ICCV 2015|将属性特征与低层次特征结合起来帮助行人重识别|Color Channels<br>Texture Filters(Schmid & Gabor)|欧式距离|PRID，VIPeR : binary SVMs<br>iLIDS,SAIVT-SoftBio : 参见另一篇文章的无监督方法|1. 这里的Task指的是不同的摄像头<br>2. 属性之间是相关的，故用一个低秩矩阵Z将原属性映射到一个Embedding空间，可以将一些缺失的属性补全|**iLIDS** 43.0<br>**PRID** 18.0<br>**VIPeR** 42.3|
----
-
-# Pose Estimation
-| Name | Author | Conference & Year | Motivation |Detail|
-|:----:|:------:|:-----------------:|:-----------|:-----|
-|Convolutional Pose Machines| Yaser Sheikh<br>CMU|CVPR 2016|用很深的网络不断调整预测|1. 整体类似RNN,分为很多步<br>2. 第一步输入是用七层网络提取的各个关节点的自信图<br>3. 之后的每个阶段是一样的model，是5层卷积网，输入为前一阶段的自信图以及对原始图提取的特征<br>4. 每一阶段都会额外增加一个loss,是预测与真实自信图的误差，用以减轻梯度消失问题|
-|Thin-Slicing Network: A Deep Structured Model for Pose Estimation in Videos|Otmar Hilliges<br>ETH Zurich|CVPR 2017|能端到端的训练，能同时表达交界处以及他们之间的时空关系|1. 先训练CPM，再与后面的网络结合起来优化<br>2. 对于前后帧，用弹簧能量模型定义变形损失|
-|Realtime Multi-Person 2D Pose Estimation using Part Affinity Fileds|Yaser Sheikh<br>CMU|CVPR 2017|定义新的表达来更好的处理多人关节点估计|1. PAF是同一个人两个相邻关节点之间的向量场，有方向<br>2. 网络分为两路，一路用CPM预测自信图，另一路预测PAF<br>3.PAF主要解决多人情况下关节点的划分问题|
 ---
 
 # Network Architecture
