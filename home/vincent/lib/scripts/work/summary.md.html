@@ -479,7 +479,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">--</td>
 </tr>
 <tr>
-<td style="text-align:center">Recurrent Convolutional Network for Video-based Person Re-identification</td>
+<td style="text-align:center"><em>Recurrent Convolutional Network for Video-based Person Re-identification</em></td>
 <td style="text-align:center">Paul Miller<br>Queen&#39;s University Belfast</td>
 <td style="text-align:center">CVPR 2016</td>
 <td style="text-align:left">利用CNN提取空间特征，RNN提取空间特征</td>
@@ -489,7 +489,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">Softmax Loss + Contrastive Loss</td>
 <td style="text-align:center">58</td>
 <td style="text-align:center">70</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center"><strong>Rank1</strong> 40</td>
 </tr>
 <tr>
 <td style="text-align:center">Video-based Person Re-identification with Accumulative Motion Context</td>
@@ -528,7 +528,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合</td>
 <td style="text-align:center">55.2</td>
 <td style="text-align:center">79.4</td>
-<td style="text-align:center">70.6</td>
+<td style="text-align:center"><strong>Rank1</strong> 70.6<br><strong>Map</strong> 50.7</td>
 </tr>
 <tr>
 <td style="text-align:center">Quality Aware Network for Set to Set Recognition</td>
@@ -554,7 +554,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达</td>
 <td style="text-align:center">62</td>
 <td style="text-align:center">77</td>
-<td style="text-align:center">44</td>
+<td style="text-align:center"><strong>Rank1</strong> 44</td>
 </tr>
 </tbody>
 </table>
@@ -609,7 +609,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left"><strong>PRID</strong> 40.6<br><strong>iLIDS</strong> 25.9</td>
 </tr>
 <tr>
-<td style="text-align:center">An Improved Deep Learning Architecture for Person Re-identification</td>
+<td style="text-align:center"><em>An Improved Deep Learning Architecture for Person Re-identification</em></td>
 <td style="text-align:center">Tim K. Marks<br>MERL</td>
 <td style="text-align:center">CVPR 2015</td>
 <td style="text-align:left">新的块匹配方法</td>
@@ -653,7 +653,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left"><strong>CUHK01</strong> (100) 81.23 (486) 65.04<br><strong>GRID</strong> 19.20</td>
 </tr>
 <tr>
-<td style="text-align:center">Gated Siamese Convolutional Neural Network Architecture for Huam Re-identification</td>
+<td style="text-align:center"><em>Gated Siamese Convolutional Neural Network Architecture for Huam Re-identification</em></td>
 <td style="text-align:center">Gang Wang<br>Nanyang Technology University</td>
 <td style="text-align:center">ECCV 2016</td>
 <td style="text-align:left">提出一个门函数，通过对比图片的中层特征，能选择性增强精细的局部模式</td>
@@ -752,7 +752,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left"><strong>CUHK01</strong><br>(486 testID) 62.55<br>(100 testID) 81<br><strong>VIPeR</strong> 49.05</td>
 </tr>
 <tr>
-<td style="text-align:center">A Multi-task Deep Network for Person Re-identification</td>
+<td style="text-align:center"><em>A Multi-task Deep Network for Person Re-identification</em></td>
 <td style="text-align:center">Kaiqihuang<br>CRIPAC &amp; NLPR, CASIA</td>
 <td style="text-align:center">AAAI 2017</td>
 <td style="text-align:left">多任务框架，二分类模型与排序模型同时做，同时也考虑了跨数据集的半监督学习</td>
@@ -860,7 +860,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left"><strong>3DPeS</strong> 43(估计)</td>
 </tr>
 <tr>
-<td style="text-align:center">Person Re-identification by LOcal Maximal Occurrence Representation and Metric Learning</td>
+<td style="text-align:center"><em>Person Re-identification by Local Maximal Occurrence Representation and Metric Learning</em></td>
 <td style="text-align:center">Stan Z. Li<br>NLPR</td>
 <td style="text-align:center">CVPR 2015</td>
 <td style="text-align:left">新的手工特征和距离学习方法</td>
@@ -870,7 +870,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left"><strong>CUHK03</strong> manually 52.20 detected 46.25<br><strong>VIPeR</strong> 40.00<br><strong>GRID</strong> 16.56</td>
 </tr>
 <tr>
-<td style="text-align:center">Embedding Deep Metric for Person Re-identification: A Study Against Large Variations</td>
+<td style="text-align:center"><em>Embedding Deep Metric for Person Re-identification: A Study Against Large Variations</em></td>
 <td style="text-align:center">Stan Z. Li<br>NLPR</td>
 <td style="text-align:center">ECCV 2016</td>
 <td style="text-align:left">提供了新的正样本对采集方法以及距离度量的方法</td>
@@ -905,7 +905,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Deep Attributes Driven Multi-camera Person Re-identification</td>
+<td style="text-align:center"><em>Deep Attributes Driven Multi-camera Person Re-identification</em></td>
 <td style="text-align:center">Qi Tian<br>Peking University</td>
 <td style="text-align:center">ECCV 2016</td>
 <td style="text-align:left">利用行人属性辅助行人重识别</td>
@@ -1081,7 +1081,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">6</td>
 </tr>
 <tr>
-<td style="text-align:center">MARS: A Video Benchmark for Large-Scale Person Re-identification</td>
+<td style="text-align:center"><em>MARS: A Video Benchmark for Large-Scale Person Re-identification</em></td>
 <td style="text-align:center">Qi Tian<br>Tsinghua University</td>
 <td style="text-align:center">ECCV 2016</td>
 <td style="text-align:left">基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好</td>
@@ -1120,7 +1120,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">将一个cell中的累加梯度值量化到中二十面体的面中心方向</td>
 </tr>
 <tr>
-<td style="text-align:center">Large Scale Metric Learning from Equivalence Constraints</td>
+<td style="text-align:center"><em>Large Scale Metric Learning from Equivalence Constraints</em></td>
 <td style="text-align:center">Horst Bischof<br>Graz University of Technology</td>
 <td style="text-align:center">CVPR 2012</td>
 <td style="text-align:left">从统计推理的角度学习距离度量，不依赖于复杂的算法</td>
@@ -1155,7 +1155,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">网络一个支路输入图片另一个支路输入光流</td>
 </tr>
 <tr>
-<td style="text-align:center">Recurrent Models of Visual Attention</td>
+<td style="text-align:center"><em>Recurrent Models of Visual Attention</em></td>
 <td style="text-align:center">Koray Kavukcuoglu<br>Google DeepMind</td>
 <td style="text-align:center">NIPS 2014</td>
 <td style="text-align:left">每次只看图片的一小块，网络会自动寻找下一次观察的点</td>
@@ -1190,7 +1190,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">1. 为语言和图片分别构建模型，然后融合两者的信息<br>2. RNN的每一步输入都是某一单词的语言模型的输出<br>3. 每一步的RNN输出，语言模型输出，图像模型输出三者分别通过三个矩阵投影到一个共同的空间，再元素级相加得到融合后的表达</td>
 </tr>
 <tr>
-<td style="text-align:center">Learning Spatiotemporal Features with 3D Convolutional Networks</td>
+<td style="text-align:center"><em>Learning Spatiotemporal Features with 3D Convolutional Networks</em></td>
 <td style="text-align:center">Manohar Paluri<br>Facebook AI Research</td>
 <td style="text-align:center">ICCV 2015</td>
 <td style="text-align:left">3D卷积核去处理视频</td>
