@@ -40,6 +40,7 @@
 |Consistent-Aware Deep Learning for Person Re-identification in a Cammera Network|Jie Zhou<br>Tsinghua University|CVPR 2017|最大化整个网络的人物匹配，而不是每次只关注一个图片对或几个图片对|训练好的Domain Guide Model|Cosine Distance|1. 用网络提取的特征计算余弦距离，构建相似性矩阵C，行为一个摄像头下的人，列为另一个摄像头下的人<br>2. 构建C相对应的邻接矩阵，同一个人则为1否则为0<br>3. 训练时要最大化C与H的点点相乘，并使H的预测值与真实值误差尽可能小<br>4. C与H是交替优化的|--|**Market 1501**<br>SQ rank 73.84 map 47.11<br>MQ rank 80.85 map 55.58|
 |Person Re-identification by Deep Joint Learning of Multi-Loss Classification|Shaogang Gong<br>Queen Mary University of London|IJCAI 2017|局部特征与整体特征一起学习|改编的ResNet|欧氏距离|1. 单路网络，作为多分类任务<br>2. 先在ImageNet上预训练，再在目标数据集上训练<br>3. 在两层公用结构之后便分为两部分，一部分是整体特征学习，另一部分是四个水平条带对应学习局部特征<br>5. 这两个部分各自有一个分类loss，并不融合,并用实验表明不融合更好<br>6. 测试时将两部分特征级联作为最后表达|manually 83.2<br>detected 80.6|**Market 1501**<br>SQ ( rank 85.1 ) ( map 65.5 )<br>MQ ( rank 89.7 ) ( map 74.5 )<br>**CUHK01**<br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br>**VIPeR** 50.2<br>**GRID** 37.5|
 |Deeply-Learned Part-Aligned Representations for Person Re-identification|Jingdong Wang<br>MSRA|ICCV 2017|学习对特征图加权，以此选出特征图中较为显著的区域|GoogleNet|欧氏距离|1. 用GoogleNet提取的特征 HxWxC,用一个卷积层学习k个HxW的特征图:M<br>2. M 可以视为mask,即为对原特征的不同部分的响应，用每个HxW响应对原HxWxC加权得到新的k个HxWxC<br>对于新的特征图，经过Global Average Pooling和全连接层得到固定长度表达|manually 85.4<br>detected 81.6|**Market 1501** SQ rank 81.0 map 63.4<br>**CUHK01**<br>(100) 88.5<br>(486) 75<br>**VIPeR** 48.7|
+|Multi-scale Deep Learning Architectures for Person Re-identification|Xiangyang Xue<br>Fudan University|ICCV 2017|
 ---
 
 # Metric
@@ -68,8 +69,12 @@
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:------:|:-----|:------|
 |Person Re-identification by Attributes| Shaogang Gong<br>QMUL|BMVC 2012|用属性辅助识别，标注了VIPeR数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|低维特征用巴氏距离，属性特征用欧氏距离|SVM|1. 属性检测子都是在VIPeR上训练的，其他数据集上直接用训好的检测子<br>2. 属性是可以高度依赖于视角或者人的姿态<br>3. 标注VIPeR时，分为三个大类：前方，后方，侧面<br>4. 对每个属性训练相应的检测子时确保三个角度的正样本都有，因此检测子有视角不变性<br>5. 属性的加权是在各个数据集上单独做的<br>6. 除了各个属性距离要加权，最后的属性距离与各种低维特征间也要加权求和<br>7. 在加入属性后，Rank1，VIPeR上准确率降低了一点，iLIDS上提升了，在Rank5上都提升了<br>**问题** 定义的一些与视角敏感的属性，应该会有损性能吧，因为不同的视角下，虽是同一个人，但是此属性却一个正一个负|**VIPeR** 16.5<br>**iLIDS** 52.1|
 |Attributes-Based Re-identification|Gong, Shaogang<br>Queen Mary Unifying of London|Springer London 2014|将属性与Re-ID结合，标注了PRID数据集|Color Channels<br>Texture Filters(Schmid & Gabor)|加权欧氏距离|LIBSVM and investigate Linear, RBF, X2 and Intersection kernels|1. 一些属性在数据集中有很多正样本，但有的属性只有少数正样本<br>2. 对于每一个属性，用所有的正样本训练，负样本用相同数量的剩余数据的欠抽样<br>3. 用低层次特征训练属性分类器，由此将高维特征映射到低维的语义属性空间<br>4. 判断距离时，要分别计算各个属性或者低层次特征的距离，再给每个都分配一个加权值,最后使用加权后的距离<br>5. 当人工标出Probe图片的属性去匹配时（gallery还是用检测器得到属性），效果没有用检测器的好，可能是因为虽然检测器再标库的属性时会引入误差，但是在标Probe时也会引入相同的误差|**PRID** 41.5<br>**VIPeR** 21.4|
-|Pedestrian Attribute Recognition At Far Distance|Xiaoou Tang<br>CUHK|ACMM|标了一个远距离下行人属性数据集，任务是预测行人属性|Color Channels<br>Texture Filters(Schmid & Gabor)|--|ikSVM<br>MRF with Gaussian kernel<br>MRF with random forest|1. 用 Markov Random Field(MRF) 探索邻近图片间的上下文关系<br>2. MRF能量函数由 Unary Cost 和 Pairwise Cost组成<br>3. unary cost 利用预测属性分类概率（由ikSVM学习）的log函数构成<br>4. 用随机森林去学习Pairwise Cost|**PETA** 71.1|
+|Pedestrian Attribute Recognition At Far Distance|Xiaoou Tang<br>CUHK|MM 2014|标了一个远距离下行人属性数据集，任务是预测行人属性|Color Channels<br>Texture Filters(Schmid & Gabor)|--|ikSVM<br>MRF with Gaussian kernel<br>MRF with random forest|1. 用 Markov Random Field(MRF) 探索邻近图片间的上下文关系<br>2. MRF能量函数由 Unary Cost 和 Pairwise Cost组成<br>3. unary cost 利用预测属性分类概率（由ikSVM学习）的log函数构成<br>4. 用随机森林去学习Pairwise Cost|**PETA** 71.1|
+|Re-id: Hunting Attributes in the wild|Shaogang Gong<br>QMUL|BMVC 2014|从网络上爬取图片，用以训练属性检测子，以解决大数据集标注属性的问题|BoG(属性) + 低层特征||LDA|1. 用其他文章提供的行人检测子框出行人，并删去一些不合适的图<br>2. 每张图片的元数据要先预处理，再得到 BoW 表达<br>3. 再用 self-tuning Spectral Clustering 聚成若干类，视为潜在的属性,并用来训练LDA获得属性分类器|**VIPeR** 17<br>**GRID** 22<br>**PRID** 4<br>**CUHK01** 9|
 |Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification|Qi Tian<br>Unifying of Texas at San Antonio|ICCV 2015|将属性特征与低层次特征结合起来帮助行人重识别|Color Channels<br>Texture Filters(Schmid & Gabor)|欧式距离|PRID，VIPeR : binary SVMs<br>iLIDS,SAIVT-SoftBio : MRFr|1. 这里的Task指的是不同的摄像头<br>2. 属性之间是相关的，故用一个低秩矩阵Z将原属性映射到一个Embedding空间，可以将一些缺失的属性补全|**iLIDS** 43.0<br>**PRID** 18.0<br>**VIPeR** 42.3|
+
+* 属性的正负样本之间的不平衡，以及有的属性正样本太少
+
 ---
 
 # Pose Estimation
