@@ -14,7 +14,7 @@
 |See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification|Tieniu Tan<br>UCAS,CASIA,CEBSIT|CVPR 2017|能挑出关键帧并充分利用环境信息|CaffeNet|TAM+SRM|1. TAM输出特征间的标准化的欧氏距离<br>2.SRM输出的相似概率<br>3. 两个相似性度量的加权和 |1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合|55.2|79.4|Rank1 70.6<br>Map 50.7|
 |*Quality Aware Network for Set to Set Recognition*|Wanli Ouyang<br>University of Sydney|CVPR 2017|能自动学到图片的质量并用以加权图片特征|GoogleNet|通过学习到的质量分数加权|Euclidean Distance|代码中的升级版本<br>1. 三路网络，Triplet Loss,每一路又有一个分类Loss,正样本对又构建Contrastive loss(相当于只有正样本情况)<br>2. 对于每一个支路，都由GoogleNet组成，其后便是分类loss。每个支路中还有一个QAN网络，用于产生质量分数<br>3. QAN是两层卷积网络加全连接层，全连接输出维度为3，结构CPCPF，直接由原始图片数据学得<br>4. GoogleNet中间特征中沿高度均分得到三个特征，每个特征再均值池化压缩h维度。每个支路的QAN输出的3个数值标准化后分别对其加权<br>5. 加权后的特征经过L2 Norm便得到最后表达，进入Triplet Loss与Contrastive Loss|68.0|90.3|--|
 |Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification|Pan Zhou<br>Huazhong University of Science and Technology|ICCV 2017|在空间上与时间上都是注意力模型|三层CNN|RNN+注意力时间池化|Euclidean Distance|1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达|62|77|Rank1 44|
-|A Two Stream Siamese Convolutional Neural Network For Person Re-identifcation|Dahjung Chuang<br>Purdue|ICCV 2017|将光流与RGB分开，分别在两个Siamese网络中|RNN+注意力时间池化|光流与RGB的Euclidean Distance|3层CNN|在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权|60|78|--|
+|A Two Stream Siamese Convolutional Neural Network For Person Re-identifcation|Dahjung Chuang<br>Purdue|ICCV 2017|将光流与RGB分开，分别在两个Siamese网络中|RNN+注意力时间池化|光流与RGB的Euclidean Distance|在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权|60|78|--|
 ---
 
 # Image
@@ -58,7 +58,7 @@
 # Loss
 | Name | Author | Conference & Year | Motivation |Feature|Metric|loss|Detail|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:---|:-----|:------|
-|Margin Sample Mining Loss: A Deep Learning Based Method for Person Re-identification|Chi Zhang<br>Megvii|Arxiv 2017 Oct|限制最大的正样本对距离小于最小的负样本对距离|Resnet50-X|标准化的欧式距离|对于整个batch，找到最大的正样本对距离，和最小的副样本对距离，让他们距离超过margin|输入为P个人，每人K个图片|**CUHK03** manually 87.5<br>**Market 1501**<br>SQ rank 88.9 map 76.7<br>**MARS**<br>SQ rank 84.2 map 74.6|
+|Margin Sample Mining Loss: A Deep Learning Based Method for Person Re-identification|Chi Zhang<br>Megvii|Arxiv 2017 Oct|限制最大的正样本对距离小于最小的负样本对距离|Resnet|标准化的欧式距离||
 
 # New Perspective
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -126,7 +126,5 @@
 |:----:|:------:|:-----------------:|:-----------|:-----|
 |Densely Connected Convolutional Networks|Kilian Q. Weinberger<br>Cornell University|CVPR 2017 (best)|卷积层间密集连接，特征图重用|1. 网络可以很深，分为很多个block<br>2. 每个block由多个卷积层构成，每一层的特征图都会送到该block内它后面的所有卷积层<br>3. block内每一层的通道数不能太大，block之间用1x1卷积压缩通道数|
 |Sequeeze-and-Excitation Networks|Jie Hu<br>Momenta|Arxiv 2017|对channels进行加权|1. 要处理的特征X<br>2. 先Global Average Pooling,得到C维特征<br>3. C维特征经过一层全连接，为降低参数数量，输出为 C/r 维，r为超参数<br>4. 经过relu，再经过一层全连接，输出C维<br>5. 对原特征各通道相乘加权，得到处理后的表达|
----
 
-<div align="right">Updated Date: 2017/10/31</div>
 [piedpr]: ../../../data/lab/images/piedpr.png

@@ -556,6 +556,19 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">77</td>
 <td style="text-align:center">Rank1 44</td>
 </tr>
+<tr>
+<td style="text-align:center">A Two Stream Siamese Convolutional Neural Network For Person Re-identifcation</td>
+<td style="text-align:center">Dahjung Chuang<br>Purdue</td>
+<td style="text-align:center">ICCV 2017</td>
+<td style="text-align:left">将光流与RGB分开，分别在两个Siamese网络中</td>
+<td style="text-align:center">RNN+注意力时间池化</td>
+<td style="text-align:center">光流与RGB的Euclidean Distance</td>
+<td style="text-align:center">3层CNN</td>
+<td style="text-align:left">在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">78</td>
+<td style="text-align:center">--</td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -909,6 +922,35 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tbody>
 </table>
 <hr>
+<h1 id="loss">Loss</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:center">Feature</th>
+<th style="text-align:center">Metric</th>
+<th style="text-align:left">loss</th>
+<th style="text-align:left">Detail</th>
+<th style="text-align:left">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Margin Sample Mining Loss: A Deep Learning Based Method for Person Re-identification</td>
+<td style="text-align:center">Chi Zhang<br>Megvii</td>
+<td style="text-align:center">Arxiv 2017 Oct</td>
+<td style="text-align:left">限制最大的正样本对距离小于最小的负样本对距离</td>
+<td style="text-align:center">Resnet50-X</td>
+<td style="text-align:center">标准化的欧式距离</td>
+<td style="text-align:left">对于整个batch，找到最大的正样本对距离，和最小的副样本对距离，让他们距离超过margin</td>
+<td style="text-align:left">输入为P个人，每人K个图片</td>
+<td style="text-align:left"><strong>CUHK03</strong> manually 87.5<br><strong>Market 1501</strong><br>SQ rank 88.9 map 76.7<br><strong>MARS</strong><br>SQ rank 84.2 map 74.6</td>
+</tr>
+</tbody>
+</table>
 <h1 id="new-perspective">New Perspective</h1>
 <table>
 <thead>
@@ -1291,5 +1333,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">1. 要处理的特征X<br>2. 先Global Average Pooling,得到C维特征<br>3. C维特征经过一层全连接，为降低参数数量，输出为 C/r 维，r为超参数<br>4. 经过relu，再经过一层全连接，输出C维<br>5. 对原特征各通道相乘加权，得到处理后的表达</td>
 </tr>
 </tbody>
-</table></body>
+</table>
+<hr>
+<p><div align="right">Updated Date: 2017/10/31</div></p></body>
 </html>
