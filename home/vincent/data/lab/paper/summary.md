@@ -15,6 +15,7 @@
 |*Quality Aware Network for Set to Set Recognition*|Wanli Ouyang<br>University of Sydney|CVPR 2017|能自动学到图片的质量并用以加权图片特征|GoogleNet|通过学习到的质量分数加权|Euclidean Distance|代码中的升级版本<br>1. 三路网络，Triplet Loss,每一路又有一个分类Loss,正样本对又构建Contrastive loss(相当于只有正样本情况)<br>2. 对于每一个支路，都由GoogleNet组成，其后便是分类loss。每个支路中还有一个QAN网络，用于产生质量分数<br>3. QAN是两层卷积网络加全连接层，全连接输出维度为3，结构CPCPF，直接由原始图片数据学得<br>4. GoogleNet中间特征中沿高度均分得到三个特征，每个特征再均值池化压缩h维度。每个支路的QAN输出的3个数值标准化后分别对其加权<br>5. 加权后的特征经过L2 Norm便得到最后表达，进入Triplet Loss与Contrastive Loss|68.0|90.3|--|
 |Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification|Pan Zhou<br>Huazhong University of Science and Technology|ICCV 2017|在空间上与时间上都是注意力模型|三层CNN|RNN+注意力时间池化|Euclidean Distance|1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达|62|77|Rank1 44|
 |A Two Stream Siamese Convolutional Neural Network For Person Re-identifcation|Dahjung Chuang<br>Purdue|ICCV 2017|将光流与RGB分开，分别在两个Siamese网络中|RNN+注意力时间池化|光流与RGB的Euclidean Distance|3层CNN|在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权|60|78|--|
+|Region-based Quality Estimation Network for Large-scale Person Re-identification|Shaofan Cai<br>SenseTime|Arxiv 201711|借助关键点检测，基于区域的质量估计，并提出新的视频数据集|GoogleNet|Region-based quality|Cosine Distance|1. 之前的数据集因为检测或跟踪失败而导致清洁度太低，人工标注的又对齐的太好<br>2. 新数据集特点：590000张图片，检测子检测，场景拥挤，年龄分布大<br>3. 用CPM检测关键点，产生上中下三个框，基于框预测三个框的质量分数<br>4. 对所有帧的同一个框的质量分数L1标准化，求特征加权和，最后级联三个框的特征|76.1|92.4|Rank1 77.83 Map 71.14|
 ---
 
 # Image
@@ -43,6 +44,7 @@
 |Person Re-identification by Deep Joint Learning of Multi-Loss Classification|Shaogang Gong<br>Queen Mary University of London|IJCAI 2017|局部特征与整体特征一起学习|改编的ResNet|Euclidean Distance|1. 单路网络，作为多分类任务<br>2. 先在ImageNet上预训练，再在目标数据集上训练<br>3. 在两层公用结构之后便分为两部分，一部分是整体特征学习，另一部分是四个水平条带对应学习局部特征<br>5. 这两个部分各自有一个分类loss，并不融合,并用实验表明不融合更好<br>6. 测试时将两部分特征级联作为最后表达|manually 83.2<br>detected 80.6|**Market 1501**<br>SQ ( rank 85.1 ) ( map 65.5 )<br>MQ ( rank 89.7 ) ( map 74.5 )<br>**CUHK01**<br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br>**VIPeR** 50.2<br>**GRID** 37.5|
 |*Deeply-Learned Part-Aligned Representations for Person Re-identification*|Jingdong Wang<br>MSRA|ICCV 2017|学习对特征图加权，以此选出特征图中较为显著的区域|GoogleNet|Euclidean Distance|1. 用GoogleNet提取的特征 HxWxC,用一个卷积层学习k个HxW的特征图:M<br>2. M 可以视为mask,即为对原特征的不同部分的响应，用每个HxW响应对原HxWxC加权得到新的k个HxWxC<br>对于新的特征图，经过Global Average Pooling和全连接层得到固定长度表达|manually 85.4<br>detected 81.6|**Market 1501** SQ rank 81.0 map 63.4<br>**CUHK01**<br>(100) 88.5<br>(486) 75<br>**VIPeR** 48.7|
 |Multi-scale Deep Learning Architectures for Person Re-identification|Xiangyang Xue<br>Fudan University|ICCV 2017|利用多尺度特征来充分利用图片的细节信息，同时在级联多尺度信息时，利用加权做了选择筛选|GoogleNet修改版|Softmax Score|1. 整体为双路网路，两个分支各有一个分类Loss，中间是将两路的特征相减后取平方值，经一个全连接层得到最后表达，再接二分类。<br>2. 多尺度信息是利用不同大小的卷积核实现的，整体结构类似GoogleNet<br>3. 对于最后的特征，每个channel都学习一个对应的加权值。加权值是两个支路共享的,直接学习，未加先验和限制。<br>4. **从作者的实验中可以看出多尺度网络对于detected的图片效果依旧很好，可能图中只有小部分是人的，但是因为多尺度而能被网络注意到**|manually 76.87<br>detected 75.64|**CUHK01** (100)79.01<br>**VIPeR** 43.03|
+|AlignedReID: Surpassing Human-Level Performance in Person Re-identification|Jian Sun<br>Face++|Arxiv 2017|用局部特征去帮助全局特征的学习|Resnet50-X|Euclidean Distance|1. triplet loss(in denfense of the triplet loss for ReID)<br>2. 局部特征是最后特征图水平方向GAP。全局特征是水平垂直都GAP<br>3. 比较两者局部特征使用了动态规划<br> 4. 训练时loss由全局特征距离与局部特征距离共同组成<br>5. 用两个这种网络协同学习<br>6. 测试时只是用全局特征算欧氏距离|manually 96.1|**Market 1501** SQ rank 94.0 map 91.2<br>**MARS** SQ rank 87.5 map 85.6<br>**CUHK-SYSU** rank 95.3 map 93.7|
 ---
 
 # Metric
@@ -54,11 +56,13 @@
 |*Person Re-identification by Local Maximal Occurrence Representation and Metric Learning*|Stan Z. Li<br>NLPR|CVPR 2015|新的手工特征和距离学习方法|SILTP histograms<br>Color Bins|在kissme的基础上加入了低维投影|1. 选取特征时有一系列的子窗口，并对窗口特征做max pooling<br>为了获得多尺度信息，用了有三种大小的图片金字塔|**CUHK03** manually 52.20 detected 46.25<br>**VIPeR** 40.00<br>**GRID** 16.56|
 |*Embedding Deep Metric for Person Re-identification: A Study Against Large Variations*|Stan Z. Li<br>NLPR|ECCV 2016|提供了新的正样本对采集方法以及距离度量的方法|CNN|Euclidean Distance|1. 构成正样本对时，应选取与样本距离小的一些图片，距离太大的样本对会有害训练<br>2. 用全连接层将马氏距离的学习转化为欧氏距离|**CUHK03** manually 61.32 detected 52.09<br>**CUHK01** (100) 86.59<br>**VIPeR** 40.91|
 |Re-ranking Person Re-identification with k-reciprocal Encoding|Shaozi Li<br>Xiamen University|CVPR 2017|对排序得到的结果再次处理重排|CaffeNet|Jaccard Distance + L2 Distance|1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和|**Market 1501** SQ 77.11<br>**CUHK03** detected 61.6 manually 58.5<br>**MARS** 73.94<br>**PRW** 52.54|
+|Scalable Person Re-identification on Supervised Smoothed Manifold|Qi Tian<br>UTSA|CVPR 2017|对获得的相似性矩阵再处理，获得平滑的流形相似性度量|LOMO,GOG,ELF6|欧氏距离及其他相似性度量方式|1. 通过转移矩阵不断迭代<br>2. 可以和其他距离度量方法协同使用，先提取特征，再进行距离度量学习，然后用这个方法优化相似性矩阵，得到最后的结果|**CUHK03**SQ manually 76.6 detected 72.7<br>**VIPeR** 53.73<br>**PRID450S** 72.98|
 ---
 # Loss
 | Name | Author | Conference & Year | Motivation |Feature|Metric|loss|Detail|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:---|:-----|:------|
 |Margin Sample Mining Loss: A Deep Learning Based Method for Person Re-identification|Chi Zhang<br>Megvii|Arxiv 2017 Oct|限制最大的正样本对距离小于最小的负样本对距离|Resnet50-X|标准化的欧式距离|对于整个batch，找到最大的正样本对距离，和最小的副样本对距离，让他们距离超过margin|输入为P个人，每人K个图片|**CUHK03** manually 87.5<br>**Market 1501**<br>SQ rank 88.9 map 76.7<br>**MARS**<br>SQ rank 84.2 map 74.6|
+|In Defense of the Triplet Loss for Person Re-identification|Bastian Leibe<br>RWTH Aachen University|Arxiv 201711|在一个batch中，寻找最困难的正负样本组成三元组|Resnet50 or LuNet|欧氏距离|1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均|用了soft-margin|**CUHK03** manually 89.63 detected 87.58<br>**Market 1501**<br>SQ rank 86.67 map 81.07<br>MQ rank 91.75 map 87.18<br>**MARS**<br>MQ rank 81.21 map 77.43|
 
 # New Perspective
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -119,6 +123,7 @@
 |Deep Captioning with Multimodal Recurrent Neural Networks|Junhua Mao<br>UCLA|ICLR 2015|用多模型RNN去处理自然图片说明|1. 为语言和图片分别构建模型，然后融合两者的信息<br>2. RNN的每一步输入都是某一单词的语言模型的输出<br>3. 每一步的RNN输出，语言模型输出，图像模型输出三者分别通过三个矩阵投影到一个共同的空间，再元素级相加得到融合后的表达|
 |*Learning Spatiotemporal Features with 3D Convolutional Networks*|Manohar Paluri<br>Facebook AI Research|ICCV 2015|3D卷积核去处理视频|3D卷积核能有效学习时间与空间特征|
 |MatchNet: Unifying Feature and Metric Learning for Patch-Based Matching|Alexander C. Berg<br>University of North Carolina at Chapel Hill|CVPR 2015|块匹配与特征学习一起做|两个支路通过全连接融合为一路，全连接层则相当于距离度量|
+|Deep Mutual Learning|Huchuan Lu<br>Dalian University of Technology, China|Arxiv 201706|两个网络相互学习|1. 两个网络都对同一个输入做预测，各有一个分类loss，同时两者之间有一个二者输出的概率分布的KL距离的loss。<br>2. 优化时，交替优化，直至收敛|
 ---
 
 # Network Architecture
@@ -128,5 +133,5 @@
 |Sequeeze-and-Excitation Networks|Jie Hu<br>Momenta|Arxiv 2017|对channels进行加权|1. 要处理的特征X<br>2. 先Global Average Pooling,得到C维特征<br>3. C维特征经过一层全连接，为降低参数数量，输出为 C/r 维，r为超参数<br>4. 经过relu，再经过一层全连接，输出C维<br>5. 对原特征各通道相乘加权，得到处理后的表达|
 ---
 
-<div align="right">Updated Date: 2017/10/31</div>
+<div align="right">Updated Date: 2017/12/02</div>
 [piedpr]: ../../../data/lab/images/piedpr.png

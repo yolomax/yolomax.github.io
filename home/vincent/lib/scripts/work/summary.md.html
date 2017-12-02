@@ -106,6 +106,9 @@
   border-bottom: 1px dotted lime;
   position: absolute;
 }
+.line-number.bracket-matcher {
+  background-color: #777;
+}
 
 .spell-check-misspelling .region {
   border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
@@ -369,7 +372,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 }
 </style>
   </head>
-  <body class='markdown-preview' data-use-github-style><h1 id="video">Video</h1>
+  <body class='markdown-preview' data-use-github-style><h1>Video</h1>
 <table>
 <thead>
 <tr>
@@ -480,7 +483,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tr>
 <tr>
 <td style="text-align:center"><em>Recurrent Convolutional Network for Video-based Person Re-identification</em></td>
-<td style="text-align:center">Paul Miller<br>Queen&#39;s University Belfast</td>
+<td style="text-align:center">Paul Miller<br>Queen's University Belfast</td>
 <td style="text-align:center">CVPR 2016</td>
 <td style="text-align:left">利用CNN提取空间特征，RNN提取空间特征</td>
 <td style="text-align:center">CNN</td>
@@ -569,10 +572,23 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">78</td>
 <td style="text-align:center">--</td>
 </tr>
+<tr>
+<td style="text-align:center">Region-based Quality Estimation Network for Large-scale Person Re-identification</td>
+<td style="text-align:center">Shaofan Cai<br>SenseTime</td>
+<td style="text-align:center">Arxiv 201711</td>
+<td style="text-align:left">借助关键点检测，基于区域的质量估计，并提出新的视频数据集</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">Region-based quality</td>
+<td style="text-align:center">Cosine Distance</td>
+<td style="text-align:left">1. 之前的数据集因为检测或跟踪失败而导致清洁度太低，人工标注的又对齐的太好<br>2. 新数据集特点：590000张图片，检测子检测，场景拥挤，年龄分布大<br>3. 用CPM检测关键点，产生上中下三个框，基于框预测三个框的质量分数<br>4. 对所有帧的同一个框的质量分数L1标准化，求特征加权和，最后级联三个框的特征</td>
+<td style="text-align:center">76.1</td>
+<td style="text-align:center">92.4</td>
+<td style="text-align:center">Rank1 77.83 Map 71.14</td>
+</tr>
 </tbody>
 </table>
 <hr>
-<h1 id="image">Image</h1>
+<h1>Image</h1>
 <table>
 <thead>
 <tr>
@@ -700,7 +716,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification by Multi-Channel Parts-Based CNN with Improved Triplet Loss Function</td>
-<td style="text-align:center">Nanning Zheng<br>Xi&#39;an JiaoTong University</td>
+<td style="text-align:center">Nanning Zheng<br>Xi'an JiaoTong University</td>
 <td style="text-align:center">CVPR 2016</td>
 <td style="text-align:left">1. 多通道学习整个身体与局部肢体<br>2. 用新的Triplet loss 去加强学习效果</td>
 <td style="text-align:center">三层CNN</td>
@@ -788,7 +804,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tr>
 <tr>
 <td style="text-align:center">Point to Set Similarity Based Deep Feature Learning for Person Re-identification</td>
-<td style="text-align:center">Nanning Zheng<br> Xi&#39;an Jiaotong University</td>
+<td style="text-align:center">Nanning Zheng<br> Xi'an Jiaotong University</td>
 <td style="text-align:center">CVPR 2017</td>
 <td style="text-align:left">用点对集合来作为相似性度量</td>
 <td style="text-align:center">CNN</td>
@@ -841,10 +857,21 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">manually 76.87<br>detected 75.64</td>
 <td style="text-align:left"><strong>CUHK01</strong> (100)79.01<br><strong>VIPeR</strong> 43.03</td>
 </tr>
+<tr>
+<td style="text-align:center">AlignedReID: Surpassing Human-Level Performance in Person Re-identification</td>
+<td style="text-align:center">Jian Sun<br>Face++</td>
+<td style="text-align:center">Arxiv 2017</td>
+<td style="text-align:left">用局部特征去帮助全局特征的学习</td>
+<td style="text-align:center">Resnet50-X</td>
+<td style="text-align:center">Euclidean Distance</td>
+<td style="text-align:left">1. triplet loss(in denfense of the triplet loss for ReID)<br>2. 局部特征是最后特征图水平方向GAP。全局特征是水平垂直都GAP<br>3. 比较两者局部特征使用了动态规划<br> 4. 训练时loss由全局特征距离与局部特征距离共同组成<br>5. 用两个这种网络协同学习<br>6. 测试时只是用全局特征算欧氏距离</td>
+<td style="text-align:center">manually 96.1</td>
+<td style="text-align:left"><strong>Market 1501</strong> SQ rank 94.0 map 91.2<br><strong>MARS</strong> SQ rank 87.5 map 85.6<br><strong>CUHK-SYSU</strong> rank 95.3 map 93.7</td>
+</tr>
 </tbody>
 </table>
 <hr>
-<h1 id="metric">Metric</h1>
+<h1>Metric</h1>
 <table>
 <thead>
 <tr>
@@ -919,10 +946,20 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和</td>
 <td style="text-align:left"><strong>Market 1501</strong> SQ 77.11<br><strong>CUHK03</strong> detected 61.6 manually 58.5<br><strong>MARS</strong> 73.94<br><strong>PRW</strong> 52.54</td>
 </tr>
+<tr>
+<td style="text-align:center">Scalable Person Re-identification on Supervised Smoothed Manifold</td>
+<td style="text-align:center">Qi Tian<br>UTSA</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">对获得的相似性矩阵再处理，获得平滑的流形相似性度量</td>
+<td style="text-align:center">LOMO,GOG,ELF6</td>
+<td style="text-align:center">欧氏距离及其他相似性度量方式</td>
+<td style="text-align:left">1. 通过转移矩阵不断迭代<br>2. 可以和其他距离度量方法协同使用，先提取特征，再进行距离度量学习，然后用这个方法优化相似性矩阵，得到最后的结果</td>
+<td style="text-align:left"><strong>CUHK03</strong>SQ manually 76.6 detected 72.7<br><strong>VIPeR</strong> 53.73<br><strong>PRID450S</strong> 72.98</td>
+</tr>
 </tbody>
 </table>
 <hr>
-<h1 id="loss">Loss</h1>
+<h1>Loss</h1>
 <table>
 <thead>
 <tr>
@@ -949,9 +986,20 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">输入为P个人，每人K个图片</td>
 <td style="text-align:left"><strong>CUHK03</strong> manually 87.5<br><strong>Market 1501</strong><br>SQ rank 88.9 map 76.7<br><strong>MARS</strong><br>SQ rank 84.2 map 74.6</td>
 </tr>
+<tr>
+<td style="text-align:center">In Defense of the Triplet Loss for Person Re-identification</td>
+<td style="text-align:center">Bastian Leibe<br>RWTH Aachen University</td>
+<td style="text-align:center">Arxiv 201711</td>
+<td style="text-align:left">在一个batch中，寻找最困难的正负样本组成三元组</td>
+<td style="text-align:center">Resnet50 or LuNet</td>
+<td style="text-align:center">欧氏距离</td>
+<td style="text-align:left">1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均</td>
+<td style="text-align:left">用了soft-margin</td>
+<td style="text-align:left"><strong>CUHK03</strong> manually 89.63 detected 87.58<br><strong>Market 1501</strong><br>SQ rank 86.67 map 81.07<br>MQ rank 91.75 map 87.18<br><strong>MARS</strong><br>MQ rank 81.21 map 77.43</td>
+</tr>
 </tbody>
 </table>
-<h1 id="new-perspective">New Perspective</h1>
+<h1>New Perspective</h1>
 <table>
 <thead>
 <tr>
@@ -1018,9 +1066,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tr>
 </tbody>
 </table>
-<h2 id="-">当用肢体关键点框出感兴趣区域后，随之而来的一个问题便是有一些标志性的物体会被排除在外，比如包，雨伞等等</h2>
+<h2>当用肢体关键点框出感兴趣区域后，随之而来的一个问题便是有一些标志性的物体会被排除在外，比如包，雨伞等等</h2>
 <hr>
-<h1 id="attribute">Attribute</h1>
+<h1>Attribute</h1>
 <table>
 <thead>
 <tr>
@@ -1119,7 +1167,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <li>属性的正负样本之间的不平衡，以及有的属性正样本太少</li>
 </ul>
 <hr>
-<h1 id="pose-estimation">Pose Estimation</h1>
+<h1>Pose Estimation</h1>
 <table>
 <thead>
 <tr>
@@ -1155,7 +1203,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tbody>
 </table>
 <hr>
-<h1 id="dataset">Dataset</h1>
+<h1>Dataset</h1>
 <table>
 <thead>
 <tr>
@@ -1193,7 +1241,7 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tbody>
 </table>
 <hr>
-<h1 id="expansion">Expansion</h1>
+<h1>Expansion</h1>
 <table>
 <thead>
 <tr>
@@ -1303,10 +1351,17 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:left">块匹配与特征学习一起做</td>
 <td style="text-align:left">两个支路通过全连接融合为一路，全连接层则相当于距离度量</td>
 </tr>
+<tr>
+<td style="text-align:center">Deep Mutual Learning</td>
+<td style="text-align:center">Huchuan Lu<br>Dalian University of Technology, China</td>
+<td style="text-align:center">Arxiv 201706</td>
+<td style="text-align:left">两个网络相互学习</td>
+<td style="text-align:left">1. 两个网络都对同一个输入做预测，各有一个分类loss，同时两者之间有一个二者输出的概率分布的KL距离的loss。<br>2. 优化时，交替优化，直至收敛</td>
+</tr>
 </tbody>
 </table>
 <hr>
-<h1 id="network-architecture">Network Architecture</h1>
+<h1>Network Architecture</h1>
 <table>
 <thead>
 <tr>
@@ -1335,5 +1390,5 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 </tbody>
 </table>
 <hr>
-<p><div align="right">Updated Date: 2017/10/31</div></p></body>
+<p></p><div align="right">Updated Date: 2017/12/02</div><p></p></body>
 </html>
