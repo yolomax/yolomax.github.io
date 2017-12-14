@@ -1,22 +1,3 @@
-# Video
-| Name | Author | Conference & Year | Motivation |Feature|Fusion|Metric|Detail|iLIDS|PRID|MARS|
-|:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:----:|:-----|:---:|:--:|:--:|
-|Person Re-identification by Video Ranking|Shenjing Wang<br>Queen Mary University of London|ECCV 2014|1. 能从有噪声的帧序列中选出关键帧<br> 2. 学习一个视频排序函数|HOG3D|不融合，放在特征池中，供比较.|1. 学习一个矩阵，矩阵与两人特征差的乘即代表距离<br>2. 将两人的特征两两比较距离，最大的距离代表最后的距离|1. 只取图片的下半部分，定义能量函数FEP，能量值随帧变化<br> 2. 对每个图，在极大值与极小值点前后取共10帧<br> |28.9|23.3|--|
-|Sparse Re-ID: Block Sparsity for Person Re-identification|Richard J. Radke<br>RPI|CVPR 2015|Probe图片的特征向量可以近似看成<br>处于Gallery图片特征向量所处的embedding space|Color Histograms<br>Schmid & Gabor Filters|级联构成字典的一部分|Euclidean Distance|构建一个字典|24.9|35.1|---|
-|A Spatio-temporal Appearance Representation for <br>Video-based Pedestrian Re-identification|Rui Huang<br>Shandong University & UCAS|ICCV 2015|1. 处理时间空间对齐问题 <br>2. 空间上按身体部位划分为不同的块<br>3. 时间上用FEP|Fiser vector|1. 空间上6部分特征级联得到帧表达<br>2. 时间上级联得到视频表达|最近邻分类器|1. 用傅里叶变换对FEP去噪 <br>2. 空间上按头，四肢，上身，将身体分为6个部分|44.3|64.1|--|
-|Deep Recurrent Convolutional Networks for Video-based <br>Person Re-identification: An End-to-End Approach|Chunhua Shen<br>The University of Adelaide|Arxiv 2016|同时学习时间空间特征和相似性矩阵|四层卷积网络|GRU+average pooling|Euclidean Distance|GRU中用卷积操作代替了全连接层|42.6|49.8|--|
-|Top-push Video-based Person Re-identification|Weishi Zheng<br>Sun Yat-sen University|CVPR 2016|不同的人有相似的表现而引发类间距离较小|HOG3D+color histograms+LBP|级联|马氏距离|学习马氏距离的矩阵M|56.33|56.74|--|
-|Person Re-identification by Exploiting <br>Spatio-temporal Cues and Multi-view Metric Learning|Yuanyan Wang<br>Bejing Forestry University|IEEE SRL 2016|提出新的时空特征及匹配方法|从标准化的光流能量图中提取LBP|级联|马氏距离|优化马氏距离中的W|69.13|66.78|--|
-|Person Re-identification via Recurrent Feature Aggregation|Xiaokang Yang<br>Shanghai Jioa Tong University|ECCV 2016|用LSTM融合时间信息|LBP+HSV+lab color channels|LSTM融合后再级联各时间输出|RankSVM|对噪声鲁棒性强|49.3|64.1|--|
-|*Recurrent Convolutional Network for Video-based Person Re-identification*|Paul Miller<br>Queen's University Belfast|CVPR 2016|利用CNN提取空间特征，RNN提取空间特征|CNN|RNN + average pooling|Euclidean Distance|Softmax Loss + Contrastive Loss|58|70|Rank1 40|
-|Video-based Person Re-identification with Accumulative Motion Context|JiaShi Feng<br>Hefei University of Technology|Arxiv 2017|用网络学习光流，并整合到网络中|CNN|RNN+average pooling|Euclidean Distance|1. 先用光流训练一个网络，让其能预测光流<br>2. 将光流网络加入到原网络中一起使用|65.3|78|--|
-|Learning Compact Appearance Representation for Video-based Person Re-identification|Kan Liu<br>Shandong University|Arxiv 2017.02|从若干帧中提取特征而不是使用整个视频|五层卷积网络|Max Pooling|Euclidean Distance|1. 利用对于不同视频段提取到的特征，可以得到两个人之间的平均距离和最小距离<br>2. FEP选取关键帧|60.4|83.3|--|
-|See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification|Tieniu Tan<br>UCAS,CASIA,CEBSIT|CVPR 2017|能挑出关键帧并充分利用环境信息|CaffeNet|TAM+SRM|1. TAM输出特征间的标准化的欧氏距离<br>2.SRM输出的相似概率<br>3. 两个相似性度量的加权和 |1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合|55.2|79.4|Rank1 70.6<br>Map 50.7|
-|*Quality Aware Network for Set to Set Recognition*|Wanli Ouyang<br>University of Sydney|CVPR 2017|能自动学到图片的质量并用以加权图片特征|GoogleNet|通过学习到的质量分数加权|Euclidean Distance|代码中的升级版本<br>1. 三路网络，Triplet Loss,每一路又有一个分类Loss,正样本对又构建Contrastive loss(相当于只有正样本情况)<br>2. 对于每一个支路，都由GoogleNet组成，其后便是分类loss。每个支路中还有一个QAN网络，用于产生质量分数<br>3. QAN是两层卷积网络加全连接层，全连接输出维度为3，结构CPCPF，直接由原始图片数据学得<br>4. GoogleNet中间特征中沿高度均分得到三个特征，每个特征再均值池化压缩h维度。每个支路的QAN输出的3个数值标准化后分别对其加权<br>5. 加权后的特征经过L2 Norm便得到最后表达，进入Triplet Loss与Contrastive Loss|68.0|90.3|--|
-|Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification|Pan Zhou<br>Huazhong University of Science and Technology|ICCV 2017|在空间上与时间上都是注意力模型|三层CNN|RNN+注意力时间池化|Euclidean Distance|1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达|62|77|Rank1 44|
-|A Two Stream Siamese Convolutional Neural Network For Person Re-identifcation|Dahjung Chuang<br>Purdue|ICCV 2017|将光流与RGB分开，分别在两个Siamese网络中|RNN+注意力时间池化|光流与RGB的Euclidean Distance|3层CNN|在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权|60|78|--|
----
-
 # Image
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|CUHK03|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:-----|:----:|:------|
@@ -41,8 +22,29 @@
 |Point to Set Similarity Based Deep Feature Learning for Person Re-identification|Nanning Zheng<br> Xi'an Jiaotong University|CVPR 2017|用点对集合来作为相似性度量|CNN|Euclidean Distance|1. P2S改进的Triplet Loss + Contrastive Loss<br>2. 身体局部与整体的不同尺度学习|--|**3DPeS** 71.16<br>**CUHK01** 77.34<br>**PRID** 70.71<br>**Market 1501** SQ rank 70.72 map 44.27<br>MQ rank 85.78 map 55.73|
 |Consistent-Aware Deep Learning for Person Re-identification in a Cammera Network|Jie Zhou<br>Tsinghua University|CVPR 2017|最大化整个网络的人物匹配，而不是每次只关注一个图片对或几个图片对|训练好的Domain Guide Model|Cosine Distance|1. 用网络提取的特征计算余弦距离，构建相似性矩阵C，行为一个摄像头下的人，列为另一个摄像头下的人<br>2. 构建C相对应的邻接矩阵，同一个人则为1否则为0<br>3. 训练时要最大化C与H的点点相乘，并使H的预测值与真实值误差尽可能小<br>4. C与H是交替优化的|--|**Market 1501**<br>SQ rank 73.84 map 47.11<br>MQ rank 80.85 map 55.58|
 |Person Re-identification by Deep Joint Learning of Multi-Loss Classification|Shaogang Gong<br>Queen Mary University of London|IJCAI 2017|局部特征与整体特征一起学习|改编的ResNet|Euclidean Distance|1. 单路网络，作为多分类任务<br>2. 先在ImageNet上预训练，再在目标数据集上训练<br>3. 在两层公用结构之后便分为两部分，一部分是整体特征学习，另一部分是四个水平条带对应学习局部特征<br>5. 这两个部分各自有一个分类loss，并不融合,并用实验表明不融合更好<br>6. 测试时将两部分特征级联作为最后表达|manually 83.2<br>detected 80.6|**Market 1501**<br>SQ ( rank 85.1 ) ( map 65.5 )<br>MQ ( rank 89.7 ) ( map 74.5 )<br>**CUHK01**<br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br>**VIPeR** 50.2<br>**GRID** 37.5|
-|*Deeply-Learned Part-Aligned Representations for Person Re-identification*|Jingdong Wang<br>MSRA|ICCV 2017|学习对特征图加权，以此选出特征图中较为显著的区域|GoogleNet|Euclidean Distance|1. 用GoogleNet提取的特征 HxWxC,用一个卷积层学习k个HxW的特征图:M<br>2. M 可以视为mask,即为对原特征的不同部分的响应，用每个HxW响应对原HxWxC加权得到新的k个HxWxC<br>对于新的特征图，经过Global Average Pooling和全连接层得到固定长度表达|manually 85.4<br>detected 81.6|**Market 1501** SQ rank 81.0 map 63.4<br>**CUHK01**<br>(100) 88.5<br>(486) 75<br>**VIPeR** 48.7|
+|[*Deeply-Learned Part-Aligned Representations for Person Re-identification*](https://github.com/zlmzju/part_reid)|Jingdong Wang<br>MSRA|ICCV 2017|学习对特征图加权，以此选出特征图中较为显著的区域|GoogleNet|Euclidean Distance|1. 用GoogleNet提取的特征 HxWxC,用一个卷积层学习k个HxW的特征图:M<br>2. M 可以视为mask,即为对原特征的不同部分的响应，用每个HxW响应对原HxWxC加权得到新的k个HxWxC<br>对于新的特征图，经过Global Average Pooling和全连接层得到固定长度表达|manually 85.4<br>detected 81.6|**Market 1501** SQ rank 81.0 map 63.4<br>**CUHK01**<br>(100) 88.5<br>(486) 75<br>**VIPeR** 48.7|
 |Multi-scale Deep Learning Architectures for Person Re-identification|Xiangyang Xue<br>Fudan University|ICCV 2017|利用多尺度特征来充分利用图片的细节信息，同时在级联多尺度信息时，利用加权做了选择筛选|GoogleNet修改版|Softmax Score|1. 整体为双路网路，两个分支各有一个分类Loss，中间是将两路的特征相减后取平方值，经一个全连接层得到最后表达，再接二分类。<br>2. 多尺度信息是利用不同大小的卷积核实现的，整体结构类似GoogleNet<br>3. 对于最后的特征，每个channel都学习一个对应的加权值。加权值是两个支路共享的,直接学习，未加先验和限制。<br>4. **从作者的实验中可以看出多尺度网络对于detected的图片效果依旧很好，可能图中只有小部分是人的，但是因为多尺度而能被网络注意到**|manually 76.87<br>detected 75.64|**CUHK01** (100)79.01<br>**VIPeR** 43.03|
+|AlignedReID: Surpassing Human-Level Performance in Person Re-identification|Jian Sun<br>Face++|Arxiv 2017|用局部特征去帮助全局特征的学习|Resnet50-X|Euclidean Distance|1. triplet loss(in denfense of the triplet loss for ReID)<br>2. 局部特征是最后特征图水平方向GAP。全局特征是水平垂直都GAP<br>3. 比较两者局部特征使用了动态规划<br> 4. 训练时loss由全局特征距离与局部特征距离共同组成<br>5. 用两个这种网络协同学习<br>6. 测试时只是用全局特征算欧氏距离|manually 96.1|**Market 1501** SQ rank 94.0 map 91.2<br>**MARS** SQ rank 87.5 map 85.6<br>**CUHK-SYSU** rank 95.3 map 93.7|
+---
+
+# Video
+| Name | Author | Conference & Year | Motivation |Feature|Fusion|Metric|Detail|iLIDS|PRID|MARS|
+|:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:----:|:-----|:---:|:--:|:--:|
+|Person Re-identification by Video Ranking|Shenjing Wang<br>Queen Mary University of London|ECCV 2014|1. 能从有噪声的帧序列中选出关键帧<br> 2. 学习一个视频排序函数|HOG3D|不融合，放在特征池中，供比较.|1. 学习一个矩阵，矩阵与两人特征差的乘即代表距离<br>2. 将两人的特征两两比较距离，最大的距离代表最后的距离|1. 只取图片的下半部分，定义能量函数FEP，能量值随帧变化<br> 2. 对每个图，在极大值与极小值点前后取共10帧<br> |28.9|23.3|--|
+|Sparse Re-ID: Block Sparsity for Person Re-identification|Richard J. Radke<br>RPI|CVPR 2015|Probe图片的特征向量可以近似看成<br>处于Gallery图片特征向量所处的embedding space|Color Histograms<br>Schmid & Gabor Filters|级联构成字典的一部分|Euclidean Distance|构建一个字典|24.9|35.1|---|
+|A Spatio-temporal Appearance Representation for <br>Video-based Pedestrian Re-identification|Rui Huang<br>Shandong University & UCAS|ICCV 2015|1. 处理时间空间对齐问题 <br>2. 空间上按身体部位划分为不同的块<br>3. 时间上用FEP|Fiser vector|1. 空间上6部分特征级联得到帧表达<br>2. 时间上级联得到视频表达|最近邻分类器|1. 用傅里叶变换对FEP去噪 <br>2. 空间上按头，四肢，上身，将身体分为6个部分|44.3|64.1|--|
+|Deep Recurrent Convolutional Networks for Video-based <br>Person Re-identification: An End-to-End Approach|Chunhua Shen<br>The University of Adelaide|Arxiv 2016|同时学习时间空间特征和相似性矩阵|四层卷积网络|GRU+average pooling|Euclidean Distance|GRU中用卷积操作代替了全连接层|42.6|49.8|--|
+|Top-push Video-based Person Re-identification|Weishi Zheng<br>Sun Yat-sen University|CVPR 2016|不同的人有相似的表现而引发类间距离较小|HOG3D+color histograms+LBP|级联|马氏距离|学习马氏距离的矩阵M|56.33|56.74|--|
+|Person Re-identification by Exploiting <br>Spatio-temporal Cues and Multi-view Metric Learning|Yuanyan Wang<br>Bejing Forestry University|IEEE SRL 2016|提出新的时空特征及匹配方法|从标准化的光流能量图中提取LBP|级联|马氏距离|优化马氏距离中的W|69.13|66.78|--|
+|Person Re-identification via Recurrent Feature Aggregation|Xiaokang Yang<br>Shanghai Jioa Tong University|ECCV 2016|用LSTM融合时间信息|LBP+HSV+lab color channels|LSTM融合后再级联各时间输出|RankSVM|对噪声鲁棒性强|49.3|64.1|--|
+|[*Recurrent Convolutional Network for Video-based Person Re-identification*](https://github.com/niallmcl/Recurrent-Convolutional-Video-ReID)|Paul Miller<br>Queen's University Belfast|CVPR 2016|利用CNN提取空间特征，RNN提取空间特征|CNN|RNN + average pooling|Euclidean Distance|Softmax Loss + Contrastive Loss|58|70|Rank1 40|
+|Video-based Person Re-identification with Accumulative Motion Context|JiaShi Feng<br>Hefei University of Technology|Arxiv 2017|用网络学习光流，并整合到网络中|CNN|RNN+average pooling|Euclidean Distance|1. 先用光流训练一个网络，让其能预测光流<br>2. 将光流网络加入到原网络中一起使用|65.3|78|--|
+|Learning Compact Appearance Representation for Video-based Person Re-identification|Kan Liu<br>Shandong University|Arxiv 2017.02|从若干帧中提取特征而不是使用整个视频|五层卷积网络|Max Pooling|Euclidean Distance|1. 利用对于不同视频段提取到的特征，可以得到两个人之间的平均距离和最小距离<br>2. FEP选取关键帧|60.4|83.3|--|
+|See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification|Tieniu Tan<br>UCAS,CASIA,CEBSIT|CVPR 2017|能挑出关键帧并充分利用环境信息|CaffeNet|TAM+SRM|1. TAM输出特征间的标准化的欧氏距离<br>2.SRM输出的相似概率<br>3. 两个相似性度量的加权和 |1.时间循环网络对两个人各时间空间特征级联后的差值的六个方向用RNNN聚合，最后二分类，得到相似概率 <br>2. 时间上，每一步都接收所有时间的特征，学习加权值，得到特征的加权和，并将其送入RNN得到此时的表达，最终表达是各时间特征均值<br>3. 整体结构为三路与双路的结合|55.2|79.4|Rank1 70.6<br>Map 50.7|
+|*Quality Aware Network for Set to Set Recognition*|Wanli Ouyang<br>University of Sydney|CVPR 2017|能自动学到图片的质量并用以加权图片特征|GoogleNet|通过学习到的质量分数加权|Euclidean Distance|代码中的升级版本<br>1. 三路网络，Triplet Loss,每一路又有一个分类Loss,正样本对又构建Contrastive loss(相当于只有正样本情况)<br>2. 对于每一个支路，都由GoogleNet组成，其后便是分类loss。每个支路中还有一个QAN网络，用于产生质量分数<br>3. QAN是两层卷积网络加全连接层，全连接输出维度为3，结构CPCPF，直接由原始图片数据学得<br>4. GoogleNet中间特征中沿高度均分得到三个特征，每个特征再均值池化压缩h维度。每个支路的QAN输出的3个数值标准化后分别对其加权<br>5. 加权后的特征经过L2 Norm便得到最后表达，进入Triplet Loss与Contrastive Loss|68.0|90.3|--|
+|[Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification](https://github.com/shuangjiexu/Spatial-Temporal-Pooling-Networks-ReID)|Pan Zhou<br>Huazhong University of Science and Technology|ICCV 2017|在空间上与时间上都是注意力模型|三层CNN|RNN+注意力时间池化|Euclidean Distance|1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达|62|77|Rank1 44|
+|A Two Stream Siamese Convolutional Neural Network For Person Re-identifcation|Dahjung Chuang<br>Purdue|ICCV 2017|将光流与RGB分开，分别在两个Siamese网络中|RNN+注意力时间池化|光流与RGB的Euclidean Distance|3层CNN|在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权|60|78|--|
+|Region-based Quality Estimation Network for Large-scale Person Re-identification|Shaofan Cai<br>SenseTime|Arxiv 201711|借助关键点检测，基于区域的质量估计，并提出新的视频数据集|GoogleNet|Region-based quality|Cosine Distance|1. 之前的数据集因为检测或跟踪失败而导致清洁度太低，人工标注的又对齐的太好<br>2. 新数据集特点：590000张图片，检测子检测，场景拥挤，年龄分布大<br>3. 用CPM检测关键点，产生上中下三个框，基于框预测三个框的质量分数<br>4. 对所有帧的同一个框的质量分数L1标准化，求特征加权和，最后级联三个框的特征|76.1|92.4|Rank1 77.83 Map 71.14|
 ---
 
 # Metric
@@ -51,15 +53,16 @@
 |Relaxed Pairwise Learned Metric for Person Re-identification|Horst Bischof<br>Graz University of Technology|ECCV 2012|从不同摄像头下的采样中学习矩阵，注重摄像头之间的变换|Color + LBP|马氏距离|在距离度量学习前先对特征进行PCA降维|**VIPeR** 27<br>**PRID** 15|
 |Deep Metric Learning for Practical Person Re-identification|Stan Z. Li<br> NLPR, CASIA|ICPR 2014|提出一个更通用的方式去从原始图片上学习距离度量|CNN|Cosine + Binomial Distance|1. 双路网络，当做二分类，输出相似度<br>2. 每一支路分为三个小支路，分别输入图片的上中下三部分，最后级联再经全连接得到最后表达|**VIPeR** 34.4<br>**PRID** 17.9|
 |Multi-shot Re-identification with Random-Projection-Based Random Forests|Richard J. Radke<br>RPI|WACV 2015|基于视频的距离度量学习|Color Histograms<br>Schmid & Gabor Filters|随机森林输出的相似性值|1. 通过随机投影对图片的特征向量降维<br>2. 在投影出的亚空间中，基于对层面训练随机森林<br>3. 随机投影增加了随机森林的分类多样性<br>4. 融合多个视频帧的方法：计算两者所有图片对的相似性值，再取平均|**3DPeS** 43(估计)|
-|*Person Re-identification by Local Maximal Occurrence Representation and Metric Learning*|Stan Z. Li<br>NLPR|CVPR 2015|新的手工特征和距离学习方法|SILTP histograms<br>Color Bins|在kissme的基础上加入了低维投影|1. 选取特征时有一系列的子窗口，并对窗口特征做max pooling<br>为了获得多尺度信息，用了有三种大小的图片金字塔|**CUHK03** manually 52.20 detected 46.25<br>**VIPeR** 40.00<br>**GRID** 16.56|
+|[*Person Re-identification by Local Maximal Occurrence Representation and Metric Learning*](https://github.com/IrvingShu/XQDA)|Stan Z. Li<br>NLPR|CVPR 2015|新的手工特征和距离学习方法|SILTP histograms<br>Color Bins|在kissme的基础上加入了低维投影|1. 选取特征时有一系列的子窗口，并对窗口特征做max pooling<br>为了获得多尺度信息，用了有三种大小的图片金字塔|**CUHK03** manually 52.20 detected 46.25<br>**VIPeR** 40.00<br>**GRID** 16.56|
 |*Embedding Deep Metric for Person Re-identification: A Study Against Large Variations*|Stan Z. Li<br>NLPR|ECCV 2016|提供了新的正样本对采集方法以及距离度量的方法|CNN|Euclidean Distance|1. 构成正样本对时，应选取与样本距离小的一些图片，距离太大的样本对会有害训练<br>2. 用全连接层将马氏距离的学习转化为欧氏距离|**CUHK03** manually 61.32 detected 52.09<br>**CUHK01** (100) 86.59<br>**VIPeR** 40.91|
 |Re-ranking Person Re-identification with k-reciprocal Encoding|Shaozi Li<br>Xiamen University|CVPR 2017|对排序得到的结果再次处理重排|CaffeNet|Jaccard Distance + L2 Distance|1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和|**Market 1501** SQ 77.11<br>**CUHK03** detected 61.6 manually 58.5<br>**MARS** 73.94<br>**PRW** 52.54|
-|Scalable Person Re-identification on Supervised Smoothed Manifold|Qi Tian<br>UTSA||
+|Scalable Person Re-identification on Supervised Smoothed Manifold|Qi Tian<br>UTSA|CVPR 2017|对获得的相似性矩阵再处理，获得平滑的流形相似性度量|LOMO,GOG,ELF6|欧氏距离及其他相似性度量方式|1. 通过转移矩阵不断迭代<br>2. 可以和其他距离度量方法协同使用，先提取特征，再进行距离度量学习，然后用这个方法优化相似性矩阵，得到最后的结果|**CUHK03**SQ manually 76.6 detected 72.7<br>**VIPeR** 53.73<br>**PRID450S** 72.98|
 ---
 # Loss
 | Name | Author | Conference & Year | Motivation |Feature|Metric|loss|Detail|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:---|:-----|:------|
 |Margin Sample Mining Loss: A Deep Learning Based Method for Person Re-identification|Chi Zhang<br>Megvii|Arxiv 2017 Oct|限制最大的正样本对距离小于最小的负样本对距离|Resnet50-X|标准化的欧式距离|对于整个batch，找到最大的正样本对距离，和最小的副样本对距离，让他们距离超过margin|输入为P个人，每人K个图片|**CUHK03** manually 87.5<br>**Market 1501**<br>SQ rank 88.9 map 76.7<br>**MARS**<br>SQ rank 84.2 map 74.6|
+|[In Defense of the Triplet Loss for Person Re-identification|Bastian Leibe<br>RWTH Aachen University](https://github.com/VisualComputingInstitute/triplet-reid)|Arxiv 201711|在一个batch中，寻找最困难的正负样本组成三元组|Resnet50 or LuNet|欧氏距离|1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均|用了soft-margin|**CUHK03** manually 89.63 detected 87.58<br>**Market 1501**<br>SQ rank 86.67 map 81.07<br>MQ rank 91.75 map 87.18<br>**MARS**<br>MQ rank 81.21 map 77.43|
 
 # New Perspective
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -120,6 +123,7 @@
 |Deep Captioning with Multimodal Recurrent Neural Networks|Junhua Mao<br>UCLA|ICLR 2015|用多模型RNN去处理自然图片说明|1. 为语言和图片分别构建模型，然后融合两者的信息<br>2. RNN的每一步输入都是某一单词的语言模型的输出<br>3. 每一步的RNN输出，语言模型输出，图像模型输出三者分别通过三个矩阵投影到一个共同的空间，再元素级相加得到融合后的表达|
 |*Learning Spatiotemporal Features with 3D Convolutional Networks*|Manohar Paluri<br>Facebook AI Research|ICCV 2015|3D卷积核去处理视频|3D卷积核能有效学习时间与空间特征|
 |MatchNet: Unifying Feature and Metric Learning for Patch-Based Matching|Alexander C. Berg<br>University of North Carolina at Chapel Hill|CVPR 2015|块匹配与特征学习一起做|两个支路通过全连接融合为一路，全连接层则相当于距离度量|
+|Deep Mutual Learning|Huchuan Lu<br>Dalian University of Technology, China|Arxiv 201706|两个网络相互学习|1. 两个网络都对同一个输入做预测，各有一个分类loss，同时两者之间有一个二者输出的概率分布的KL距离的loss。<br>2. 优化时，交替优化，直至收敛|
 ---
 
 # Network Architecture
@@ -129,5 +133,5 @@
 |Sequeeze-and-Excitation Networks|Jie Hu<br>Momenta|Arxiv 2017|对channels进行加权|1. 要处理的特征X<br>2. 先Global Average Pooling,得到C维特征<br>3. C维特征经过一层全连接，为降低参数数量，输出为 C/r 维，r为超参数<br>4. 经过relu，再经过一层全连接，输出C维<br>5. 对原特征各通道相乘加权，得到处理后的表达|
 ---
 
-<div align="right">Updated Date: 2017/10/31</div>
+<div align="right">Updated Date: 2017/12/13</div>
 [piedpr]: ../../../data/lab/images/piedpr.png
