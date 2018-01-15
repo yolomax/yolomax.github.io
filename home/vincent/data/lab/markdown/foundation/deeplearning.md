@@ -9,7 +9,7 @@
 ## 文献阅读
  * 顶会论文查询。  [[link](http://openaccess.thecvf.com/menu.py)]
  * 最新论文查询。  [[link](https://arxiv.org)]
- * A类：ICCV, CVPR, IJCAI, AAAI, ICML, NIPS, ACL
+ * A类：ICCV, CVPR, IJCAI, AAAI, ICML, NIPS, ACL, ACMMM
  * B类：ECCV
 
 
