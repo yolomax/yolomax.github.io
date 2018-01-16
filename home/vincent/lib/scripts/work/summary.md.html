@@ -753,6 +753,17 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">manually 96.1</td>
 <td style="text-align:left"><strong>Market 1501</strong> SQ rank 94.0 map 91.2<br><strong>MARS</strong> SQ rank 87.5 map 85.6<br><strong>CUHK-SYSU</strong> rank 95.3 map 93.7</td>
 </tr>
+<tr>
+<td style="text-align:center"><a href="https://dl.acm.org/ft_gateway.cfm?id=3123452&amp;ftid=1915024&amp;dwn=1&amp;CFID=851513252&amp;CFTOKEN=41197890">Deep Siamese Network with Multi-level Similarity Perception for Person Re-identification</a></td>
+<td style="text-align:center">Yaowu Chen, Xian-Sheng Hua<br>Zhejiang University, Alibaba</td>
+<td style="text-align:center">MM 2017</td>
+<td style="text-align:left"></td>
+<td style="text-align:center">[inception]</td>
+<td style="text-align:center">Euclidean Distance + L2norm</td>
+<td style="text-align:left"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -1160,9 +1171,9 @@ pre.editor-colors .syntax--markdown .syntax--link .syntax--string.syntax--title 
 <td style="text-align:center">Liang Zheng<br>UTS</td>
 <td style="text-align:center">Arxiv 2017</td>
 <td style="text-align:left">为解决行人匹配时的误对齐问题，加入关键点信息</td>
-<td style="text-align:center">AlexNet or ResNet-50</td>
+<td style="text-align:center"><a href="../../../data/lab/images/piedpr.png">AlexNet or ResNet-50</a></td>
 <td style="text-align:center">L2norm + Euclidean Distance</td>
-<td style="text-align:left">1. 用CPM提取pose,10个关键点<br>2. 用关键点设置特征提取框，框根据位置做相应的仿射变换，所以框有可能是斜着提取的,再将各部分拼一块组成一张图片，即PoseBox<br>3. 当关键点的自信值小于某个门限时，会加入一些随机扰动<br>4. 单路三支流，分别输入原始图像，PoseBox，各个特征点的自信值<br>5. 各支路提取的特征级联后经过一个全连接得到最后表达<br>6. 三个Loss，最后特征表达一个分类Loss，原始图特征一个分类Loss,PoseBox一个分类Loss<br><a href="../../../data/lab/images/piedpr.png">Architecture</a></td>
+<td style="text-align:left">1. 用CPM提取pose,10个关键点<br>2. 用关键点设置特征提取框，框根据位置做相应的仿射变换，所以框有可能是斜着提取的,再将各部分拼一块组成一张图片，即PoseBox<br>3. 当关键点的自信值小于某个门限时，会加入一些随机扰动<br>4. 单路三支流，分别输入原始图像，PoseBox，各个特征点的自信值<br>5. 各支路提取的特征级联后经过一个全连接得到最后表达<br>6. 三个Loss，最后特征表达一个分类Loss，原始图特征一个分类Loss,PoseBox一个分类Loss</td>
 <td style="text-align:left"><strong>Market 1501</strong><br>SQ rank 79.33 map 55.95<br><strong>CUHK03</strong><br>detected rank 67.10 map 71.32<br><strong>VIPeR</strong> 27.44</td>
 </tr>
 <tr>
