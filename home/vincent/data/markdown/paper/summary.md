@@ -46,7 +46,7 @@
 |Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification [[code](https://github.com/shuangjiexu/Spatial-Temporal-Pooling-Networks-ReID)]|Pan Zhou<br>Huazhong University of Science and Technology|ICCV 2017|在空间上与时间上都是注意力模型|三层CNN|RNN+注意力时间池化|Euclidean Distance|1. 双路结构，分类loss+Contrastive Loss<br>2. 对每一个支路，输入为原始图片加光流，对于每一帧的特征用SPP得到不同尺度的特征并级联，得到单帧表达<br>3. 将每一帧的表达依次送入RNN，每一步的输出为每一帧的最终表达<br>4. 利用注意力模型得到每一帧的加权值，利用加权求和得到视频表达|62|77|Rank1 44|
 |A Two Stream Siamese Convolutional Neural Network For Person Re-identification|Dahjung Chuang<br>Purdue|ICCV 2017|将光流与RGB分开，分别在两个Siamese网络中|RNN+注意力时间池化|光流与RGB的Euclidean Distance|3层CNN|在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权|60|78|--|
 |Region-based Quality Estimation Network for Large-scale Person Re-identification|Shaofan Cai<br>SenseTime|Arxiv 2017.11|借助关键点检测，基于区域的质量估计，并提出新的视频数据集|GoogleNet|Region-based quality|Cosine Distance|1. 之前的数据集因为检测或跟踪失败而导致清洁度太低，人工标注的又对齐的太好<br>2. 新数据集特点：590000张图片，检测子检测，场景拥挤，年龄分布大<br>3. 用CPM检测关键点，产生上中下三个框，基于框预测三个框的质量分数<br>4. 对所有帧的同一个框的质量分数L1标准化，求特征加权和，最后级联三个框的特征|76.1|92.4|Rank1 77.83 Map 71.14|
-|[Deep Cross-Modality Alignmeant for Nulti-Shot Person Re-Identification](https://dl.acm.org/ft_gateway.cfm?id=3123324&ftid=1914667&dwn=1&CFID=1028089922&CFTOKEN=46445411)|Xiaokang Yang<br>Shanghai Jiao Tong University|MM 2017|
+|[Deep Cross-Modality Alignmeant for Nulti-Shot Person Re-Identification](https://dl.acm.org/ft_gateway.cfm?id=3123324&ftid=1914667&dwn=1&CFID=1028089922&CFTOKEN=46445411)|Xiaokang Yang<br>Shanghai Jiao Tong University|MM 2017|现有的视频数据集较小，为了利用现有的基于图片的数据集，设计了伪序列生成的结构，利用一整图片生成一个视频|三层CNN|RNN + average pooling|Euclidean Distance|1. 视频生成主要是依靠随机的Crop，随机选择剪切起始的点。随机性是利用马尔可夫链蒙特卡罗方法从一个固定坐标开始，一步步走动。<br>2. 为了模拟遮挡等复杂因素，在第一个卷积层的结果上加入了Dropout。<br>3. 直接使用单张图片预训练反而会使效果变差|60|80|rank1 63|
 ---
 
 # Metric
@@ -138,4 +138,4 @@
 |Sequeeze-and-Excitation Networks|Jie Hu<br>Momenta|Arxiv 2017|对channels进行加权|1. 要处理的特征X<br>2. 先Global Average Pooling,得到C维特征<br>3. C维特征经过一层全连接，为降低参数数量，输出为 C/r 维，r为超参数<br>4. 经过relu，再经过一层全连接，输出C维<br>5. 对原特征各通道相乘加权，得到处理后的表达|
 ---
 
-<div align="right">Updated Date: 2018/01/15</div>
+<div align="right">Updated Date: 2018/01/18</div>
