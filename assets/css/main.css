@@ -4545,7 +4545,7 @@
 
 	#resume .timeline-header {
 		float: left;
-		width: 40%;
+		width: 38%;
 		padding-right: 90px;
 		text-align: right;
 	}
@@ -4558,6 +4558,7 @@
 		color: #888888;
 		margin: 0 0 2rem 8rem;
 		margin-bottom: 3rem;
+		text-align: right;
 	}
 	#resume .timeline-content {
 		margin-left: 35%;
