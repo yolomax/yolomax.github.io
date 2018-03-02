@@ -6,56 +6,55 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-    {% include head.html %}
-	</head>
-	<body class="is-loading">
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
-				{% include nav.html %}
+<head>
+	{% include head.html %}
+</head>
 
-				<!-- Main -->
-				<div id="main">
-          {% assign groups = site.blog | group_by: "category" | sort: "name" %}
-          {% for group in groups %}
-          <h2>{{ group.name }}</h2>
-          <section class="posts">
-            {% for item in group.items %}
-            <article>
-              <header>
-                <h2><a href="{{ item.url | absolute_url }}">{{ item.title }}</h2>
-                {% if item.date%}
-                <span class="date">{{ item.date | date_to_string }}</span>
-                {% endif %}
-              </header>
-              {% if item.image%}
-              <a href="{{ item.url | absolute_url }}" class="image fit"><img src="{{ item.image | absolute_url }}" alt="" /></a>
-              {% endif %}
-              {% if item.excerpt%}
-              <p>{{ item.excerpt }}</p>
-              {% endif %}
-            </article>
-            {% endfor %}
-           </section>
-          {% endfor %}
+<body class="is-loading">
 
-					<!-- Footer -->
-						<footer>
-              <ul class="actions">
-                <li><a href="{{ "/blog/" | absolute_url }}" class="button">Our Blog</a></li>
-              </ul>
-						</footer>
-					</div>
+	<!-- Wrapper -->
+	<div id="wrapper" class="fade-in">
+		{% include nav.html %}
 
-				<!-- Footer -->
-        {% include foot.html %}
+		<!-- Main -->
+		<div id="main">
+			{% assign groups = site.blog | group_by: "category" | sort: "name" %}
+			{% for group in groups %}
+			<h2>{{ group.name }}</h2>
+			<section class="posts">
+				{% for item in group.items %}
+				<article>
+					<header>
+						<h2><a href="{{ item.url | absolute_url }}">{{ item.title }}</h2> {% if item.date%}
+						<span class="date">{{ item.date | date_to_string }}</span> {% endif %}
+					</header>
+					{% if item.image%}
+					<a href="{{ item.url | absolute_url }}" class="image fit"><img src="{{ item.image | absolute_url }}" alt="" /></a> {% endif %} {% if item.excerpt%}
+					<p>{{ item.excerpt }}</p>
+					{% endif %}
+				</article>
+				{% endfor %}
+			</section>
+			{% endfor %}
 
-			</div>
+			<!-- Footer -->
+			<footer>
+				<ul class="actions">
+					<li><a href="{{ " /blog/ " | absolute_url }}" class="button">Our Blog</a></li>
+				</ul>
+			</footer>
+		</div>
 
-      <!-- Scripts -->
-  		{% include scripts-main.html %}
-			{% include tracking.html %}
+		<!-- Footer -->
+		{% include foot.html %}
 
-	</body>
+	</div>
+
+	<!-- Scripts -->
+	{% include scripts-main.html %}
+	{% include tracking.html %}
+
+</body>
+
 </html>
