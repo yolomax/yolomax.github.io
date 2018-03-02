@@ -4297,7 +4297,7 @@
 		top: 0.75rem;
 		right: 0.75rem;
 		border: 0;
-		color: #ffffff;
+		color: #3399FF;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 0.9rem;
 		font-weight: 900;
@@ -4602,13 +4602,16 @@
 		#resume .timeline-content {
 			padding-left: 50px;
 		}
+		#resume .timeline-ico {
+			left: 37.8%;
+		}
 	}
 	@media only screen and (max-width:768px) {
 		#resume .timeline-wrap::before {
 			left: 2.4rem;
 		}
 		#resume .timeline-ico {
-			left: 2.4rem;
+			left: 8.95%;
 		}
 		#resume .timeline-header {
 			float: none;
@@ -4631,14 +4634,14 @@
 			padding-bottom: 0;
 			padding-top: 2.1rem;
 			margin-bottom: .6rem;
-			font-size: 1.7rem;
+			font-size: 1.0rem;
 		}
 		#resume .timeline-content h4::after {
 			bottom: auto;
 			top: 0;
 		}
 		#resume .timeline-header, #resume .timeline-content {
-			padding-left: 7rem;
+			padding-left: 4rem;
 		}
 	}
 	@media only screen and (max-width:480px) {
@@ -4657,7 +4660,7 @@
 			font-size: 1.5rem;
 		}
 		#resume .timeline-header, #resume .timeline-content {
-			padding-left: 5.5rem;
+			padding-left: 4.0rem;
 		}
 		#resume .timeline-header h3 {
 			font-size: 1.1rem;
