@@ -102,6 +102,7 @@
 * 属性的正负样本之间的不平衡，以及有的属性正样本太少
 
 ## Dataset
+### [[More](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)]
 | Name | Author | Conference & Year | Motivation | Name of Dataset|Label method|Video or Image|Cammera|
 |:----:|:------:|:-----------------:|:-----------|:--------------:|:----------:|:------------:|:-----:|
 |Person Re-identification in the Wild|LIang Zheng<br>UTS|CVPR 2017|提供一个端到端的大数据集，将行人检测与匹配一起做|PRW|hand|image|6|
@@ -111,6 +112,9 @@
 | Name | Author | Conference & Year | Motivation |Detail|
 |:----:|:------:|:-----------------:|:-----------|:-----|
 |Learning Bidirectional Temporal Cues for Video-based Person Re-identification [[pdf](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7954700)]|Xuanyu He|IEEE TCSVT|利用双向循环神经网络，在RNN-CNN基础上改进|**iLIDS** 55.3<br>**PRID** 72,8|
+
+## Temp
+[[Baseline Code (with bottleneck) for Person-reID (pytorch)](https://github.com/teslacool/Person_reID_baseline_pytorch)]
 
 ----
 
