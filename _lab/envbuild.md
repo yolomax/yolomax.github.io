@@ -55,3 +55,10 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PAT
  # Bug fixed
   * conda 安装包出现网络连接问题时，可以先下载，然后离线安装
   * 安装cuda出现找不到kernel的时候，先装驱动，再装cuda，此时cuda选项里取消安装驱动
+  * 出现登录界面循环出现的问题时，重新安装驱动即可
+  ```
+  CTRL+ALT+F1    #进入文本模式
+  sudo service lightdm stop
+  sudo sh <驱动版本>.run   #创建软连接，关闭x服务,不安装Opengl,不安装Samples
+  sudo service lightdm restart
+  ```
