@@ -30,6 +30,7 @@
 |Deep Siamese Network with Multi-level Similarity Perception for Person Re-identification [[pdf](https://dl.acm.org/ft_gateway.cfm?id=3123452&ftid=1915024&dwn=1&CFID=851513252&CFTOKEN=41197890)] [[code](https://github.com/InnovArul/personreid_normxcorr)]|Yaowu Chen, Xian-Sheng Hua<br>Zhejiang University, Alibaba|MM 2017|在low-level上也加入对匹配的优化，组成多层次的优化网络|inception|Euclidean Distance + L2norm|1. 在第一个卷积层之后加入对低层次特征块的匹配的优化，用的结构主要是NIPS16那篇求相关性系数的方法。<br>2. 对正负样本块的相关性系数，设置阈值，做置零操作，主要是防止噪声块以及无区分性块的影响<br>3. 优化目标是使正样本先关系数最大化吗，负样本相关系数最小化<br>4. 前期不加low-level的匹配优化，训练稳定之后再加入low-level的优化。<be>5. 测试的时候并不需要low-level优化网络<br>6. **只对anchor图片计算分类损失**|manually 85.7<br>detected 83.6|**CUHK01** (100)79.3 (486)63.7<br>**Market 1501** SQ rank 81.9 map 63.6|
 |*Deep Representation Learning with Part Loss for Person Re-Identification* [[pdf](https://arxiv.org/pdf/1707.00798.pdf)]|Qi Tain<br>UTSA|Arxiv 2017.06|针对人的不同部位设置不同的loss，让得到的特征更有区分性|GoogleNet|--|1. 对于最后的特征图，找出每一个特诊图为响应最大的点的位置，并将这些点聚为k类。<br>2. 对于每一类的特征图，得到均值特征图，并标准化，大于0.5的点视为前景，最小的闭合矩形框作为 part bounding box.<br>3. 对于C个特征图，k个框，经过ROI Pooling,得到k个Cx4x4的特征，并分别训练k个part loss。<br>4. part loss同时也会提升全局特征表达。<br>5. 最后的特征表达是全局特征与局部特征级联|manually 82,75|**Market 1501** SQ map 69.3 rank1 88.2<br>**VIPeR** 56.65|
 |Harmonious Attention Network for Person Re-Identification [[pdf](https://arxiv.org/pdf/1802.08122.pdf)]|Shaogang Gong<br>QMUL|CVPR 2018||Inception||空间注意力：对通道取均值，只保留空间分辨率，在用一个卷积核,resize,缩放参数得到最后的空间注意力值。通道注意力：用的是squeeze-and-excitation结构|
+|Multi-Channel Pyramid Person Matching Network for Person Re-Identification|Xi li<br>Zhejiang University&Alibaba|AAAI 2018|分别学习语义表达和颜色纹理表达。语义表达用CNN，而颜色纹理基于手工特征，再输入到网络中，用两个全连接综合这两方面信息预测是否为同一个人|GoogleNet|Softmax Score|1. 语义部分，输入RGB信息，用Googlenet提取特征，再将两个人的特征级联起来以融合信息，用atrous卷积得到3种尺度的特征表达，将级联后的信息通过卷积和池化得到最后表达。<br>2. 颜色纹理表达与语义表达的处理在模型结构上相同，只是输入时手工特征。<br>3. 将语义特征与颜色纹理特征级联再通过全连接等进行分类。|manually 86.36<br>detected 81.88|**CUHK01** (100)93.45 (486)78.95<br>**VIPeR** 50.13<br>**PRID2011** 34<br>**iLIDS** 62.69|
 
 ## Video
 | Name | Author | Conference & Year | Motivation |Feature|Fusion|Metric|Detail|iLIDS|PRID|MARS|
@@ -52,6 +53,7 @@
 |Deep Cross-Modality Alignmeant for Multi-Shot Person Re-Identification [[pdf](https://dl.acm.org/ft_gateway.cfm?id=3123324&ftid=1914667&dwn=1&CFID=1028089922&CFTOKEN=46445411)]|Xiaokang Yang<br>Shanghai Jiao Tong University|MM 2017|现有的视频数据集较小，为了利用现有的基于图片的数据集，设计了伪序列生成的结构，利用一整图片生成一个视频|三层CNN|RNN + average pooling|Euclidean Distance|1. 视频生成主要是依靠随机的Crop，随机选择剪切起始的点。随机性是利用马尔可夫链蒙特卡罗方法从一个固定坐标开始，一步步走动。<br>2. 为了模拟遮挡等复杂因素，在第一个卷积层的结果上加入了Dropout。<br>3. 直接使用单张图片预训练反而会使效果变差|60|80|rank1 63|
 |Data Generation for Improving Person Re-identification [[pdf](https://dl.acm.org/ft_gateway.cfm?id=3123302&ftid=1914656&dwn=1&CFID=340927&CFTOKEN=4770ffe45b1e2b7e-BB310FC0-0D0B-C046-757DF131D08E8753)]|Zhiyong Gao<br>Shanghai Jiao Tong University|MM 2017|为了解决视频数据集不充分的问题，提出两种结构，一种针对类内，能生成可保持物体运动信息的视频，另一种针对类间，可替换背景。|三层CNN|RNN + average pooling|Euclidean Distance|1. 类内：[预测神经网络](https://arxiv.org/pdf/1605.08104.pdf)，结构是四层的网络，每一层分为四个基础部分：输入卷积模块，循环表达模块，输出预测模块，误差表达模块。训练时，先自顶向下求循化表达模块R的值，在自下而上更新其他值。输入为T帧视频，输出为生成的T-1帧视频。<br>2. 类间：[背景置换网络](https://arxiv.org/pdf/1611.07004.pdf)|66|79|--|
 |Three-Stream Convolutional Networks for Video-based Person Re-Identification|Yi Pab<br>Southwest Jiaotong University|Arxiv 2017.11|降低空间分辨率有很多方法，最大值池化，均值池化，增加卷积步距等等，这些结构对特征的利用情况不同。基于这一点，作者设计了多支路结构的·网络，充分利用这些结构的特点。|四层CNN|RNN + average pooling|Euclidean Distance|1. 网络分三条支路，每个支路三层卷积，三个支路分别使用最大值池化，均值池化，增加卷积步距来降低分辨率。<br>2. 三条支路得到的特征大小相同，在宽度维度上拼接再经过一层卷积层和均值池化得到最后的表达，无全连接。<br>3. 作者经过试验表明，虽然可能某一条支路不如另一条支路效果好，但是共同使用时，依旧可以提升整体的性能。<br>4。 在宽度上叠加效果比在通道上叠加好。|67.5|79.7|45.6|
+|Video Person Re-identification by Temporal Residual Learning|Hongyu Wang|Arxiv 2018.02.22|利用STN做空间上的对齐，BiLSTM融合时间信息|GoogleNet|BiLSTM|L2norm + Euclidean Distance|1.只用分类来训练<br>2. 网络所有部分先用MARS预训练（主要是因为STN部分）|57.7|87.8|79.3|
 
 ## Metric
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -102,10 +104,11 @@
 * 属性的正负样本之间的不平衡，以及有的属性正样本太少
 
 ## Dataset
-| Name | Author | Conference & Year | Motivation | Name of Dataset|Label method|Video or Image|Cammera|
-|:----:|:------:|:-----------------:|:-----------|:--------------:|:----------:|:------------:|:-----:|
-|Person Re-identification in the Wild [[code](https://github.com/liangzheng06/PRW-baseline)]|LIang Zheng<br>UTS|CVPR 2017|提供一个端到端的大数据集，将行人检测与匹配一起做|PRW|hand|image|6|
-|*MARS: A Video Benchmark for Large-Scale Person Re-identification* [[pdf](https://pdfs.semanticscholar.org/c038/7e788a52f10bf35d4d50659cfa515d89fbec.pdf)] [[code](https://github.com/liangzheng06/MARS-evaluation)]| Qi Tian<br>Tsinghua University|ECCV 2016|基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好|MARS|detected|Video|6|
+| Name |Syncopate| Author | Conference & Year | Motivation |Label method|Video or Image|Cammera|
+|:----:|:-------:|:------:|:-----------------:|:-----------|:----------:|:------------:|:-----:|
+|Person Re-identification in the Wild [[code](https://github.com/liangzheng06/PRW-baseline)]|PRW|LIang Zheng<br>UTS|CVPR 2017|提供一个端到端的大数据集，将行人检测与匹配一起做|hand|image|6|
+|*MARS: A Video Benchmark for Large-Scale Person Re-identification* [[pdf](https://pdfs.semanticscholar.org/c038/7e788a52f10bf35d4d50659cfa515d89fbec.pdf)] [[code](https://github.com/liangzheng06/MARS-evaluation)]|MARS| Qi Tian<br>Tsinghua University|ECCV 2016|基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好|detected|Video|6|
+|LVreID: Person Re-Identification with Long Sequence Videos|LVreID|Qi Tian<br>Peking University|Arxiv 2017.12.20|1. 跨季节，从一月到五月，共四天，每天三个小时，分别是早上中午晚上。<br>2. 视频序列长，平均长度是200帧。<br>3. 用SPP对时间维度做处理，得到固定的时间维度，再用卷积层融合。|detected|Video|13|
 
 ## Skimmed
 | Name | Author | Conference & Year | Motivation |Detail|
@@ -164,9 +167,15 @@
 |*Large Scale Metric Learning from Equivalence Constraints*|Horst Bischof<br>Graz University of Technology|CVPR 2012|从统计推理的角度学习距离度量，不依赖于复杂的算法|利用最大似然估计得到马氏距离度量矩阵|
 |EpicFlow: Edge-Preserving Interpolation of Correspondences for Optical Flow|Cordelia Schmid<br>Inria|CVPR 2015|更好地处理冲突与运动边界的光流估计|1. 从稀疏匹配的边缘保留插值的密匹配<br>2. 用密匹配初始化的方差能量最小化|
 
+## Tool
+* Pyramid Matching
+* atrous convolution
+* RNN
+* SPP
+
 # Links
 * [handong ](https://handong1587.github.io)的 [Summary](https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md)
 * [数据集总结](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)
 * [State of the art on the MARS dataset](http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html)
 
-<div align="right">Updated Date: 2018/01/21</div>
+<div align="right">Updated Date: 2018/03/17</div>

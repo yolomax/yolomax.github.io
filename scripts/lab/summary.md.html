@@ -685,6 +685,17 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center"></td>
 <td style="text-align:left">空间注意力：对通道取均值，只保留空间分辨率，在用一个卷积核,resize,缩放参数得到最后的空间注意力值。通道注意力：用的是squeeze-and-excitation结构</td>
 </tr>
+<tr>
+<td style="text-align:center">Multi-Channel Pyramid Person Matching Network for Person Re-Identification</td>
+<td style="text-align:center">Xi li<br>Zhejiang University&amp;Alibaba</td>
+<td style="text-align:center">AAAI 2018</td>
+<td style="text-align:left">分别学习语义表达和颜色纹理表达。语义表达用CNN，而颜色纹理基于手工特征，再输入到网络中，用两个全连接综合这两方面信息预测是否为同一个人</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">1. 语义部分，输入RGB信息，用Googlenet提取特征，再将两个人的特征级联起来以融合信息，用atrous卷积得到3种尺度的特征表达，将级联后的信息通过卷积和池化得到最后表达。<br>2. 颜色纹理表达与语义表达的处理在模型结构上相同，只是输入时手工特征。<br>3. 将语义特征与颜色纹理特征级联再通过全连接等进行分类。</td>
+<td style="text-align:center">manually 86.36<br>detected 81.88</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100)93.45 (486)78.95<br><strong>VIPeR</strong> 50.13<br><strong>PRID2011</strong> 34<br><strong>iLIDS</strong> 62.69</td>
+</tr>
 </tbody>
 </table>
 <h2 id="video">Video</h2>
@@ -938,6 +949,19 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">67.5</td>
 <td style="text-align:center">79.7</td>
 <td style="text-align:center">45.6</td>
+</tr>
+<tr>
+<td style="text-align:center">Video Person Re-identification by Temporal Residual Learning</td>
+<td style="text-align:center">Hongyu Wang</td>
+<td style="text-align:center">Arxiv 2018.02.22</td>
+<td style="text-align:left">利用STN做空间上的对齐，BiLSTM融合时间信息</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">BiLSTM</td>
+<td style="text-align:center">L2norm + Euclidean Distance</td>
+<td style="text-align:left">1.只用分类来训练<br>2. 网络所有部分先用MARS预训练（主要是因为STN部分）</td>
+<td style="text-align:center">57.7</td>
+<td style="text-align:center">87.8</td>
+<td style="text-align:center">79.3</td>
 </tr>
 </tbody>
 </table>
@@ -1286,10 +1310,10 @@ pre.editor-colors .bracket-matcher .region {
 <thead>
 <tr>
 <th style="text-align:center">Name</th>
+<th style="text-align:center">Syncopate</th>
 <th style="text-align:center">Author</th>
 <th style="text-align:center">Conference &amp; Year</th>
 <th style="text-align:left">Motivation</th>
-<th style="text-align:center">Name of Dataset</th>
 <th style="text-align:center">Label method</th>
 <th style="text-align:center">Video or Image</th>
 <th style="text-align:center">Cammera</th>
@@ -1298,23 +1322,33 @@ pre.editor-colors .bracket-matcher .region {
 <tbody>
 <tr>
 <td style="text-align:center">Person Re-identification in the Wild [<a href="https://github.com/liangzheng06/PRW-baseline">code</a>]</td>
+<td style="text-align:center">PRW</td>
 <td style="text-align:center">LIang Zheng<br>UTS</td>
 <td style="text-align:center">CVPR 2017</td>
 <td style="text-align:left">提供一个端到端的大数据集，将行人检测与匹配一起做</td>
-<td style="text-align:center">PRW</td>
 <td style="text-align:center">hand</td>
 <td style="text-align:center">image</td>
 <td style="text-align:center">6</td>
 </tr>
 <tr>
 <td style="text-align:center"><em>MARS: A Video Benchmark for Large-Scale Person Re-identification</em> [<a href="https://pdfs.semanticscholar.org/c038/7e788a52f10bf35d4d50659cfa515d89fbec.pdf">pdf</a>] [<a href="https://github.com/liangzheng06/MARS-evaluation">code</a>]</td>
+<td style="text-align:center">MARS</td>
 <td style="text-align:center">Qi Tian<br>Tsinghua University</td>
 <td style="text-align:center">ECCV 2016</td>
 <td style="text-align:left">基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好</td>
-<td style="text-align:center">MARS</td>
 <td style="text-align:center">detected</td>
 <td style="text-align:center">Video</td>
 <td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">LVreID: Person Re-Identification with Long Sequence Videos</td>
+<td style="text-align:center">LVreID</td>
+<td style="text-align:center">Qi Tian<br>Peking University</td>
+<td style="text-align:center">Arxiv 2017.12.20</td>
+<td style="text-align:left">1. 跨季节，从一月到五月，共四天，每天三个小时，分别是早上中午晚上。<br>2. 视频序列长，平均长度是200帧。<br>3. 用SPP对时间维度做处理，得到固定的时间维度，再用卷积层融合。</td>
+<td style="text-align:center">detected</td>
+<td style="text-align:center">Video</td>
+<td style="text-align:center">13</td>
 </tr>
 </tbody>
 </table>
@@ -1553,11 +1587,18 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 </tbody>
 </table>
+<h2 id="tool">Tool</h2>
+<ul>
+<li>Pyramid Matching</li>
+<li>atrous convolution</li>
+<li>RNN</li>
+<li>SPP</li>
+</ul>
 <h1>Links</h1>
 <ul>
 <li><a href="https://handong1587.github.io">handong </a>的 <a href="https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md">Summary</a></li>
 <li><a href="http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html">数据集总结</a></li>
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>
 </ul>
-<div align="right">Updated Date: 2018/01/21</div></body>
+<div align="right">Updated Date: 2018/03/17</div></body>
 </html>
