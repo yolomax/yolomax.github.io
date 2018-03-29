@@ -4,7 +4,7 @@ title: manage
 category: server
 comments: false
 published: false
-date: 2018-03-01
+date: 2018-03-29
 ---
 
 ## GPU服务器资源列表
