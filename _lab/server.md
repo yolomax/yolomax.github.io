@@ -3,7 +3,7 @@ layout: post
 title: manage
 category: server
 comments: false
-published: false
+published: true
 date: 2018-03-29
 ---
 
