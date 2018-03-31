@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Environment
-category: utiles
+category: server
 comments: false
 published: true
 date: 2018-03-01
 ---
 
-## 整体流程
+## 个人Ubuntu安装整体流程
 1. [安装Ubuntu系统](#ubuntu)
 2. [安装CUDA及cuDNN](#cuda)
 3. [安装Miniconda](#miniconda)
@@ -33,7 +33,7 @@ sudo sh cuda_9.1.85_387.26_linux.run   #创建软连接，关闭x服务,不安�
 sudo service lightdm restart
 ```
 
-3. 添加环境变量
+3. 添加环境变量到<code>~/.bashrc</code>
 ```
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
