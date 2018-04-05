@@ -2060,6 +2060,7 @@ ul {
 
 ul li {
   padding-left: 0.5rem;
+  font-family: "poppins-regular", sans-serif;
 }
 
 ul.divided {
