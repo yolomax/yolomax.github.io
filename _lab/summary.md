@@ -1,13 +1,3 @@
----
-layout: default
-title: ss
-category: foundation
-comments: false
-published: true
-date: 2018-03-01
----
-
-
 # <center>Person Re-Identification</center>
 
 ## Image
