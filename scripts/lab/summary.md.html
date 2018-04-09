@@ -709,6 +709,16 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">detected R1 81.8 mAP 84.8</td>
 <td style="text-align:left"><strong>Market 1501</strong> R1 82.3 mAP 62.1<br><strong>DukeMTMC-reID</strong> R1 76.7 mAP 56.8</td>
 </tr>
+<tr>
+<td style="text-align:center">Dual Attention Matching Network for Context-Aware Feature Sequence based Person Re-Identification</td>
+<td style="text-align:center">Jason Kuen<br>NTUS</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">提出一个用多个序列算距离的方法</td>
+<td style="text-align:center">DenseNet-121</td>
+<td style="text-align:center">Euclidean distance</td>
+<td style="text-align:left">1. 序列的定义是特征图中将不同位置的特征视为一个序列。<br>2. 同一个图片内，利用attention用各个位置的特征的加权值代表自己，加权由转移网络根据此位置生成的特征和各个位置的特征的內积大小决定。<br>3. 不同图片之间的也可以用相似方法得到。<br>4. 最后的距离是特征距离取平均</td>
+<td style="text-align:center"><strong>Market 1501</strong>SQ R1 91.42 mAP 76.62<br><strong>DukeMTMC</strong>R1 81.82 mAP 64.58<br><strong>MARS</strong>R1 78.74 mAP 62.26</td>
+</tr>
 </tbody>
 </table>
 <h2 id="video">Video</h2>
@@ -1672,6 +1682,7 @@ pre.editor-colors .bracket-matcher .region {
 </ul>
 <h1>Links</h1>
 <ul>
+<li>[(KaiyangZhou)[<a href="https://github.com/KaiyangZhou/deep-person-reid]]">https://github.com/KaiyangZhou/deep-person-reid]]</a></li>
 <li><a href="https://handong1587.github.io">handong </a>的 <a href="https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md">Summary</a></li>
 <li><a href="http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html">数据集总结</a></li>
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>

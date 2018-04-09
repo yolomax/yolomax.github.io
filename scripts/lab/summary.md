@@ -32,6 +32,7 @@
 |Harmonious Attention Network for Person Re-Identification [[pdf](https://arxiv.org/pdf/1802.08122.pdf)]|Shaogang Gong<br>QMUL|CVPR 2018|在空间上，通道上做soft attention，又用STN选出T个区域做Hard的attention|Inception|L2norm + Euclidean Distance|1. 空间注意力：对通道取均值，只保留空间分辨率，在用一个卷积核,resize,缩放参数得到最后的空间注意力值。通道注意力：用的是squeeze-and-excitation结构。<br>2. 在每个Inception模块后面，用STN学习T个仿射变换矩阵，对此模块前面的特征图进行采样，得到T种特征图，分别对应T个分支。分支网络用单独的Inception结构训，每一模块之后都会加上STN对总网络此层的T个采样。最后通过级联全连接得到512维的特征。<br>3. 总网络的特征与分支网络的特征级联得到总的特征表达，为1024维。<br>4. 无数据增强和预训练。|(767/700)<br>manually R1 44.4 mAP 41.0<br>detected R1 41.7 mAP 38.6|**Market 1501**<br>SQ R1 91.2 mAP 75.7<br>MQ R1 93.8 mAP 82.8<br>**DukeMTMC-ReID** R1 80.5 mAP 63.8|
 |Multi-Channel Pyramid Person Matching Network for Person Re-Identification|Xi li<br>Zhejiang University&Alibaba|AAAI 2018|分别学习语义表达和颜色纹理表达。语义表达用CNN，而颜色纹理基于手工特征，再输入到网络中，用两个全连接综合这两方面信息预测是否为同一个人|GoogleNet|Softmax Score|1. 语义部分，输入RGB信息，用Googlenet提取特征，再将两个人的特征级联起来以融合信息，用atrous卷积得到3种尺度的特征表达，将级联后的信息通过卷积和池化得到最后表达。<br>2. 颜色纹理表达与语义表达的处理在模型结构上相同，只是输入时手工特征。<br>3. 将语义特征与颜色纹理特征级联再通过全连接等进行分类。|manually 86.36<br>detected 81.88|**CUHK01** (100)93.45 (486)78.95<br>**VIPeR** 50.13<br>**PRID2011** 34<br>**iLIDS** 62.69|
 |SVDNet for Pedestrian Retrieval|Shengjin Wang<br>Liang Zheng|ICCV 2017|去最后的全连接层权值矩阵的相关性，得到更高层度的正交性|CaffeNet or Resnet50|Euclidean distance|1. 用在倒数第二个全连接层<br>2. 步骤: 向网络中加入一个线性全连接层，并微调至收敛。将线性全连接层的权值矩阵进行SVD分解，<br>W = USV<br>用W和其自身的转置矩阵乘作为本征层。固定本征层，并微调网络至收敛。再不固定本征层，微调整个网络至收敛|detected R1 81.8 mAP 84.8|**Market 1501** R1 82.3 mAP 62.1<br>**DukeMTMC-reID** R1 76.7 mAP 56.8|
+|Dual Attention Matching Network for Context-Aware Feature Sequence based Person Re-Identification|Jason Kuen<br>NTUS|CVPR 2018|提出一个用多个序列算距离的方法|DenseNet-121|Euclidean distance|1. 序列的定义是特征图中将不同位置的特征视为一个序列。<br>2. 同一个图片内，利用attention用各个位置的特征的加权值代表自己，加权由转移网络根据此位置生成的特征和各个位置的特征的內积大小决定。<br>3. 不同图片之间的也可以用相似方法得到。<br>4. 最后的距离是特征距离取平均|**Market 1501**SQ R1 91.42 mAP 76.62<br>**DukeMTMC**R1 81.82 mAP 64.58<br>**MARS**R1 78.74 mAP 62.26|
 
 ## Video
 | Name | Author | Conference & Year | Motivation |Feature|Fusion|Metric|Detail|iLIDS|PRID|MARS|
@@ -184,6 +185,7 @@
 * SPP
 
 # Links
+* [(KaiyangZhou)[https://github.com/KaiyangZhou/deep-person-reid]]
 * [handong ](https://handong1587.github.io)的 [Summary](https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md)
 * [数据集总结](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)
 * [State of the art on the MARS dataset](http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html)
