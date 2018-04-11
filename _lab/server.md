@@ -7,12 +7,14 @@ published: true
 date: 2018-03-29
 ---
 
+多数内容由云峰师兄贡献，如有错误请联系我更改。
+
 # 目录
 1. [GPU服务器资源列表](#gpu)
 2. [Windows服务器](#windows)
 3. [用户分配列表](#user)
-4. [外网访问](#net)
-5. [新集群使用](#cluster)
+4. [服务器使用指南](#server)
+5. [新集群使用指南](#cluster)
 
 ## GPU服务器资源列表 {#gpu}
 
@@ -46,7 +48,30 @@ date: 2018-03-29
 |244|郭老师 周晓强 李星泽 徐宇飞 陈鑫 孙婧雯|
 |232|吕玥 张之昊 王宁 王前前 蒋磊 欧阳剑波 陈铮|
 
-## 外网访问 {#net}
+## 实验室服务器使用指南 {#server}
+一些基础命令 [[link](https://www.yolomax.com/lab/server/cmdtip/)]
+
+### 内网访问
+在Windows的Xshell或者CygWin或者Linux环境的命令行中，执行如下的命令就可以连接到服务器：
+```
+ssh username@192.168.6.232   # 访问232服务器。
+```
+
+### Samba 访问服务器
+Samba是一种方便的在Linux和Windows下传送文件的协议和软件，在WIndows环境下，在文件管理器中，输
+入<code>\\\192.168.104.12</code>就可以访问服务器。 初始密码同ssh登录时的密码，可以在服务器的命令行下用<code>smbpasswd</code>来修改密码。
+
+### VNC 访问服务器图形界面
+两台新加的服务器都安装了VNC服务，可以用VNC Viewer等VNC 客户端来连接到服务器的图形化界面，用来操作MATLAB的图形
+化界面，或者显示图像等。具体的使用方式如下：
+1. SSH连接到服务器，在命令行执行<code>vncserver -geometry 1920x1080</code>来创建会话，输出的最下面的 <code>:n</code>(n为一个整数)就是你创建
+的会话ID，初次执行<code>vncserver</code>需要创建一个VNC登录密码。
+2. 在VNC Viewer里面，填入服务器地址+会话ID，如<code>192.168.104.12:23</code>，输入上一步创建的密码就可以登陆图像界面
+3. 如果会话卡死或不响应了， 可以用 vncserver -kill :n 来删除之前创建的编号为n的会话，然后重新执行<code>vncserver -geometry
+1920x1080</code>即可。
+4. 如果忘记自己的VNC密码了，可以执行<code>vncpasswd</code>来重新设置密码
+
+### 外网访问
 两种常用访问方法
 * 有大实验室集群账号的，可以先通过集群外网端口登录到集群，再通过内网访问各个独立服务器。集群外网地址：
  ```
@@ -63,10 +88,82 @@ ssh -p 36036 username@202.38.69.241
 ssh username@192.168.6.33
 ```
 
+### 硬盘使用说明
+新加的机器都是5块4T的硬盘，除了一块安装系统外，别的4块分别挂载为 /data1 、 /data2 、 \data3 、 /data4 ，请大家尽量将大的数据data盘上，避免影响系统的正常使用。
 
-## 新集群使用 {#cluster}
-详细信息戳 [http://mccipc.ustc.edu.cn](http://mccipc.ustc.edu.cn)
+### OpenCV说明
+新加的两台机器OpenCV安装的是3.3.0版本，安装在 <code>/usr/local/</code>目录下，可在 <code>/usr/local/include/</code>下查看头文件，
+在 <code>/usr/local/lib/</code>下查看 <code>*.so</code> 文件，具体OpenCV的版本可以用如下命令查看：
+```
+$ pkg-config --modversion opencv
+3.3.0
+```
 
+### CUDA和CuDNN说明
+CUDA安装8.0版本，目录为<code>/usr/local/cuda</code>, CuDNN安装的是6.0.21版本，放在 <code>/usr/local/cuda/lib64</code>目录下，目前各个库已经
+都支持该版本。
+如果需要特定版本的CuDNN，可以这样操作：
+1. 复制<code>/usr/local/cuda/</code>到你自己的目录（如<code>/data1/username/cuda</code>），删除其中的 <code>lib64</code>目录下的所有以 <code>libdudnn</code>开头的文
+件和<code>include</code>目录中的<code>cudnn.h</code>文件
+2. 从这里下载特定版本的CuDNN
+3. 解压下载的压缩包，将解压得到的<code>cudnn.h</code>文件放置到你复制后的cuda的<code>include</code>目录下，将所有其余的文件放到<code>lib64</code>目录下
+4. 编辑<code>~/.bashrc</code>文件，修改<code>LD_LIBRARY_PATH</code>环境变量，将其中的<code>/usr/local/cuda/lib64</code>替换成你自己的目录
+(如<code>/data1/username/cuda/lib64</code>)
+5. 在命令行执行<code>source ~/.bashrc</code>来使修改生效
+如果在编译Caffe的时候要用自己路径下的CUDA和CuDNN，将<code>Makefile.config</code>中的28行左右的<code>CUDA_DIR</code>改成你自己的cuda目录（如<code>/data1/username/cuda</code>）
+
+### 深度学习库使用说明
+四台服务器上均已经安装Caffe, TensorFlow, Torch, Pytorch， Keras这几个框架，为了节省空间，建议使用系统默认安装的库，如果有特殊版本需求，可以再自己编译或用pip安装。
+
+#### Caffe 使用说明
+默认的Caffe目录是<code>/data1/public/caffe</code>， 已经编译了命令行工具和Python接口，使用时可以这样使用：
+
+命令行工具：
+```
+#bash 脚本
+#设置caffe可执行命令的路径
+CAFFE_BIN=/data1/public/caffe/build/tools/caffe
+#运行命令行的Caffe训练命令
+CAFFE_BIN train --solver=/path/to/your/sover.prototxt
+```
+运行Python接口
+```
+import sys
+sys.insert(0, '/data1/public/caffe/python')
+import caffe #如果没报错，后面就可以正常使用Caffe的Python接口了
+```
+自己编译Caffe
+
+如果要自己编译Caffe，推荐的方法是将<code>/data1/public/caffe/Makefile.config</code>复制到你的Caffe目录下，然后进行编译即可：
+```
+$ cp /data1/public/caffe/Makefile.config /path/to/your/caffe
+$ make -j40
+$ make pycaffe
+```
+
+#### Torch使用说明
+Torch安装在<code>/data1/public/torch</code>目录下，登录后在命令行输入<code>th</code>即可进入交互界面，如果进入不了的话，将下面这句话加入你的<code>~/.bashrc</code>文件，再执行<code>source ~/.bashrc</code>就可以正常使用torch了：
+```
+#注意点后面有个空格
+. /data1/public/torch/install/bin/torch-activate
+```
+
+#### TensorFlow, Pytorch, Keras使用说明
+这三个库都是基于Python的，两台机器都装了Python 2 和Python 3 的最新版本。
+使用Keras或者TensorFlow的时候，可以在命令前面加<code>CUDA_VISIBLE_DEVICES=x ,x=0,1,2,3</code>来设置只用哪一块卡，以避免占用所有
+的卡：
+```
+# 只用第0块GPU卡
+$ CUDA_VISIBLE_DEVICES=0 python train_net.py
+```
+如果要安装特定版本的python包，可以使用<code>--user</code>选项来安装到自己的<code>~/.local</code>目录下，不需要管理员权限。可以用<code>package_name==x.y.z</code>来指定下载特定的版本：
+```
+# 下载 2.0.1版本的Keras包到自己的目录
+$ pip install --user keras==2.0.1
+```
+
+## 新集群使用指南 {#cluster}
+详细信息戳 [http://mccipc.ustc.edu.cn](http://mccipc.ustc.edu.cn)。里面有更细致的要求以及常用的一些命令，比如查看任务状态，查看资源使用情况等等。
 
 PBS任务脚本样例
 ```
