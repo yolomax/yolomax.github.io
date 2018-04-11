@@ -55,3 +55,35 @@ ssh -p 36036 username@202.38.69.241
 ```
 ssh username@192.168.6.33
 ```
+
+
+## 新集群使用
+详细信息戳 [http://mccipc.ustc.edu.cn](http://mccipc.ustc.edu.cn)
+
+
+PBS任务脚本样例
+```
+# /ghome/liuyh/task/task_a.pbs             # 脚本文件的位置
+#PBS -N a_r_1                              # 此任务的名称，自己拟定，主要是方便在任务列表中查看
+#PBS -o /ghome/liuyh/ignore/task_a.out
+#PBS -e /ghome/liuyh/ignore/task_a.err     # .out 与 .err用于保存程序运行过程中输出的信息，不是实时保存的，经常是任务结束之后才保存。建议自己用logging或者别的来记录日志文件
+#PBS -l nodes=1:gpus=2:D                   # 指明想申请多少张卡用于计算，现在的集群支持，单卡(1:S)，双卡(2:D)，四卡(4:Q)，八卡(8:E)。
+#PBS -r y
+
+cd $PBS_0_WORKDIR
+echo Time is 'date'
+echo Directory is $PWD
+echo This job runs on following nodes:
+cat $PBS_NODEFILE
+
+
+log_name=$(date +%F-%H-%M-%S)
+
+startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py bit:5000/liuyh_deepo_lmdb_visdom   #-D挂载数据目录，-P挂载脚本目录, -s指明脚本。-P与-s组成完整脚本路径，即/ghome/liuyh/vision/models/r_1/train_test.py。最后的那个是指明使用哪个镜像，这个根据需要选择。
+```
+
+注意：
+更换申请的卡的数量时只需更改最后的hpus,不需要改变nodes。比如从双卡变为四卡：
+```
+#PBS -l nodes=1:gpus=2:D    =>  #PBS -l nodes=1:gpus=4:Q
+```
