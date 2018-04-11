@@ -59,7 +59,7 @@ ssh username@192.168.6.232   # 访问232服务器。
 
 ### Samba 访问服务器
 Samba是一种方便的在Linux和Windows下传送文件的协议和软件，在WIndows环境下，在文件管理器中，输
-入<code>\\\192.168.104.12</code>就可以访问服务器。 初始密码同ssh登录时的密码，可以在服务器的命令行下用<code>smbpasswd</code>来修改密码。
+入<code>\\192.168.104.12</code>就可以访问服务器。 初始密码同ssh登录时的密码，可以在服务器的命令行下用<code>smbpasswd</code>来修改密码。
 
 ### VNC 访问服务器图形界面
 两台新加的服务器都安装了VNC服务，可以用VNC Viewer等VNC 客户端来连接到服务器的图形化界面，用来操作MATLAB的图形
@@ -67,8 +67,7 @@ Samba是一种方便的在Linux和Windows下传送文件的协议和软件，在
 1. SSH连接到服务器，在命令行执行<code>vncserver -geometry 1920x1080</code>来创建会话，输出的最下面的 <code>:n</code>(n为一个整数)就是你创建
 的会话ID，初次执行<code>vncserver</code>需要创建一个VNC登录密码。
 2. 在VNC Viewer里面，填入服务器地址+会话ID，如<code>192.168.104.12:23</code>，输入上一步创建的密码就可以登陆图像界面
-3. 如果会话卡死或不响应了， 可以用 vncserver -kill :n 来删除之前创建的编号为n的会话，然后重新执行<code>vncserver -geometry
-1920x1080</code>即可。
+3. 如果会话卡死或不响应了， 可以用<code>vncserver -kill :n</code>来删除之前创建的编号为n的会话，然后重新执行<code>vncserver -geometry 1920x1080</code>即可。
 4. 如果忘记自己的VNC密码了，可以执行<code>vncpasswd</code>来重新设置密码
 
 ### 外网访问
@@ -105,7 +104,7 @@ CUDA安装8.0版本，目录为<code>/usr/local/cuda</code>, CuDNN安装的是6.
 如果需要特定版本的CuDNN，可以这样操作：
 1. 复制<code>/usr/local/cuda/</code>到你自己的目录（如<code>/data1/username/cuda</code>），删除其中的 <code>lib64</code>目录下的所有以 <code>libdudnn</code>开头的文
 件和<code>include</code>目录中的<code>cudnn.h</code>文件
-2. 从这里下载特定版本的CuDNN
+2. 从[这里](https://developer.nvidia.com/cudnn)下载特定版本的CuDNN
 3. 解压下载的压缩包，将解压得到的<code>cudnn.h</code>文件放置到你复制后的cuda的<code>include</code>目录下，将所有其余的文件放到<code>lib64</code>目录下
 4. 编辑<code>~/.bashrc</code>文件，修改<code>LD_LIBRARY_PATH</code>环境变量，将其中的<code>/usr/local/cuda/lib64</code>替换成你自己的目录
 (如<code>/data1/username/cuda/lib64</code>)

@@ -13,6 +13,7 @@ date: 2018-03-01
     passwd 你的用户名
 
 #### 保存密码
+    # 可以免输密码
     ssh-keygen #Simply type enter all the way down
     ssh-copy-id -i liuyh@192.168.17.240   # Enter password
 
