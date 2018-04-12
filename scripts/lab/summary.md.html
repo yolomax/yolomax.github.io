@@ -717,7 +717,19 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">DenseNet-121</td>
 <td style="text-align:center">Euclidean distance</td>
 <td style="text-align:left">1. 序列的定义是特征图中将不同位置的特征视为一个序列。<br>2. 同一个图片内，利用attention用各个位置的特征的加权值代表自己，加权由转移网络根据此位置生成的特征和各个位置的特征的內积大小决定。<br>3. 不同图片之间的也可以用相似方法得到。<br>4. 最后的距离是特征距离取平均</td>
-<td style="text-align:center"><strong>Market 1501</strong>SQ R1 91.42 mAP 76.62<br><strong>DukeMTMC</strong>R1 81.82 mAP 64.58<br><strong>MARS</strong>R1 78.74 mAP 62.26</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left"><strong>Market 1501</strong>SQ R1 91.42 mAP 76.62<br><strong>DukeMTMC</strong>R1 81.82 mAP 64.58<br><strong>MARS</strong>R1 78.74 mAP 62.26</td>
+</tr>
+<tr>
+<td style="text-align:center">Efficient and Deep Person Re-Identification using Multi-Level Similarity</td>
+<td style="text-align:center">Ngai-Man Cheung<br>SUTD</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">多层次的相似性度量</td>
+<td style="text-align:center">六层CNN</td>
+<td style="text-align:center">Softmax Score与Cosine Distance的加权结果</td>
+<td style="text-align:left">1. 双路结构<br>2. 第二层与第三层输出的特征划分为三个水平条带，每个水平条带用一个STN提取一个关键patch，此三个块级联起来再经过两个卷积层得到的表达被用来接对比loss。<br>3. 用一个STN得到的特征在另一个特征图上做卷积得到相似性度量，级联三个个part的卷积得到的相似性度量得到此层特征之间的相似性度量。再级联多层特征的相似性度量，再用三层卷积得到最后的二分类结果。<br>4. 最后的距离是由二分类的结果与两侧用于对比损失函数的特征之间的距离的的加权值</td>
+<td style="text-align:center">manually 87.5<br>detected 86.45</td>
+<td style="text-align:left"><strong>CUHK01</strong> 88.2<br><strong>VIPeR</strong> 50.10</td>
 </tr>
 </tbody>
 </table>
