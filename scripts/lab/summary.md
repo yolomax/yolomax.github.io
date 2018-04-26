@@ -57,6 +57,11 @@
 |Data Generation for Improving Person Re-identification [[pdf](https://dl.acm.org/ft_gateway.cfm?id=3123302&ftid=1914656&dwn=1&CFID=340927&CFTOKEN=4770ffe45b1e2b7e-BB310FC0-0D0B-C046-757DF131D08E8753)]|Zhiyong Gao<br>Shanghai Jiao Tong University|MM 2017|为了解决视频数据集不充分的问题，提出两种结构，一种针对类内，能生成可保持物体运动信息的视频，另一种针对类间，可替换背景。|三层CNN|RNN + average pooling|Euclidean Distance|1. 类内：[预测神经网络](https://arxiv.org/pdf/1605.08104.pdf)，结构是四层的网络，每一层分为四个基础部分：输入卷积模块，循环表达模块，输出预测模块，误差表达模块。训练时，先自顶向下求循化表达模块R的值，在自下而上更新其他值。输入为T帧视频，输出为生成的T-1帧视频。<br>2. 类间：[背景置换网络](https://arxiv.org/pdf/1611.07004.pdf)|66|79|--|
 |Three-Stream Convolutional Networks for Video-based Person Re-Identification|Yi Pab<br>Southwest Jiaotong University|Arxiv 2017.11|降低空间分辨率有很多方法，最大值池化，均值池化，增加卷积步距等等，这些结构对特征的利用情况不同。基于这一点，作者设计了多支路结构的·网络，充分利用这些结构的特点。|四层CNN|RNN + average pooling|Euclidean Distance|1. 网络分三条支路，每个支路三层卷积，三个支路分别使用最大值池化，均值池化，增加卷积步距来降低分辨率。<br>2. 三条支路得到的特征大小相同，在宽度维度上拼接再经过一层卷积层和均值池化得到最后的表达，无全连接。<br>3. 作者经过试验表明，虽然可能某一条支路不如另一条支路效果好，但是共同使用时，依旧可以提升整体的性能。<br>4。 在宽度上叠加效果比在通道上叠加好。|67.5|79.7|45.6|
 |Video Person Re-identification by Temporal Residual Learning|Hongyu Wang|Arxiv 2018.02.22|利用STN做空间上的对齐，BiLSTM融合时间信息|GoogleNet|BiLSTM|L2norm + Euclidean Distance|1.只用分类来训练<br>2. 网络所有部分先用MARS预训练（主要是因为STN部分）|57.7|87.8|79.3|
+|Diversity Regularized Spatiotemporal Attention for Video-based Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|空间与时间上的显著性|Resnet50(用图片reid数据集预训练)|加权平均|Cosine Distance|1. 对输入视频，均分为6份，训练时是从每一份随机取出一个，组成6帧的视频送入网络，测试时用每一份的第一个构成6帧视频代表整个视频<br>2. 用Resnet提取特征后，训练k个空间注意力网络，每一个网络输入是空间上各个位置的特征，每一个位置输出一个分值，这样每个注意力网络会对每个空间位置得到一个分值，用softmax做处理取到最显著的位置。相当于训了k个mask，加权后空间取平均，则每一帧图像得到的特征是(K,C)大小的。<br>3. 对于整个视频特征是(D,K,C)。训一个打分模型，对于每一个C打一个分数，共有D*K个，时间维度上取softmax。对特征加权后取平均得到(K,C)大小的最后的特征表达|80.2|93.2|R1 82.3<br>mAP 65.8|
+|Multi-shot Pedestrian Re-identification via Sequential Decision Making [[code](https://github.com/TuSimple/rl-multishot-reid)]|Liqing Zhang<br>Shanghai Jiao Tong University|CVPR 2018|用增强学习做redi，在效率与准确率之间做平衡|Inception-BN or AlexNet|增强学习|预测为同一个人与不同人的Q值得差|1。 先用预训练的网络训并提取图片的特征。<br>2. Action：判断两张图片为同一个人，不同人，未确定。Reward: 预测正确为1，预测错误或者到了最大步数结果还是未确定时为-1，未确定时为0.2。Q设置为rt 与下一步的Q的最大值之和。<br>3. 送入增强学习部分的数据是当前特征，记忆加权特征与根据当前特征计算的手工特征(差值欧氏距离，均值)，然后提特征网络与后面增强学习网络一起训练|60.2|85.2|71.2|
+|Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning [[code](https://github.com/Yu-Wu/Exploit-Unknown-Gradually)]|
+|Video Person Re-identification with Competitive Snippet-similarity Aggregation and Co-attentive Snippet Embedding|
+|Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints|
 
 ## Metric
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -126,6 +131,7 @@
 |:----:|:------:|:-----------------:|:-----------|:-----|
 |Learning Bidirectional Temporal Cues for Video-based Person Re-identification [[pdf](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7954700)]|Xuanyu He|IEEE TCSVT|利用双向循环神经网络，在RNN-CNN基础上改进|**iLIDS** 55.3<br>**PRID** 72,8|
 ---
+
 ## Code Temp
 ### Projects
 * Baseline Code (with bottleneck) for Person-reID (pytorch) [[code](https://github.com/teslacool/Person_reID_baseline_pytorch)]
@@ -186,8 +192,8 @@
 * SPP
 
 # Links
-* [(KaiyangZhou)[https://github.com/KaiyangZhou/deep-person-reid]]
-* [handong ](https://handong1587.github.io)的 [Summary](https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md)
+* [KaiyangZhou](https://github.com/KaiyangZhou/deep-person-reid)
+* [handong](https://handong1587.github.io) 的 [Summary](https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md)
 * [数据集总结](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)
 * [State of the art on the MARS dataset](http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html)
 

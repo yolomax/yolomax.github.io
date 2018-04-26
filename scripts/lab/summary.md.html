@@ -998,6 +998,41 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">87.8</td>
 <td style="text-align:center">79.3</td>
 </tr>
+<tr>
+<td style="text-align:center">Diversity Regularized Spatiotemporal Attention for Video-based Person Re-identification</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">空间与时间上的显著性</td>
+<td style="text-align:center">Resnet50(用图片reid数据集预训练)</td>
+<td style="text-align:center">加权平均</td>
+<td style="text-align:center">Cosine Distance</td>
+<td style="text-align:left">1. 对输入视频，均分为6份，训练时是从每一份随机取出一个，组成6帧的视频送入网络，测试时用每一份的第一个构成6帧视频代表整个视频<br>2. 用Resnet提取特征后，训练k个空间注意力网络，每一个网络输入是空间上各个位置的特征，每一个位置输出一个分值，这样每个注意力网络会对每个空间位置得到一个分值，用softmax做处理取到最显著的位置。相当于训了k个mask，加权后空间取平均，则每一帧图像得到的特征是(K,C)大小的。<br>3. 对于整个视频特征是(D,K,C)。训一个打分模型，对于每一个C打一个分数，共有D*K个，时间维度上取softmax。对特征加权后取平均得到(K,C)大小的最后的特征表达</td>
+<td style="text-align:center">80.2</td>
+<td style="text-align:center">93.2</td>
+<td style="text-align:center">R1 82.3<br>mAP 65.8</td>
+</tr>
+<tr>
+<td style="text-align:center">Multi-shot Pedestrian Re-identification via Sequential Decision Making [<a href="https://github.com/TuSimple/rl-multishot-reid">code</a>]</td>
+<td style="text-align:center">Liqing Zhang<br>Shanghai Jiao Tong University</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">用增强学习做redi，在效率与准确率之间做平衡</td>
+<td style="text-align:center">Inception-BN or AlexNet</td>
+<td style="text-align:center">增强学习</td>
+<td style="text-align:center">预测为同一个人与不同人的Q值得差</td>
+<td style="text-align:left">1。 先用预训练的网络训并提取图片的特征。<br>2. Action：判断两张图片为同一个人，不同人，未确定。Reward: 预测正确为1，预测错误或者到了最大步数结果还是未确定时为-1，未确定时为0.2。Q设置为rt 与下一步的Q的最大值之和。<br>3. 送入增强学习部分的数据是当前特征，记忆加权特征与根据当前特征计算的手工特征(差值欧氏距离，均值)，然后提特征网络与后面增强学习网络一起训练</td>
+<td style="text-align:center">60.2</td>
+<td style="text-align:center">85.2</td>
+<td style="text-align:center">71.2</td>
+</tr>
+<tr>
+<td style="text-align:center">Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning [<a href="https://github.com/Yu-Wu/Exploit-Unknown-Gradually">code</a>]</td>
+</tr>
+<tr>
+<td style="text-align:center">Video Person Re-identification with Competitive Snippet-similarity Aggregation and Co-attentive Snippet Embedding</td>
+</tr>
+<tr>
+<td style="text-align:center">Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints</td>
+</tr>
 </tbody>
 </table>
 <h2 id="metric">Metric</h2>
@@ -1694,8 +1729,8 @@ pre.editor-colors .bracket-matcher .region {
 </ul>
 <h1>Links</h1>
 <ul>
-<li>[(KaiyangZhou)[<a href="https://github.com/KaiyangZhou/deep-person-reid]]">https://github.com/KaiyangZhou/deep-person-reid]]</a></li>
-<li><a href="https://handong1587.github.io">handong </a>的 <a href="https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md">Summary</a></li>
+<li><a href="https://github.com/KaiyangZhou/deep-person-reid">KaiyangZhou</a></li>
+<li><a href="https://handong1587.github.io">handong</a> 的 <a href="https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md">Summary</a></li>
 <li><a href="http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html">数据集总结</a></li>
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>
 </ul>
