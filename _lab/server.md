@@ -15,6 +15,7 @@ date: 2018-03-29
 3. [用户分配列表](#user)
 4. [服务器使用指南](#server)
 5. [新集群使用指南](#cluster)
+6. [实验室硬件管理](#hardware)
 
 ## GPU服务器资源列表 {#gpu}
 
@@ -190,3 +191,9 @@ startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py b
 ```
 #PBS -l nodes=1:gpus=2:D    =>   #PBS -l nodes=1:gpus=4:Q
 ```
+
+## 实验室硬件管理 {#hardware}
+
+| 名称 | 参数 |数量 | 借出 |
+|:----:|:----:|:----:|:----:|
+|内存条|8G DDR4 2133HZ|16|谢乔康(2) 蒲俊福(2)|
