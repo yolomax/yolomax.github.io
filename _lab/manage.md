@@ -196,4 +196,4 @@ startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py b
 
 | 名称 | 参数 |数量 | 借出 |
 |:----:|:----:|:----:|:----:|
-|内存条|8G DDR4 2133HZ|16|谢乔康(2) 蒲俊福(2)|
+|内存条|8G DDR4 2133HZ|16|蒲俊福(2)|
