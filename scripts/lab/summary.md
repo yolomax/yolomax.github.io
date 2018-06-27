@@ -35,6 +35,9 @@
 |SVDNet for Pedestrian Retrieval|Shengjin Wang<br>Liang Zheng|ICCV 2017|-|去最后的全连接层权值矩阵的相关性，得到更高层度的正交性|CaffeNet or Resnet50|Euclidean distance|1. 用在倒数第二个全连接层<br>2. 步骤: 向网络中加入一个线性全连接层，并微调至收敛。将线性全连接层的权值矩阵进行SVD分解，<br>W = USV<br>用W和其自身的转置矩阵乘作为本征层。固定本征层，并微调网络至收敛。再不固定本征层，微调整个网络至收敛|detected R1 81.8 mAP 84.8|**Market 1501** R1 82.3 mAP 62.1<br>**DukeMTMC-reID** R1 76.7 mAP 56.8|
 |Dual Attention Matching Network for Context-Aware Feature Sequence based Person Re-Identification|Jason Kuen<br>NTUS|CVPR 2018|Attention|提出一个用多个序列算距离的方法|DenseNet-121|Euclidean distance|1. 序列的定义是特征图中将不同位置的特征视为一个序列。<br>2. 同一个图片内，利用attention用各个位置的特征的加权值代表自己，加权由转移网络根据此位置生成的特征和各个位置的特征的內积大小决定。<br>3. 不同图片之间的也可以用相似方法得到。<br>4. 最后的距离是特征距离取平均|-|**Market 1501**SQ R1 91.42 mAP 76.62<br>**DukeMTMC**R1 81.82 mAP 64.58<br>**MARS**R1 78.74 mAP 62.26|
 |Efficient and Deep Person Re-Identification using Multi-Level Similarity|Ngai-Man Cheung<br>SUTD|CVPR 2018|Distance Metric|多层次的相似性度量|六层CNN|Softmax Score与Cosine Distance的加权结果|1. 双路结构<br>2. 第二层与第三层输出的特征划分为三个水平条带，每个水平条带用一个STN提取一个关键patch，此三个块级联起来再经过两个卷积层得到的表达被用来接对比loss。<br>3. 用一个STN得到的特征在另一个特征图上做卷积得到相似性度量，级联三个个part的卷积得到的相似性度量得到此层特征之间的相似性度量。再级联多层特征的相似性度量，再用三层卷积得到最后的二分类结果。<br>4. 最后的距离是由二分类的结果与两侧用于对比损失函数的特征之间的距离的的加权值|manually 87.5<br>detected 86.45|**CUHK01** 88.2<br>**VIPeR** 50.10|
+|Adversarially Occluded Samples for Person Re-identification|Kaiqi Huang<br>UCAS|CVPR 2018|Data Augmentation|对重要区域添加mask以让模型关注到其他的区域|IDE(ResNet)|Euclidean Distance|1. 先正常训练模型<br>2. 选择矩形区域区域遮挡，再用相同的配置训练模型<br>3. 选择方法：固定遮挡框的大小，划窗遮挡，对于导致正确标签预测概率降低的位置，以降低的数值为其重要性表达，各个位置的重要性标准化之后，以之为概率随机选择遮挡|detected(767) R1 54.56 mAP 56.09|**Market1501**<br>SQ R1 88.66 mAP 83.3<br>MQ R1 92.5 mAP 88.6<br>**DukeMTMC-reID** R1 84.11 mAP 78.19|
+|Attention-Aware Compositional Network for Person Re-identification|Wanli Ouyang<br>The University of Sydney|CVPR 2018|Part Attention|利用关键点检测，得到不同部位的特征，并加权|GoogleNet|--|1.主要有两路，一路用于检测关键点，一路用于提特征，两路先分别训练，然后合起来训练。<br>2. pose分支现在MPII上预训练，输出关键点位置，part场，以及根据关键点划分的三个大块。part场是real time那篇预测两个关键点之间的矩形区域的，这里和划分出的三个大块一样，相当于一个mask用于对另一个支路的特征做掩模，通过各个mask掩模得到的特征pooling再级联起来，再加权(利用mask的响应以及特征学到)，然后就得到了最后的特征。|manually 91.39 detected 89.51|**CUHK01** 88.07<br>**Market1501**<br>SQ R1 88.69 mAP 82.96<br>MQ R1 92.16 mAP 87.32<br>**CUHK03-NP**<br>labeld R1 81.86 mAP 81.61<br>detected R1 79.14 mAP 78.37<br>**DukeMTMC-reID** R1 76.84 mAP 59.25<br>**SenseReID** 41.37|
+|Deep Group-shuffling Random Walk for Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|re-ranking|将re-ranking嵌入到网络中|Resnet50|Euclidean Distance + reranking|1. 计算gallery之间的相似度以及query与gallery之间的相似度，并用随机游走更新query与gallery之间的相似度，并用此结果做预测以及计算loss<br>2. 将特征分为几组，每一组内计算各种相似度，组与组之间可以组合用于随机游走|manually mAP 94.0 R1 94.9|**Market1501** SQ mAP 82.5 R1 92.7<br>**DukeMTMC** mAP 66.4 R1 80.7|
 
 ## Video
 | Name | Author | Conference & Year |Tag| Motivation |Feature|Fusion|Metric|Detail|iLIDS|PRID|MARS|
@@ -60,9 +63,8 @@
 |Video Person Re-identification by Temporal Residual Learning|Hongyu Wang|Arxiv 2018.02.22|BiLSTM|利用STN做空间上的对齐，BiLSTM融合时间信息|GoogleNet|BiLSTM|L2norm + Euclidean Distance|1.只用分类来训练<br>2. 网络所有部分先用MARS预训练（主要是因为STN部分）|57.7|87.8|79.3|
 |Diversity Regularized Spatiotemporal Attention for Video-based Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|Attention|空间与时间上的显著性|Resnet50(用图片reid数据集预训练)|加权平均|Cosine Distance|1. 对输入视频，均分为6份，训练时是从每一份随机取出一个，组成6帧的视频送入网络，测试时用每一份的第一个构成6帧视频代表整个视频<br>2. 用Resnet提取特征后，训练k个空间注意力网络，每一个网络输入是空间上各个位置的特征，每一个位置输出一个分值，这样每个注意力网络会对每个空间位置得到一个分值，用softmax做处理取到最显著的位置。相当于训了k个mask，加权后空间取平均，则每一帧图像得到的特征是(K,C)大小的。<br>3. 对于整个视频特征是(D,K,C)。训一个打分模型，对于每一个C打一个分数，共有D*K个，时间维度上取softmax。对特征加权后取平均得到(K,C)大小的最后的特征表达|80.2|93.2|R1 82.3<br>mAP 65.8|
 |Multi-shot Pedestrian Re-identification via Sequential Decision Making [[code](https://github.com/TuSimple/rl-multishot-reid)]|Liqing Zhang<br>Shanghai Jiao Tong University|CVPR 2018|增强学习|用增强学习做redi，在效率与准确率之间做平衡|Inception-BN or AlexNet|增强学习|预测为同一个人与不同人的Q值得差|1。 先用预训练的网络训并提取图片的特征。<br>2. Action：判断两张图片为同一个人，不同人，未确定。Reward: 预测正确为1，预测错误或者到了最大步数结果还是未确定时为-1，未确定时为0.2。Q设置为rt 与下一步的Q的最大值之和。<br>3. 送入增强学习部分的数据是当前特征，记忆加权特征与根据当前特征计算的手工特征(差值欧氏距离，均值)，然后提特征网络与后面增强学习网络一起训练|60.2|85.2|71.2|
-|Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning [[code](https://github.com/Yu-Wu/Exploit-Unknown-Gradually)]|
-|Video Person Re-identification with Competitive Snippet-similarity Aggregation and Co-attentive Snippet Embedding|
-|Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints|
+|Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning [[code](https://github.com/Yu-Wu/Exploit-Unknown-Gradually)]|Wanli Ouyang<br>The University of Sydney|CVPR 2018|One-Shot|逐渐给无标签数据添加伪标签|Resnet50|Average Pooling|Cosine Distance|1. 先用有标签数据训练一个模型。<br>2. 依次扩大训练数据的大小，每次增大m。每一步，对于给定的数据集大小，选择伪数据与真实数据特征欧氏距离最小，然后决定使用那些数据，并打上与之最近的数据的标签，并训练。<br>3.迭代进行直至用完数据。|-|-|R1 62.67 mAP 42.45<br>**DukeMTMC-VideoReID** R1 72.79 mAP 63.23|
+|Video Person Re-identification with Competitive Snippet-similarity Aggregation and Co-attentive Snippet Embedding|Xiaogang Wang<br>CUHK|CVPR 2018|1. Attention<br>2. Distance Metric|将长视频等间距划分为短视频，短视频之间比较距离|Resnet50|加权平均|FC+sigmoid|1. 输入是RGB+光流，用Resnet50提取2048维的特征向量。<br>2. Co-attention embedding: value与key feature由全连接层生成，query feature是用LSTM聚合probe视频片段生成。query freature 也被用于gallery特征生成，即gallery的特征加权是与query相关的。|85.4|93.0|R1 86.3<br> mAP 76.1|
 
 ## Metric
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -88,7 +90,7 @@
 |End-to-End Deep Learning for Person Search|Xiaogang Wang<br>CUHK|ECCV 2016|将检测与匹配结合起来做|Faster RCNN|Softmax Score|1. 分类的时候，一个batch只有少数图片，但整体类别很多，所以Softmax目标会很稀疏<br>2. 提出随机采样的Softmax loss，即每次随机选取Softmax神经元的一个子集|--|
 |Person Search with Natural Language Description|Xiaogang Wang<br>CUHK|CVPR 2017|根据自然语言描述去搜索人物|VGG16|--|1. 单元级的注意力与单词级的门控制|--|
 |Unlabeled Samples Generated by GAN Improve the Person Re-identification Baseline in vitro [[code](https://github.com/layumi/Person-reID_GAN)]|Liang Zheng<br>University of Technology Sydney|ICCV 2017|借助于GAN产生训练图片，缓解过拟合|ResNet|Cosine Distance|1. 用DCGAN产生图片，产生的图片不属于任何类，使用 label smoothing regularization (加权0.1)方法学习针。对于正常的真实图片，用交叉熵损失(加权1)学习|**Market 1501**<br>SQ R1 83.97 mAP 66.07<br>MQ R1 88.42 mAP 76.10<br>**CUHK03** detected<br>R1 84.6 mAP 87.4<br>**DukeMTMC**<br>R1 67.68 mAP 47.13|
-|Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatio-temporal Patterns [[code](https://github.com/ahangchen/TFusion)]|Jianming Lv<br>South China University of Technology|CVPR 2018|
+|Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatio-temporal Patterns [[code](https://github.com/ahangchen/TFusion)]|Jianming Lv<br>South China University of Technology|CVPR 2018|-|-|-|-|-|
 
 ## GAN
 | Name | Author | Conference & Year | Motivation |G & D|Feature|Metric|Detail|Dataset|
@@ -131,9 +133,11 @@
 | Name | Author | Conference & Year | Motivation |Detail|
 |:----:|:------:|:-----------------:|:-----------|:-----|
 |Learning Bidirectional Temporal Cues for Video-based Person Re-identification [[pdf](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7954700)]|Xuanyu He|IEEE TCSVT|利用双向循环神经网络，在RNN-CNN基础上改进|**iLIDS** 55.3<br>**PRID** 72,8|
+|Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints|Ying Wu<br>CASA|CVPR 2018|Metric Learning|**iLIDS** 42<br>**PRID** 70.9|
 ---
 
-## Code Temp
+# <center>Code</center>
+
 ### Projects
 * Baseline Code (with bottleneck) for Person-reID (pytorch) [[code](https://github.com/teslacool/Person_reID_baseline_pytorch)]
 * Open reid [[code](https://github.com/Cysu/open-reid)]
@@ -170,6 +174,8 @@
 |*Learning Spatiotemporal Features with 3D Convolutional Networks*|Manohar Paluri<br>Facebook AI Research|ICCV 2015|3D卷积核去处理视频|3D卷积核能有效学习时间与空间特征|
 |MatchNet: Unifying Feature and Metric Learning for Patch-Based Matching|Alexander C. Berg<br>University of North Carolina at Chapel Hill|CVPR 2015|块匹配与特征学习一起做|两个支路通过全连接融合为一路，全连接层则相当于距离度量|
 |Deep Mutual Learning|Huchuan Lu<br>Dalian University of Technology, China|Arxiv 201706|两个网络相互学习|1. 两个网络都对同一个输入做预测，各有一个分类loss，同时两者之间有一个二者输出的概率分布的KL距离的loss。<br>2. 优化时，交替优化，直至收敛|
+|Online Video Deblurring via Dynamic Temporal Blending Network|Micheal Hirsch<br>Seoul National University|CVPR 2017|图片去噪|1. 采用循环结构<br>2. Encoder + Dynamic blending + Decoder|
+|Coherent Online Video Style Transfer|Gang Hua<br>MSRA|ICCV 2017|视频风格转换|1. 相邻两帧之间提取光流<br>2. 每一帧用encoder获得特征，用光流对前一帧wrap。利用wrap之后的结果与当前帧的特征的差值学习mask，用mask更新特征，最后对当前帧特征解码|
 
 ## Pose Estimation
 | Name | Author | Conference & Year | Motivation |Detail|
@@ -177,6 +183,16 @@
 |Convolutional Pose Machines| Yaser Sheikh<br>CMU|CVPR 2016|用很深的网络不断调整预测|1. 整体类似RNN,分为很多步<br>2. 第一步输入是用七层网络提取的各个关节点的自信图<br>3. 之后的每个阶段是一样的model，是5层卷积网，输入为前一阶段的自信图以及对原始图提取的特征<br>4. 每一阶段都会额外增加一个loss,是预测与真实自信图的误差，用以减轻梯度消失问题|
 |Thin-Slicing Network: A Deep Structured Model for Pose Estimation in Videos|Otmar Hilliges<br>ETH Zurich|CVPR 2017|能端到端的训练，能同时表达交界处以及他们之间的时空关系|1. 先训练CPM，再与后面的网络结合起来优化<br>2. 对于前后帧，用弹簧能量模型定义变形损失|
 |Realtime Multi-Person 2D Pose Estimation using Part Affinity Fileds|Yaser Sheikh<br>CMU|CVPR 2017|定义新的表达来更好的处理多人关节点估计|1. PAF是同一个人两个相邻关节点之间的向量场，有方向<br>2. 网络分为两路，一路用CPM预测自信图，另一路预测PAF<br>3.PAF主要解决多人情况下关节点的划分问题|
+
+[
+## Super-Resolution
+| Name | Author | Conference & Year | Motivation |Detail|
+|:----:|:------:|:-----------------:|:-----------|:-----|
+|Image Super-Resolution Using Deep Convolutional Networks|Xiaoou Tang<br>CUHK|2016 TPAMI|用CNN处理超分辨|三层CNN结构，先将低分辨率图片上采样到期望的大小，然后经过三个卷积层，中间无下采样，输出的为处理的高分辨率图片，与label的差值平方和为loss|
+|Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network|Wezhe Shi<br>Twitter|CVPR 2016|将upscale放到最后一层，降低了计算量|输入为低分辨率图片，在最后一层，通道数为原图通道数的降采样比例的平方倍，这样相当于用不同的通道去学upscale时不同位置的值，将结果重排一下就是高分辨率图了。|
+|Perceptual Losses for Real-Time Style Transfer and Super-Resolution|Li FeiFei|ECCV 2016|不使用per-pixel的loss|不直接要求重建的高清图片与真实高清图片的像素相似，而是要求用网络提取的特征相似，这样能获得更好的视觉上的提升|
+|Frame-Recurrent Video Super-Resolution|Matthew Brown<br> Google|CVPR 2018|不使用划窗，降低计算量|1. 前一帧与当前帧级联学习光流。<br>2. 利用光流对前一帧的预测的高分辨率图片做warping(即利用光流的值得到前一帧像素应该向何处偏移)。<br>3. 利用重新估算的当前帧高分辨率图片结合当前帧得到最后的估计|
+]: #
 
 ## Machine Learning
 | Name | Author | Conference & Year | Motivation |Detail|
@@ -198,4 +214,4 @@
 * [数据集总结](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)
 * [State of the art on the MARS dataset](http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html)
 
-<div align="right">Updated Date: 2018/03/17</div>
+<div align="right">Updated Date: 2018/06/27</div>

@@ -775,6 +775,42 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">manually 87.5<br>detected 86.45</td>
 <td style="text-align:left"><strong>CUHK01</strong> 88.2<br><strong>VIPeR</strong> 50.10</td>
 </tr>
+<tr>
+<td style="text-align:center">Adversarially Occluded Samples for Person Re-identification</td>
+<td style="text-align:center">Kaiqi Huang<br>UCAS</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Data Augmentation</td>
+<td style="text-align:left">对重要区域添加mask以让模型关注到其他的区域</td>
+<td style="text-align:center">IDE(ResNet)</td>
+<td style="text-align:center">Euclidean Distance</td>
+<td style="text-align:left">1. 先正常训练模型<br>2. 选择矩形区域区域遮挡，再用相同的配置训练模型<br>3. 选择方法：固定遮挡框的大小，划窗遮挡，对于导致正确标签预测概率降低的位置，以降低的数值为其重要性表达，各个位置的重要性标准化之后，以之为概率随机选择遮挡</td>
+<td style="text-align:center">detected(767) R1 54.56 mAP 56.09</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 88.66 mAP 83.3<br>MQ R1 92.5 mAP 88.6<br><strong>DukeMTMC-reID</strong> R1 84.11 mAP 78.19</td>
+</tr>
+<tr>
+<td style="text-align:center">Attention-Aware Compositional Network for Person Re-identification</td>
+<td style="text-align:center">Wanli Ouyang<br>The University of Sydney</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Part Attention</td>
+<td style="text-align:left">利用关键点检测，得到不同部位的特征，并加权</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">--</td>
+<td style="text-align:left">1.主要有两路，一路用于检测关键点，一路用于提特征，两路先分别训练，然后合起来训练。<br>2. pose分支现在MPII上预训练，输出关键点位置，part场，以及根据关键点划分的三个大块。part场是real time那篇预测两个关键点之间的矩形区域的，这里和划分出的三个大块一样，相当于一个mask用于对另一个支路的特征做掩模，通过各个mask掩模得到的特征pooling再级联起来，再加权(利用mask的响应以及特征学到)，然后就得到了最后的特征。</td>
+<td style="text-align:center">manually 91.39 detected 89.51</td>
+<td style="text-align:left"><strong>CUHK01</strong> 88.07<br><strong>Market1501</strong><br>SQ R1 88.69 mAP 82.96<br>MQ R1 92.16 mAP 87.32<br><strong>CUHK03-NP</strong><br>labeld R1 81.86 mAP 81.61<br>detected R1 79.14 mAP 78.37<br><strong>DukeMTMC-reID</strong> R1 76.84 mAP 59.25<br><strong>SenseReID</strong> 41.37</td>
+</tr>
+<tr>
+<td style="text-align:center">Deep Group-shuffling Random Walk for Person Re-identification</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">re-ranking</td>
+<td style="text-align:left">将re-ranking嵌入到网络中</td>
+<td style="text-align:center">Resnet50</td>
+<td style="text-align:center">Euclidean Distance + reranking</td>
+<td style="text-align:left">1. 计算gallery之间的相似度以及query与gallery之间的相似度，并用随机游走更新query与gallery之间的相似度，并用此结果做预测以及计算loss<br>2. 将特征分为几组，每一组内计算各种相似度，组与组之间可以组合用于随机游走</td>
+<td style="text-align:center">manually mAP 94.0 R1 94.9</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ mAP 82.5 R1 92.7<br><strong>DukeMTMC</strong> mAP 66.4 R1 80.7</td>
+</tr>
 </tbody>
 </table>
 <h2 id="video">Video</h2>
@@ -1092,12 +1128,31 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 <tr>
 <td style="text-align:center">Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning [<a href="https://github.com/Yu-Wu/Exploit-Unknown-Gradually">code</a>]</td>
+<td style="text-align:center">Wanli Ouyang<br>The University of Sydney</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">One-Shot</td>
+<td style="text-align:left">逐渐给无标签数据添加伪标签</td>
+<td style="text-align:left">Resnet50</td>
+<td style="text-align:center">Average Pooling</td>
+<td style="text-align:center">Cosine Distance</td>
+<td style="text-align:center">1. 先用有标签数据训练一个模型。<br>2. 依次扩大训练数据的大小，每次增大m。每一步，对于给定的数据集大小，选择伪数据与真实数据特征欧氏距离最小，然后决定使用那些数据，并打上与之最近的数据的标签，并训练。<br>3.迭代进行直至用完数据。</td>
+<td style="text-align:left">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">R1 62.67 mAP 42.45<br><strong>DukeMTMC-VideoReID</strong> R1 72.79 mAP 63.23</td>
 </tr>
 <tr>
 <td style="text-align:center">Video Person Re-identification with Competitive Snippet-similarity Aggregation and Co-attentive Snippet Embedding</td>
-</tr>
-<tr>
-<td style="text-align:center">Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">1. Attention<br>2. Distance Metric</td>
+<td style="text-align:left">将长视频等间距划分为短视频，短视频之间比较距离</td>
+<td style="text-align:left">Resnet50</td>
+<td style="text-align:center">加权平均</td>
+<td style="text-align:center">FC+sigmoid</td>
+<td style="text-align:center">1. 输入是RGB+光流，用Resnet50提取2048维的特征向量。<br>2. Co-attention embedding: value与key feature由全连接层生成，query feature是用LSTM聚合probe视频片段生成。query freature 也被用于gallery特征生成，即gallery的特征加权是与query相关的。</td>
+<td style="text-align:left">85.4</td>
+<td style="text-align:center">93.0</td>
+<td style="text-align:center">R1 86.3<br> mAP 76.1</td>
 </tr>
 </tbody>
 </table>
@@ -1287,6 +1342,11 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatio-temporal Patterns [<a href="https://github.com/ahangchen/TFusion">code</a>]</td>
 <td style="text-align:center">Jianming Lv<br>South China University of Technology</td>
 <td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
 </tr>
 </tbody>
 </table>
@@ -1573,10 +1633,17 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">利用双向循环神经网络，在RNN-CNN基础上改进</td>
 <td style="text-align:left"><strong>iLIDS</strong> 55.3<br><strong>PRID</strong> 72,8</td>
 </tr>
+<tr>
+<td style="text-align:center">Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints</td>
+<td style="text-align:center">Ying Wu<br>CASA</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">Metric Learning</td>
+<td style="text-align:left"><strong>iLIDS</strong> 42<br><strong>PRID</strong> 70.9</td>
+</tr>
 </tbody>
 </table>
 <hr>
-<h2 id="code-temp">Code Temp</h2>
+<h1 id="-center-code-center-"><center>Code</center></h1>
 <h3 id="projects">Projects</h3>
 <ul>
 <li>Baseline Code (with bottleneck) for Person-reID (pytorch) [<a href="https://github.com/teslacool/Person_reID_baseline_pytorch">code</a>]</li>
@@ -1717,6 +1784,20 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">两个网络相互学习</td>
 <td style="text-align:left">1. 两个网络都对同一个输入做预测，各有一个分类loss，同时两者之间有一个二者输出的概率分布的KL距离的loss。<br>2. 优化时，交替优化，直至收敛</td>
 </tr>
+<tr>
+<td style="text-align:center">Online Video Deblurring via Dynamic Temporal Blending Network</td>
+<td style="text-align:center">Micheal Hirsch<br>Seoul National University</td>
+<td style="text-align:center">CVPR 2017</td>
+<td style="text-align:left">图片去噪</td>
+<td style="text-align:left">1. 采用循环结构<br>2. Encoder + Dynamic blending + Decoder</td>
+</tr>
+<tr>
+<td style="text-align:center">Coherent Online Video Style Transfer</td>
+<td style="text-align:center">Gang Hua<br>MSRA</td>
+<td style="text-align:center">ICCV 2017</td>
+<td style="text-align:left">视频风格转换</td>
+<td style="text-align:left">1. 相邻两帧之间提取光流<br>2. 每一帧用encoder获得特征，用光流对前一帧wrap。利用wrap之后的结果与当前帧的特征的差值学习mask，用mask更新特征，最后对当前帧特征解码</td>
+</tr>
 </tbody>
 </table>
 <h2 id="pose-estimation">Pose Estimation</h2>
@@ -1810,5 +1891,5 @@ pre.editor-colors .bracket-matcher .region {
 <li><a href="http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html">数据集总结</a></li>
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>
 </ul>
-<div align="right">Updated Date: 2018/03/17</div></body>
+<div align="right">Updated Date: 2018/06/27</div></body>
 </html>
