@@ -811,6 +811,30 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">manually mAP 94.0 R1 94.9</td>
 <td style="text-align:left"><strong>Market1501</strong> SQ mAP 82.5 R1 92.7<br><strong>DukeMTMC</strong> mAP 66.4 R1 80.7</td>
 </tr>
+<tr>
+<td style="text-align:center">Eliminating Background-bias for Robust Person Re-identification</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Data Augmentation</td>
+<td style="text-align:left">探究背景的影响</td>
+<td style="text-align:center">Inception</td>
+<td style="text-align:center">Cosine Distance</td>
+<td style="text-align:left">1. 先在其他数据上预训练一个人的parsing的网络，可以提人体的掩模。固定参数，之后不再训练<br>2. 训练主分支<br>3. 对于一张图片，将掩模上下分为三个部分，分别对应头，上身，下身。二值化并对第一个inception的特征做mask。三个分支用单独的网络训练，此时主分支不变。<br>4. 主分支与三个支路一起训练。<br>数据增强：输入数据时，随机选择是否替换背景</td>
+<td style="text-align:center">all 92.5</td>
+<td style="text-align:left"><strong>CUHK01</strong> 82.5<br><strong>VIPeR</strong> 51.9<br><strong>3DPeS</strong> 65.6<br><strong>Market1501</strong>SQ R1 81.2</td>
+</tr>
+<tr>
+<td style="text-align:center">End-to-End Deep Kronecker-Product Matching for Person Re-identification</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Distance Metric</td>
+<td style="text-align:left">构建匹配用的net，能起到对齐的效果</td>
+<td style="text-align:center">Resnet50</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">1. 两张图片的特征x与y。分别计算各个空间位置的特征之间的內积，作为相似性度量，对于y中位置为(p,q)的点，利用x中(p,q)位置的特征与y中各个位置的相似性，做加权平均，得到y的(p,q)为位置重排的特征。对y重排之后，计算x与y的差值。利用x的特征算空间mask对差值加权。<br>2. 卷积加上采样，构建三种尺度，分别对三种尺度下两个特征做以上操作，最后特征级联得到最后预测</td>
+<td style="text-align:center">manually R1 93.4 mAP 89.2</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 90.1 mAP 75.3<br><strong>DukeMTMC</strong> R1 80.3 mAP 63.2</td>
+</tr>
 </tbody>
 </table>
 <h2 id="video">Video</h2>
@@ -1348,6 +1372,16 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">-</td>
 <td style="text-align:left">-</td>
 </tr>
+<tr>
+<td style="text-align:center">Deep Spatial Feature Reconstruction for Partial Person Re-identification: Alignment-free Approach</td>
+<td style="text-align:center">Zhenan Sun<br>CASIA</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">部分人体找完整人体</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Euclidean distance</td>
+<td style="text-align:left">将稀疏字典表达嵌入到网络中，完整人体特征视为字典，稀疏矩阵是要学习的权值，这些用以重建部分人体的特征</td>
+<td style="text-align:left"><strong>Partial REID</strong>MQ 53.67<br><strong>Partial-iLIDS</strong> MQ 55.46</td>
+</tr>
 </tbody>
 </table>
 <h2 id="gan">GAN</h2>
@@ -1640,8 +1674,17 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">Metric Learning</td>
 <td style="text-align:left"><strong>iLIDS</strong> 42<br><strong>PRID</strong> 70.9</td>
 </tr>
+<tr>
+<td style="text-align:center">Group Consistent Similarity Learning via Deep CRF for Person Re-Identification</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">考虑gallery之间的相关性，对probe与gallery之间的相似性优化</td>
+<td style="text-align:left"><strong>Market1501</strong>SQ R1 93.5 mAP 81.6<br><strong>DukeMTMC</strong> R1 84.9 mAP 69.5<br><strong>CUHK03</strong><br>labeld R1 90.2<br>detected R1 88.8</td>
+</tr>
 </tbody>
 </table>
+<p>Multi-shot: In the multi-shot experiments, we return the
+average similarity between the probe person image and multiple gallery images of an certain individual.</p>
 <hr>
 <h1 id="-center-code-center-"><center>Code</center></h1>
 <h3 id="projects">Projects</h3>
@@ -1891,5 +1934,5 @@ pre.editor-colors .bracket-matcher .region {
 <li><a href="http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html">数据集总结</a></li>
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>
 </ul>
-<div align="right">Updated Date: 2018/06/27</div></body>
+<div align="right">Updated Date: 2018/06/30</div></body>
 </html>
