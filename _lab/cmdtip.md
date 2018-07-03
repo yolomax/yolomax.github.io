@@ -20,6 +20,9 @@ date: 2018-03-01
 #### 查看当前目录已经使用总大小及当前目录下一级文件或文件夹各自使用的总空间大小
     du -h --max-depth=1
 
+#### 查找某PID的信息
+    ps -q pid_num -f 
+
 
 ## <center>Ubuntu 管理员常用命令</center>
 
@@ -38,3 +41,8 @@ date: 2018-03-01
 
 #### 添加管理员权限
     sudo usermod -aG sudo 用户名
+
+#### 查找占用GPU资源的PID
+    sudo fuser -v /dev/nvidia*
+
+

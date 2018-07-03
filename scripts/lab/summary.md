@@ -40,7 +40,9 @@
 |Deep Group-shuffling Random Walk for Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|re-ranking|将re-ranking嵌入到网络中|Resnet50|Euclidean Distance + reranking|1. 计算gallery之间的相似度以及query与gallery之间的相似度，并用随机游走更新query与gallery之间的相似度，并用此结果做预测以及计算loss<br>2. 将特征分为几组，每一组内计算各种相似度，组与组之间可以组合用于随机游走|manually mAP 94.0 R1 94.9|**Market1501** SQ mAP 82.5 R1 92.7<br>**DukeMTMC** mAP 66.4 R1 80.7|
 |Eliminating Background-bias for Robust Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|Data Augmentation|探究背景的影响|Inception|Cosine Distance|1. 先在其他数据上预训练一个人的parsing的网络，可以提人体的掩模。固定参数，之后不再训练<br>2. 训练主分支<br>3. 对于一张图片，将掩模上下分为三个部分，分别对应头，上身，下身。二值化并对第一个inception的特征做mask。三个分支用单独的网络训练，此时主分支不变。<br>4. 主分支与三个支路一起训练。<br>数据增强：输入数据时，随机选择是否替换背景|all 92.5|**CUHK01** 82.5<br>**VIPeR** 51.9<br>**3DPeS** 65.6<br>**Market1501**SQ R1 81.2|
 |End-to-End Deep Kronecker-Product Matching for Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|Distance Metric|构建匹配用的net，能起到对齐的效果|Resnet50|Softmax Score|1. 两张图片的特征x与y。分别计算各个空间位置的特征之间的內积，作为相似性度量，对于y中位置为(p,q)的点，利用x中(p,q)位置的特征与y中各个位置的相似性，做加权平均，得到y的(p,q)为位置重排的特征。对y重排之后，计算x与y的差值。利用x的特征算空间mask对差值加权。<br>2. 卷积加上采样，构建三种尺度，分别对三种尺度下两个特征做以上操作，最后特征级联得到最后预测|manually R1 93.4 mAP 89.2|**Market1501**<br>SQ R1 90.1 mAP 75.3<br>**DukeMTMC** R1 80.3 mAP 63.2|
-
+|Human Semantic Parsing for Person Re-identification|Muhittin Gokmen<br>MEF|CVPR 2018|Part|human parsing|Inception-V3|-|一路产生parsing，一路提特征，然后做mask。用了很多re-id的数据集做辅助训练|manually R1 91.8|**Market1501**<br>SQ R1 94.63 mAP 90.96<br>**DukeMTMC-reID** R1 88.96 mAP 84.99|
+|Mask-guided Contrastive Attention Model for Person Re-Identification|Wanli Ouyang<br>sydney|CVPR 2018|Part|检测行人轮廓，区分前景与背景|MGCAM|Re-ranking|1. 用预训练的FCN提取人的轮廓，用以区分前景和背景<br>2. 输入是RGB与mask的叠加，是4个通道<br>3. 一个主分支，一个body分支，一个背景分支。主分支第二个模块提出的特征被送到两个分支，送入之前用此分支学习到的mask区分前景与背景，分别mask。<br>4. mask用用真实mask作为label来帮助训练，此外要求主分支的特征与body分支的特征相近，与背景分支的距离相远|manually R1 50.14 mAP 50.21<br>detected R1 46.71 mAP 46.87|**Market1501**SQ R1 83.79 mAP 74.33<br>**MARS** R1 77.17 mAP 71.17|
+|Resource Aware Person Re-identification across Multiple Resolutions|Vincent Chen<br>Tsinghua University|CVPR 2018|Multiple Resolutions|从网络的不同层提取不同语义的特征组成最后的特征，并可以设计规则提前结束，即直接利用低语义特征计算相似度，节省开支|Resnet50|-|1. 从Resnet50的四个阶段提取特征，分别过两个全连接，映射到一个128维的特征，训练四个加权参数，得到加权平均值，作为最后表达，其次四个特征也用triplet loss辅助训练。<br>2. 设计规则，通过判断阶段距离，决定是否继续提取特征。|manually R1 73.8 mAP 74.7<br>detected R1 70.6 mAP 71.6|**Market1501**SQ R1 90.9 mAP 86.7<br>**MARS** R1 85.1 mAP 81.9<br>**Duke** R1 84.4 mAP 80.0|
 
 
 ## Video
@@ -168,7 +170,7 @@ average similarity between the probe person image and multiple gallery images of
 |:----:|:------:|:-----------------:|:-----------|:-----|
 |Densely Connected Convolutional Networks|Kilian Q. Weinberger<br>Cornell University|CVPR 2017 (best)|卷积层间密集连接，特征图重用|1. 网络可以很深，分为很多个block<br>2. 每个block由多个卷积层构成，每一层的特征图都会送到该block内它后面的所有卷积层<br>3. block内每一层的通道数不能太大，block之间用1x1卷积压缩通道数|
 |Sequeeze-and-Excitation Networks|Jie Hu<br>Momenta|Arxiv 2017|对channels进行加权|1. 要处理的特征X<br>2. 先Global Average Pooling,得到C维特征<br>3. C维特征经过一层全连接，为降低参数数量，输出为 C/r 维，r为超参数<br>4. 经过relu，再经过一层全连接，输出C维<br>5. 对原特征各通道相乘加权，得到处理后的表达|
-|Rethinking the Inception Architecture for Computer Vision [[pdf](https://arxiv.org/pdf/1512.00567.pdf)]|Jonathon Shlens<br>Google|CVPR 2016|降低计算量|1.  基于大滤波器尺寸分解卷积：分解到更小的卷积；空间分解为不对称卷积。<br>2. 利用辅助分类器，辅助分类器中含有BN或者dropout时主分类器效果会更好。辅助分类器起到正则化的作用。<br> 3. 有效的网格尺寸减少
+|Rethinking the Inception Architecture for Computer Vision [[pdf](https://arxiv.org/pdf/1512.00567.pdf)]|Jonathon Shlens<br>Google|CVPR 2016|降低计算量|1.  基于大滤波器尺寸分解卷积：分解到更小的卷积；空间分解为不对称卷积。<br>2. 利用辅助分类器，辅助分类器中含有BN或者dropout时主分类器效果会更好。辅助分类器起到正则化的作用。<br> 3. 有效的网格尺寸减少|
 
 ## Interesting Work
 | Name | Author | Conference & Year | Motivation |Detail|
