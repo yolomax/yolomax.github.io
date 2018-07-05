@@ -485,7 +485,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 双路结构，信息向上传播时会有门结构对特征进行选择<br>2. 门结构是用两者的特征差，借助高斯激活函数作为门值</td>
 <td style="text-align:center">detected SQ 61.8 MQ 68.1</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R 65.88 mAP 39.55<br>MQ R 76.4 mAP 48.45<br><strong>VIPeR</strong> 37.8</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R 65.88 mAP 39.55<br>MQ R 76.4 mAP 48.45<br><strong>VIPeR</strong> 37.8</td>
 </tr>
 <tr>
 <td style="text-align:center">Semantics-Aware Deep Correspondence Structure Learning for Robust Person Re-identification</td>
@@ -533,7 +533,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">沿高度分为多个水平条带，并依次送入LSTM聚合</td>
 <td style="text-align:center">detected 57.3</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>MQ R 61.6 mAP 35.3<br><strong>VIPeR</strong> 42.4</td>
+<td style="text-align:left"><strong>Market1501</strong><br>MQ R 61.6 mAP 35.3<br><strong>VIPeR</strong> 42.4</td>
 </tr>
 <tr>
 <td style="text-align:center">End-to-End Comparative Attention Networks for Person Re-identification</td>
@@ -545,7 +545,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">CNN提取特征，再送入LSTM，用LSTM每一步的h学习mask矩阵，利用mask矩阵与原特征相乘得到有注意力的结果</td>
 <td style="text-align:center">manually 77.6<br>detected 69.2</td>
-<td style="text-align:left"><strong>CUHK01</strong> (100 testID) 87.2<br><strong>Market 1501</strong><br>SQ R 60.3 mAP 35.9<br>MQ R 72.1 mAP 47.9<br><strong>VIPeR</strong> 54.1</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100 testID) 87.2<br><strong>Market1501</strong><br>SQ R 60.3 mAP 35.9<br>MQ R 72.1 mAP 47.9<br><strong>VIPeR</strong> 54.1</td>
 </tr>
 <tr>
 <td style="text-align:center">Multi-scale Triplet CNN for Person Re-identification [<a href="https://dl.acm.org/ft_gateway.cfm?id=2967209&amp;ftid=1796503&amp;dwn=1&amp;CFID=3631260&amp;CFTOKEN=dd6359da7f53ea18-CBEDA62E-0B78-DAFF-40BA69C70047AEAE">pdf</a>]</td>
@@ -557,7 +557,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 整体为三路网络，修改的Triplet Loss外加正样本对的距离Loss<br>2. 多尺度信息体现在将原始图片下采样为两种尺度，加上原尺寸，共三种尺寸，分别训三个AlexNet，再融合</td>
 <td style="text-align:center">--</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R 45.1<br>MQ 55.4</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R 45.1<br>MQ 55.4</td>
 </tr>
 <tr>
 <td style="text-align:center">Spindle Net: Person Re-identification with Human Body Region Guided Feature Decomposition and Fusion</td>
@@ -569,7 +569,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 将人的肢体分为不同的粒度去提取特征，三个大区域，四个小区域<br>2. 先用CPM对图片提取关节点，再根据关节点位置框出7个区域<br> 3. 在提取特征时考虑了不同粒度，融合不同粒度时也有先后之分</td>
 <td style="text-align:center">all 88.5</td>
-<td style="text-align:left"><strong>CUHK01</strong>(485 testID) 79.9<br><strong>PRID</strong> 67<br><strong>VIPeR</strong> 53.8<br><strong>3DPeS</strong> 62.1<br><strong>iLIDS</strong> 66.3<br><strong>Market 1501</strong> SQ R 76.9</td>
+<td style="text-align:left"><strong>CUHK01</strong>(485 testID) 79.9<br><strong>PRID</strong> 67<br><strong>VIPeR</strong> 53.8<br><strong>3DPeS</strong> 62.1<br><strong>iLIDS</strong> 66.3<br><strong>Market1501</strong> SQ R 76.9</td>
 </tr>
 <tr>
 <td style="text-align:center">Learning Deep Context-aware Features over Body and Latent Parts for Person Re-identification</td>
@@ -581,7 +581,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 用不同膨胀率的卷积核构建类inception结构，可得到不同大小的感受野<br>2. 用google的STN网络学习抠图，得到身体划分，划分为三个部分<br>3. 整体与局部的特征级联的到最后的表达</td>
 <td style="text-align:center">manually 74.21<br>detected 67.99</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R 80.31 mAP 57.53<br>MQ R 86.79 mAP 66.7<br><strong>MARS</strong> SQ 71.77 MQ 83.03</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R 80.31 mAP 57.53<br>MQ R 86.79 mAP 66.7<br><strong>MARS</strong> SQ 71.77 MQ 83.03</td>
 </tr>
 <tr>
 <td style="text-align:center">Beyond Triplet Loss: a Deep Quadruplet Network for Person Re-identification</td>
@@ -617,7 +617,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. P2S改进的Triplet Loss + Contrastive Loss<br>2. 身体局部与整体的不同尺度学习</td>
 <td style="text-align:center">--</td>
-<td style="text-align:left"><strong>3DPeS</strong> 71.16<br><strong>CUHK01</strong> 77.34<br><strong>PRID</strong> 70.71<br><strong>Market 1501</strong> SQ R 70.72 mAP 44.27<br>MQ R 85.78 mAP 55.73</td>
+<td style="text-align:left"><strong>3DPeS</strong> 71.16<br><strong>CUHK01</strong> 77.34<br><strong>PRID</strong> 70.71<br><strong>Market1501</strong> SQ R 70.72 mAP 44.27<br>MQ R 85.78 mAP 55.73</td>
 </tr>
 <tr>
 <td style="text-align:center">Consistent-Aware Deep Learning for Person Re-identification in a Cammera Network</td>
@@ -629,7 +629,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Cosine Distance</td>
 <td style="text-align:left">1. 用网络提取的特征计算余弦距离，构建相似性矩阵C，行为一个摄像头下的人，列为另一个摄像头下的人<br>2. 构建C相对应的邻接矩阵，同一个人则为1否则为0<br>3. 训练时要最大化C与H的点点相乘，并使H的预测值与真实值误差尽可能小<br>4. C与H是交替优化的</td>
 <td style="text-align:center">--</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R 73.84 mAP 47.11<br>MQ R 80.85 mAP 55.58</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R 73.84 mAP 47.11<br>MQ R 80.85 mAP 55.58</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification by Deep Joint Learning of Multi-Loss Classification</td>
@@ -641,7 +641,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 单路网络，作为多分类任务<br>2. 先在ImageNet上预训练，再在目标数据集上训练<br>3. 在两层公用结构之后便分为两部分，一部分是整体特征学习，另一部分是四个水平条带对应学习局部特征<br>5. 这两个部分各自有一个分类loss，并不融合,并用实验表明不融合更好<br>6. 测试时将两部分特征级联作为最后表达</td>
 <td style="text-align:center">manually 83.2<br>detected 80.6</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ ( R 85.1 ) ( mAP 65.5 )<br>MQ ( R 89.7 ) ( mAP 74.5 )<br><strong>CUHK01</strong><br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br><strong>VIPeR</strong> 50.2<br><strong>GRID</strong> 37.5</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ ( R 85.1 ) ( mAP 65.5 )<br>MQ ( R 89.7 ) ( mAP 74.5 )<br><strong>CUHK01</strong><br>(100) SQ 87.0 MQ 91.2 <br>(486) SQ 69.8 MQ 76.7<br><strong>VIPeR</strong> 50.2<br><strong>GRID</strong> 37.5</td>
 </tr>
 <tr>
 <td style="text-align:center"><em>Deeply-Learned Part-Aligned Representations for Person Re-identification</em> [<a href="https://github.com/zlmzju/part_reid">code</a>]</td>
@@ -653,7 +653,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 用GoogleNet提取的特征 HxWxC,用一个卷积层学习k个HxW的特征图:M<br>2. M 可以视为mask,即为对原特征的不同部分的响应，用每个HxW响应对原HxWxC加权得到新的k个HxWxC<br>对于新的特征图，经过Global Average Pooling和全连接层得到固定长度表达</td>
 <td style="text-align:center">manually 85.4<br>detected 81.6</td>
-<td style="text-align:left"><strong>Market 1501</strong> SQ R 81.0 mAP 63.4<br><strong>CUHK01</strong><br>(100) 88.5<br>(486) 75<br><strong>VIPeR</strong> 48.7</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ R 81.0 mAP 63.4<br><strong>CUHK01</strong><br>(100) 88.5<br>(486) 75<br><strong>VIPeR</strong> 48.7</td>
 </tr>
 <tr>
 <td style="text-align:center">Multi-scale Deep Learning Architectures for Person Re-identification</td>
@@ -677,7 +677,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. triplet loss(in denfense of the triplet loss for ReID)<br>2. 局部特征是最后特征图水平方向GAP。全局特征是水平垂直都GAP<br>3. 比较两者局部特征使用了动态规划<br> 4. 训练时loss由全局特征距离与局部特征距离共同组成<br>5. 用两个这种网络协同学习<br>6. 测试时只是用全局特征算欧氏距离</td>
 <td style="text-align:center">manually 96.1</td>
-<td style="text-align:left"><strong>Market 1501</strong> SQ R 94.0 mAP 91.2<br><strong>MARS</strong> SQ R 87.5 mAP 85.6<br><strong>CUHK-SYSU</strong> R 95.3 mAP 93.7</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ R 94.0 mAP 91.2<br><strong>MARS</strong> SQ R 87.5 mAP 85.6<br><strong>CUHK-SYSU</strong> R 95.3 mAP 93.7</td>
 </tr>
 <tr>
 <td style="text-align:center">HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis [<a href="https://github.com/xh-liu/HydraPlus-Net">code</a>]</td>
@@ -701,7 +701,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean Distance + L2norm</td>
 <td style="text-align:left">1. 在第一个卷积层之后加入对低层次特征块的匹配的优化，用的结构主要是NIPS16那篇求相关性系数的方法。<br>2. 对正负样本块的相关性系数，设置阈值，做置零操作，主要是防止噪声块以及无区分性块的影响<br>3. 优化目标是使正样本先关系数最大化吗，负样本相关系数最小化<br>4. 前期不加low-level的匹配优化，训练稳定之后再加入low-level的优化。5. 测试的时候并不需要low-level优化网络<br>6. <strong>只对anchor图片计算分类损失</strong></td>
 <td style="text-align:center">manually 85.7<br>detected 83.6</td>
-<td style="text-align:left"><strong>CUHK01</strong> (100)79.3 (486)63.7<br><strong>Market 1501</strong> SQ R 81.9 mAP 63.6</td>
+<td style="text-align:left"><strong>CUHK01</strong> (100)79.3 (486)63.7<br><strong>Market1501</strong> SQ R 81.9 mAP 63.6</td>
 </tr>
 <tr>
 <td style="text-align:center"><em>Deep Representation Learning with Part Loss for Person Re-Identification</em> [<a href="https://arxiv.org/pdf/1707.00798.pdf">pdf</a>]</td>
@@ -713,7 +713,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">--</td>
 <td style="text-align:left">1. 对于最后的特征图，找出每一个特诊图为响应最大的点的位置，并将这些点聚为k类。<br>2. 对于每一类的特征图，得到均值特征图，并标准化，大于0.5的点视为前景，最小的闭合矩形框作为 part bounding box.<br>3. 对于C个特征图，k个框，经过ROI Pooling,得到k个Cx4x4的特征，并分别训练k个part loss。<br>4. part loss同时也会提升全局特征表达。<br>5. 最后的特征表达是全局特征与局部特征级联</td>
 <td style="text-align:center">manually 82,75</td>
-<td style="text-align:left"><strong>Market 1501</strong> SQ mAP 69.3 R1 88.2<br><strong>VIPeR</strong> 56.65</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ mAP 69.3 R1 88.2<br><strong>VIPeR</strong> 56.65</td>
 </tr>
 <tr>
 <td style="text-align:center">Harmonious Attention Network for Person Re-Identification [<a href="https://arxiv.org/pdf/1802.08122.pdf">pdf</a>]</td>
@@ -725,7 +725,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">L2norm + Euclidean Distance</td>
 <td style="text-align:left">1. 空间注意力：对通道取均值，只保留空间分辨率，在用一个卷积核,resize,缩放参数得到最后的空间注意力值。通道注意力：用的是squeeze-and-excitation结构。<br>2. 在每个Inception模块后面，用STN学习T个仿射变换矩阵，对此模块前面的特征图进行采样，得到T种特征图，分别对应T个分支。分支网络用单独的Inception结构训，每一模块之后都会加上STN对总网络此层的T个采样。最后通过级联全连接得到512维的特征。<br>3. 总网络的特征与分支网络的特征级联得到总的特征表达，为1024维。<br>4. 无数据增强和预训练。</td>
 <td style="text-align:center">(767/700)<br>manually R1 44.4 mAP 41.0<br>detected R1 41.7 mAP 38.6</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R1 91.2 mAP 75.7<br>MQ R1 93.8 mAP 82.8<br><strong>DukeMTMC-ReID</strong> R1 80.5 mAP 63.8</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 91.2 mAP 75.7<br>MQ R1 93.8 mAP 82.8<br><strong>DukeMTMC-ReID</strong> R1 80.5 mAP 63.8</td>
 </tr>
 <tr>
 <td style="text-align:center">Multi-Channel Pyramid Person Matching Network for Person Re-Identification</td>
@@ -749,7 +749,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean distance</td>
 <td style="text-align:left">1. 用在倒数第二个全连接层<br>2. 步骤: 向网络中加入一个线性全连接层，并微调至收敛。将线性全连接层的权值矩阵进行SVD分解，<br>W = USV<br>用W和其自身的转置矩阵乘作为本征层。固定本征层，并微调网络至收敛。再不固定本征层，微调整个网络至收敛</td>
 <td style="text-align:center">detected R1 81.8 mAP 84.8</td>
-<td style="text-align:left"><strong>Market 1501</strong> R1 82.3 mAP 62.1<br><strong>DukeMTMC-reID</strong> R1 76.7 mAP 56.8</td>
+<td style="text-align:left"><strong>Market1501</strong> R1 82.3 mAP 62.1<br><strong>DukeMTMC-reID</strong> R1 76.7 mAP 56.8</td>
 </tr>
 <tr>
 <td style="text-align:center">Dual Attention Matching Network for Context-Aware Feature Sequence based Person Re-Identification</td>
@@ -761,7 +761,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Euclidean distance</td>
 <td style="text-align:left">1. 序列的定义是特征图中将不同位置的特征视为一个序列。<br>2. 同一个图片内，利用attention用各个位置的特征的加权值代表自己，加权由转移网络根据此位置生成的特征和各个位置的特征的內积大小决定。<br>3. 不同图片之间的也可以用相似方法得到。<br>4. 最后的距离是特征距离取平均</td>
 <td style="text-align:center">-</td>
-<td style="text-align:left"><strong>Market 1501</strong>SQ R1 91.42 mAP 76.62<br><strong>DukeMTMC</strong>R1 81.82 mAP 64.58<br><strong>MARS</strong>R1 78.74 mAP 62.26</td>
+<td style="text-align:left"><strong>Market1501</strong>SQ R1 91.42 mAP 76.62<br><strong>DukeMTMC</strong>R1 81.82 mAP 64.58<br><strong>MARS</strong>R1 78.74 mAP 62.26</td>
 </tr>
 <tr>
 <td style="text-align:center">Efficient and Deep Person Re-Identification using Multi-Level Similarity</td>
@@ -834,6 +834,90 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">1. 两张图片的特征x与y。分别计算各个空间位置的特征之间的內积，作为相似性度量，对于y中位置为(p,q)的点，利用x中(p,q)位置的特征与y中各个位置的相似性，做加权平均，得到y的(p,q)为位置重排的特征。对y重排之后，计算x与y的差值。利用x的特征算空间mask对差值加权。<br>2. 卷积加上采样，构建三种尺度，分别对三种尺度下两个特征做以上操作，最后特征级联得到最后预测</td>
 <td style="text-align:center">manually R1 93.4 mAP 89.2</td>
 <td style="text-align:left"><strong>Market1501</strong><br>SQ R1 90.1 mAP 75.3<br><strong>DukeMTMC</strong> R1 80.3 mAP 63.2</td>
+</tr>
+<tr>
+<td style="text-align:center">Human Semantic Parsing for Person Re-identification</td>
+<td style="text-align:center">Muhittin Gokmen<br>MEF</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Part</td>
+<td style="text-align:left">human parsing</td>
+<td style="text-align:center">Inception-V3</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">一路产生parsing，一路提特征，然后做mask。用了很多re-id的数据集做辅助训练</td>
+<td style="text-align:center">manually R1 91.8</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 94.63 mAP 90.96<br><strong>DukeMTMC-reID</strong> R1 88.96 mAP 84.99</td>
+</tr>
+<tr>
+<td style="text-align:center">Mask-guided Contrastive Attention Model for Person Re-Identification</td>
+<td style="text-align:center">Wanli Ouyang<br>sydney</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Part</td>
+<td style="text-align:left">检测行人轮廓，区分前景与背景</td>
+<td style="text-align:center">MGCAM</td>
+<td style="text-align:center">Re-ranking</td>
+<td style="text-align:left">1. 用预训练的FCN提取人的轮廓，用以区分前景和背景<br>2. 输入是RGB与mask的叠加，是4个通道<br>3. 一个主分支，一个body分支，一个背景分支。主分支第二个模块提出的特征被送到两个分支，送入之前用此分支学习到的mask区分前景与背景，分别mask。<br>4. mask用用真实mask作为label来帮助训练，此外要求主分支的特征与body分支的特征相近，与背景分支的距离相远</td>
+<td style="text-align:center">manually R1 50.14 mAP 50.21<br>detected R1 46.71 mAP 46.87</td>
+<td style="text-align:left"><strong>Market1501</strong>SQ R1 83.79 mAP 74.33<br><strong>MARS</strong> R1 77.17 mAP 71.17</td>
+</tr>
+<tr>
+<td style="text-align:center">Resource Aware Person Re-identification across Multiple Resolutions</td>
+<td style="text-align:center">Vincent Chen<br>Tsinghua University</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Multiple Resolutions</td>
+<td style="text-align:left">从网络的不同层提取不同语义的特征组成最后的特征，并可以设计规则提前结束，即直接利用低语义特征计算相似度，节省开支</td>
+<td style="text-align:center">Resnet50</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">1. 从Resnet50的四个阶段提取特征，分别过两个全连接，映射到一个128维的特征，训练四个加权参数，得到加权平均值，作为最后表达，其次四个特征也用triplet loss辅助训练。<br>2. 设计规则，通过判断阶段距离，决定是否继续提取特征。</td>
+<td style="text-align:center">manually R1 73.8 mAP 74.7<br>detected R1 70.6 mAP 71.6</td>
+<td style="text-align:left"><strong>Market1501</strong>SQ R1 90.9 mAP 86.7<br><strong>MARS</strong> R1 85.1 mAP 81.9<br><strong>Duke</strong> R1 84.4 mAP 80.0</td>
+</tr>
+<tr>
+<td style="text-align:center">Transferable Joint Attribute-Identity Deep Learning for Unsupervised Person Re-Identification</td>
+<td style="text-align:center">Wei Li<br>QMUL</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Transfer Learning</td>
+<td style="text-align:left">通过ID与属性的融合学习，得到更好地跨数据集效果</td>
+<td style="text-align:center">MobileNet</td>
+<td style="text-align:center">Euclidean Distance</td>
+<td style="text-align:left">1. 源数据集有身份标签和属性标签，目标数据集没有标签<br>2. 网络有两个分支，一个提取属性特征，一个提取身份特征<br>3. encoder与decoder结构，先用encoder将身份特征嵌入到与属性特征相同的维度，然后在decoder。其中低维的身份特征经过sigmoid要与属性特征相似，用loss去限制。decoder出的身份特征要与原身份特征相似，同样用loss限制。<br>4. 扩展到目标数据集时，先提取属性特征作为伪标签去更新编解码结构和属性分支</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left"><strong>Market1501</strong>SQ R1 58.2 mAP 26.5<br><strong>DukeMTMC</strong> R1 44.3 mAP 23.0<br><strong>VIPeR</strong> 38.5<br><strong>PRID</strong> 34.8</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Transfer GAN to Bridge Domain Gap for Person Re-Identification</td>
+<td style="text-align:center">Shiliang Zhang<br>Peking University</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Transfer Learning<br>Background Change</td>
+<td style="text-align:left">提出新的数据集，用CyCleGAN变换背景</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">1. 用预训练网络提取人的mask。然后训练CycleGAN，要求变换前后人物的方差要小。</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Re-identification with Cascaded Pairwise Convolutions</td>
+<td style="text-align:center">Zhenzhong Chen<br>Wuhan University</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Architecture</td>
+<td style="text-align:left">两个特征相互交织算出最后的相似性</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">两个特征分别经过一个卷积再相加，重复两次，分别得到两个融合之后的特征，以此类推</td>
+<td style="text-align:center">manually(100) 88.18<br>detected(100) 85.85</td>
+<td style="text-align:left"><strong>CUHK01</strong>(100) 93.04<br><strong>Market1501</strong>SQ R1 83.07 mAP 69.48<br><strong>DukeMTMC-reID</strong>R1 76.44 mAP 59.49</td>
+</tr>
+<tr>
+<td style="text-align:center">Multi-Level Factorisation Net for Person Re-Identification</td>
+<td style="text-align:center">Tao Xiang<br>QMUL</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:center">Architecture</td>
+<td style="text-align:left">Multi-level</td>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Euclidean Distance</td>
+<td style="text-align:left">1. 多层block。每个block内有k个小块，小块的输入相同，并有单独一个小块学习k个加权值，得k个小块的加权平均，然后输出值与输入值相加得到block的输出。相当于跨层连接。最后每一block的加权值被级联起来也作为一个特征，与最后一个block的输出都经过一个映射，映射到同一维度取平均，再经过一个全连接得到最后的表达</td>
+<td style="text-align:center">detected(100) 82.8<br>manually(half) R1 54.7 mAP 49.2<br>detected(half) R1 52.8 mAP 47.8</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 90.0 mAP 74.3<br>MQ R1 92.3 mAP 82.4<br><strong>DukeMTMC-reID</strong> R1 81.0 mAP 62.8</td>
 </tr>
 </tbody>
 </table>
@@ -1253,7 +1337,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">CaffeNet</td>
 <td style="text-align:center">Jaccard Distance + L2 Distance</td>
 <td style="text-align:left">1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和</td>
-<td style="text-align:left"><strong>Market 1501</strong> SQ 77.11<br><strong>CUHK03</strong> detected 61.6 manually 58.5<br><strong>MARS</strong> 73.94<br><strong>PRW</strong> 52.54</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ 77.11<br><strong>CUHK03</strong> detected 61.6 manually 58.5<br><strong>MARS</strong> 73.94<br><strong>PRW</strong> 52.54</td>
 </tr>
 <tr>
 <td style="text-align:center">Scalable Person Re-identification on Supervised Smoothed Manifold [<a href="https://arxiv.org/pdf/1703.08359.pdf">pdf</a>]</td>
@@ -1292,7 +1376,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">标准化的欧式距离</td>
 <td style="text-align:left">对于整个batch，找到最大的正样本对距离，和最小的副样本对距离，让他们距离超过margin</td>
 <td style="text-align:left">输入为P个人，每人K个图片</td>
-<td style="text-align:left"><strong>CUHK03</strong> manually 87.5<br><strong>Market 1501</strong><br>SQ R 88.9 mAP 76.7<br><strong>MARS</strong><br>SQ R 84.2 mAP 74.6</td>
+<td style="text-align:left"><strong>CUHK03</strong> manually 87.5<br><strong>Market1501</strong><br>SQ R 88.9 mAP 76.7<br><strong>MARS</strong><br>SQ R 84.2 mAP 74.6</td>
 </tr>
 <tr>
 <td style="text-align:center">In Defense of the Triplet Loss for Person Re-identification [<a href="https://github.com/VisualComputingInstitute/triplet-reid">code</a>]</td>
@@ -1303,7 +1387,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">欧氏距离</td>
 <td style="text-align:left">1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均</td>
 <td style="text-align:left">用了soft-margin</td>
-<td style="text-align:left"><strong>CUHK03</strong> manually 89.63 detected 87.58<br><strong>Market 1501</strong><br>SQ R 86.67 mAP 81.07<br>MQ R 91.75 mAP 87.18<br><strong>MARS</strong><br>MQ R 81.21 mAP 77.43</td>
+<td style="text-align:left"><strong>CUHK03</strong> manually 89.63 detected 87.58<br><strong>Market1501</strong><br>SQ R 86.67 mAP 81.07<br>MQ R 91.75 mAP 87.18<br><strong>MARS</strong><br>MQ R 81.21 mAP 77.43</td>
 </tr>
 </tbody>
 </table>
@@ -1360,7 +1444,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">ResNet</td>
 <td style="text-align:center">Cosine Distance</td>
 <td style="text-align:left">1. 用DCGAN产生图片，产生的图片不属于任何类，使用 label smoothing regularization (加权0.1)方法学习针。对于正常的真实图片，用交叉熵损失(加权1)学习</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R1 83.97 mAP 66.07<br>MQ R1 88.42 mAP 76.10<br><strong>CUHK03</strong> detected<br>R1 84.6 mAP 87.4<br><strong>DukeMTMC</strong><br>R1 67.68 mAP 47.13</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 83.97 mAP 66.07<br>MQ R1 88.42 mAP 76.10<br><strong>CUHK03</strong> detected<br>R1 84.6 mAP 87.4<br><strong>DukeMTMC</strong><br>R1 67.68 mAP 47.13</td>
 </tr>
 <tr>
 <td style="text-align:center">Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatio-temporal Patterns [<a href="https://github.com/ahangchen/TFusion">code</a>]</td>
@@ -1409,7 +1493,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">ResNet</td>
 <td style="text-align:center">Cosine Distance</td>
 <td style="text-align:left">1. 用DCGAN产生图片，产生的图片不属于任何类，使用 label smoothing regularization (加权0.1)方法学习针。对于正常的真实图片，用交叉熵损失(加权1)学习</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R1 83.97 mAP 66.07<br>MQ R1 88.42 mAP 76.10<br><strong>CUHK03</strong> detected<br>R1 84.6 mAP 87.4<br><strong>DukeMTMC</strong><br>R1 67.68 mAP 47.13</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 83.97 mAP 66.07<br>MQ R1 88.42 mAP 76.10<br><strong>CUHK03</strong> detected<br>R1 84.6 mAP 87.4<br><strong>DukeMTMC</strong><br>R1 67.68 mAP 47.13</td>
 </tr>
 <tr>
 <td style="text-align:center">Camera Style Adaptation for Person Re-identification</td>
@@ -1420,7 +1504,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Resnet50</td>
 <td style="text-align:center">Cosine Distance</td>
 <td style="text-align:left">1. 用CycleGAN，利用一个摄像头下的数据生成另一个摄像头下的数据。<br>2. 伪数据使用LSR Loss</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R1 89.49 mAP 71.55<br><strong>DukeMTMC-reID</strong> R1 78.32 mAP 57.61</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R1 89.49 mAP 71.55<br><strong>DukeMTMC-reID</strong> R1 78.32 mAP 57.61</td>
 </tr>
 <tr>
 <td style="text-align:center">Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identitication</td>
@@ -1458,7 +1542,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">GoogleNet</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 网络整体为分类网络<br>2. 先用pose检测模型提取头，脖子，以及臀部这四个关键点，将人体分为上中下三个部分<br>3对各个部分以及整体，各用一个支路提取特征，网络权值共享，每个支路又有自己单独的分类loss<br>4. 在检索时，先实现将库图片分成不同的group，并pca降维，取整个group的特征的平均作为整个group的表达，再进行检索，加快速度，用的特征是将四个通道输出的特征级联</td>
-<td style="text-align:left"><strong>Market 1501</strong> SQ R 89.9 mAP 73.9<br>MQ R 81.5 mAP 61.2<br><strong>CUHK03</strong><br>manually 85.0<br>detected 82.2<br><strong>VIPeR</strong> 54.8</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ R 89.9 mAP 73.9<br>MQ R 81.5 mAP 61.2<br><strong>CUHK03</strong><br>manually 85.0<br>detected 82.2<br><strong>VIPeR</strong> 54.8</td>
 </tr>
 <tr>
 <td style="text-align:center">Pose Invariant Embedding for Deep Person Re-identification [<a href="https://arxiv.org/pdf/1701.07732.pdf">pdf</a>]</td>
@@ -1468,7 +1552,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">AlexNet or ResNet-50</td>
 <td style="text-align:center">L2norm + Euclidean Distance</td>
 <td style="text-align:left">1. 用CPM提取pose,10个关键点<br>2. 用关键点设置特征提取框，框根据位置做相应的仿射变换，所以框有可能是斜着提取的,再将各部分拼一块组成一张图片，即PoseBox<br>3. 当关键点的自信值小于某个门限时，会加入一些随机扰动<br>4. 单路三支流，分别输入原始图像，PoseBox，各个特征点的自信值<br>5. 各支路提取的特征级联后经过一个全连接得到最后表达<br>6. 三个Loss，最后特征表达一个分类Loss，原始图特征一个分类Loss,PoseBox一个分类Loss</td>
-<td style="text-align:left"><strong>Market 1501</strong><br>SQ R 79.33 mAP 55.95<br><strong>CUHK03</strong><br>detected R 67.10 mAP 71.32<br><strong>VIPeR</strong> 27.44</td>
+<td style="text-align:left"><strong>Market1501</strong><br>SQ R 79.33 mAP 55.95<br><strong>CUHK03</strong><br>detected R 67.10 mAP 71.32<br><strong>VIPeR</strong> 27.44</td>
 </tr>
 <tr>
 <td style="text-align:center">Pose-driven Deep Convolutional model for Person Re-identification</td>
@@ -1478,7 +1562,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">GoogleNet修改版</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 头部，上身，四肢，共六部分<br>2. 局部特征与全局特征通过网络融合</td>
-<td style="text-align:left"><strong>CUHK03</strong> manually 88.7 detected 78.29<br><strong>Market 1501</strong>SQ R1 84.14 mAP 63.41<br><strong>VIPeR</strong> 51.27</td>
+<td style="text-align:left"><strong>CUHK03</strong> manually 88.7 detected 78.29<br><strong>Market1501</strong>SQ R1 84.14 mAP 63.41<br><strong>VIPeR</strong> 51.27</td>
 </tr>
 <tr>
 <td style="text-align:center">Pose-Normalized Image Generation for Person Re-identification [<a href="https://arxiv.org/pdf/1712.02225.pdf">pdf</a>] [<a href="https://github.com/yanweifu/PN_GAN">code</a>]</td>
@@ -1488,7 +1572,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Resnet50</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 生成部分根据给定的姿势修改图片<br>2. 生成部分输入包括：预训练的属性预检测子预测的属性，原始图片与姿势图片的级联<br>3. 网络结构由两部分组成，对于给定的图片由A网络提取原始特征，B网络提取给定的典型姿势生成的图片的特征，最终特征由这两种特征融合而成，融合是element-wise maximum。网络A与B的结构相同，但是不共享权值。</td>
-<td style="text-align:left"><strong>CUHK03</strong> detected 92.66<br><strong>Market 1501</strong><br>SQ R1 95.52 mAP 89.94<br>MQ R1 95.90 mAP 91.37<br><strong>VIPeR</strong> 78.17<br><strong>DukeMTMC</strong>R1 91.47 mAP 81.39<br><strong>CUHK01</strong> 86.22</td>
+<td style="text-align:left"><strong>CUHK03</strong> detected 92.66<br><strong>Market1501</strong><br>SQ R1 95.52 mAP 89.94<br>MQ R1 95.90 mAP 91.37<br><strong>VIPeR</strong> 78.17<br><strong>DukeMTMC</strong>R1 91.47 mAP 81.39<br><strong>CUHK01</strong> 86.22</td>
 </tr>
 <tr>
 <td style="text-align:center">Beyond Part Models: Person Retrieval with Refined Part Pooling (and A Strong Convolutional Baseline)</td>

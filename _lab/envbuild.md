@@ -29,6 +29,7 @@ date: 2018-03-01
 2. 驱动更新（根据当前驱动是否支持所需CUDA版本决定）
 ```
 sudo apt-get autoremove --purge nvidia-* #删除旧版本
+sudo add-apt-repository ppa:graphics-drivers/ppa # 可选，若找不到最新的驱动，可以用这个命令添加第三方驱动源
 sudo apt-get update #获取最新list
 sudo apt-get install nvidia-版本号
 ```
