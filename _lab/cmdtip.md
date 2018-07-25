@@ -21,7 +21,7 @@ date: 2018-03-01
     du -h --max-depth=1
 
 #### 查找某PID的信息
-    ps -q pid_num -f 
+    ps -q pid_num -f
 
 
 ## <center>Ubuntu 管理员常用命令</center>
@@ -42,7 +42,6 @@ date: 2018-03-01
 #### 添加管理员权限
     sudo usermod -aG sudo 用户名
 
-#### 查找占用GPU资源的PID
-    sudo fuser -v /dev/nvidia*
-
-
+#### GPU
+    sudo nvidia-persistenced --persistence-mode     # 设定持久模式，就是没人用GPU的时候，驱动不自动卸载，而是一直都处于加载状态.本次有效下次重启还需要重新设定。
+    sudo fuser -v /dev/nvidia*       # 查找占用GPU资源的PID
