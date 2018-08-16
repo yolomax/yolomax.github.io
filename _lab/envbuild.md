@@ -18,6 +18,7 @@ date: 2018-03-01
  * JuicSSH：安卓 SSH客户端：
  * Ubuntu 中文输入法 [[link](http://blog.csdn.net/u011795345/article/details/53041707)]
  * Sharelatex：在线Latex编写，避免本地配置的麻烦，而且免费，更新快，自动云端保存。 [[link](https://www.sharelatex.com)]
+7. [远程桌面](#vnc)
 
 
 ## ubuntu {#ubuntu}
@@ -57,6 +58,39 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PAT
 
 ## Pycharm {#pycharm}
 * 远程调试：非必要选项，可使用远程服务器上配好的的环境，配置了这个其实是可以不用配置本地环境的。[[link](https://www.jianshu.com/p/79df9ac88e96)]
+
+## 远程桌面 {#vnc}
+ 1. ssh登录
+* 安装
+ ```
+ sudo apt-get install openssh-server
+ ```
+* 启动
+```
+sudo service ssh start
+```
+* 配置开机启动，若此软件没有安装则安装此软件，输入完此命令后将ssh的2,3,4,5选项都选上
+```
+sudo sysv-rc-conf
+```
+
+ 2. 配置VNC
+* 安装vnc4server
+```
+sudo apt-get install vnc4server
+```
+* 安装xfce4桌面环境
+```
+sudo apt-ge install xfce4
+```
+* ./vnc/xstartup，末尾添加
+```
+sesion-manager & xfdesktop & xfce4-panel &
+xfce4-menu-plugin &
+xfsettingsd &
+xfconfd &
+xfwm4 &
+```
 
 
  # Bug fixed
