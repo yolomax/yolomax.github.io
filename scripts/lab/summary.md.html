@@ -943,6 +943,18 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">manually R1 50.1 mAP 47.7<br>detected R1 43.9 mAP 42.1</td>
 <td style="text-align:left"><strong>Market1501</strong> SQ R1 84.5 mAP 68.7<br><strong>DukeMTMC-reID</strong> R1 76.2 mAP 56.9</td>
 </tr>
+<tr>
+<td style="text-align:center">Person Re-identification with Deep Similarity-Guided Graph Neural Network</td>
+<td style="text-align:center">Xiaogang Wang<br>CUHK</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">1. Graph Neural Network<br>2. Distance Metric</td>
+<td style="text-align:left">借助GNN，获得更好的相似性度量</td>
+<td style="text-align:center">ResNet50</td>
+<td style="text-align:center">Softmax Score</td>
+<td style="text-align:left">1. 先预训练一个二分类网络，然后开始训练SGGNN。<br>2. 通过两层全连接得到辅助表达，再 利用二分类网络得到两个图片之间的相似性，归一化之后作为加权值，对辅助表达求加权平均值，然后对当前特征进行更新。得到最后表达之后再训练二分类</td>
+<td style="text-align:center">manually(100) R1 95.3 mAP 94.3</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ R1 92.3 mAP 82.8<br><strong>DukeMTMC</strong> SQ R1 81.1 mAP 68.2</td>
+</tr>
 </tbody>
 </table>
 <h2 id="video">Video</h2>
@@ -2084,5 +2096,5 @@ average similarity between the probe person image and multiple gallery images of
 <li><a href="http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html">数据集总结</a></li>
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>
 </ul>
-<div align="right">Updated Date: 2018/06/30</div></body>
+<div align="right">Updated Date: 2018/08/19</div></body>
 </html>

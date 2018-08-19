@@ -49,6 +49,7 @@
 |Multi-Level Factorisation Net for Person Re-Identification|Tao Xiang<br>QMUL|CVPR 2018|Architecture|Multi-level|CNN|Euclidean Distance|1. 多层block。每个block内有k个小块，小块的输入相同，并有单独一个小块学习k个加权值，得k个小块的加权平均，然后输出值与输入值相加得到block的输出。相当于跨层连接。最后每一block的加权值被级联起来也作为一个特征，与最后一个block的输出都经过一个映射，映射到同一维度取平均，再经过一个全连接得到最后的表达|detected(100) 82.8<br>manually(half) R1 54.7 mAP 49.2<br>detected(half) R1 52.8 mAP 47.8|**Market1501**<br>SQ R1 90.0 mAP 74.3<br>MQ R1 92.3 mAP 82.4<br>**DukeMTMC-reID** R1 81.0 mAP 62.8|
 |Learning Discriminative Features with Multiple Granularity for Person Re-Identification|Xi Zhou<br>SITU|Arxiv 2018.07|Part|分多个水平条带，整体特征与局部特征级联|ResNet50|-|1. 从ResNet50的res_conv4_1之后开始分为三个支路，这三个支路是ResNet50在res_conv4_1之后网络复制的，各个支路都是预训练的参数初始化，但是参数不共享<br>2. 第一个每一个支路都算一个全局特征，除此之外，第二个支路最后的特征分为上下两部分，得到两个块特征，第三个支路分为三个块。<br>3. 其中part特征各用一个分类损失函数训练，整体特征用triplet loss训练|manually R1 68.0 mAP 67.4<br>detected R1 66.8 mAP 66.0|**Market1501**<br>SQ R1 95.7 mAP 86.9<br>MQ R1 96.9 mAP 90.7<br>**DukeMTMC-reID** R1 88.7 mAP 78.4|
 |Weighted Weighted Bilinear Coding over Salient Body Parts for Person Re-identification|Haibin Ling<br>Temple University|Arxiv 2018.04|Part Mask|用多个attention mask对空间加权|GoogleNet|-|1. 先获取一些列的attention mask。对特征进行加权，然后利用Bilinear coding获取最后的表达。<br>2. Bilinear coding是将一维向量的转置与自己相乘，得到各维度相互关联的特征。|manually R1 50.1 mAP 47.7<br>detected R1 43.9 mAP 42.1|**Market1501** SQ R1 84.5 mAP 68.7<br>**DukeMTMC-reID** R1 76.2 mAP 56.9|
+|Person Re-identification with Deep Similarity-Guided Graph Neural Network|Xiaogang Wang<br>CUHK|ECCV 2018|1. Graph Neural Network<br>2. Distance Metric|借助GNN，获得更好的相似性度量|ResNet50|Softmax Score|1. 先预训练一个二分类网络，然后开始训练SGGNN。<br>2. 通过两层全连接得到辅助表达，再 利用二分类网络得到两个图片之间的相似性，归一化之后作为加权值，对辅助表达求加权平均值，然后对当前特征进行更新。得到最后表达之后再训练二分类|manually(100) R1 95.3 mAP 94.3|**Market1501** SQ R1 92.3 mAP 82.8<br>**DukeMTMC** SQ R1 81.1 mAP 68.2|
 
 ## Video
 | Name | Author | Conference & Year |Tag| Motivation |Feature|Fusion|Metric|Detail|iLIDS|PRID|MARS|
@@ -234,4 +235,4 @@ average similarity between the probe person image and multiple gallery images of
 * [数据集总结](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)
 * [State of the art on the MARS dataset](http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html)
 
-<div align="right">Updated Date: 2018/06/30</div>
+<div align="right">Updated Date: 2018/08/19</div>
