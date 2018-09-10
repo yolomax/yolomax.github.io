@@ -13,12 +13,13 @@ date: 2018-03-01
 3. [安装Miniconda](#miniconda)
 4. 在conda里面创建虚拟环境，并安装选择的深度学习平台.
 5. [安装Pycharm](#pycharm)
-6. 额外的小工具（非必要选项）
+6. [一些常用库](#lib)
+7. 额外的小工具（非必要选项）
  * cygwin：Windows SSH客户端：[[link](http://blog.csdn.net/chunleixiahe/article/details/55666792)]
  * JuicSSH：安卓 SSH客户端：
  * Ubuntu 中文输入法 [[link](http://blog.csdn.net/u011795345/article/details/53041707)]
  * Sharelatex：在线Latex编写，避免本地配置的麻烦，而且免费，更新快，自动云端保存。 [[link](https://www.sharelatex.com)]
-7. [远程桌面](#vnc)
+8. [远程桌面](#vnc)
 
 
 ## ubuntu {#ubuntu}
@@ -59,6 +60,12 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PAT
 ## Pycharm {#pycharm}
 * 远程调试：非必要选项，可使用远程服务器上配好的的环境，配置了这个其实是可以不用配置本地环境的。[[link](https://www.jianshu.com/p/79df9ac88e96)]
 
+## 常用库的安装 {#lib}
+* opencv 
+ ```
+pip install opencv-contrib-python
+ ```
+ 
 ## 远程桌面 {#vnc}
  1. ssh登录
 * 安装

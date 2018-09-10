@@ -197,6 +197,7 @@ average similarity between the probe person image and multiple gallery images of
 |Deep Mutual Learning|Huchuan Lu<br>Dalian University of Technology, China|Arxiv 201706|两个网络相互学习|1. 两个网络都对同一个输入做预测，各有一个分类loss，同时两者之间有一个二者输出的概率分布的KL距离的loss。<br>2. 优化时，交替优化，直至收敛|
 |Online Video Deblurring via Dynamic Temporal Blending Network|Micheal Hirsch<br>Seoul National University|CVPR 2017|图片去噪|1. 采用循环结构<br>2. Encoder + Dynamic blending + Decoder|
 |Coherent Online Video Style Transfer|Gang Hua<br>MSRA|ICCV 2017|视频风格转换|1. 相邻两帧之间提取光流<br>2. 每一帧用encoder获得特征，用光流对前一帧wrap。利用wrap之后的结果与当前帧的特征的差值学习mask，用mask更新特征，最后对当前帧特征解码|
+|Temporal Segment Networks: Towards Good Practices for Deep Action Recognition|Xiaoou Tang<br>CUHK|ECCV 2016|长范围时间结构建模|TSN使用从整个视频中稀疏地采样一系列短片段，每个片段都将给出其本身对于行为类别的初步预测，从这些片段的“共识”来得到视频级的预测结果。|
 
 ## Pose Estimation
 | Name | Author | Conference & Year | Motivation |Detail|
