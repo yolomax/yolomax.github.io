@@ -1,114 +1,185 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="utf-8" />
-      <title>summary</title>
-      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(197, 200, 198); background-color: rgb(29, 31, 33); overflow: auto; }
-.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
-.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
-.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
-.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
-.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
-.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
-.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
-.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
-.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
-.markdown-preview:not([data-use-github-style]) del { color: rgb(155, 160, 157); }
-.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: white; }
-.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
-.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
-.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
-.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(155, 160, 157); border-color: rgb(67, 72, 76); border-width: 4px; }
-.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(67, 72, 76); background: none; }
-.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
-.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
-.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(67, 72, 76); }
-.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(48, 51, 55); }
-.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(39, 41, 44); }
-.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(67, 72, 76) rgb(67, 72, 76) rgb(53, 57, 60); border-image: initial; background-color: rgb(48, 51, 55); }
-.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
-.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
-.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
-.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
-.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
-.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
-.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
-.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
-.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
-.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
-.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
-.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
-.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
-.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
-.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
-.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
-.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
-.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
-.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
-.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
-.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
-.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
-.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
-.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
-.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
-.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
-.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
-.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
-.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
-.markdown-preview[data-use-github-style] dl { padding: 0px; }
-.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
-.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
-.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
-.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
-.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
-.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
-.markdown-preview[data-use-github-style] table th { font-weight: bold; }
-.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
-.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
-.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
-.markdown-preview[data-use-github-style] .emoji { max-width: none; }
-.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
-.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
-.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
-.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
-.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
-.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
-.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
-.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
-.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
-.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
-.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
-.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
-.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
-.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
-.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.04); border-radius: 3px; }
-.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
-.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
-.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
-.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
-.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
-.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
-.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
-.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
-.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
-.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
-.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
-.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
-.markdown-preview[data-use-github-style] code { color: inherit; }
-.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
-.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
-.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
-.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
-.markdown-preview code { text-shadow: none; }
+    <meta charset="utf-8" />
+    <title>summary.md</title>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
 .bracket-matcher .region {
   border-bottom: 1px dotted lime;
   position: absolute;
 }
 .line-number.bracket-matcher.bracket-matcher {
-  color: #c5c8c6;
-  background-color: rgba(255, 255, 255, 0.14);
+  color: #abb2bf;
+  background-color: #3a3f4b;
 }
 
 .spell-check-misspelling .region {
@@ -119,262 +190,482 @@
 }
 
 pre.editor-colors {
-  background-color: #1d1f21;
-  color: #c5c8c6;
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
 }
 pre.editor-colors .invisible-character {
-  color: rgba(197, 200, 198, 0.2);
+  color: rgba(171, 178, 191, 0.15);
 }
 pre.editor-colors .indent-guide {
-  color: rgba(197, 200, 198, 0.2);
+  color: rgba(171, 178, 191, 0.15);
 }
 pre.editor-colors .wrap-guide {
-  background-color: rgba(197, 200, 198, 0.1);
+  background-color: rgba(171, 178, 191, 0.15);
 }
-pre.editor-colors .gutter {
-  background-color: #292c2f;
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 139, 255, 0.24);
+  transition: border-color 0.4s;
 }
-pre.editor-colors .gutter .cursor-line {
-  background-color: rgba(255, 255, 255, 0.14);
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
 }
-pre.editor-colors .line-number.cursor-line-no-selection {
-  background-color: rgba(255, 255, 255, 0.14);
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #528bff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #3a3f4b;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
 }
 pre.editor-colors .gutter .line-number.folded,
 pre.editor-colors .gutter .line-number:after,
 pre.editor-colors .fold-marker:after {
-  color: #fba0e3;
-}
-pre.editor-colors .invisible {
-  color: #c5c8c6;
-}
-pre.editor-colors .cursor {
-  border-color: white;
-}
-pre.editor-colors .selection .region {
-  background-color: #444;
-}
-pre.editor-colors .bracket-matcher .region {
-  border-bottom: 1px solid #f8de7e;
-  margin-top: -1px;
-  opacity: .7;
+  color: #abb2bf;
 }
 .syntax--comment {
-  color: #7C7C7C;
+  color: #5c6370;
+  font-style: italic;
 }
-.syntax--entity {
-  color: #FFD2A7;
+.syntax--comment .syntax--markup.syntax--link {
+  color: #5c6370;
 }
 .syntax--entity.syntax--name.syntax--type {
-  text-decoration: underline;
-  color: #FFFFB6;
+  color: #e5c07b;
 }
 .syntax--entity.syntax--other.syntax--inherited-class {
-  color: #9B5C2E;
+  color: #98c379;
 }
 .syntax--keyword {
-  color: #96CBFE;
+  color: #c678dd;
 }
 .syntax--keyword.syntax--control {
-  color: #96CBFE;
+  color: #c678dd;
 }
 .syntax--keyword.syntax--operator {
-  color: #EDEDED;
+  color: #abb2bf;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #61afef;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #d19a66;
 }
 .syntax--storage {
-  color: #CFCB90;
+  color: #c678dd;
 }
-.syntax--storage.syntax--modifier {
-  color: #96CBFE;
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #c678dd;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #abb2bf;
 }
 .syntax--constant {
-  color: #99CC99;
+  color: #d19a66;
+}
+.syntax--constant.syntax--variable {
+  color: #d19a66;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #56b6c2;
 }
 .syntax--constant.syntax--numeric {
-  color: #FF73FD;
+  color: #d19a66;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #56b6c2;
 }
 .syntax--variable {
-  color: #C6C5FE;
+  color: #e06c75;
 }
-.syntax--invalid.syntax--deprecated {
-  text-decoration: underline;
-  color: #FD5FF1;
+.syntax--variable.syntax--interpolation {
+  color: #be5046;
 }
-.syntax--invalid.syntax--illegal {
-  color: #FD5FF1;
-  background-color: rgba(86, 45, 86, 0.75);
-}
-.syntax--string .syntax--source,
-.syntax--string .syntax--meta.syntax--embedded.syntax--line {
-  color: #EDEDED;
-}
-.syntax--string .syntax--punctuation.syntax--section.syntax--embedded {
-  color: #00A0A0;
-}
-.syntax--string .syntax--punctuation.syntax--section.syntax--embedded .syntax--source {
-  color: #00A0A0;
+.syntax--variable.syntax--parameter {
+  color: #abb2bf;
 }
 .syntax--string {
-  color: #A8FF60;
+  color: #98c379;
 }
-.syntax--string .syntax--constant {
-  color: #00A0A0;
+.syntax--string > .syntax--source,
+.syntax--string .syntax--embedded {
+  color: #abb2bf;
 }
 .syntax--string.syntax--regexp {
-  color: #E9C062;
+  color: #56b6c2;
 }
-.syntax--string.syntax--regexp .syntax--constant.syntax--character.syntax--escape,
-.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded,
-.syntax--string.syntax--regexp .syntax--string.syntax--regexp.syntax--arbitrary-repetition {
-  color: #FF8000;
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #e5c07b;
 }
-.syntax--string.syntax--regexp.syntax--group {
-  color: #C6A24F;
-  background-color: rgba(255, 255, 255, 0.06);
+.syntax--string.syntax--other.syntax--link {
+  color: #e06c75;
 }
-.syntax--string.syntax--regexp.syntax--character-class {
-  color: #B18A3D;
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #5c6370;
 }
-.syntax--string .syntax--variable {
-  color: #8A9A95;
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #abb2bf;
 }
-.syntax--support {
-  color: #FFFFB6;
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #61afef;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #be5046;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #abb2bf;
+}
+.syntax--support.syntax--class {
+  color: #e5c07b;
+}
+.syntax--support.syntax--type {
+  color: #56b6c2;
 }
 .syntax--support.syntax--function {
-  color: #DAD085;
+  color: #56b6c2;
 }
-.syntax--support.syntax--constant {
-  color: #FFD2A7;
+.syntax--support.syntax--function.syntax--any-method {
+  color: #61afef;
 }
-.syntax--support.syntax--type.syntax--property-name.syntax--css {
-  color: #EDEDED;
+.syntax--entity.syntax--name.syntax--function {
+  color: #61afef;
 }
-.syntax--source .syntax--entity.syntax--name.syntax--tag,
-.syntax--source .syntax--punctuation.syntax--tag {
-  color: #96CBFE;
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #e5c07b;
 }
-.syntax--source .syntax--entity.syntax--other.syntax--attribute-name {
-  color: #FF73FD;
+.syntax--entity.syntax--name.syntax--section {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e06c75;
 }
 .syntax--entity.syntax--other.syntax--attribute-name {
-  color: #FF73FD;
+  color: #d19a66;
 }
-.syntax--entity.syntax--name.syntax--tag.syntax--namespace,
-.syntax--entity.syntax--other.syntax--attribute-name.syntax--namespace {
-  color: #E18964;
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #61afef;
 }
-.syntax--meta.syntax--preprocessor.syntax--c {
-  color: #8996A8;
+.syntax--meta.syntax--class {
+  color: #e5c07b;
 }
-.syntax--meta.syntax--preprocessor.syntax--c .syntax--keyword {
-  color: #AFC4DB;
+.syntax--meta.syntax--class.syntax--body {
+  color: #abb2bf;
 }
-.syntax--meta.syntax--cast {
-  color: #676767;
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #abb2bf;
 }
-.syntax--meta.syntax--sgml.syntax--html .syntax--meta.syntax--doctype,
-.syntax--meta.syntax--sgml.syntax--html .syntax--meta.syntax--doctype .syntax--entity,
-.syntax--meta.syntax--sgml.syntax--html .syntax--meta.syntax--doctype .syntax--string,
-.syntax--meta.syntax--xml-processing,
-.syntax--meta.syntax--xml-processing .syntax--entity,
-.syntax--meta.syntax--xml-processing .syntax--string {
-  color: #494949;
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e06c75;
 }
-.syntax--meta.syntax--tag .syntax--entity,
-.syntax--meta.syntax--tag > .syntax--punctuation,
-.syntax--meta.syntax--tag.syntax--inline .syntax--entity {
-  color: #FF73FD;
+.syntax--meta.syntax--link {
+  color: #d19a66;
 }
-.syntax--meta.syntax--tag .syntax--name,
-.syntax--meta.syntax--tag.syntax--inline .syntax--name,
-.syntax--meta.syntax--tag > .syntax--punctuation {
-  color: #96CBFE;
+.syntax--meta.syntax--require {
+  color: #61afef;
 }
-.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--name.syntax--tag {
-  text-decoration: underline;
-  color: #96CBFE;
-}
-.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--other.syntax--attribute-name.syntax--tag.syntax--pseudo-class {
-  color: #8F9D6A;
-}
-.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
-  color: #8B98AB;
-}
-.syntax--meta.syntax--selector.syntax--css .syntax--entity.syntax--other.syntax--attribute-name.syntax--class {
-  color: #62B1FE;
-}
-.syntax--meta.syntax--property-group .syntax--support.syntax--constant.syntax--property-value.syntax--css,
-.syntax--meta.syntax--property-value .syntax--support.syntax--constant.syntax--property-value.syntax--css {
-  color: #F9EE98;
-}
-.syntax--meta.syntax--preprocessor.syntax--at-rule .syntax--keyword.syntax--control.syntax--at-rule {
-  color: #8693A5;
-}
-.syntax--meta.syntax--property-value .syntax--support.syntax--constant.syntax--named-color.syntax--css,
-.syntax--meta.syntax--property-value .syntax--constant {
-  color: #87C38A;
-}
-.syntax--meta.syntax--constructor.syntax--argument.syntax--css {
-  color: #8F9D6A;
-}
-.syntax--meta.syntax--diff,
-.syntax--meta.syntax--diff.syntax--header {
-  color: #F8F8F8;
-  background-color: #0E2231;
+.syntax--meta.syntax--selector {
+  color: #c678dd;
 }
 .syntax--meta.syntax--separator {
-  color: #60A633;
-  background-color: #242424;
+  color: #abb2bf;
 }
-.syntax--meta.syntax--line.syntax--entry.syntax--logfile,
-.syntax--meta.syntax--line.syntax--exit.syntax--logfile {
-  background-color: rgba(238, 238, 238, 0.16);
+.syntax--meta.syntax--tag {
+  color: #abb2bf;
 }
-.syntax--meta.syntax--line.syntax--error.syntax--logfile {
-  background-color: #751012;
+.syntax--underline {
+  text-decoration: underline;
 }
-.syntax--source.syntax--gfm {
-  color: #999;
+.syntax--none {
+  color: #abb2bf;
 }
-.syntax--gfm .syntax--markup.syntax--heading {
-  color: #eee;
+.syntax--invalid.syntax--deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
 }
-.syntax--gfm .syntax--link {
-  color: #555;
+.syntax--invalid.syntax--illegal {
+  color: white !important;
+  background-color: #e05252 !important;
 }
-.syntax--gfm .syntax--variable.syntax--list,
-.syntax--gfm .syntax--support.syntax--quote {
-  color: #555;
+.syntax--markup.syntax--bold {
+  color: #d19a66;
+  font-weight: bold;
 }
-.syntax--gfm .syntax--link .syntax--entity {
-  color: #ddd;
+.syntax--markup.syntax--changed {
+  color: #c678dd;
 }
-.syntax--gfm .syntax--raw {
-  color: #aaa;
+.syntax--markup.syntax--deleted {
+  color: #e06c75;
 }
-.syntax--markdown .syntax--paragraph {
-  color: #999;
+.syntax--markup.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
 }
-.syntax--markdown .syntax--heading {
-  color: #eee;
+.syntax--markup.syntax--heading {
+  color: #e06c75;
 }
-.syntax--markdown .syntax--raw {
-  color: #aaa;
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #61afef;
 }
-.syntax--markdown .syntax--link {
-  color: #555;
+.syntax--markup.syntax--link {
+  color: #56b6c2;
 }
-.syntax--markdown .syntax--link .syntax--string {
-  color: #555;
+.syntax--markup.syntax--inserted {
+  color: #98c379;
 }
-.syntax--markdown .syntax--link .syntax--string.syntax--title {
-  color: #ddd;
+.syntax--markup.syntax--quote {
+  color: #d19a66;
 }
+.syntax--markup.syntax--raw {
+  color: #98c379;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #828997;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--source.syntax--embedded.syntax--source {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--constant.syntax--language,
+.syntax--source.syntax--elixir .syntax--constant.syntax--numeric,
+.syntax--source.syntax--elixir .syntax--constant.syntax--definition {
+  color: #61afef;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--definition,
+.syntax--source.syntax--elixir .syntax--variable.syntax--anonymous {
+  color: #c678dd;
+}
+.syntax--source.syntax--elixir .syntax--parameter.syntax--variable.syntax--function {
+  color: #d19a66;
+  font-style: italic;
+}
+.syntax--source.syntax--elixir .syntax--quoted {
+  color: #98c379;
+}
+.syntax--source.syntax--elixir .syntax--keyword.syntax--special-method,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--section,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--source.syntax--empty {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--readwrite.syntax--module .syntax--punctuation {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--regexp.syntax--section,
+.syntax--source.syntax--elixir .syntax--regexp.syntax--string {
+  color: #be5046;
+}
+.syntax--source.syntax--elixir .syntax--separator,
+.syntax--source.syntax--elixir .syntax--keyword.syntax--operator {
+  color: #d19a66;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--constant {
+  color: #e5c07b;
+}
+.syntax--source.syntax--elixir .syntax--array,
+.syntax--source.syntax--elixir .syntax--scope,
+.syntax--source.syntax--elixir .syntax--section {
+  color: #828997;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #61afef;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #c678dd;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e06c75;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #c678dd;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e06c75;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #abb2bf;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #c678dd;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #98c379;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #56b6c2;
+}
+.syntax--ng.syntax--interpolation {
+  color: #e06c75;
+}
+.syntax--ng.syntax--interpolation.syntax--begin,
+.syntax--ng.syntax--interpolation.syntax--end {
+  color: #61afef;
+}
+.syntax--ng.syntax--interpolation .syntax--function {
+  color: #e06c75;
+}
+.syntax--ng.syntax--interpolation .syntax--function.syntax--begin,
+.syntax--ng.syntax--interpolation .syntax--function.syntax--end {
+  color: #61afef;
+}
+.syntax--ng.syntax--interpolation .syntax--bool {
+  color: #d19a66;
+}
+.syntax--ng.syntax--interpolation .syntax--bracket {
+  color: #abb2bf;
+}
+.syntax--ng.syntax--pipe,
+.syntax--ng.syntax--operator {
+  color: #abb2bf;
+}
+.syntax--ng.syntax--tag {
+  color: #56b6c2;
+}
+.syntax--ng.syntax--attribute-with-value .syntax--attribute-name {
+  color: #e5c07b;
+}
+.syntax--ng.syntax--attribute-with-value .syntax--string {
+  color: #c678dd;
+}
+.syntax--ng.syntax--attribute-with-value .syntax--string.syntax--begin,
+.syntax--ng.syntax--attribute-with-value .syntax--string.syntax--end {
+  color: #abb2bf;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--php .syntax--class.syntax--bracket {
+  color: #abb2bf;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #c678dd;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #d19a66;
+}
+
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
 </style>
+
   </head>
-  <body class='markdown-preview' data-use-github-style><h1 id="-center-person-re-identification-center-"><center>Person Re-Identification</center></h1>
-<h2 id="image">Image</h2>
+  <body>
+    <h1><center>Person Re-Identification</center></h1>
+<details>
+<summary>Image-based</summary>
 <table>
 <thead>
 <tr>
@@ -400,7 +691,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Color Channels<br>Texture Filters(Schmid &amp; Gabor)<br>Feature Regions<br>Feature Binning</td>
 <td style="text-align:center">L1 Distance</td>
 <td style="text-align:left">使用了AdaBoost</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left"><strong>VIPeR</strong> 12</td>
 </tr>
 <tr>
@@ -424,7 +715,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Color Histograms<br>Schmid &amp; Gabor Filters</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 用LFDA为特征降维<br>2. 训练时，在特征向量的稀疏表达上加上明确的限制去训练一个字典<br>3. 在测试时，从库图片中找出与探测图片，两者的稀疏表达在欧氏距离最近的一个</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left"><strong>PRID</strong> 40.6<br><strong>iLIDS</strong> 25.9</td>
 </tr>
 <tr>
@@ -448,7 +739,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">CNN</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 在反向传播上做了优化，减少重复计算<br>2. 提供了构建Triplet三元组的方法</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left"><strong>iLIDS</strong> 52.1<br> <strong>VIPeR</strong> 40.5</td>
 </tr>
 <tr>
@@ -513,14 +804,14 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification by Multi-Channel Parts-Based CNN with Improved Triplet Loss Function</td>
-<td style="text-align:center">Nanning Zheng<br>Xi'an JiaoTong University</td>
+<td style="text-align:center">Nanning Zheng<br>Xi’an JiaoTong University</td>
 <td style="text-align:center">CVPR 2016</td>
 <td style="text-align:center">Part</td>
 <td style="text-align:left">1. 多通道学习整个身体与局部肢体<br>2. 用新的Triplet loss 去加强学习效果</td>
 <td style="text-align:center">三层CNN</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. Conv1对整个图提特征<br>2. 沿高度将Conv1分为四部分，分别用四个支路去学习局部特征<br>3. 再训练一个支路对Conv1直接学习<br>4. 五个支路输出特征级联<br>5. 不仅要求正样本对距离小于负样本对，还要求正样本对距离小于某个值</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left"><strong>iLIDS</strong> 60.4<br><strong>PRID</strong> 22.0<br><strong>VIPeR</strong> 47.8<br><strong>CUHK01</strong>(486 testID) 53.7</td>
 </tr>
 <tr>
@@ -556,7 +847,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">AlexNet</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. 整体为三路网络，修改的Triplet Loss外加正样本对的距离Loss<br>2. 多尺度信息体现在将原始图片下采样为两种尺度，加上原尺寸，共三种尺寸，分别训三个AlexNet，再融合</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left"><strong>Market1501</strong><br>SQ R 45.1<br>MQ 55.4</td>
 </tr>
 <tr>
@@ -609,14 +900,14 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 <tr>
 <td style="text-align:center">Point to Set Similarity Based Deep Feature Learning for Person Re-identification</td>
-<td style="text-align:center">Nanning Zheng<br> Xi'an Jiaotong University</td>
+<td style="text-align:center">Nanning Zheng<br> Xi’an Jiaotong University</td>
 <td style="text-align:center">CVPR 2017</td>
 <td style="text-align:center">Loss</td>
 <td style="text-align:left">用点对集合来作为相似性度量</td>
 <td style="text-align:center">CNN</td>
 <td style="text-align:center">Euclidean Distance</td>
 <td style="text-align:left">1. P2S改进的Triplet Loss + Contrastive Loss<br>2. 身体局部与整体的不同尺度学习</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left"><strong>3DPeS</strong> 71.16<br><strong>CUHK01</strong> 77.34<br><strong>PRID</strong> 70.71<br><strong>Market1501</strong> SQ R 70.72 mAP 44.27<br>MQ R 85.78 mAP 55.73</td>
 </tr>
 <tr>
@@ -628,7 +919,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">训练好的Domain Guide Model</td>
 <td style="text-align:center">Cosine Distance</td>
 <td style="text-align:left">1. 用网络提取的特征计算余弦距离，构建相似性矩阵C，行为一个摄像头下的人，列为另一个摄像头下的人<br>2. 构建C相对应的邻接矩阵，同一个人则为1否则为0<br>3. 训练时要最大化C与H的点点相乘，并使H的预测值与真实值误差尽可能小<br>4. C与H是交替优化的</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left"><strong>Market1501</strong><br>SQ R 73.84 mAP 47.11<br>MQ R 80.85 mAP 55.58</td>
 </tr>
 <tr>
@@ -699,7 +990,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">在low-level上也加入对匹配的优化，组成多层次的优化网络</td>
 <td style="text-align:center">inception</td>
 <td style="text-align:center">Euclidean Distance + L2norm</td>
-<td style="text-align:left">1. 在第一个卷积层之后加入对低层次特征块的匹配的优化，用的结构主要是NIPS16那篇求相关性系数的方法。<br>2. 对正负样本块的相关性系数，设置阈值，做置零操作，主要是防止噪声块以及无区分性块的影响<br>3. 优化目标是使正样本先关系数最大化吗，负样本相关系数最小化<br>4. 前期不加low-level的匹配优化，训练稳定之后再加入low-level的优化。5. 测试的时候并不需要low-level优化网络<br>6. <strong>只对anchor图片计算分类损失</strong></td>
+<td style="text-align:left">1. 在第一个卷积层之后加入对低层次特征块的匹配的优化，用的结构主要是NIPS16那篇求相关性系数的方法。<br>2. 对正负样本块的相关性系数，设置阈值，做置零操作，主要是防止噪声块以及无区分性块的影响<br>3. 优化目标是使正样本先关系数最大化吗，负样本相关系数最小化<br>4. 前期不加low-level的匹配优化，训练稳定之后再加入low-level的优化。<be>5. 测试的时候并不需要low-level优化网络<br>6. <strong>只对anchor图片计算分类损失</strong></be></td>
 <td style="text-align:center">manually 85.7<br>detected 83.6</td>
 <td style="text-align:left"><strong>CUHK01</strong> (100)79.3 (486)63.7<br><strong>Market1501</strong> SQ R 81.9 mAP 63.6</td>
 </tr>
@@ -710,13 +1001,13 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Part</td>
 <td style="text-align:left">针对人的不同部位设置不同的loss，让得到的特征更有区分性</td>
 <td style="text-align:center">GoogleNet</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left">1. 对于最后的特征图，找出每一个特诊图为响应最大的点的位置，并将这些点聚为k类。<br>2. 对于每一类的特征图，得到均值特征图，并标准化，大于0.5的点视为前景，最小的闭合矩形框作为 part bounding box.<br>3. 对于C个特征图，k个框，经过ROI Pooling,得到k个Cx4x4的特征，并分别训练k个part loss。<br>4. part loss同时也会提升全局特征表达。<br>5. 最后的特征表达是全局特征与局部特征级联</td>
 <td style="text-align:center">manually 82,75</td>
 <td style="text-align:left"><strong>Market1501</strong> SQ mAP 69.3 R1 88.2<br><strong>VIPeR</strong> 56.65</td>
 </tr>
 <tr>
-<td style="text-align:center">Harmonious Attention Network for Person Re-Identification [<a href="https://arxiv.org/pdf/1802.08122.pdf">pdf</a>]</td>
+<td style="text-align:center"><em>Harmonious Attention Network for Person Re-Identification</em> [<a href="https://arxiv.org/pdf/1802.08122.pdf">pdf</a>]</td>
 <td style="text-align:center">Shaogang Gong<br>QMUL</td>
 <td style="text-align:center">CVPR 2018</td>
 <td style="text-align:center">Attention</td>
@@ -794,13 +1085,13 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Part Attention</td>
 <td style="text-align:left">利用关键点检测，得到不同部位的特征，并加权</td>
 <td style="text-align:center">GoogleNet</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left">1.主要有两路，一路用于检测关键点，一路用于提特征，两路先分别训练，然后合起来训练。<br>2. pose分支现在MPII上预训练，输出关键点位置，part场，以及根据关键点划分的三个大块。part场是real time那篇预测两个关键点之间的矩形区域的，这里和划分出的三个大块一样，相当于一个mask用于对另一个支路的特征做掩模，通过各个mask掩模得到的特征pooling再级联起来，再加权(利用mask的响应以及特征学到)，然后就得到了最后的特征。</td>
 <td style="text-align:center">manually 91.39 detected 89.51</td>
 <td style="text-align:left"><strong>CUHK01</strong> 88.07<br><strong>Market1501</strong><br>SQ R1 88.69 mAP 82.96<br>MQ R1 92.16 mAP 87.32<br><strong>CUHK03-NP</strong><br>labeld R1 81.86 mAP 81.61<br>detected R1 79.14 mAP 78.37<br><strong>DukeMTMC-reID</strong> R1 76.84 mAP 59.25<br><strong>SenseReID</strong> 41.37</td>
 </tr>
 <tr>
-<td style="text-align:center">Deep Group-shuffling Random Walk for Person Re-identification</td>
+<td style="text-align:center"><em>Deep Group-shuffling Random Walk for Person Re-identification</em> [<a href="https://github.com/YantaoShen/kpm_rw_person_reid">code</a>]</td>
 <td style="text-align:center">Xiaogang Wang<br>CUHK</td>
 <td style="text-align:center">CVPR 2018</td>
 <td style="text-align:center">re-ranking</td>
@@ -824,7 +1115,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left"><strong>CUHK01</strong> 82.5<br><strong>VIPeR</strong> 51.9<br><strong>3DPeS</strong> 65.6<br><strong>Market1501</strong>SQ R1 81.2</td>
 </tr>
 <tr>
-<td style="text-align:center">End-to-End Deep Kronecker-Product Matching for Person Re-identification</td>
+<td style="text-align:center">End-to-End Deep Kronecker-Product Matching for Person Re-identification [<a href="https://github.com/YantaoShen/kpm_rw_person_reid">code</a>]</td>
 <td style="text-align:center">Xiaogang Wang<br>CUHK</td>
 <td style="text-align:center">CVPR 2018</td>
 <td style="text-align:center">Distance Metric</td>
@@ -920,7 +1211,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left"><strong>Market1501</strong><br>SQ R1 90.0 mAP 74.3<br>MQ R1 92.3 mAP 82.4<br><strong>DukeMTMC-reID</strong> R1 81.0 mAP 62.8</td>
 </tr>
 <tr>
-<td style="text-align:center">Learning Discriminative Features with Multiple Granularity for Person Re-Identification</td>
+<td style="text-align:center">Learning Discriminative Features with Multiple Granularity for Person Re-Identification [<a href="https://github.com/levyfan/reid-mgn">code</a>]</td>
 <td style="text-align:center">Xi Zhou<br>SITU</td>
 <td style="text-align:center">Arxiv 2018.07</td>
 <td style="text-align:center">Part</td>
@@ -957,7 +1248,10 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 </tbody>
 </table>
-<h2 id="video">Video</h2>
+</details>
+<details>
+<summary>Video-based</summary>
+<h2>Video</h2>
 <table>
 <thead>
 <tr>
@@ -988,7 +1282,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">1. 只取图片的下半部分，定义能量函数FEP，能量值随帧变化<br> 2. 对每个图，在极大值与极小值点前后取共10帧<br></td>
 <td style="text-align:left">28.9</td>
 <td style="text-align:center">23.3</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Sparse Re-ID: Block Sparsity for Person Re-identification</td>
@@ -1002,7 +1296,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">构建一个字典</td>
 <td style="text-align:left">24.9</td>
 <td style="text-align:center">35.1</td>
-<td style="text-align:center">---</td>
+<td style="text-align:center">—</td>
 </tr>
 <tr>
 <td style="text-align:center">A Spatio-temporal Appearance Representation for <br>Video-based Pedestrian Re-identification</td>
@@ -1016,7 +1310,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">1. 用傅里叶变换对FEP去噪 <br>2. 空间上按头，四肢，上身，将身体分为6个部分</td>
 <td style="text-align:left">44.3</td>
 <td style="text-align:center">64.1</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Deep Recurrent Convolutional Networks for Video-based <br>Person Re-identification: An End-to-End Approach</td>
@@ -1030,7 +1324,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">GRU中用卷积操作代替了全连接层</td>
 <td style="text-align:left">42.6</td>
 <td style="text-align:center">49.8</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Top-push Video-based Person Re-identification</td>
@@ -1044,7 +1338,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">学习马氏距离的矩阵M</td>
 <td style="text-align:left">56.33</td>
 <td style="text-align:center">56.74</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification by Exploiting <br>Spatio-temporal Cues and Multi-view Metric Learning</td>
@@ -1058,7 +1352,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">优化马氏距离中的W</td>
 <td style="text-align:left">69.13</td>
 <td style="text-align:center">66.78</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Re-identification via Recurrent Feature Aggregation [<a href="https://github.com/daodaofr/caffe-re-id">code</a>]</td>
@@ -1072,11 +1366,11 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">对噪声鲁棒性强</td>
 <td style="text-align:left">49.3</td>
 <td style="text-align:center">64.1</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center"><em>Recurrent Convolutional Network for Video-based Person Re-identification</em> [<a href="https://github.com/niallmcl/Recurrent-Convolutional-Video-ReID">code</a>]</td>
-<td style="text-align:center">Paul Miller<br>Queen's University Belfast</td>
+<td style="text-align:center">Paul Miller<br>Queen’s University Belfast</td>
 <td style="text-align:center">CVPR 2016</td>
 <td style="text-align:center">RNN</td>
 <td style="text-align:left">利用CNN提取空间特征，RNN提取空间特征</td>
@@ -1100,7 +1394,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">1. 先用光流训练一个网络，让其能预测光流<br>2. 将光流网络加入到原网络中一起使用</td>
 <td style="text-align:left">65.3</td>
 <td style="text-align:center">78</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Learning Compact Appearance Representation for Video-based Person Re-identification</td>
@@ -1114,7 +1408,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">1. 利用对于不同视频段提取到的特征，可以得到两个人之间的平均距离和最小距离<br>2. FEP选取关键帧</td>
 <td style="text-align:left">60.4</td>
 <td style="text-align:center">83.3</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">See the Forest for the Trees: Joint Spatial and Temporal <br>Recurrent Neural Networks for Video-based Person Re-identification [<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8100200">pdf</a>]</td>
@@ -1142,7 +1436,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">代码中的升级版本<br>1. 三路网络，Triplet Loss,每一路又有一个分类Loss,正样本对又构建Contrastive loss(相当于只有正样本情况)<br>2. 对于每一个支路，都由GoogleNet组成，其后便是分类loss。每个支路中还有一个QAN网络，用于产生质量分数<br>3. QAN是两层卷积网络加全连接层，全连接输出维度为3，结构CPCPF，直接由原始图片数据学得<br>4. GoogleNet中间特征中沿高度均分得到三个特征，每个特征再均值池化压缩h维度。每个支路的QAN输出的3个数值标准化后分别对其加权<br>5. 加权后的特征经过L2 Norm便得到最后表达，进入Triplet Loss与Contrastive Loss</td>
 <td style="text-align:left">68.0</td>
 <td style="text-align:center">90.3</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-identification [<a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Xu_Jointly_Attentive_Spatial-Temporal_ICCV_2017_paper.pdf">pdf</a>] [<a href="https://github.com/shuangjiexu/Spatial-Temporal-Pooling-Networks-ReID">code</a>]</td>
@@ -1170,7 +1464,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">在RNN-ReID结构上，用两个相同结构的Siamese网络，分别提取RGB与光流中的特征，loss与特征是两者的加权</td>
 <td style="text-align:left">60</td>
 <td style="text-align:center">78</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Region-based Quality Estimation Network for Large-scale Person Re-identification</td>
@@ -1212,7 +1506,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">1. 类内：<a href="https://arxiv.org/pdf/1605.08104.pdf">预测神经网络</a>，结构是四层的网络，每一层分为四个基础部分：输入卷积模块，循环表达模块，输出预测模块，误差表达模块。训练时，先自顶向下求循化表达模块R的值，在自下而上更新其他值。输入为T帧视频，输出为生成的T-1帧视频。<br>2. 类间：<a href="https://arxiv.org/pdf/1611.07004.pdf">背景置换网络</a></td>
 <td style="text-align:left">66</td>
 <td style="text-align:center">79</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Three-Stream Convolutional Networks for Video-based Person Re-Identification</td>
@@ -1342,7 +1636,10 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 </tbody>
 </table>
-<h2 id="metric">Metric</h2>
+</details>
+<details>
+<summary>Metric</summary>
+<h2>Metric</h2>
 <table>
 <thead>
 <tr>
@@ -1429,7 +1726,10 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 </tbody>
 </table>
-<h2 id="loss">Loss</h2>
+</details>
+<details>
+<summary>Loss</summary>
+<h2>Loss</h2>
 <table>
 <thead>
 <tr>
@@ -1457,7 +1757,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left"><strong>CUHK03</strong> manually 87.5<br><strong>Market1501</strong><br>SQ R 88.9 mAP 76.7<br><strong>MARS</strong><br>SQ R 84.2 mAP 74.6</td>
 </tr>
 <tr>
-<td style="text-align:center">In Defense of the Triplet Loss for Person Re-identification [<a href="https://github.com/VisualComputingInstitute/triplet-reid">code</a>]</td>
+<td style="text-align:center"><em>In Defense of the Triplet Loss for Person Re-identification</em> [<a href="https://github.com/VisualComputingInstitute/triplet-reid">code</a>]</td>
 <td style="text-align:center">Bastian Leibe<br>RWTH Aachen University</td>
 <td style="text-align:center">Arxiv 201711</td>
 <td style="text-align:left">在一个batch中，寻找最困难的正负样本组成三元组</td>
@@ -1467,9 +1767,23 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">用了soft-margin</td>
 <td style="text-align:left"><strong>CUHK03</strong> manually 89.63 detected 87.58<br><strong>Market1501</strong><br>SQ R 86.67 mAP 81.07<br>MQ R 91.75 mAP 87.18<br><strong>MARS</strong><br>MQ R 81.21 mAP 77.43</td>
 </tr>
+<tr>
+<td style="text-align:center">Support Neighbor Loss for Person Re-identification</td>
+<td style="text-align:center">Yun Fu<br>Northeastern University</td>
+<td style="text-align:center">MM 2018</td>
+<td style="text-align:left">在近邻内部构建损失对</td>
+<td style="text-align:center">ResNet50</td>
+<td style="text-align:center">Euclidean Distance</td>
+<td style="text-align:left">Support Neighbor Loss</td>
+<td style="text-align:left">对于每个样本，得到其K近邻，在K近邻计算query与各个近邻的欧式距离，然后利用softmax，将此距离处理为概率，要求近邻内正样本的概率和越大越好。同时每个近邻内，最远正样本距离与最近正样本距离的差值要小，这样能让样本分布在query的周围</td>
+<td style="text-align:left"></td>
+</tr>
 </tbody>
 </table>
-<h2 id="new-perspective">New Perspective</h2>
+</details>
+<details>
+<summary>New Perspective</summary>
+<h2>New Perspective</h2>
 <table>
 <thead>
 <tr>
@@ -1489,10 +1803,10 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Li FeiFei<br>Stanford University</td>
 <td style="text-align:center">CVPR 2016</td>
 <td style="text-align:left">数据集是人的深度信息，立体的，无RGB信息</td>
-<td style="text-align:center">--</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left">因数据集较大，结合了循环注意力模型，自动选择下一个关注点</td>
-<td style="text-align:left">--</td>
+<td style="text-align:left">–</td>
 </tr>
 <tr>
 <td style="text-align:center">End-to-End Deep Learning for Person Search</td>
@@ -1502,7 +1816,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Faster RCNN</td>
 <td style="text-align:center">Softmax Score</td>
 <td style="text-align:left">1. 分类的时候，一个batch只有少数图片，但整体类别很多，所以Softmax目标会很稀疏<br>2. 提出随机采样的Softmax loss，即每次随机选取Softmax神经元的一个子集</td>
-<td style="text-align:left">--</td>
+<td style="text-align:left">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Person Search with Natural Language Description</td>
@@ -1510,9 +1824,9 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">CVPR 2017</td>
 <td style="text-align:left">根据自然语言描述去搜索人物</td>
 <td style="text-align:center">VGG16</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left">1. 单元级的注意力与单词级的门控制</td>
-<td style="text-align:left">--</td>
+<td style="text-align:left">–</td>
 </tr>
 <tr>
 <td style="text-align:center">Unlabeled Samples Generated by GAN Improve the Person Re-identification Baseline in vitro [<a href="https://github.com/layumi/Person-reID_GAN">code</a>]</td>
@@ -1544,9 +1858,22 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:left">将稀疏字典表达嵌入到网络中，完整人体特征视为字典，稀疏矩阵是要学习的权值，这些用以重建部分人体的特征</td>
 <td style="text-align:left"><strong>Partial REID</strong>MQ 53.67<br><strong>Partial-iLIDS</strong> MQ 55.46</td>
 </tr>
+<tr>
+<td style="text-align:center">Person Search via Mask-Guided Two-Stream CNN Model</td>
+<td style="text-align:center">Wanli Ouyang, Ying Tai<br>The University of Sydney</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:left">检测出图片，然后利用原始图片与mask一起做</td>
+<td style="text-align:center">ResNet50</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">人的图片检测出来后，用mask将前景分出来，然后将包括背景的图片和前景图片的特征级联，用SEBlock做一次加权。</td>
+<td style="text-align:left"><strong>CUHK-SYSU</strong>(100) mAP 83.0 R1 83.7<br><strong>PRW</strong> mAP 32.6 R1 72.1</td>
+</tr>
 </tbody>
 </table>
-<h2 id="gan">GAN</h2>
+</details>
+<details>
+<summary>GAN</summary>
+<h2>GAN</h2>
 <table>
 <thead>
 <tr>
@@ -1597,7 +1924,10 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 </tbody>
 </table>
-<h3 id="part">Part</h3>
+</details>
+<details>
+<summary>Part</summary>
+<h3>Part</h3>
 <table>
 <thead>
 <tr>
@@ -1665,7 +1995,10 @@ pre.editor-colors .bracket-matcher .region {
 </tbody>
 </table>
 <p>当用肢体关键点框出感兴趣区域后，随之而来的一个问题便是有一些标志性的物体会被排除在外，比如包，雨伞等等</p>
-<h3 id="attribute">Attribute</h3>
+</details>
+<details>
+<summary>Attribute</summary>
+<h3>Attribute</h3>
 <table>
 <thead>
 <tr>
@@ -1720,7 +2053,7 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">MM 2014</td>
 <td style="text-align:left">标了一个远距离下行人属性数据集，任务是预测行人属性</td>
 <td style="text-align:center">Color Channels<br>Texture Filters(Schmid &amp; Gabor)</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
 <td style="text-align:center">ikSVM<br>MRF with Gaussian kernel<br>MRF with random forest</td>
 <td style="text-align:left">1. 用 Markov Random Field(MRF) 探索邻近图片间的上下文关系<br>2. MRF能量函数由 Unary Cost 和 Pairwise Cost组成<br>3. unary cost 利用预测属性分类概率（由ikSVM学习）的log函数构成<br>4. 用随机森林去学习Pairwise Cost</td>
 <td style="text-align:left"><strong>PETA</strong> 71.1</td>
@@ -1752,17 +2085,20 @@ pre.editor-colors .bracket-matcher .region {
 <td style="text-align:center">Liang Zheng<br>University of Technology Sydney</td>
 <td style="text-align:center">Arxiv 2017</td>
 <td style="text-align:left">主要研究属性标签如何在大规模学习问题上帮助Re-ID</td>
-<td style="text-align:center">--</td>
-<td style="text-align:center">--</td>
-<td style="text-align:center">--</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
 <td style="text-align:left">这里的属性主要是与ID层面的属性，比如性别，年龄，而不是持续时间短的，或属于外界环境的属性，比如打电话，骑自行车</td>
-<td style="text-align:left">--</td>
+<td style="text-align:left">–</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li>属性的正负样本之间的不平衡，以及有的属性正样本太少</li>
 </ul>
+</details>
+<details>
+<summary>Dataset</summary>
 <h2>Dataset</h2>
 <table>
 <thead>
@@ -1810,7 +2146,10 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 </tbody>
 </table>
-<h2 id="skimmed">Skimmed</h2>
+</details>
+<details>
+<summary>Skimmed</summary>
+<h2>Skimmed</h2>
 <table>
 <thead>
 <tr>
@@ -1845,17 +2184,27 @@ pre.editor-colors .bracket-matcher .region {
 </tr>
 </tbody>
 </table>
+</details>
+<details>
+<summary>Utils</summary>
 <p>Multi-shot: In the multi-shot experiments, we return the
 average similarity between the probe person image and multiple gallery images of an certain individual.</p>
+</details>
 <hr>
-<h1 id="-center-code-center-"><center>Code</center></h1>
-<h3 id="projects">Projects</h3>
+<h1><center>Code</center></h1>
+<details>
+<summary>Projects</summary>
+<h3>Projects</h3>
 <ul>
+<li>deep ReID [<a href="https://github.com/KaiyangZhou/deep-person-reid">code</a>]</li>
 <li>Baseline Code (with bottleneck) for Person-reID (pytorch) [<a href="https://github.com/teslacool/Person_reID_baseline_pytorch">code</a>]</li>
 <li>Open reid [<a href="https://github.com/Cysu/open-reid">code</a>]</li>
 <li>caffe-PersonReID [<a href="https://github.com/agjayant/caffe-Person-ReID">code</a>]</li>
 </ul>
-<h3 id="released">Released</h3>
+</details>
+<details>
+<summary>Released</summary>
+<h3>Released</h3>
 <ul>
 <li>A Discriminatively Learned CNN Embedding for Person Re-identification [<a href="https://github.com/layumi/2016_person_re-ID">official</a>] [<a href="https://github.com/D-X-Y/caffe-reid">github</a>]</li>
 <li>Unsupervised Person Re-identification: Clustering and Fine-tuning [<a href="https://github.com/hehefan/Unsupervised-Person-Re-identification-Clustering-and-Fine-tuning">code</a>]</li>
@@ -1863,9 +2212,12 @@ average similarity between the probe person image and multiple gallery images of
 <li>A Pose-Sensitive Embedding for Person Re-Identification with Expanded Cross Neighborhood Re-Ranking [<a href="https://github.com/pse-ecn/pose-sensitive-embedding">code</a>]</li>
 <li>Joint Detection and Identification Feature Learning for Person Search [<a href="https://github.com/ShuangLI59/person_search">code</a>]</li>
 </ul>
+</details>
 <hr>
-<h1 id="-center-expansion-center-"><center>Expansion</center></h1>
-<h2 id="neural-networks-architecture">Neural Networks Architecture</h2>
+<h1><center>Expansion</center></h1>
+<details>
+<summary>Neural Networks Architecture</summary>
+<h2>Neural Networks Architecture</h2>
 <table>
 <thead>
 <tr>
@@ -1900,7 +2252,10 @@ average similarity between the probe person image and multiple gallery images of
 </tr>
 </tbody>
 </table>
-<h2 id="interesting-work">Interesting Work</h2>
+</details>
+<details>
+<summary>Interesting Work</summary>
+<h2>Interesting Work</h2>
 <table>
 <thead>
 <tr>
@@ -2003,9 +2358,19 @@ average similarity between the probe person image and multiple gallery images of
 <td style="text-align:left">视频风格转换</td>
 <td style="text-align:left">1. 相邻两帧之间提取光流<br>2. 每一帧用encoder获得特征，用光流对前一帧wrap。利用wrap之后的结果与当前帧的特征的差值学习mask，用mask更新特征，最后对当前帧特征解码</td>
 </tr>
+<tr>
+<td style="text-align:center">Temporal Segment Networks: Towards Good Practices for Deep Action Recognition</td>
+<td style="text-align:center">Xiaoou Tang<br>CUHK</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">长范围时间结构建模</td>
+<td style="text-align:left">TSN使用从整个视频中稀疏地采样一系列短片段，每个片段都将给出其本身对于行为类别的初步预测，从这些片段的“共识”来得到视频级的预测结果。</td>
+</tr>
 </tbody>
 </table>
-<h2 id="pose-estimation">Pose Estimation</h2>
+</details>
+<details>
+<summary>Pose Estimation</summary>
+<h2>Pose Estimation</h2>
 <table>
 <thead>
 <tr>
@@ -2040,7 +2405,57 @@ average similarity between the probe person image and multiple gallery images of
 </tr>
 </tbody>
 </table>
-<h2 id="machine-learning">Machine Learning</h2>
+</details>
+<p>[</p>
+<details>
+<summary>Super-Resolution</summary>
+<h2>Super-Resolution</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:left">Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Image Super-Resolution Using Deep Convolutional Networks</td>
+<td style="text-align:center">Xiaoou Tang<br>CUHK</td>
+<td style="text-align:center">2016 TPAMI</td>
+<td style="text-align:left">用CNN处理超分辨</td>
+<td style="text-align:left">三层CNN结构，先将低分辨率图片上采样到期望的大小，然后经过三个卷积层，中间无下采样，输出的为处理的高分辨率图片，与label的差值平方和为loss</td>
+</tr>
+<tr>
+<td style="text-align:center">Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network</td>
+<td style="text-align:center">Wezhe Shi<br>Twitter</td>
+<td style="text-align:center">CVPR 2016</td>
+<td style="text-align:left">将upscale放到最后一层，降低了计算量</td>
+<td style="text-align:left">输入为低分辨率图片，在最后一层，通道数为原图通道数的降采样比例的平方倍，这样相当于用不同的通道去学upscale时不同位置的值，将结果重排一下就是高分辨率图了。</td>
+</tr>
+<tr>
+<td style="text-align:center">Perceptual Losses for Real-Time Style Transfer and Super-Resolution</td>
+<td style="text-align:center">Li FeiFei</td>
+<td style="text-align:center">ECCV 2016</td>
+<td style="text-align:left">不使用per-pixel的loss</td>
+<td style="text-align:left">不直接要求重建的高清图片与真实高清图片的像素相似，而是要求用网络提取的特征相似，这样能获得更好的视觉上的提升</td>
+</tr>
+<tr>
+<td style="text-align:center">Frame-Recurrent Video Super-Resolution</td>
+<td style="text-align:center">Matthew Brown<br> Google</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">不使用划窗，降低计算量</td>
+<td style="text-align:left">1. 前一帧与当前帧级联学习光流。<br>2. 利用光流对前一帧的预测的高分辨率图片做warping(即利用光流的值得到前一帧像素应该向何处偏移)。<br>3. 利用重新估算的当前帧高分辨率图片结合当前帧得到最后的估计</td>
+</tr>
+</tbody>
+</table>
+</details>
+]: #
+<details>
+<summary>Machine Learning</summary>
+<h2>Machine Learning</h2>
 <table>
 <thead>
 <tr>
@@ -2082,13 +2497,19 @@ average similarity between the probe person image and multiple gallery images of
 </tr>
 </tbody>
 </table>
-<h2 id="tool">Tool</h2>
+</details>
+<details>
+<summary>Tool</summary>
+<h2>Tool</h2>
 <ul>
 <li>Pyramid Matching</li>
 <li>atrous convolution</li>
 <li>RNN</li>
 <li>SPP</li>
 </ul>
+</details>
+<details>
+<summary>Links</summary>
 <h1>Links</h1>
 <ul>
 <li><a href="https://github.com/KaiyangZhou/deep-person-reid">KaiyangZhou</a></li>
@@ -2096,5 +2517,8 @@ average similarity between the probe person image and multiple gallery images of
 <li><a href="http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html">数据集总结</a></li>
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>
 </ul>
-<div align="right">Updated Date: 2018/08/19</div></body>
+</details>
+<div align="right">Updated Date: 2018/08/19</div>
+
+  </body>
 </html>

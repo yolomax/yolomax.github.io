@@ -1,6 +1,9 @@
 # <center>Person Re-Identification</center>
 
-## Image
+
+<details>
+<summary>Image-based</summary>
+
 | Name | Author | Conference & Year |Tag| Motivation |Feature|Metric|Detail|CUHK03|Dataset|
 |:----:|:------:|:-----------------:|:----:|:-----------|:-----:|:----:|:-----|:----:|:------|
 |Viewpoint Invariant Pedestrian Recognition with an Ensemble of Localized Features|Hai Tao<br>University of California, Santa Cruz|ECCV 2008|-|定义了一个特征空间，让机器学习算法去寻找最好的表达|Color Channels<br>Texture Filters(Schmid & Gabor)<br>Feature Regions<br>Feature Binning|L1 Distance|使用了AdaBoost|--|**VIPeR** 12|
@@ -30,14 +33,14 @@
 |HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis [[code](https://github.com/xh-liu/HydraPlus-Net)]|Lu Sheng<br>CUHK|ICCV 2017|Attention|不同语义层次的Attention|更改之后的Inception-v2|Cosine Distance|1. 一个主分支，三个旁分支，每个分支分别从不同的inception block得到的特征中提取attention map。然后给三个block的特征加mask。2. 需要分阶段训练，因为且产生attention的block之前的网络不微调|91.8|**VIPeR** 56.6<br>**Market1501** SQ R1 76.9|
 |Deep Siamese Network with Multi-level Similarity Perception for Person Re-identification [[pdf](https://dl.acm.org/ft_gateway.cfm?id=3123452&ftid=1915024&dwn=1&CFID=851513252&CFTOKEN=41197890)] [[code](https://github.com/InnovArul/personreid_normxcorr)]|Yaowu Chen, Xian-Sheng Hua<br>Zhejiang University, Alibaba|MM 2017|-|在low-level上也加入对匹配的优化，组成多层次的优化网络|inception|Euclidean Distance + L2norm|1. 在第一个卷积层之后加入对低层次特征块的匹配的优化，用的结构主要是NIPS16那篇求相关性系数的方法。<br>2. 对正负样本块的相关性系数，设置阈值，做置零操作，主要是防止噪声块以及无区分性块的影响<br>3. 优化目标是使正样本先关系数最大化吗，负样本相关系数最小化<br>4. 前期不加low-level的匹配优化，训练稳定之后再加入low-level的优化。<be>5. 测试的时候并不需要low-level优化网络<br>6. **只对anchor图片计算分类损失**|manually 85.7<br>detected 83.6|**CUHK01** (100)79.3 (486)63.7<br>**Market1501** SQ R 81.9 mAP 63.6|
 |*Deep Representation Learning with Part Loss for Person Re-Identification* [[pdf](https://arxiv.org/pdf/1707.00798.pdf)]|Qi Tain<br>UTSA|Arxiv 2017.06|Part|针对人的不同部位设置不同的loss，让得到的特征更有区分性|GoogleNet|--|1. 对于最后的特征图，找出每一个特诊图为响应最大的点的位置，并将这些点聚为k类。<br>2. 对于每一类的特征图，得到均值特征图，并标准化，大于0.5的点视为前景，最小的闭合矩形框作为 part bounding box.<br>3. 对于C个特征图，k个框，经过ROI Pooling,得到k个Cx4x4的特征，并分别训练k个part loss。<br>4. part loss同时也会提升全局特征表达。<br>5. 最后的特征表达是全局特征与局部特征级联|manually 82,75|**Market1501** SQ mAP 69.3 R1 88.2<br>**VIPeR** 56.65|
-|Harmonious Attention Network for Person Re-Identification [[pdf](https://arxiv.org/pdf/1802.08122.pdf)]|Shaogang Gong<br>QMUL|CVPR 2018|Attention|在空间上，通道上做soft attention，又用STN选出T个区域做Hard的attention|Inception|L2norm + Euclidean Distance|1. 空间注意力：对通道取均值，只保留空间分辨率，在用一个卷积核,resize,缩放参数得到最后的空间注意力值。通道注意力：用的是squeeze-and-excitation结构。<br>2. 在每个Inception模块后面，用STN学习T个仿射变换矩阵，对此模块前面的特征图进行采样，得到T种特征图，分别对应T个分支。分支网络用单独的Inception结构训，每一模块之后都会加上STN对总网络此层的T个采样。最后通过级联全连接得到512维的特征。<br>3. 总网络的特征与分支网络的特征级联得到总的特征表达，为1024维。<br>4. 无数据增强和预训练。|(767/700)<br>manually R1 44.4 mAP 41.0<br>detected R1 41.7 mAP 38.6|**Market1501**<br>SQ R1 91.2 mAP 75.7<br>MQ R1 93.8 mAP 82.8<br>**DukeMTMC-ReID** R1 80.5 mAP 63.8|
+|*Harmonious Attention Network for Person Re-Identification* [[pdf](https://arxiv.org/pdf/1802.08122.pdf)]|Shaogang Gong<br>QMUL|CVPR 2018|Attention|在空间上，通道上做soft attention，又用STN选出T个区域做Hard的attention|Inception|L2norm + Euclidean Distance|1. 空间注意力：对通道取均值，只保留空间分辨率，在用一个卷积核,resize,缩放参数得到最后的空间注意力值。通道注意力：用的是squeeze-and-excitation结构。<br>2. 在每个Inception模块后面，用STN学习T个仿射变换矩阵，对此模块前面的特征图进行采样，得到T种特征图，分别对应T个分支。分支网络用单独的Inception结构训，每一模块之后都会加上STN对总网络此层的T个采样。最后通过级联全连接得到512维的特征。<br>3. 总网络的特征与分支网络的特征级联得到总的特征表达，为1024维。<br>4. 无数据增强和预训练。|(767/700)<br>manually R1 44.4 mAP 41.0<br>detected R1 41.7 mAP 38.6|**Market1501**<br>SQ R1 91.2 mAP 75.7<br>MQ R1 93.8 mAP 82.8<br>**DukeMTMC-ReID** R1 80.5 mAP 63.8|
 |Multi-Channel Pyramid Person Matching Network for Person Re-Identification|Xi li<br>Zhejiang University&Alibaba|AAAI 2018|CNN+手工特征|分别学习语义表达和颜色纹理表达。语义表达用CNN，而颜色纹理基于手工特征，再输入到网络中，用两个全连接综合这两方面信息预测是否为同一个人|GoogleNet|Softmax Score|1. 语义部分，输入RGB信息，用Googlenet提取特征，再将两个人的特征级联起来以融合信息，用atrous卷积得到3种尺度的特征表达，将级联后的信息通过卷积和池化得到最后表达。<br>2. 颜色纹理表达与语义表达的处理在模型结构上相同，只是输入时手工特征。<br>3. 将语义特征与颜色纹理特征级联再通过全连接等进行分类。|manually 86.36<br>detected 81.88|**CUHK01** (100)93.45 (486)78.95<br>**VIPeR** 50.13<br>**PRID2011** 34<br>**iLIDS** 62.69|
 |SVDNet for Pedestrian Retrieval|Shengjin Wang<br>Liang Zheng|ICCV 2017|-|去最后的全连接层权值矩阵的相关性，得到更高层度的正交性|CaffeNet or ResNet50|Euclidean distance|1. 用在倒数第二个全连接层<br>2. 步骤: 向网络中加入一个线性全连接层，并微调至收敛。将线性全连接层的权值矩阵进行SVD分解，<br>W = USV<br>用W和其自身的转置矩阵乘作为本征层。固定本征层，并微调网络至收敛。再不固定本征层，微调整个网络至收敛|detected R1 81.8 mAP 84.8|**Market1501** R1 82.3 mAP 62.1<br>**DukeMTMC-reID** R1 76.7 mAP 56.8|
 |Dual Attention Matching Network for Context-Aware Feature Sequence based Person Re-Identification|Jason Kuen<br>NTUS|CVPR 2018|Attention|提出一个用多个序列算距离的方法|DenseNet-121|Euclidean distance|1. 序列的定义是特征图中将不同位置的特征视为一个序列。<br>2. 同一个图片内，利用attention用各个位置的特征的加权值代表自己，加权由转移网络根据此位置生成的特征和各个位置的特征的內积大小决定。<br>3. 不同图片之间的也可以用相似方法得到。<br>4. 最后的距离是特征距离取平均|-|**Market1501**SQ R1 91.42 mAP 76.62<br>**DukeMTMC**R1 81.82 mAP 64.58<br>**MARS**R1 78.74 mAP 62.26|
 |Efficient and Deep Person Re-Identification using Multi-Level Similarity|Ngai-Man Cheung<br>SUTD|CVPR 2018|Distance Metric|多层次的相似性度量|六层CNN|Softmax Score与Cosine Distance的加权结果|1. 双路结构<br>2. 第二层与第三层输出的特征划分为三个水平条带，每个水平条带用一个STN提取一个关键patch，此三个块级联起来再经过两个卷积层得到的表达被用来接对比loss。<br>3. 用一个STN得到的特征在另一个特征图上做卷积得到相似性度量，级联三个个part的卷积得到的相似性度量得到此层特征之间的相似性度量。再级联多层特征的相似性度量，再用三层卷积得到最后的二分类结果。<br>4. 最后的距离是由二分类的结果与两侧用于对比损失函数的特征之间的距离的的加权值|manually 87.5<br>detected 86.45|**CUHK01** 88.2<br>**VIPeR** 50.10|
 |Adversarially Occluded Samples for Person Re-identification|Kaiqi Huang<br>UCAS|CVPR 2018|Data Augmentation|对重要区域添加mask以让模型关注到其他的区域|IDE(ResNet)|Euclidean Distance|1. 先正常训练模型<br>2. 选择矩形区域区域遮挡，再用相同的配置训练模型<br>3. 选择方法：固定遮挡框的大小，划窗遮挡，对于导致正确标签预测概率降低的位置，以降低的数值为其重要性表达，各个位置的重要性标准化之后，以之为概率随机选择遮挡|detected(767) R1 54.56 mAP 56.09|**Market1501**<br>SQ R1 88.66 mAP 83.3<br>MQ R1 92.5 mAP 88.6<br>**DukeMTMC-reID** R1 84.11 mAP 78.19|
 |Attention-Aware Compositional Network for Person Re-identification|Wanli Ouyang<br>The University of Sydney|CVPR 2018|Part Attention|利用关键点检测，得到不同部位的特征，并加权|GoogleNet|--|1.主要有两路，一路用于检测关键点，一路用于提特征，两路先分别训练，然后合起来训练。<br>2. pose分支现在MPII上预训练，输出关键点位置，part场，以及根据关键点划分的三个大块。part场是real time那篇预测两个关键点之间的矩形区域的，这里和划分出的三个大块一样，相当于一个mask用于对另一个支路的特征做掩模，通过各个mask掩模得到的特征pooling再级联起来，再加权(利用mask的响应以及特征学到)，然后就得到了最后的特征。|manually 91.39 detected 89.51|**CUHK01** 88.07<br>**Market1501**<br>SQ R1 88.69 mAP 82.96<br>MQ R1 92.16 mAP 87.32<br>**CUHK03-NP**<br>labeld R1 81.86 mAP 81.61<br>detected R1 79.14 mAP 78.37<br>**DukeMTMC-reID** R1 76.84 mAP 59.25<br>**SenseReID** 41.37|
-|Deep Group-shuffling Random Walk for Person Re-identification [[code](https://github.com/YantaoShen/kpm_rw_person_reid)]|Xiaogang Wang<br>CUHK|CVPR 2018|re-ranking|将re-ranking嵌入到网络中|ResNet50|Euclidean Distance + reranking|1. 计算gallery之间的相似度以及query与gallery之间的相似度，并用随机游走更新query与gallery之间的相似度，并用此结果做预测以及计算loss<br>2. 将特征分为几组，每一组内计算各种相似度，组与组之间可以组合用于随机游走|manually mAP 94.0 R1 94.9|**Market1501** SQ mAP 82.5 R1 92.7<br>**DukeMTMC** mAP 66.4 R1 80.7|
+|*Deep Group-shuffling Random Walk for Person Re-identification* [[code](https://github.com/YantaoShen/kpm_rw_person_reid)]|Xiaogang Wang<br>CUHK|CVPR 2018|re-ranking|将re-ranking嵌入到网络中|ResNet50|Euclidean Distance + reranking|1. 计算gallery之间的相似度以及query与gallery之间的相似度，并用随机游走更新query与gallery之间的相似度，并用此结果做预测以及计算loss<br>2. 将特征分为几组，每一组内计算各种相似度，组与组之间可以组合用于随机游走|manually mAP 94.0 R1 94.9|**Market1501** SQ mAP 82.5 R1 92.7<br>**DukeMTMC** mAP 66.4 R1 80.7|
 |Eliminating Background-bias for Robust Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|Data Augmentation|探究背景的影响|Inception|Cosine Distance|1. 先在其他数据上预训练一个人的parsing的网络，可以提人体的掩模。固定参数，之后不再训练<br>2. 训练主分支<br>3. 对于一张图片，将掩模上下分为三个部分，分别对应头，上身，下身。二值化并对第一个inception的特征做mask。三个分支用单独的网络训练，此时主分支不变。<br>4. 主分支与三个支路一起训练。<br>数据增强：输入数据时，随机选择是否替换背景|all 92.5|**CUHK01** 82.5<br>**VIPeR** 51.9<br>**3DPeS** 65.6<br>**Market1501**SQ R1 81.2|
 |End-to-End Deep Kronecker-Product Matching for Person Re-identification [[code](https://github.com/YantaoShen/kpm_rw_person_reid)]|Xiaogang Wang<br>CUHK|CVPR 2018|Distance Metric|构建匹配用的net，能起到对齐的效果|ResNet50|Softmax Score|1. 两张图片的特征x与y。分别计算各个空间位置的特征之间的內积，作为相似性度量，对于y中位置为(p,q)的点，利用x中(p,q)位置的特征与y中各个位置的相似性，做加权平均，得到y的(p,q)为位置重排的特征。对y重排之后，计算x与y的差值。利用x的特征算空间mask对差值加权。<br>2. 卷积加上采样，构建三种尺度，分别对三种尺度下两个特征做以上操作，最后特征级联得到最后预测|manually R1 93.4 mAP 89.2|**Market1501**<br>SQ R1 90.1 mAP 75.3<br>**DukeMTMC** R1 80.3 mAP 63.2|
 |Human Semantic Parsing for Person Re-identification|Muhittin Gokmen<br>MEF|CVPR 2018|Part|human parsing|Inception-V3|-|一路产生parsing，一路提特征，然后做mask。用了很多re-id的数据集做辅助训练|manually R1 91.8|**Market1501**<br>SQ R1 94.63 mAP 90.96<br>**DukeMTMC-reID** R1 88.96 mAP 84.99|
@@ -50,6 +53,13 @@
 |Learning Discriminative Features with Multiple Granularity for Person Re-Identification [[code](https://github.com/levyfan/reid-mgn)]|Xi Zhou<br>SITU|Arxiv 2018.07|Part|分多个水平条带，整体特征与局部特征级联|ResNet50|-|1. 从ResNet50的res_conv4_1之后开始分为三个支路，这三个支路是ResNet50在res_conv4_1之后网络复制的，各个支路都是预训练的参数初始化，但是参数不共享<br>2. 第一个每一个支路都算一个全局特征，除此之外，第二个支路最后的特征分为上下两部分，得到两个块特征，第三个支路分为三个块。<br>3. 其中part特征各用一个分类损失函数训练，整体特征用triplet loss训练|manually R1 68.0 mAP 67.4<br>detected R1 66.8 mAP 66.0|**Market1501**<br>SQ R1 95.7 mAP 86.9<br>MQ R1 96.9 mAP 90.7<br>**DukeMTMC-reID** R1 88.7 mAP 78.4|
 |Weighted Weighted Bilinear Coding over Salient Body Parts for Person Re-identification|Haibin Ling<br>Temple University|Arxiv 2018.04|Part Mask|用多个attention mask对空间加权|GoogleNet|-|1. 先获取一些列的attention mask。对特征进行加权，然后利用Bilinear coding获取最后的表达。<br>2. Bilinear coding是将一维向量的转置与自己相乘，得到各维度相互关联的特征。|manually R1 50.1 mAP 47.7<br>detected R1 43.9 mAP 42.1|**Market1501** SQ R1 84.5 mAP 68.7<br>**DukeMTMC-reID** R1 76.2 mAP 56.9|
 |Person Re-identification with Deep Similarity-Guided Graph Neural Network|Xiaogang Wang<br>CUHK|ECCV 2018|1. Graph Neural Network<br>2. Distance Metric|借助GNN，获得更好的相似性度量|ResNet50|Softmax Score|1. 先预训练一个二分类网络，然后开始训练SGGNN。<br>2. 通过两层全连接得到辅助表达，再 利用二分类网络得到两个图片之间的相似性，归一化之后作为加权值，对辅助表达求加权平均值，然后对当前特征进行更新。得到最后表达之后再训练二分类|manually(100) R1 95.3 mAP 94.3|**Market1501** SQ R1 92.3 mAP 82.8<br>**DukeMTMC** SQ R1 81.1 mAP 68.2|
+
+</details>
+
+
+
+<details>
+<summary>Video-based</summary>
 
 ## Video
 | Name | Author | Conference & Year |Tag| Motivation |Feature|Fusion|Metric|Detail|iLIDS|PRID|MARS|
@@ -81,6 +91,11 @@
 |Video-based Person Re-identification via 3D Convolutional Networks and Non-local Attention|Zhouwang Yang<br>USTC|Arxiv 2018.07|3D Convolutional Network|ResNet50-3D + Non-local Attention|ResNet50-3D|加权平均|Euclidean Distance|ResNet50-3D(pretrained in Kinetics) + Non-local Attention|81.3|91.2|R1 84.3 mAP 77|
 |Spatial-Temporal Synergic Residual Learning for Video Person Re-Identification|Pan Zhou<br>HUST|Arxiv 2018.07|Architecture|时间平滑+RNN跨层连接|CNN|RNN+Avg pooling|Euclidean Distance|1. 学习一个空间mask参数，作为相邻帧之间空间平滑。<br>2. RNN处理前后有跨层连接|70|88|R1 76.7|
 
+</details>
+
+<details>
+<summary>Metric</summary>
+
 ## Metric
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:-----|:------|
@@ -92,12 +107,22 @@
 |Re-ranking Person Re-identification with k-reciprocal Encoding [[code](https://github.com/zhunzhong07/person-re-ranking)]|Shaozi Li<br>Xiamen University|CVPR 2017|对排序得到的结果再次处理重排|CaffeNet|Jaccard Distance + L2 Distance|1. 利用近邻关系组成集合，生成Jaccard Distance<br>2. 最后的距离是两种距离的加权和|**Market1501** SQ 77.11<br>**CUHK03** detected 61.6 manually 58.5<br>**MARS** 73.94<br>**PRW** 52.54|
 |Scalable Person Re-identification on Supervised Smoothed Manifold [[pdf](https://arxiv.org/pdf/1703.08359.pdf)]|Qi Tian<br>UTSA|CVPR 2017|对获得的相似性矩阵再处理，获得平滑的流形相似性度量|LOMO,GOG,ELF6|欧氏距离及其他相似性度量方式|1. 通过转移矩阵不断迭代<br>2. 可以和其他距离度量方法协同使用，先提取特征，再进行距离度量学习，然后用这个方法优化相似性矩阵，得到最后的结果|**CUHK03**SQ manually 76.6 detected 72.7<br>**VIPeR** 53.73<br>**PRID450S** 72.98|
 
+</details>
+
+<details>
+<summary>Loss</summary>
+
 ## Loss
 | Name | Author | Conference & Year | Motivation |Feature|Metric|loss|Detail|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:-----:|:----:|:---|:-----|:------|
 |Margin Sample Mining Loss: A Deep Learning Based Method for Person Re-identification [[pdf](https://arxiv.org/pdf/1710.00478.pdf)]|Chi Zhang<br>Megvii|Arxiv 2017.10|限制最大的正样本对距离小于最小的负样本对距离|ResNet50-X|标准化的欧式距离|对于整个batch，找到最大的正样本对距离，和最小的副样本对距离，让他们距离超过margin|输入为P个人，每人K个图片|**CUHK03** manually 87.5<br>**Market1501**<br>SQ R 88.9 mAP 76.7<br>**MARS**<br>SQ R 84.2 mAP 74.6|
-|In Defense of the Triplet Loss for Person Re-identification [[code](https://github.com/VisualComputingInstitute/triplet-reid)]|Bastian Leibe<br>RWTH Aachen University|Arxiv 201711|在一个batch中，寻找最困难的正负样本组成三元组|ResNet50 or LuNet|欧氏距离|1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均|用了soft-margin|**CUHK03** manually 89.63 detected 87.58<br>**Market1501**<br>SQ R 86.67 mAP 81.07<br>MQ R 91.75 mAP 87.18<br>**MARS**<br>MQ R 81.21 mAP 77.43|
+|*In Defense of the Triplet Loss for Person Re-identification* [[code](https://github.com/VisualComputingInstitute/triplet-reid)]|Bastian Leibe<br>RWTH Aachen University|Arxiv 201711|在一个batch中，寻找最困难的正负样本组成三元组|ResNet50 or LuNet|欧氏距离|1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均|用了soft-margin|**CUHK03** manually 89.63 detected 87.58<br>**Market1501**<br>SQ R 86.67 mAP 81.07<br>MQ R 91.75 mAP 87.18<br>**MARS**<br>MQ R 81.21 mAP 77.43|
 |Support Neighbor Loss for Person Re-identification|Yun Fu<br>Northeastern University|MM 2018|在近邻内部构建损失对|ResNet50|Euclidean Distance|Support Neighbor Loss|对于每个样本，得到其K近邻，在K近邻计算query与各个近邻的欧式距离，然后利用softmax，将此距离处理为概率，要求近邻内正样本的概率和越大越好。同时每个近邻内，最远正样本距离与最近正样本距离的差值要小，这样能让样本分布在query的周围||**Market1501**<br>SQ R1 88.27 mAP 73.43<br>MQ R1 92.13 mAP 80.26<br>**CUHK03**(100) manually R1 90.2 detected 88.0<br>**CUHK01**(486) R1 79.3 (100) R1 93.8|
+
+</details>
+
+<details>
+<summary>New Perspective</summary>
 
 ## New Perspective
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -108,6 +133,12 @@
 |Unlabeled Samples Generated by GAN Improve the Person Re-identification Baseline in vitro [[code](https://github.com/layumi/Person-reID_GAN)]|Liang Zheng<br>University of Technology Sydney|ICCV 2017|借助于GAN产生训练图片，缓解过拟合|ResNet|Cosine Distance|1. 用DCGAN产生图片，产生的图片不属于任何类，使用 label smoothing regularization (加权0.1)方法学习针。对于正常的真实图片，用交叉熵损失(加权1)学习|**Market1501**<br>SQ R1 83.97 mAP 66.07<br>MQ R1 88.42 mAP 76.10<br>**CUHK03** detected<br>R1 84.6 mAP 87.4<br>**DukeMTMC**<br>R1 67.68 mAP 47.13|
 |Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatio-temporal Patterns [[code](https://github.com/ahangchen/TFusion)]|Jianming Lv<br>South China University of Technology|CVPR 2018|-|-|-|-|-|
 |Deep Spatial Feature Reconstruction for Partial Person Re-identification: Alignment-free Approach|Zhenan Sun<br>CASIA|CVPR 2018|部分人体找完整人体|CNN|Euclidean distance|将稀疏字典表达嵌入到网络中，完整人体特征视为字典，稀疏矩阵是要学习的权值，这些用以重建部分人体的特征|**Partial REID**MQ 53.67<br>**Partial-iLIDS** MQ 55.46|
+|Person Search via Mask-Guided Two-Stream CNN Model|Wanli Ouyang, Ying Tai<br>The University of Sydney|ECCV 2018|检测出图片，然后利用原始图片与mask一起做|ResNet50|-|人的图片检测出来后，用mask将前景分出来，然后将包括背景的图片和前景图片的特征级联，用SEBlock做一次加权。|**CUHK-SYSU**(100) mAP 83.0 R1 83.7<br>**PRW** mAP 32.6 R1 72.1|
+
+</details>
+
+<details>
+<summary>GAN</summary>
 
 ## GAN
 | Name | Author | Conference & Year | Motivation |G & D|Feature|Metric|Detail|Dataset|
@@ -115,6 +146,11 @@
 |Unlabeled Samples Generated by GAN Improve the Person Re-identification Baseline in vitro [[code](https://github.com/layumi/Person-reID_GAN)]|Liang Zheng<br>University of Technology Sydney|ICCV 2017|借助于GAN产生训练图片，缓解过拟合|DCGAN|ResNet|Cosine Distance|1. 用DCGAN产生图片，产生的图片不属于任何类，使用 label smoothing regularization (加权0.1)方法学习针。对于正常的真实图片，用交叉熵损失(加权1)学习|**Market1501**<br>SQ R1 83.97 mAP 66.07<br>MQ R1 88.42 mAP 76.10<br>**CUHK03** detected<br>R1 84.6 mAP 87.4<br>**DukeMTMC**<br>R1 67.68 mAP 47.13|
 |Camera Style Adaptation for Person Re-identification|Liang Zheng<br>UTS|CVPR 2018|做不同摄像头之间的数据增强|CycleGAN|ResNet50|Cosine Distance|1. 用CycleGAN，利用一个摄像头下的数据生成另一个摄像头下的数据。<br>2. 伪数据使用LSR Loss|**Market1501**<br>SQ R1 89.49 mAP 71.55<br>**DukeMTMC-reID** R1 78.32 mAP 57.61|
 |Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identitication|Liang Zhegn<br>UTS|CVPR 2018|利用CycleGAN学习两个数据集之间转换，帮助在目标数据集上无监督行人重识别|CycleGAN|IDE|Euclidean distance|1. 用CycleGAN学习两个数据集之间的风格转换，同时用一个双路网络限制正样本对与负样本对的距离，进行交替优化<br>2. 正样本对用转换前后的图片。<br>3. 双路网络能保留转换前后人的身份信息|**DukeMTMC-reID** R1 46.4 mAP 26.2<br>**Market-1501** R1 57.7 mAP 26.7|
+
+</details>
+
+<details>
+<summary>Part</summary>
 
 ### Part
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
@@ -125,6 +161,11 @@
 |Pose-Normalized Image Generation for Person Re-identification [[pdf](https://arxiv.org/pdf/1712.02225.pdf)] [[code](https://github.com/yanweifu/PN_GAN)]|Tao Xiang, Xiangyang Xue<br>QMUL & Fudan University|Arxiv 2017.12|给定图片和期望的Pose，利用GAN合成基于Pose的图片|ResNet50|Euclidean Distance|1. 生成部分根据给定的姿势修改图片<br>2. 生成部分输入包括：预训练的属性预检测子预测的属性，原始图片与姿势图片的级联<br>3. 网络结构由两部分组成，对于给定的图片由A网络提取原始特征，B网络提取给定的典型姿势生成的图片的特征，最终特征由这两种特征融合而成，融合是element-wise maximum。网络A与B的结构相同，但是不共享权值。|**CUHK03** detected 92.66<br>**Market1501**<br>SQ R1 95.52 mAP 89.94<br>MQ R1 95.90 mAP 91.37<br>**VIPeR** 78.17<br>**DukeMTMC**R1 91.47 mAP 81.39<br>**CUHK01** 86.22|
 |Beyond Part Models: Person Retrieval with Refined Part Pooling (and A Strong Convolutional Baseline)|UTSA<br>Qi Tian|Arxiv 2018.01|1. 一个更好地基于part的baseline。2.part pooling策略,防止均分时太过粗糙|Resnet50|Cosine Distance|1. PCB：将提取的特征图T,每个位置特征为f,所有f均分为6个水平条带，每一个均值池化得到part表达g，分别经过一个全连接得到h，用h去训练分类器。<br>2. RPP:训练分类器，输入为f，输出为这个位置的特征属于哪一个条带，最终的G将不用均值池化，而是通过所有f的概率加权得到<br>3.PCB+RPP：标准训练PCB。然后固定参数，加入RPP并训练RPP。最后全部参数一起训练。<br>4. 提升输入图片的大小或者降低网络模型中降采样的操作，以增大T的空间尺寸有利于提升性能|**Market1501** SQ R1 93.8 mAP 81.6<br>**DukeMTMC-reID** SQ R1 83.3 mAP 69.2<br>**CUHK03** detected R1 63.7 mAP 57.5|
 当用肢体关键点框出感兴趣区域后，随之而来的一个问题便是有一些标志性的物体会被排除在外，比如包，雨伞等等
+
+</details>
+
+<details>
+<summary>Attribute</summary>
 
 ### Attribute
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detecter|Detail|Dataset|
@@ -139,6 +180,11 @@
 
 * 属性的正负样本之间的不平衡，以及有的属性正样本太少
 
+</details>
+
+<details>
+<summary>Dataset</summary>
+
 ## Dataset
 | Name |Syncopate| Author | Conference & Year | Motivation |Label method|Video or Image|Cammera|
 |:----:|:-------:|:------:|:-----------------:|:-----------|:----------:|:------------:|:-----:|
@@ -146,24 +192,45 @@
 |*MARS: A Video Benchmark for Large-Scale Person Re-identification* [[pdf](https://pdfs.semanticscholar.org/c038/7e788a52f10bf35d4d50659cfa515d89fbec.pdf)] [[code](https://github.com/liangzheng06/MARS-evaluation)]|MARS| Qi Tian<br>Tsinghua University|ECCV 2016|基于视频的检测子检测的Re-ID数据集，<br>并阐述了在大数据集下，分类网络要比双路或者三路网络更好|detected|Video|6|
 |LVreID: Person Re-Identification with Long Sequence Videos|LVreID|Qi Tian<br>Peking University|Arxiv 2017.12.20|1. 跨季节，从一月到五月，共四天，每天三个小时，分别是早上中午晚上。<br>2. 视频序列长，平均长度是200帧。<br>3. 用SPP对时间维度做处理，得到固定的时间维度，再用卷积层融合。|detected|Video|13|
 
+</details>
+
+<details>
+<summary>Skimmed</summary>
+
 ## Skimmed
 | Name | Author | Conference & Year | Motivation |Detail|
 |:----:|:------:|:-----------------:|:-----------|:-----|
 |Learning Bidirectional Temporal Cues for Video-based Person Re-identification [[pdf](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7954700)]|Xuanyu He|IEEE TCSVT|利用双向循环神经网络，在RNN-CNN基础上改进|**iLIDS** 55.3<br>**PRID** 72,8|
 |Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints|Ying Wu<br>CASA|CVPR 2018|Metric Learning|**iLIDS** 42<br>**PRID** 70.9|
 |Group Consistent Similarity Learning via Deep CRF for Person Re-Identification|Xiaogang Wang<br>CUHK|CVPR 2018|考虑gallery之间的相关性，对probe与gallery之间的相似性优化|**Market1501**SQ R1 93.5 mAP 81.6<br>**DukeMTMC** R1 84.9 mAP 69.5<br>**CUHK03**<br>labeld R1 90.2<br>detected R1 88.8|
+</details>
+
+<details>
+<summary>Utils</summary>
 
 Multi-shot: In the multi-shot experiments, we return the
 average similarity between the probe person image and multiple gallery images of an certain individual.
+
+</details>
 
 ---
 
 # <center>Code</center>
 
+<details>
+<summary>Projects</summary>
+
 ### Projects
+* deep ReID [[code](https://github.com/KaiyangZhou/deep-person-reid)]
 * Baseline Code (with bottleneck) for Person-reID (pytorch) [[code](https://github.com/teslacool/Person_reID_baseline_pytorch)]
 * Open reid [[code](https://github.com/Cysu/open-reid)]
 * caffe-PersonReID [[code](https://github.com/agjayant/caffe-Person-ReID)]
+
+</details>
+
+
+<details>
+<summary>Released</summary>
 
 ### Released
 * A Discriminatively Learned CNN Embedding for Person Re-identification [[official](https://github.com/layumi/2016_person_re-ID)] [[github](https://github.com/D-X-Y/caffe-reid)]
@@ -171,9 +238,15 @@ average similarity between the probe person image and multiple gallery images of
 * Pedestrian Alignment Network for Large-scale Person Re-identification [[code](https://github.com/layumi/Pedestrian_Alignment)]
 * A Pose-Sensitive Embedding for Person Re-Identification with Expanded Cross Neighborhood Re-Ranking [[code](https://github.com/pse-ecn/pose-sensitive-embedding)]
 * Joint Detection and Identification Feature Learning for Person Search [[code](https://github.com/ShuangLI59/person_search)]
+
+</details>
+
 ----
 
 # <center>Expansion</center>
+
+<details>
+<summary>Neural Networks Architecture</summary>
 
 ## Neural Networks Architecture
 | Name | Author | Conference & Year | Motivation |Detail|
@@ -181,6 +254,12 @@ average similarity between the probe person image and multiple gallery images of
 |Densely Connected Convolutional Networks|Kilian Q. Weinberger<br>Cornell University|CVPR 2017 (best)|卷积层间密集连接，特征图重用|1. 网络可以很深，分为很多个block<br>2. 每个block由多个卷积层构成，每一层的特征图都会送到该block内它后面的所有卷积层<br>3. block内每一层的通道数不能太大，block之间用1x1卷积压缩通道数|
 |Sequeeze-and-Excitation Networks|Jie Hu<br>Momenta|Arxiv 2017|对channels进行加权|1. 要处理的特征X<br>2. 先Global Average Pooling,得到C维特征<br>3. C维特征经过一层全连接，为降低参数数量，输出为 C/r 维，r为超参数<br>4. 经过relu，再经过一层全连接，输出C维<br>5. 对原特征各通道相乘加权，得到处理后的表达|
 |Rethinking the Inception Architecture for Computer Vision [[pdf](https://arxiv.org/pdf/1512.00567.pdf)]|Jonathon Shlens<br>Google|CVPR 2016|降低计算量|1.  基于大滤波器尺寸分解卷积：分解到更小的卷积；空间分解为不对称卷积。<br>2. 利用辅助分类器，辅助分类器中含有BN或者dropout时主分类器效果会更好。辅助分类器起到正则化的作用。<br> 3. 有效的网格尺寸减少|
+
+</details>
+
+
+<details>
+<summary>Interesting Work</summary>
 
 ## Interesting Work
 | Name | Author | Conference & Year | Motivation |Detail|
@@ -200,6 +279,12 @@ average similarity between the probe person image and multiple gallery images of
 |Coherent Online Video Style Transfer|Gang Hua<br>MSRA|ICCV 2017|视频风格转换|1. 相邻两帧之间提取光流<br>2. 每一帧用encoder获得特征，用光流对前一帧wrap。利用wrap之后的结果与当前帧的特征的差值学习mask，用mask更新特征，最后对当前帧特征解码|
 |Temporal Segment Networks: Towards Good Practices for Deep Action Recognition|Xiaoou Tang<br>CUHK|ECCV 2016|长范围时间结构建模|TSN使用从整个视频中稀疏地采样一系列短片段，每个片段都将给出其本身对于行为类别的初步预测，从这些片段的“共识”来得到视频级的预测结果。|
 
+</details>
+
+
+<details>
+<summary>Pose Estimation</summary>
+
 ## Pose Estimation
 | Name | Author | Conference & Year | Motivation |Detail|
 |:----:|:------:|:-----------------:|:-----------|:-----|
@@ -207,7 +292,12 @@ average similarity between the probe person image and multiple gallery images of
 |Thin-Slicing Network: A Deep Structured Model for Pose Estimation in Videos|Otmar Hilliges<br>ETH Zurich|CVPR 2017|能端到端的训练，能同时表达交界处以及他们之间的时空关系|1. 先训练CPM，再与后面的网络结合起来优化<br>2. 对于前后帧，用弹簧能量模型定义变形损失|
 |Realtime Multi-Person 2D Pose Estimation using Part Affinity Fileds|Yaser Sheikh<br>CMU|CVPR 2017|定义新的表达来更好的处理多人关节点估计|1. PAF是同一个人两个相邻关节点之间的向量场，有方向<br>2. 网络分为两路，一路用CPM预测自信图，另一路预测PAF<br>3.PAF主要解决多人情况下关节点的划分问题|
 
+</details>
+
 [
+<details>
+<summary>Super-Resolution</summary>
+
 ## Super-Resolution
 | Name | Author | Conference & Year | Motivation |Detail|
 |:----:|:------:|:-----------------:|:-----------|:-----|
@@ -215,7 +305,14 @@ average similarity between the probe person image and multiple gallery images of
 |Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network|Wezhe Shi<br>Twitter|CVPR 2016|将upscale放到最后一层，降低了计算量|输入为低分辨率图片，在最后一层，通道数为原图通道数的降采样比例的平方倍，这样相当于用不同的通道去学upscale时不同位置的值，将结果重排一下就是高分辨率图了。|
 |Perceptual Losses for Real-Time Style Transfer and Super-Resolution|Li FeiFei|ECCV 2016|不使用per-pixel的loss|不直接要求重建的高清图片与真实高清图片的像素相似，而是要求用网络提取的特征相似，这样能获得更好的视觉上的提升|
 |Frame-Recurrent Video Super-Resolution|Matthew Brown<br> Google|CVPR 2018|不使用划窗，降低计算量|1. 前一帧与当前帧级联学习光流。<br>2. 利用光流对前一帧的预测的高分辨率图片做warping(即利用光流的值得到前一帧像素应该向何处偏移)。<br>3. 利用重新估算的当前帧高分辨率图片结合当前帧得到最后的估计|
+
+</details>
 ]: #
+
+
+
+<details>
+<summary>Machine Learning</summary>
 
 ## Machine Learning
 | Name | Author | Conference & Year | Motivation |Detail|
@@ -225,16 +322,32 @@ average similarity between the probe person image and multiple gallery images of
 |*Large Scale Metric Learning from Equivalence Constraints*|Horst Bischof<br>Graz University of Technology|CVPR 2012|从统计推理的角度学习距离度量，不依赖于复杂的算法|利用最大似然估计得到马氏距离度量矩阵|
 |EpicFlow: Edge-Preserving Interpolation of Correspondences for Optical Flow|Cordelia Schmid<br>Inria|CVPR 2015|更好地处理冲突与运动边界的光流估计|1. 从稀疏匹配的边缘保留插值的密匹配<br>2. 用密匹配初始化的方差能量最小化|
 
+</details>
+
+<details>
+<summary>Tool</summary>
+
 ## Tool
 * Pyramid Matching
 * atrous convolution
 * RNN
 * SPP
 
+
+</details>
+
+
+
+<details>
+<summary>Links</summary>
+
 # Links
 * [KaiyangZhou](https://github.com/KaiyangZhou/deep-person-reid)
 * [handong](https://handong1587.github.io) 的 [Summary](https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md)
 * [数据集总结](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)
 * [State of the art on the MARS dataset](http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html)
+
+</details>
+
 
 <div align="right">Updated Date: 2018/08/19</div>
