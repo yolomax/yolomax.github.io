@@ -211,26 +211,22 @@
 Multi-shot: In the multi-shot experiments, we return the
 average similarity between the probe person image and multiple gallery images of an certain individual.
 
+## Module
+* Pyramid Matching
+* atrous convolution
+* RNN
+* SPP
+
 </details>
 
----
-
-# <center>Code</center>
-
 <details>
-<summary>Projects</summary>
+<summary>Code</summary>
 
 ### Projects
 * deep ReID [[code](https://github.com/KaiyangZhou/deep-person-reid)]
 * Baseline Code (with bottleneck) for Person-reID (pytorch) [[code](https://github.com/teslacool/Person_reID_baseline_pytorch)]
 * Open reid [[code](https://github.com/Cysu/open-reid)]
 * caffe-PersonReID [[code](https://github.com/agjayant/caffe-Person-ReID)]
-
-</details>
-
-
-<details>
-<summary>Released</summary>
 
 ### Released
 * A Discriminatively Learned CNN Embedding for Person Re-identification [[official](https://github.com/layumi/2016_person_re-ID)] [[github](https://github.com/D-X-Y/caffe-reid)]
@@ -240,8 +236,6 @@ average similarity between the probe person image and multiple gallery images of
 * Joint Detection and Identification Feature Learning for Person Search [[code](https://github.com/ShuangLI59/person_search)]
 
 </details>
-
-----
 
 # <center>Expansion</center>
 
@@ -294,7 +288,6 @@ average similarity between the probe person image and multiple gallery images of
 
 </details>
 
-[
 <details>
 <summary>Super-Resolution</summary>
 
@@ -307,7 +300,6 @@ average similarity between the probe person image and multiple gallery images of
 |Frame-Recurrent Video Super-Resolution|Matthew Brown<br> Google|CVPR 2018|不使用划窗，降低计算量|1. 前一帧与当前帧级联学习光流。<br>2. 利用光流对前一帧的预测的高分辨率图片做warping(即利用光流的值得到前一帧像素应该向何处偏移)。<br>3. 利用重新估算的当前帧高分辨率图片结合当前帧得到最后的估计|
 
 </details>
-]: #
 
 
 
@@ -321,18 +313,6 @@ average similarity between the probe person image and multiple gallery images of
 |A Spatial-Temporal Descriptor Based on 3D-Gradients|Cordelia Schmid<br>INRIA Grenoble|BMVC 2008|基于视频的时空描述子|将一个cell中的累加梯度值量化到中二十面体的面中心方向|
 |*Large Scale Metric Learning from Equivalence Constraints*|Horst Bischof<br>Graz University of Technology|CVPR 2012|从统计推理的角度学习距离度量，不依赖于复杂的算法|利用最大似然估计得到马氏距离度量矩阵|
 |EpicFlow: Edge-Preserving Interpolation of Correspondences for Optical Flow|Cordelia Schmid<br>Inria|CVPR 2015|更好地处理冲突与运动边界的光流估计|1. 从稀疏匹配的边缘保留插值的密匹配<br>2. 用密匹配初始化的方差能量最小化|
-
-</details>
-
-<details>
-<summary>Tool</summary>
-
-## Tool
-* Pyramid Matching
-* atrous convolution
-* RNN
-* SPP
-
 
 </details>
 
@@ -350,4 +330,4 @@ average similarity between the probe person image and multiple gallery images of
 </details>
 
 
-<div align="right">Updated Date: 2018/08/19</div>
+<div align="right">Updated Date: 2018/09/20</div>
