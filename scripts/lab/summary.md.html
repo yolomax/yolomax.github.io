@@ -1782,6 +1782,36 @@ pre.editor-colors .fold-marker:after {
 </table>
 </details>
 <details>
+<summary>Unsupervised</summary>
+<h2>New Perspective</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:center">Feature</th>
+<th style="text-align:center">Metric</th>
+<th style="text-align:left">Detail</th>
+<th style="text-align:left">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Unsupervised Person Re-identification by Deep Learning Tracklet Association</td>
+<td style="text-align:center">Shaogang Gong<br>QMUL</td>
+<td style="text-align:center">ECCV 2018 oral</td>
+<td style="text-align:left">结合视频每一帧的时间标签和相机标签，尽可能降低同一个人的视频分配了不同的label的情况</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left">1. 同一时刻下，不同的采样ID不同，这是因为同一时刻人不会出现在不同位置。<br>2. 同一个camera下，过了一定的时间，重新分配标签。这是基于行人行走的速度，在经过一定时间后，便会出了摄像头的拍摄范围。<br>3. 对于带有tracking的数据集，要求采样时，选择场景空间中，同时出现且位置距离较远的目标。</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
 <summary>New Perspective</summary>
 <h2>New Perspective</h2>
 <table>
@@ -2407,51 +2437,21 @@ average similarity between the probe person image and multiple gallery images of
 </tbody>
 </table>
 </details>
+<!--
+
 <details>
 <summary>Super-Resolution</summary>
-<h2>Super-Resolution</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Name</th>
-<th style="text-align:center">Author</th>
-<th style="text-align:center">Conference &amp; Year</th>
-<th style="text-align:left">Motivation</th>
-<th style="text-align:left">Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Image Super-Resolution Using Deep Convolutional Networks</td>
-<td style="text-align:center">Xiaoou Tang<br>CUHK</td>
-<td style="text-align:center">2016 TPAMI</td>
-<td style="text-align:left">用CNN处理超分辨</td>
-<td style="text-align:left">三层CNN结构，先将低分辨率图片上采样到期望的大小，然后经过三个卷积层，中间无下采样，输出的为处理的高分辨率图片，与label的差值平方和为loss</td>
-</tr>
-<tr>
-<td style="text-align:center">Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network</td>
-<td style="text-align:center">Wezhe Shi<br>Twitter</td>
-<td style="text-align:center">CVPR 2016</td>
-<td style="text-align:left">将upscale放到最后一层，降低了计算量</td>
-<td style="text-align:left">输入为低分辨率图片，在最后一层，通道数为原图通道数的降采样比例的平方倍，这样相当于用不同的通道去学upscale时不同位置的值，将结果重排一下就是高分辨率图了。</td>
-</tr>
-<tr>
-<td style="text-align:center">Perceptual Losses for Real-Time Style Transfer and Super-Resolution</td>
-<td style="text-align:center">Li FeiFei</td>
-<td style="text-align:center">ECCV 2016</td>
-<td style="text-align:left">不使用per-pixel的loss</td>
-<td style="text-align:left">不直接要求重建的高清图片与真实高清图片的像素相似，而是要求用网络提取的特征相似，这样能获得更好的视觉上的提升</td>
-</tr>
-<tr>
-<td style="text-align:center">Frame-Recurrent Video Super-Resolution</td>
-<td style="text-align:center">Matthew Brown<br> Google</td>
-<td style="text-align:center">CVPR 2018</td>
-<td style="text-align:left">不使用划窗，降低计算量</td>
-<td style="text-align:left">1. 前一帧与当前帧级联学习光流。<br>2. 利用光流对前一帧的预测的高分辨率图片做warping(即利用光流的值得到前一帧像素应该向何处偏移)。<br>3. 利用重新估算的当前帧高分辨率图片结合当前帧得到最后的估计</td>
-</tr>
-</tbody>
-</table>
+
+## Super-Resolution
+| Name | Author | Conference & Year | Motivation |Detail|
+|:----:|:------:|:-----------------:|:-----------|:-----|
+|Image Super-Resolution Using Deep Convolutional Networks|Xiaoou Tang<br>CUHK|2016 TPAMI|用CNN处理超分辨|三层CNN结构，先将低分辨率图片上采样到期望的大小，然后经过三个卷积层，中间无下采样，输出的为处理的高分辨率图片，与label的差值平方和为loss|
+|Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network|Wezhe Shi<br>Twitter|CVPR 2016|将upscale放到最后一层，降低了计算量|输入为低分辨率图片，在最后一层，通道数为原图通道数的降采样比例的平方倍，这样相当于用不同的通道去学upscale时不同位置的值，将结果重排一下就是高分辨率图了。|
+|Perceptual Losses for Real-Time Style Transfer and Super-Resolution|Li FeiFei|ECCV 2016|不使用per-pixel的loss|不直接要求重建的高清图片与真实高清图片的像素相似，而是要求用网络提取的特征相似，这样能获得更好的视觉上的提升|
+|Frame-Recurrent Video Super-Resolution|Matthew Brown<br> Google|CVPR 2018|不使用划窗，降低计算量|1. 前一帧与当前帧级联学习光流。<br>2. 利用光流对前一帧的预测的高分辨率图片做warping(即利用光流的值得到前一帧像素应该向何处偏移)。<br>3. 利用重新估算的当前帧高分辨率图片结合当前帧得到最后的估计|
+
 </details>
+-->
 <details>
 <summary>Machine Learning</summary>
 <h2>Machine Learning</h2>

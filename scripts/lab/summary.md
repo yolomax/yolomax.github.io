@@ -121,6 +121,18 @@
 
 </details>
 
+
+<details>
+<summary>Unsupervised</summary>
+
+## New Perspective
+| Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
+|:----:|:------:|:-----------------:|:-----------|:------:|:----:|:-----|:------|
+|Unsupervised Person Re-identification by Deep Learning Tracklet Association|Shaogang Gong<br>QMUL|ECCV 2018 oral|结合视频每一帧的时间标签和相机标签，尽可能降低同一个人的视频分配了不同的label的情况|||1. 同一时刻下，不同的采样ID不同，这是因为同一时刻人不会出现在不同位置。<br>2. 同一个camera下，过了一定的时间，重新分配标签。这是基于行人行走的速度，在经过一定时间后，便会出了摄像头的拍摄范围。<br>3. 对于带有tracking的数据集，要求采样时，选择场景空间中，同时出现且位置距离较远的目标。|
+
+</details>
+
+
 <details>
 <summary>New Perspective</summary>
 
@@ -288,6 +300,8 @@ average similarity between the probe person image and multiple gallery images of
 
 </details>
 
+<!--
+
 <details>
 <summary>Super-Resolution</summary>
 
@@ -300,7 +314,7 @@ average similarity between the probe person image and multiple gallery images of
 |Frame-Recurrent Video Super-Resolution|Matthew Brown<br> Google|CVPR 2018|不使用划窗，降低计算量|1. 前一帧与当前帧级联学习光流。<br>2. 利用光流对前一帧的预测的高分辨率图片做warping(即利用光流的值得到前一帧像素应该向何处偏移)。<br>3. 利用重新估算的当前帧高分辨率图片结合当前帧得到最后的估计|
 
 </details>
-
+-->
 
 
 <details>
