@@ -1,4 +1,4 @@
-ResNet50# <center>Person Re-Identification</center>
+# <center>Person Re-Identification</center>
 
 
 <details>
@@ -53,6 +53,7 @@ ResNet50# <center>Person Re-Identification</center>
 |Learning Discriminative Features with Multiple Granularity for Person Re-Identification [[code](https://github.com/levyfan/reid-mgn)]|Xi Zhou<br>SITU|Arxiv 2018.07|Part|分多个水平条带，整体特征与局部特征级联|ResNet50|-|1. 从ResNet50的res_conv4_1之后开始分为三个支路，这三个支路是ResNet50在res_conv4_1之后网络复制的，各个支路都是预训练的参数初始化，但是参数不共享<br>2. 第一个每一个支路都算一个全局特征，除此之外，第二个支路最后的特征分为上下两部分，得到两个块特征，第三个支路分为三个块。<br>3. 其中part特征各用一个分类损失函数训练，整体特征用triplet loss训练|manually R1 68.0 mAP 67.4<br>detected R1 66.8 mAP 66.0|**Market1501**<br>SQ R1 95.7 mAP 86.9<br>MQ R1 96.9 mAP 90.7<br>**DukeMTMC-reID** R1 88.7 mAP 78.4|
 |Weighted Weighted Bilinear Coding over Salient Body Parts for Person Re-identification|Haibin Ling<br>Temple University|Arxiv 2018.04|Part Mask|用多个attention mask对空间加权|GoogleNet|-|1. 先获取一些列的attention mask。对特征进行加权，然后利用Bilinear coding获取最后的表达。<br>2. Bilinear coding是将一维向量的转置与自己相乘，得到各维度相互关联的特征。|manually R1 50.1 mAP 47.7<br>detected R1 43.9 mAP 42.1|**Market1501** SQ R1 84.5 mAP 68.7<br>**DukeMTMC-reID** R1 76.2 mAP 56.9|
 |Person Re-identification with Deep Similarity-Guided Graph Neural Network|Xiaogang Wang<br>CUHK|ECCV 2018|1. Graph Neural Network<br>2. Distance Metric|借助GNN，获得更好的相似性度量|ResNet50|Softmax Score|1. 先预训练一个二分类网络，然后开始训练SGGNN。<br>2. 通过两层全连接得到辅助表达，再 利用二分类网络得到两个图片之间的相似性，归一化之后作为加权值，对辅助表达求加权平均值，然后对当前特征进行更新。得到最后表达之后再训练二分类|manually(100) R1 95.3 mAP 94.3|**Market1501** SQ R1 92.3 mAP 82.8<br>**DukeMTMC** SQ R1 81.1 mAP 68.2|
+|In Defense of the Classification Loss for Person Re-identification|Yan Lu<br>MSRA|Arxiv 2018.09|Multi Branch|将特征分为几组，每一组接一个分类损失函数|PCB|Euclidean Distance|1. 提取特征，沿通道分为若干组，每一组分别接一个全连接（权值共享），再分别接分类损失函数（含全连接）。|detected(700) R1 61.6 mAP 54.8|**Market1501**SQ R1 93.5 mAP 79.8<br>**DukeMTMC** R1 84.7 mAP 68.1|
 
 </details>
 
@@ -126,7 +127,7 @@ ResNet50# <center>Person Re-Identification</center>
 <details>
 <summary>Unsupervised</summary>
 
-## New Perspective
+## Unsupervised
 | Name | Author | Conference & Year | Motivation |Feature|Metric|Detail|Dataset|
 |:----:|:------:|:-----------------:|:-----------|:------:|:----:|:-----|:------|
 |Unsupervised Person Re-identification by Deep Learning Tracklet Association|Shaogang Gong<br>QMUL|ECCV 2018 oral|结合视频每一帧的时间标签和相机标签，尽可能降低同一个人的视频分配了不同的label的情况|||1. 同一时刻下，不同的采样ID不同，这是因为同一时刻人不会出现在不同位置。<br>2. 同一个camera下，过了一定的时间，重新分配标签。这是基于行人行走的速度，在经过一定时间后，便会出了摄像头的拍摄范围。<br>3. 对于带有tracking的数据集，要求采样时，选择场景空间中，同时出现且位置距离较远的目标。<br>4. 跨摄像头情况下，对于一个短视频，搜寻其他摄像头下的近邻视频，视为正样本，否则为负样本。并设计loss使得正样本距离变小，负样本距离变大|**CUHK03**(700) R1 44.7 mAP 31.2<br>**Market1501** R1 63.7 mAP 41.2<br>**DukeMTMC** R1 61.7 mAP 43.5<br>**PRID2011** R1 49.4 <br>**iLIDS-VID** R1 26.7<br>**MARS** R1 43.8 mAP 29.1|
@@ -345,4 +346,4 @@ average similarity between the probe person image and multiple gallery images of
 </details>
 
 
-<div align="right">Updated Date: 2018/09/20</div>
+<div align="right">Updated Date: 2018/09/28</div>
