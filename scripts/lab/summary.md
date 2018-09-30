@@ -1,5 +1,25 @@
 # <center>Person Re-Identification</center>
 
+<details>
+<summary>入门</summary>
+
+#### 论文：
+
+* An Improved Deep Learning Architecture for Person Re-identification
+* Learning Deep Feature Representations with Domain Guided Dropout for Person Re-identification
+* Gated Siamese Convolutional Neural Network Architecture for Huam Re-identification
+* In Defense of the Triplet Loss for Person Re-identification
+* Recurrent Convolutional Network for Video-based Person Re-identification
+* Person Re-identification by Multi-Channel Parts-Based CNN with Improved Triplet Loss Function
+* Eliminating Background-bias for Robust Person Re-identification
+* Person Transfer GAN to Bridge Domain Gap for Person Re-Identification
+#### 代码：
+
+* deep ReID [[code](https://github.com/KaiyangZhou/deep-person-reid)]
+* Baseline Code (with bottleneck) for Person-reID (pytorch) [[code](https://github.com/teslacool/Person_reID_baseline_pytorch)]
+
+</details>
+
 
 <details>
 <summary>Image-based</summary>
@@ -41,7 +61,7 @@
 |Adversarially Occluded Samples for Person Re-identification|Kaiqi Huang<br>UCAS|CVPR 2018|Data Augmentation|对重要区域添加mask以让模型关注到其他的区域|IDE(ResNet)|Euclidean Distance|1. 先正常训练模型<br>2. 选择矩形区域区域遮挡，再用相同的配置训练模型<br>3. 选择方法：固定遮挡框的大小，划窗遮挡，对于导致正确标签预测概率降低的位置，以降低的数值为其重要性表达，各个位置的重要性标准化之后，以之为概率随机选择遮挡|detected(767) R1 54.56 mAP 56.09|**Market1501**<br>SQ R1 88.66 mAP 83.3<br>MQ R1 92.5 mAP 88.6<br>**DukeMTMC-reID** R1 84.11 mAP 78.19|
 |Attention-Aware Compositional Network for Person Re-identification|Wanli Ouyang<br>The University of Sydney|CVPR 2018|Part Attention|利用关键点检测，得到不同部位的特征，并加权|GoogleNet|--|1.主要有两路，一路用于检测关键点，一路用于提特征，两路先分别训练，然后合起来训练。<br>2. pose分支现在MPII上预训练，输出关键点位置，part场，以及根据关键点划分的三个大块。part场是real time那篇预测两个关键点之间的矩形区域的，这里和划分出的三个大块一样，相当于一个mask用于对另一个支路的特征做掩模，通过各个mask掩模得到的特征pooling再级联起来，再加权(利用mask的响应以及特征学到)，然后就得到了最后的特征。|manually 91.39 detected 89.51|**CUHK01** 88.07<br>**Market1501**<br>SQ R1 88.69 mAP 82.96<br>MQ R1 92.16 mAP 87.32<br>**CUHK03-NP**<br>labeld R1 81.86 mAP 81.61<br>detected R1 79.14 mAP 78.37<br>**DukeMTMC-reID** R1 76.84 mAP 59.25<br>**SenseReID** 41.37|
 |*Deep Group-shuffling Random Walk for Person Re-identification* [[code](https://github.com/YantaoShen/kpm_rw_person_reid)]|Xiaogang Wang<br>CUHK|CVPR 2018|re-ranking|将re-ranking嵌入到网络中|ResNet50|Euclidean Distance + reranking|1. 计算gallery之间的相似度以及query与gallery之间的相似度，并用随机游走更新query与gallery之间的相似度，并用此结果做预测以及计算loss<br>2. 将特征分为几组，每一组内计算各种相似度，组与组之间可以组合用于随机游走|manually mAP 94.0 R1 94.9|**Market1501** SQ mAP 82.5 R1 92.7<br>**DukeMTMC** mAP 66.4 R1 80.7|
-|Eliminating Background-bias for Robust Person Re-identification|Xiaogang Wang<br>CUHK|CVPR 2018|Data Augmentation|探究背景的影响|Inception|Cosine Distance|1. 先在其他数据上预训练一个人的parsing的网络，可以提人体的掩模。固定参数，之后不再训练<br>2. 训练主分支<br>3. 对于一张图片，将掩模上下分为三个部分，分别对应头，上身，下身。二值化并对第一个inception的特征做mask。三个分支用单独的网络训练，此时主分支不变。<br>4. 主分支与三个支路一起训练。<br>数据增强：输入数据时，随机选择是否替换背景|all 92.5|**CUHK01** 82.5<br>**VIPeR** 51.9<br>**3DPeS** 65.6<br>**Market1501**SQ R1 81.2|
+|*Eliminating Background-bias for Robust Person Re-identification*|Xiaogang Wang<br>CUHK|CVPR 2018|Data Augmentation|探究背景的影响|Inception|Cosine Distance|1. 先在其他数据上预训练一个人的parsing的网络，可以提人体的掩模。固定参数，之后不再训练<br>2. 训练主分支<br>3. 对于一张图片，将掩模上下分为三个部分，分别对应头，上身，下身。二值化并对第一个inception的特征做mask。三个分支用单独的网络训练，此时主分支不变。<br>4. 主分支与三个支路一起训练。<br>数据增强：输入数据时，随机选择是否替换背景|all 92.5|**CUHK01** 82.5<br>**VIPeR** 51.9<br>**3DPeS** 65.6<br>**Market1501**SQ R1 81.2|
 |End-to-End Deep Kronecker-Product Matching for Person Re-identification [[code](https://github.com/YantaoShen/kpm_rw_person_reid)]|Xiaogang Wang<br>CUHK|CVPR 2018|Distance Metric|构建匹配用的net，能起到对齐的效果|ResNet50|Softmax Score|1. 两张图片的特征x与y。分别计算各个空间位置的特征之间的內积，作为相似性度量，对于y中位置为(p,q)的点，利用x中(p,q)位置的特征与y中各个位置的相似性，做加权平均，得到y的(p,q)为位置重排的特征。对y重排之后，计算x与y的差值。利用x的特征算空间mask对差值加权。<br>2. 卷积加上采样，构建三种尺度，分别对三种尺度下两个特征做以上操作，最后特征级联得到最后预测|manually R1 93.4 mAP 89.2|**Market1501**<br>SQ R1 90.1 mAP 75.3<br>**DukeMTMC** R1 80.3 mAP 63.2|
 |Human Semantic Parsing for Person Re-identification|Muhittin Gokmen<br>MEF|CVPR 2018|Part|human parsing|Inception-V3|-|一路产生parsing，一路提特征，然后做mask。用了很多re-id的数据集做辅助训练|manually R1 91.8|**Market1501**<br>SQ R1 94.63 mAP 90.96<br>**DukeMTMC-reID** R1 88.96 mAP 84.99|
 |Mask-guided Contrastive Attention Model for Person Re-Identification|Wanli Ouyang<br>sydney|CVPR 2018|Part|检测行人轮廓，区分前景与背景|MGCAM|Re-ranking|1. 用预训练的FCN提取人的轮廓，用以区分前景和背景<br>2. 输入是RGB与mask的叠加，是4个通道<br>3. 一个主分支，一个body分支，一个背景分支。主分支第二个模块提出的特征被送到两个分支，送入之前用此分支学习到的mask区分前景与背景，分别mask。<br>4. mask用用真实mask作为label来帮助训练，此外要求主分支的特征与body分支的特征相近，与背景分支的距离相远|manually R1 50.14 mAP 50.21<br>detected R1 46.71 mAP 46.87|**Market1501**SQ R1 83.79 mAP 74.33<br>**MARS** R1 77.17 mAP 71.17|
@@ -51,7 +71,7 @@
 |Person Re-identification with Cascaded Pairwise Convolutions|Zhenzhong Chen<br>Wuhan University|CVPR 2018|Architecture|两个特征相互交织算出最后的相似性|CNN|-|两个特征分别经过一个卷积再相加，重复两次，分别得到两个融合之后的特征，以此类推|manually(100) 88.18<br>detected(100) 85.85|**CUHK01**(100) 93.04<br>**Market1501**SQ R1 83.07 mAP 69.48<br>**DukeMTMC-reID**R1 76.44 mAP 59.49|
 |Multi-Level Factorisation Net for Person Re-Identification|Tao Xiang<br>QMUL|CVPR 2018|Architecture|Multi-level|CNN|Euclidean Distance|1. 多层block。每个block内有k个小块，小块的输入相同，并有单独一个小块学习k个加权值，得k个小块的加权平均，然后输出值与输入值相加得到block的输出。相当于跨层连接。最后每一block的加权值被级联起来也作为一个特征，与最后一个block的输出都经过一个映射，映射到同一维度取平均，再经过一个全连接得到最后的表达|detected(100) 82.8<br>manually(half) R1 54.7 mAP 49.2<br>detected(half) R1 52.8 mAP 47.8|**Market1501**<br>SQ R1 90.0 mAP 74.3<br>MQ R1 92.3 mAP 82.4<br>**DukeMTMC-reID** R1 81.0 mAP 62.8|
 |Learning Discriminative Features with Multiple Granularity for Person Re-Identification [[code](https://github.com/levyfan/reid-mgn)]|Xi Zhou<br>SITU|Arxiv 2018.07|Part|分多个水平条带，整体特征与局部特征级联|ResNet50|-|1. 从ResNet50的res_conv4_1之后开始分为三个支路，这三个支路是ResNet50在res_conv4_1之后网络复制的，各个支路都是预训练的参数初始化，但是参数不共享<br>2. 第一个每一个支路都算一个全局特征，除此之外，第二个支路最后的特征分为上下两部分，得到两个块特征，第三个支路分为三个块。<br>3. 其中part特征各用一个分类损失函数训练，整体特征用triplet loss训练|manually R1 68.0 mAP 67.4<br>detected R1 66.8 mAP 66.0|**Market1501**<br>SQ R1 95.7 mAP 86.9<br>MQ R1 96.9 mAP 90.7<br>**DukeMTMC-reID** R1 88.7 mAP 78.4|
-|Weighted Weighted Bilinear Coding over Salient Body Parts for Person Re-identification|Haibin Ling<br>Temple University|Arxiv 2018.04|Part Mask|用多个attention mask对空间加权|GoogleNet|-|1. 先获取一些列的attention mask。对特征进行加权，然后利用Bilinear coding获取最后的表达。<br>2. Bilinear coding是将一维向量的转置与自己相乘，得到各维度相互关联的特征。|manually R1 50.1 mAP 47.7<br>detected R1 43.9 mAP 42.1|**Market1501** SQ R1 84.5 mAP 68.7<br>**DukeMTMC-reID** R1 76.2 mAP 56.9|
+|Weighted Bilinear Coding over Salient Body Parts for Person Re-identification|Haibin Ling<br>Temple University|Arxiv 2018.04|Part Mask|用多个attention mask对空间加权|GoogleNet|-|1. 先获取一些列的attention mask。对特征进行加权，然后利用Bilinear coding获取最后的表达。<br>2. Bilinear coding是将一维向量的转置与自己相乘，得到各维度相互关联的特征。|manually R1 50.1 mAP 47.7<br>detected R1 43.9 mAP 42.1|**Market1501** SQ R1 84.5 mAP 68.7<br>**DukeMTMC-reID** R1 76.2 mAP 56.9|
 |Person Re-identification with Deep Similarity-Guided Graph Neural Network|Xiaogang Wang<br>CUHK|ECCV 2018|1. Graph Neural Network<br>2. Distance Metric|借助GNN，获得更好的相似性度量|ResNet50|Softmax Score|1. 先预训练一个二分类网络，然后开始训练SGGNN。<br>2. 通过两层全连接得到辅助表达，再 利用二分类网络得到两个图片之间的相似性，归一化之后作为加权值，对辅助表达求加权平均值，然后对当前特征进行更新。得到最后表达之后再训练二分类|manually(100) R1 95.3 mAP 94.3|**Market1501** SQ R1 92.3 mAP 82.8<br>**DukeMTMC** SQ R1 81.1 mAP 68.2|
 |In Defense of the Classification Loss for Person Re-identification|Yan Lu<br>MSRA|Arxiv 2018.09|Multi Branch|将特征分为几组，每一组接一个分类损失函数|PCB|Euclidean Distance|1. 提取特征，沿通道分为若干组，每一组分别接一个全连接（权值共享），再分别接分类损失函数（含全连接）。|detected(700) R1 61.6 mAP 54.8|**Market1501**SQ R1 93.5 mAP 79.8<br>**DukeMTMC** R1 84.7 mAP 68.1|
 
@@ -339,6 +359,7 @@ average similarity between the probe person image and multiple gallery images of
 
 # Links
 * [KaiyangZhou](https://github.com/KaiyangZhou/deep-person-reid)
+* [fangchengjin](http://blog.fangchengjin.cn/reid-overview.html)
 * [handong](https://handong1587.github.io) 的 [Summary](https://github.com/handong1587/handong1587.github.io/blob/master/_posts/deep_learning/2015-10-09-re-id.md)
 * [数据集总结](http://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html)
 * [State of the art on the MARS dataset](http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html)
