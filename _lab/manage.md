@@ -7,19 +7,14 @@ published: true
 date: 2018-03-29
 ---
 
-多数内容由云峰师兄贡献，如有错误请联系我更改。
-
-# 目录
-1. [GPU服务器资源列表](#gpu)
-2. [Windows服务器](#windows)
-3. [用户分配列表](#user)
-4. [服务器使用指南](#server)
-5. [新集群使用指南](#cluster)
-6. [实验室人员](#person)
-7. [实验室硬件管理](#hardware)
+内容由王云峰、刘一衡、周浩贡献，欢迎大家参与编辑。
+如有错误请联系我更改。
 
 
-## GPU服务器资源列表 {#gpu}
+<details>
+<summary>实验室服务器</summary>
+
+## GPU服务器资源列表
 
 | 名称 | IP | 内存 |CPU 核数目|显卡型号|显存大小|
 |:----:|:----:|:----:|:-------:|:-------:|:-------:|
@@ -31,7 +26,7 @@ date: 2018-03-29
 |244|192.168.6.36|256G|24|K40|2x12G|
 |232|192.168.6.232|512G|40|K80|4x12G|
 
-## Windows服务器 {#windows}
+## Windows服务器
 
 | IP | 系统 | 内存 |CPU 核数目|
 |:----:|:----:|:----:|:-------:|
@@ -39,19 +34,19 @@ date: 2018-03-29
 |192.168.2.223|Windows server 2008 R2 Standard|32G|24|
 |192.168.2.224|Windows server 2008 R2 Standard|32G|24|
 
-## 用户分配列表 {#user}
+## 用户分配列表
 
 | 名称 | 用户 |#用户|管理员|
 |:----:|:----:|:----:|:----:|
 |Ti-Thr|蒲俊福 朱阳春 刘一丁 谢乔康 周浩 尹宇飞 赵鉴 ( 贺一纯 )|7|蒲俊福|
 |Ti-Fou|周争光 王敏 朱小天 郭老师 沈三景 刘林 祝金华 |7|周争光 刘一衡|
-|Ti-Fiv|张一帆 席茂 魏承承 胡鹤臻 孟德普 王炜伦|6|周浩 刘一衡 胡鹤臻|
+|Ti-Fiv|张一帆 席茂 魏承承 胡鹤臻 孟德普 王炜伦 （薛宏伟）|6|周浩 刘一衡 胡鹤臻|
 |Ti-One|黄江雷 王家喻 刘战东 赵恒锐 杨宇辰 张淦霖 ( 刘竞泽 )|6|蒲俊福 刘一衡 王宁 黄江雷|
 |Ti-Two|林丰 邓家俊 方远强 刘一衡 赵芳沅 姚鑫 李星泽|7|刘一衡 邓家俊 蒲俊福 王宁|
 |232|张之昊 王宁 王前前 蒋磊 欧阳剑波 陈铮|6|蒲俊福 刘一衡 王宁|
-|244|周晓强 徐宇飞 孙婧雯|3|蒲俊福 刘一衡 欧阳剑波|
+|244|周晓强 徐宇飞 孙婧雯 邓讯|3|蒲俊福 刘一衡 欧阳剑波|
 
-## 实验室服务器使用指南 {#server}
+## 实验室服务器使用指南
 一些基础命令 [[link](https://www.yolomax.com/lab/server/cmdtip/)]
 
 ### 内网访问
@@ -164,10 +159,19 @@ $ CUDA_VISIBLE_DEVICES=0 python train_net.py
 $ pip install --user keras==2.0.1
 ```
 
-## 新集群使用指南 {#cluster}
-详细信息戳 [http://mccipc.ustc.edu.cn](http://mccipc.ustc.edu.cn)。里面有更细致的要求以及常用的一些命令，比如查看任务状态，查看资源使用情况等等。
+</details>
 
-PBS任务脚本样例
+<details>
+<summary>集群使用指南</summary>
+
+详细信息戳 [MCC主页](http://mccipc.ustc.edu.cn) [集群指南](http://mccipc.ustc.edu.cn/mediawiki/index.php/Gpu-cluster-manual)。里面有更细致的要求以及常用的一些命令，比如查看任务状态，查看资源使用情况等等。卡数约70块，采用提交任务由系统调度的方案，操作界面和ubuntu一样，采用SSH登陆，提交任务需采用docker形式
+
+#### 账号申请
+
+姓名、学号、导师和集群类型信息发邮件给袁平波老师ypb@ustc.edu.cn,并抄送导师，导师邮件确认后即可创建帐号。
+申请帐号成功后，请加入GPU使用群，修改昵称为姓名_帐号。
+
+#### PBS任务脚本样例
 ```
 # /ghome/liuyh/task/task_a.pbs             # 脚本文件的位置
 #PBS -N a_r_1                              # 此任务的名称，自己拟定，主要是方便在任务列表中查看
@@ -188,22 +192,65 @@ log_name=$(date +%F-%H-%M-%S)
 startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py bit:5000/liuyh_deepo_lmdb_visdom   #-D挂载数据目录，-P挂载脚本目录, -s指明脚本。-P与-s组成完整脚本路径，即/ghome/liuyh/vision/models/r_1/train_test.py。最后的那个是指明使用哪个镜像，这个根据需要选择。
 ```
 
-注意：
-更换申请的卡的数量时只需更改最后的hpus,不需要改变nodes。比如从双卡变为四卡：
+#### 注意
+
+* 一定要认真阅读里面的教程，切记在提交任务的pbs中不可设置CUDA_VISIBLE_DEVICES这个选项，注意是不可以。
+     传输大量数据需登陆Gproc节点，不可在头结点传输数据
+
+* 更换申请的卡的数量时只需更改最后的hpus,不需要改变nodes。比如从双卡变为四卡：
 ```
-#PBS -l nodes=1:gpus=2:D    =>   #PBS -l nodes=1:gpus=4:Q
+ #PBS -l nodes=1:gpus=2:D    =>   #PBS -l nodes=1:gpus=4:Q
 ```
 
-## 实验室人员 {#person}
+</details>
+
+<details>
+<summary>类脑计算平台</summary>
+
+采用PAI架构，是采用网页端登陆的，使用比较简单，在docker中进行的操作不会影响服务器。
+微信群：类脑平台使用问题解答群
+
+使用教程 [用户书册1](https://www.bitahub.com/views/article-detail.html?articleId=_5e93b0aae54943558ee864674f2d9d0d) [用户手册2](https://www.bitahub.com/views/article-detail.html?articleId=_f0bf8a2c89b94945bb95c83e97815039)
+
+
+这个是可以直接注册的，如果需要邀请码的可以向xwzheng@leinao.ai ，发送邮件。
+
+</details>
+
+<details>
+<summary>TitanXP</summary>
+
+这是袁老师最近在GPU群发的消息，直接套用了类脑平台的管理技术，早期注册类脑的用户可以直接使用类脑账号登陆。
+学院新部署了8个结点的TitanXP GPU集群，使用PAI管理平台，外网访问平台url：202.38.69.241:36072
+内网访问：192.168.16.72:80
+
+
+有几点需要注意，
+* 目前集群只有一种gputype（titanxp），暂保留了1080和v100两种类型的选项，方便后面扩展；
+* 镜像列表和数据列表均为空，可以使用原来的存储上的镜像和数据集；
+* 在本集群上注册的用户，不能登录bitahub环境，因为数据库是不同的。
+
+</details>
+
+
+<details>
+<summary>实验室人员</summary>
+
+部分人员，未统计完全。
 
 | 时间 | 姓名 |人数|
 |:----:|:----:|:----:|
-|2019|尹宇飞 王炜伦 杨宇辰 祝金华 沈三景 张淦霖 刘林 王越琛 陈灿 赵鉴|9|
+|2019|尹宇飞 王炜伦 杨宇辰 祝金华 沈三景 张淦霖 刘林 王越琛 陈灿 赵鉴 （薛宏伟 微软联培）|9|
 |2018|李星泽 席茂 魏承承 胡鹤臻 赵恒锐 姚鑫 李星泽 陈铮 赵芳沅|9|
 |2017|方远强 刘一衡 谢乔康 周浩 欧阳剑波 蒋磊 王前前|7|
 
-## 实验室硬件管理 {#hardware}
+</details>
+
+<details>
+<summary>实验室闲置硬件</summary>
 
 | 名称 | 参数 |数量 | 借出 |
 |:----:|:----:|:----:|:----:|
 |内存条|8G DDR4 2133HZ|16|-|
+
+</details>
