@@ -10,11 +10,23 @@ date: 2018-03-29
 内容由王云峰、刘一衡、周浩贡献，欢迎大家参与编辑。
 如有错误请联系我更改。
 
+# 目录
 
-<details>
-<summary>实验室服务器</summary>
+* [实验室服务器](#server)
+  * [GPU服务器资源列表](#server_gpu)
+  * [Windows服务器](#server_windows)
+  * [用户分配列表](#server_users)
+  * [实验室服务器使用指南](#server_guide)
+* [集群](#cluster)
+* [类脑计算平台](#leinao)
+* [TitanXP](#titanXP)
+* [实验室人员](#persons)
+* [实验室闲置硬件](#hardware)
 
-## GPU服务器资源列表
+
+# 实验室服务器 {#server}
+
+## GPU服务器资源列表 {#server_gpu}
 
 | 名称 | IP | 内存 |CPU 核数目|显卡型号|显存大小|
 |:----:|:----:|:----:|:-------:|:-------:|:-------:|
@@ -26,7 +38,7 @@ date: 2018-03-29
 |244|192.168.6.36|256G|24|K40|2x12G|
 |232|192.168.6.232|512G|40|K80|4x12G|
 
-## Windows服务器
+## Windows服务器 {#server_windows}
 
 | IP | 系统 | 内存 |CPU 核数目|
 |:----:|:----:|:----:|:-------:|
@@ -34,7 +46,7 @@ date: 2018-03-29
 |192.168.2.223|Windows server 2008 R2 Standard|32G|24|
 |192.168.2.224|Windows server 2008 R2 Standard|32G|24|
 
-## 用户分配列表
+## 用户分配列表 {#server_users}
 
 | 名称 | 用户 |#用户|管理员|
 |:----:|:----:|:----:|:----:|
@@ -46,7 +58,7 @@ date: 2018-03-29
 |232|张之昊 王宁 王前前 蒋磊 欧阳剑波 陈铮|6|蒲俊福 刘一衡 王宁|
 |244|周晓强 徐宇飞 孙婧雯 邓讯|3|蒲俊福 刘一衡 欧阳剑波|
 
-## 实验室服务器使用指南
+## 实验室服务器使用指南 {#server_guide}
 一些基础命令 [[link](https://www.yolomax.com/lab/server/cmdtip/)]
 
 ### 内网访问
@@ -159,10 +171,9 @@ $ CUDA_VISIBLE_DEVICES=0 python train_net.py
 $ pip install --user keras==2.0.1
 ```
 
-</details>
+---
 
-<details>
-<summary>集群使用指南</summary>
+# 集群 {#cluster}
 
 详细信息戳 [MCC主页](http://mccipc.ustc.edu.cn) [集群指南](http://mccipc.ustc.edu.cn/mediawiki/index.php/Gpu-cluster-manual)。里面有更细致的要求以及常用的一些命令，比如查看任务状态，查看资源使用情况等等。卡数约70块，采用提交任务由系统调度的方案，操作界面和ubuntu一样，采用SSH登陆，提交任务需采用docker形式
 
@@ -202,10 +213,9 @@ startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py b
  #PBS -l nodes=1:gpus=2:D    =>   #PBS -l nodes=1:gpus=4:Q
 ```
 
-</details>
+---
 
-<details>
-<summary>类脑计算平台</summary>
+# 类脑计算平台 {#leinao}
 
 采用PAI架构，是采用网页端登陆的，使用比较简单，在docker中进行的操作不会影响服务器。
 微信群：类脑平台使用问题解答群
@@ -215,10 +225,9 @@ startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py b
 
 这个是可以直接注册的，如果需要邀请码的可以向xwzheng@leinao.ai ，发送邮件。
 
-</details>
+---
 
-<details>
-<summary>TitanXP</summary>
+# TitanXP {#titanXP}
 
 这是袁老师最近在GPU群发的消息，直接套用了类脑平台的管理技术，早期注册类脑的用户可以直接使用类脑账号登陆。
 学院新部署了8个结点的TitanXP GPU集群，使用PAI管理平台，外网访问平台url：202.38.69.241:36072
@@ -230,11 +239,10 @@ startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py b
 * 镜像列表和数据列表均为空，可以使用原来的存储上的镜像和数据集；
 * 在本集群上注册的用户，不能登录bitahub环境，因为数据库是不同的。
 
-</details>
 
+---
 
-<details>
-<summary>实验室人员</summary>
+# 实验室人员 {#persons}
 
 部分人员，未统计完全。
 
@@ -244,13 +252,10 @@ startdocker -D /gdata/liuyh -P /ghome/liuyh -s vision/models/r_1/train_test.py b
 |2018|李星泽 席茂 魏承承 胡鹤臻 赵恒锐 姚鑫 李星泽 陈铮 赵芳沅|9|
 |2017|方远强 刘一衡 谢乔康 周浩 欧阳剑波 蒋磊 王前前|7|
 
-</details>
+---
 
-<details>
-<summary>实验室闲置硬件</summary>
+# 实验室闲置硬件 {#hardware}
 
 | 名称 | 参数 |数量 | 借出 |
 |:----:|:----:|:----:|:----:|
 |内存条|8G DDR4 2133HZ|16|-|
-
-</details>
