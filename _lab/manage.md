@@ -12,19 +12,20 @@ date: 2018-03-29
 
 # 目录
 
-* [实验室服务器](#server)
+* [实验室独立服务器](#server)
   * [GPU服务器资源列表](#server_gpu)
   * [Windows服务器](#server_windows)
   * [用户分配列表](#server_users)
   * [实验室服务器使用指南](#server_guide)
-* [集群](#cluster)
-* [类脑计算平台](#leinao)
-* [TitanXP](#titanXP)
+* 大实验室公共服务器
+  * [集群](#cluster)
+  * [类脑计算平台](#leinao)
+  * [TitanXP](#titanXP)
 * [实验室人员](#persons)
 * [实验室闲置硬件](#hardware)
 
 
-# 实验室服务器 {#server}
+# 实验室独立服务器 {#server}
 
 ## GPU服务器资源列表 {#server_gpu}
 
