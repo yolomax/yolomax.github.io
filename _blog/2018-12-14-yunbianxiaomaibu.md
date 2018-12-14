@@ -14,7 +14,7 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 ---
 
 <center class="half">
-<img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpeg" | absolute_url }}" alt="" width="66%"/>
+<img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="66%"/>
 </center>
 
 喂！
