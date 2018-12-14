@@ -49,6 +49,8 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
   <div class="box">
     这世上大部分抒情，都会被认作无病呻吟。能理解你得了什么病，基本就是知己
   </div>
+  </div>
+</div>
 
   <div class="row">
     <div class="6u 12u$(small)">
@@ -71,6 +73,8 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
     够义气吧？
 
     </div>
+    </div>
+  </div>
 
 <div class="row">
   <div class="6u 12u$(small)">
