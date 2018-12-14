@@ -14,7 +14,7 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 ---
 
 <center class="half">
-<img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpeg" | absolute_url }}" alt="" width="70%"/>
+<img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpeg" | absolute_url }}" alt="" width="66%"/>
 </center>
 
 喂！
@@ -28,7 +28,7 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 ---
 
 <center class="half">
-<img src="{{ "/images/essay/云边有个小卖部/yunbian01.jpeg" | absolute_url }}" alt="" width="70%"/>
+<img src="{{ "/images/essay/云边有个小卖部/yunbian01.jpeg" | absolute_url }}" alt="" width="66%"/>
 </center>
 
 这世上大部分抒情，都会被认作无病呻吟。能理解你得了什么病，基本就是知己。
