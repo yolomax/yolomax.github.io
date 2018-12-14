@@ -25,7 +25,12 @@
       				<h1>{{page.title}}</h1>
       			</header>
 						{% if page.image%}
-						<div class="image main"><img src="{{page.image}}" alt=""></div>
+
+						<center class="half">
+						<img src="{{page.image}}" alt="" width="70%"/>
+						</center>
+
+						<!-- <div class="image main"><img src="{{page.image}}" alt=""></div> -->
 						{% endif %}
       			<p>{{content}}</p>
       		</section>
