@@ -35,36 +35,56 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 
 ---
 
-<div class="box">
-  <p>In both layman and nerd-speak, this is a paragraph. This is a paragraph that goes inside a box! Whoa so crazy. This is the text that goes under the heading and the subtitle. Paragraphs vary in length but in school we're taught to make them at least 7 sentences or else we risk getting a C. Since the paragraph didn't have a thesis or a closing argument, it's probably a C grade paragraph.</p>
-</div>
 
 <div class="row">
   <div class="6u 12u$(small)">
 
   <center class="half">
-  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="66%"/>
+  <img src="{{ "/images/essay/云边有个小卖部/yunbian01.jpeg" | absolute_url }}" alt="" width="70%"/>
   </center>
 
   </div>
   <div class="6u$ 12u$(small)">
 
-  刘十三没有回应，因为背上一阵湿答答。那么热的夏天，少年的背后被女孩的悲伤烫出一个洞，一直贯穿到心脏，无数个季节的风穿越这条通道，有一只萤火虫在风中飞舞，忽明忽暗。
-
+  <div class="box">
+    这世上大部分抒情，都会被认作无病呻吟。能理解你得了什么病，基本就是知己
   </div>
-</div>
+
+  <div class="row">
+    <div class="6u 12u$(small)">
+
+    <center class="half">
+    <img src="{{ "/images/essay/云边有个小卖部/yunbian01.jpeg" | absolute_url }}" alt="" width="70%"/>
+    </center>
+
+    </div>
+    <div class="6u$ 12u$(small)">
+
+    <div class="box">
+
+    喂！
+
+    我开学了。
+
+    要是我能活下去，就做你女朋友。
+
+    够义气吧？
+
+    </div>
 
 <div class="row">
   <div class="6u 12u$(small)">
 
   <center class="half">
-  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="50%"/>
+  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="75%"/>
   </center>
 
   </div>
   <div class="6u$ 12u$(small)">
 
-  刘十三没有回应，因为背上一阵湿答答。那么热的夏天，少年的背后被女孩的悲伤烫出一个洞，一直贯穿到心脏，无数个季节的风穿越这条通道，有一只萤火虫在风中飞舞，忽明忽暗。
+  <div class="box">
+    刘十三没有回应，因为背上一阵湿答答。那么热的夏天，少年的背后被女孩的悲伤烫出一个洞，一直贯穿到心脏，无数个季节的风穿越这条通道，有一只萤火虫在风中飞舞，忽明忽暗。
+  </div>
 
   </div>
 </div>
@@ -73,13 +93,15 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
   <div class="6u 12u$(small)">
 
   <center class="half">
-  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="40%"/>
+  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="70%"/>
   </center>
 
   </div>
   <div class="6u$ 12u$(small)">
 
-  刘十三没有回应，因为背上一阵湿答答。那么热的夏天，少年的背后被女孩的悲伤烫出一个洞，一直贯穿到心脏，无数个季节的风穿越这条通道，有一只萤火虫在风中飞舞，忽明忽暗。
+  <div class="box">
+    刘十三没有回应，因为背上一阵湿答答。那么热的夏天，少年的背后被女孩的悲伤烫出一个洞，一直贯穿到心脏，无数个季节的风穿越这条通道，有一只萤火虫在风中飞舞，忽明忽暗。
+  </div>
 
   </div>
 </div>
@@ -88,7 +110,7 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
   <div class="6u 12u$(small)">
 
   <center class="half">
-  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="66%"/>
+  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="80%"/>
   </center>
 
   </div>
