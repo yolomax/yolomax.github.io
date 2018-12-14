@@ -34,3 +34,19 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 这世上大部分抒情，都会被认作无病呻吟。能理解你得了什么病，基本就是知己。
 
 ---
+
+
+<div class="row">
+  <div class="6u 12u$(small)">
+
+  <center class="half">
+  <img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpg" | absolute_url }}" alt="" width="66%"/>
+  </center>
+
+  </div>
+  <div class="6u$ 12u$(small)">
+
+  刘十三没有回应，因为背上一阵湿答答。那么热的夏天，少年的背后被女孩的悲伤烫出一个洞，一直贯穿到心脏，无数个季节的风穿越这条通道，有一只萤火虫在风中飞舞，忽明忽暗。
+
+  </div>
+</div>
