@@ -13,6 +13,8 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 
 ---
 
+<span class="image fit"><img src="{{ "/images/essay/云边有个小卖部/yunbian03.jpeg" | absolute_url }}" alt="" /></span>
+
 喂！
 
 我开学了。
@@ -22,3 +24,5 @@ image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 够义气吧？
 
 ---
+
+<span class="image fit"><img src="{{ "/images/essay/云边有个小卖部/yunbian01.jpeg" | absolute_url }}" alt="" /></span>
