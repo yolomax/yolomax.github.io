@@ -74,6 +74,8 @@
 |Weighted Bilinear Coding over Salient Body Parts for Person Re-identification|Haibin Ling<br>Temple University|Arxiv 2018.04|Part Mask|用多个attention mask对空间加权|GoogleNet|-|1. 先获取一些列的attention mask。对特征进行加权，然后利用Bilinear coding获取最后的表达。<br>2. Bilinear coding是将一维向量的转置与自己相乘，得到各维度相互关联的特征。|manually R1 50.1 mAP 47.7<br>detected R1 43.9 mAP 42.1|**Market1501** SQ R1 84.5 mAP 68.7<br>**DukeMTMC-reID** R1 76.2 mAP 56.9|
 |Person Re-identification with Deep Similarity-Guided Graph Neural Network|Xiaogang Wang<br>CUHK|ECCV 2018|1. Graph Neural Network<br>2. Distance Metric|借助GNN，获得更好的相似性度量|ResNet50|Softmax Score|1. 先预训练一个二分类网络，然后开始训练SGGNN。<br>2. 通过两层全连接得到辅助表达，再 利用二分类网络得到两个图片之间的相似性，归一化之后作为加权值，对辅助表达求加权平均值，然后对当前特征进行更新。得到最后表达之后再训练二分类|manually(100) R1 95.3 mAP 94.3|**Market1501** SQ R1 92.3 mAP 82.8<br>**DukeMTMC** SQ R1 81.1 mAP 68.2|
 |In Defense of the Classification Loss for Person Re-identification|Yan Lu<br>MSRA|Arxiv 2018.09|Multi Branch|将特征分为几组，每一组接一个分类损失函数|PCB|Euclidean Distance|1. 提取特征，沿通道分为若干组，每一组分别接一个全连接（权值共享），再分别接分类损失函数（含全连接）。|detected(700) R1 61.6 mAP 54.8|**Market1501**SQ R1 93.5 mAP 79.8<br>**DukeMTMC** R1 84.7 mAP 68.1|
+|FD-GAN: Pose-guided Feature Distilling GAN for Robust Person Re-identification|Hongsheng Li<br>CUHK|NIPS 2018|Pose GAN|希望获得不含有pose信息的图片特征，这样比较相似性时能减少姿态的干扰。|ResNet50|-|1. 给定一个pose和一个图片，生成此人的指定pose的图片，要求生成后的图片还是原来的人，生成后的图片的pose是指定的pose,相同人生成的指定的pose图片应当尽可能相似。<br>2. 测试时，只用image encoder提取到的特征|detected(100) R1 92.6 mAP 91.3|**Market1501** R1 90.5 mAP 77.7<br>**DukeMTMC-reID** R1 80.0 mAP 64.5|
+
 
 </details>
 
@@ -140,6 +142,7 @@
 |*In Defense of the Triplet Loss for Person Re-identification* [[code](https://github.com/VisualComputingInstitute/triplet-reid)]|Bastian Leibe<br>RWTH Aachen University|Arxiv 201711|在一个batch中，寻找最困难的正负样本组成三元组|ResNet50 or LuNet|欧氏距离|1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均|用了soft-margin|**CUHK03** manually 89.63 detected 87.58<br>**Market1501**<br>SQ R 86.67 mAP 81.07<br>MQ R 91.75 mAP 87.18<br>**MARS**<br>MQ R 81.21 mAP 77.43|
 |Support Neighbor Loss for Person Re-identification|Yun Fu<br>Northeastern University|MM 2018|在近邻内部构建损失对|ResNet50|Euclidean Distance|Support Neighbor Loss|对于每个样本，得到其K近邻，在K近邻计算query与各个近邻的欧式距离，然后利用softmax，将此距离处理为概率，要求近邻内正样本的概率和越大越好。同时每个近邻内，最远正样本距离与最近正样本距离的差值要小，这样能让样本分布在query的周围||**Market1501**<br>SQ R1 88.27 mAP 73.43<br>MQ R1 92.13 mAP 80.26<br>**CUHK03**(100) manually R1 90.2 detected 88.0<br>**CUHK01**(486) R1 79.3 (100) R1 93.8|
 |Hard-Aware Point-to-Set Deep Metric for Person Re-identification|Xiang Bail<br>Huazhong University of Science and Technology|ECCV 2018|对与triplet，正负样本根据距离加权|ResNet50|Euclidean Distance|Triplet Loss|对正负样本的距离采用多项式加权的形式|**Market1501**<br>SQ mAP 69.43 R1 84.59<br>MQ mAP 76.75 R1 90.20<br>**CUHK03** manually 90.4 detected 88.9<br>**DukeMTMC** mAP 60.64 R1 75.94|
+|Tripletcenter loss for multi-view 3d object retrieval|Song Bai|CVPR 2018|
 
 </details>
 
@@ -367,4 +370,4 @@ average similarity between the probe person image and multiple gallery images of
 </details>
 
 
-<div align="right">Updated Date: 2018/09/28</div>
+<div align="right">Updated Date: 2018/12/17</div>
