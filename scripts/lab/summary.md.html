@@ -579,6 +579,12 @@ pre.editor-colors .fold-marker:after {
 .syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
   color: #c678dd;
 }
+.syntax--source.syntax--ts .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
+.syntax--source.syntax--flow .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
 .syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
   color: #e06c75;
 }
@@ -1277,6 +1283,18 @@ pre.editor-colors .fold-marker:after {
 <td style="text-align:center">detected(700) R1 61.6 mAP 54.8</td>
 <td style="text-align:left"><strong>Market1501</strong>SQ R1 93.5 mAP 79.8<br><strong>DukeMTMC</strong> R1 84.7 mAP 68.1</td>
 </tr>
+<tr>
+<td style="text-align:center">FD-GAN: Pose-guided Feature Distilling GAN for Robust Person Re-identification</td>
+<td style="text-align:center">Hongsheng Li<br>CUHK</td>
+<td style="text-align:center">NIPS 2018</td>
+<td style="text-align:center">Pose GAN</td>
+<td style="text-align:left">希望获得不含有pose信息的图片特征，这样比较相似性时能减少姿态的干扰。</td>
+<td style="text-align:center">ResNet50</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">1. 给定一个pose和一个图片，生成此人的指定pose的图片，要求生成后的图片还是原来的人，生成后的图片的pose是指定的pose,相同人生成的指定的pose图片应当尽可能相似。<br>2. 测试时，只用image encoder提取到的特征</td>
+<td style="text-align:center">detected(100) R1 92.6 mAP 91.3</td>
+<td style="text-align:left"><strong>Market1501</strong> R1 90.5 mAP 77.7<br><strong>DukeMTMC-reID</strong> R1 80.0 mAP 64.5</td>
+</tr>
 </tbody>
 </table>
 </details>
@@ -1819,6 +1837,17 @@ pre.editor-colors .fold-marker:after {
 <td style="text-align:left">Triplet Loss</td>
 <td style="text-align:left">对正负样本的距离采用多项式加权的形式</td>
 <td style="text-align:left"><strong>Market1501</strong><br>SQ mAP 69.43 R1 84.59<br>MQ mAP 76.75 R1 90.20<br><strong>CUHK03</strong> manually 90.4 detected 88.9<br><strong>DukeMTMC</strong> mAP 60.64 R1 75.94</td>
+</tr>
+<tr>
+<td style="text-align:center">Tripletcenter loss for multi-view 3d object retrieval</td>
+<td style="text-align:center">Song Bai<br>HUST</td>
+<td style="text-align:center">CVPR 2018</td>
+<td style="text-align:left">将triplet loss与center loss结合在一起使用</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">Triplet-center loss</td>
+<td style="text-align:left">每一类有个随机初始化的类中心，对于一个batch中的一个样本，距离类中心的距离要比距离另一个类的类中心的距离小m</td>
+<td style="text-align:left">-</td>
 </tr>
 </tbody>
 </table>
@@ -2550,7 +2579,7 @@ average similarity between the probe person image and multiple gallery images of
 <li><a href="http://www.liangzheng.com.cn/Project/state_of_the_art_mars.html">State of the art on the MARS dataset</a></li>
 </ul>
 </details>
-<div align="right">Updated Date: 2018/09/28</div>
+<div align="right">Updated Date: 2018/12/17</div>
 
   </body>
 </html>

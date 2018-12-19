@@ -142,7 +142,7 @@
 |*In Defense of the Triplet Loss for Person Re-identification* [[code](https://github.com/VisualComputingInstitute/triplet-reid)]|Bastian Leibe<br>RWTH Aachen University|Arxiv 201711|在一个batch中，寻找最困难的正负样本组成三元组|ResNet50 or LuNet|欧氏距离|1. 一个batch中有P个人，每个人K张图片<br>2. 对每个人，每一张图片，在batch内寻找最困难的正样本与负样本计算triplet loss<br>3. 最后一共有PK个loss用于计算和平均|用了soft-margin|**CUHK03** manually 89.63 detected 87.58<br>**Market1501**<br>SQ R 86.67 mAP 81.07<br>MQ R 91.75 mAP 87.18<br>**MARS**<br>MQ R 81.21 mAP 77.43|
 |Support Neighbor Loss for Person Re-identification|Yun Fu<br>Northeastern University|MM 2018|在近邻内部构建损失对|ResNet50|Euclidean Distance|Support Neighbor Loss|对于每个样本，得到其K近邻，在K近邻计算query与各个近邻的欧式距离，然后利用softmax，将此距离处理为概率，要求近邻内正样本的概率和越大越好。同时每个近邻内，最远正样本距离与最近正样本距离的差值要小，这样能让样本分布在query的周围||**Market1501**<br>SQ R1 88.27 mAP 73.43<br>MQ R1 92.13 mAP 80.26<br>**CUHK03**(100) manually R1 90.2 detected 88.0<br>**CUHK01**(486) R1 79.3 (100) R1 93.8|
 |Hard-Aware Point-to-Set Deep Metric for Person Re-identification|Xiang Bail<br>Huazhong University of Science and Technology|ECCV 2018|对与triplet，正负样本根据距离加权|ResNet50|Euclidean Distance|Triplet Loss|对正负样本的距离采用多项式加权的形式|**Market1501**<br>SQ mAP 69.43 R1 84.59<br>MQ mAP 76.75 R1 90.20<br>**CUHK03** manually 90.4 detected 88.9<br>**DukeMTMC** mAP 60.64 R1 75.94|
-|Tripletcenter loss for multi-view 3d object retrieval|Song Bai|CVPR 2018|
+|Tripletcenter loss for multi-view 3d object retrieval|Song Bai<br>HUST|CVPR 2018|将triplet loss与center loss结合在一起使用|-|-|Triplet-center loss|每一类有个随机初始化的类中心，对于一个batch中的一个样本，距离类中心的距离要比距离另一个类的类中心的距离小m|-|
 
 </details>
 
