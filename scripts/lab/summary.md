@@ -165,6 +165,7 @@
 |:----:|:------:|:-----------------:|:-----------|:------:|:----:|:-----|:------|
 |Unsupervised Person Re-identification by Deep Learning Tracklet Association|Shaogang Gong<br>QMUL|ECCV 2018 oral|结合视频每一帧的时间标签和相机标签，尽可能降低同一个人的视频分配了不同的label的情况|||1. 同一时刻下，不同的采样ID不同，这是因为同一时刻人不会出现在不同位置。<br>2. 同一个camera下，过了一定的时间，重新分配标签。这是基于行人行走的速度，在经过一定时间后，便会出了摄像头的拍摄范围。<br>3. 对于带有tracking的数据集，要求采样时，选择场景空间中，同时出现且位置距离较远的目标。<br>4. 跨摄像头情况下，对于一个短视频，搜寻其他摄像头下的近邻视频，视为正样本，否则为负样本。并设计loss使得正样本距离变小，负样本距离变大|**CUHK03**(700) R1 44.7 mAP 31.2<br>**Market1501** R1 63.7 mAP 41.2<br>**DukeMTMC** R1 61.7 mAP 43.5<br>**PRID2011** R1 49.4 <br>**iLIDS-VID** R1 26.7<br>**MARS** R1 43.8 mAP 29.1|
 |Domain Adaptation through Synthesis for Unsupervised Person Re-identification|Jean-Francois<br>ULAVAL|ECCV 2018|提出新的数据集，使用合成数据|-|-|扫描真人，生成模型，虚拟光源，使用合成的人来创建数据集|-|
+|Generalizing A Person Retrieval Model Hetero- and Homogeneously|Liang Zheng<br>UTS|ECCV 2018||ResNet50|| 
 </details>
 
 

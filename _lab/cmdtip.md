@@ -37,10 +37,20 @@ date: 2018-03-01
 #### 修改用户名
     sudo vi /etc/passwd找到原先的用户名，将其改为自己的用户名
     sudo  vi /etc/shadow找到原先用户名（所有的名字都要改），改为自己的用户名
-    将home目录下的用户目录改为自己的用户名：例如原先目录名为xxxx， 现要改为用户 yyyy。用命令 mv xxxx yyyy即可
+    # 将home目录下的用户目录改为自己的用户名：例如原先目录名为xxxx， 现要改为用户 yyyy。用命令 mv xxxx yyyy即可
 
-#### 添加管理员权限
+#### 冻结用户
+    # 让某一用户无法登陆，即密码冻结。
+
+    passwd -l username   # 冻结
+    passwd -u username   # 解冻
+
+#### 管理员权限
+    # 添加管理员权限
     sudo usermod -aG sudo 用户名
+
+    # 删除管理员权限
+    sudo gpasswd  -d  tt  sudo
 
 #### GPU
     sudo nvidia-persistenced --persistence-mode     # 设定持久模式，就是没人用GPU的时候，驱动不自动卸载，而是一直都处于加载状态.本次有效下次重启还需要重新设定。

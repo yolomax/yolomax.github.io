@@ -61,11 +61,11 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PAT
 * 远程调试：非必要选项，可使用远程服务器上配好的的环境，配置了这个其实是可以不用配置本地环境的。[[link](https://www.jianshu.com/p/79df9ac88e96)]
 
 ## 常用库的安装 {#lib}
-* opencv 
+* opencv
  ```
 pip install opencv-contrib-python
  ```
- 
+
 ## 远程桌面 {#vnc}
  1. ssh登录
 * 安装
@@ -99,6 +99,11 @@ xfconfd &
 xfwm4 &
 ```
 
+## Utils
+
+```
+apt-get -yqq install xxx    # 跳过询问环节
+```
 
  # Bug fixed
   * conda 安装包出现网络连接问题时，可以先下载，然后离线安装
