@@ -181,6 +181,7 @@
 |Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatio-temporal Patterns [[code](https://github.com/ahangchen/TFusion)]|Jianming Lv<br>South China University of Technology|CVPR 2018|-|-|-|-|-|
 |Deep Spatial Feature Reconstruction for Partial Person Re-identification: Alignment-free Approach|Zhenan Sun<br>CASIA|CVPR 2018|部分人体找完整人体|CNN|Euclidean distance|将稀疏字典表达嵌入到网络中，完整人体特征视为字典，稀疏矩阵是要学习的权值，这些用以重建部分人体的特征|**Partial REID**MQ 53.67<br>**Partial-iLIDS** MQ 55.46|
 |Person Search via Mask-Guided Two-Stream CNN Model|Wanli Ouyang, Ying Tai<br>The University of Sydney|ECCV 2018|检测出图片，然后利用原始图片与mask一起做|ResNet50|-|人的图片检测出来后，用mask将前景分出来，然后将包括背景的图片和前景图片的特征级联，用SEBlock做一次加权。|**CUHK-SYSU**(100) mAP 83.0 R1 83.7<br>**PRW** mAP 32.6 R1 72.1|
+|Person Search in Videos with One Portrait Through Visual and Temporal Links|Dahua Lin<br>CUHK|ECCV 2018|给人脸寻找电影中的人|IDE...|-|-|-|
 
 </details>
 
