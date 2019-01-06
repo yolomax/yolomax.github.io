@@ -75,7 +75,7 @@
 |Person Re-identification with Deep Similarity-Guided Graph Neural Network|Xiaogang Wang<br>CUHK|ECCV 2018|1. Graph Neural Network<br>2. Distance Metric|借助GNN，获得更好的相似性度量|ResNet50|Softmax Score|1. 先预训练一个二分类网络，然后开始训练SGGNN。<br>2. 通过两层全连接得到辅助表达，再 利用二分类网络得到两个图片之间的相似性，归一化之后作为加权值，对辅助表达求加权平均值，然后对当前特征进行更新。得到最后表达之后再训练二分类|manually(100) R1 95.3 mAP 94.3|**Market1501** SQ R1 92.3 mAP 82.8<br>**DukeMTMC** SQ R1 81.1 mAP 68.2|
 |In Defense of the Classification Loss for Person Re-identification|Yan Lu<br>MSRA|Arxiv 2018.09|Multi Branch|将特征分为几组，每一组接一个分类损失函数|PCB|Euclidean Distance|1. 提取特征，沿通道分为若干组，每一组分别接一个全连接（权值共享），再分别接分类损失函数（含全连接）。|detected(700) R1 61.6 mAP 54.8|**Market1501**SQ R1 93.5 mAP 79.8<br>**DukeMTMC** R1 84.7 mAP 68.1|
 |FD-GAN: Pose-guided Feature Distilling GAN for Robust Person Re-identification|Hongsheng Li<br>CUHK|NIPS 2018|Pose GAN|希望获得不含有pose信息的图片特征，这样比较相似性时能减少姿态的干扰。|ResNet50|-|1. 给定一个pose和一个图片，生成此人的指定pose的图片，要求生成后的图片还是原来的人，生成后的图片的pose是指定的pose,相同人生成的指定的pose图片应当尽可能相似。<br>2. 测试时，只用image encoder提取到的特征|detected(100) R1 92.6 mAP 91.3|**Market1501** R1 90.5 mAP 77.7<br>**DukeMTMC-reID** R1 80.0 mAP 64.5|
-
+|Mancs: A Multi-task Attentional Network with Curriculum Sampling for Person Re-identification|Xinggang Wang<br>HUST|ECCV 2018|Attention|渐进采样策略，由易到难。网络用了attention|ResNet50|Euclidean distance|1. attention是根据SeNet的思想改进过来的，由仅通道维度扩展到通道与空间维度。2. 渐进采样会给样本分配根据距离定义的采样概率。3. 使用了重排序|700 manually R1 69.0 mAP 63.9<br>detected R1 65.5 mAP 60.5<br>100 manually R1 93.8 detected R1 92.4|**Market1501** SQ R1 93.1 mAP 82.3<br>MQ R1 95.4 mAP 87.5<br>**DukeMTMC-reID** R1 84.9 mAP 71.8|
 
 </details>
 
