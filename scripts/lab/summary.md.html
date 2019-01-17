@@ -1295,6 +1295,30 @@ pre.editor-colors .fold-marker:after {
 <td style="text-align:center">detected(100) R1 92.6 mAP 91.3</td>
 <td style="text-align:left"><strong>Market1501</strong> R1 90.5 mAP 77.7<br><strong>DukeMTMC-reID</strong> R1 80.0 mAP 64.5</td>
 </tr>
+<tr>
+<td style="text-align:center">Mancs: A Multi-task Attentional Network with Curriculum Sampling for Person Re-identification</td>
+<td style="text-align:center">Xinggang Wang<br>HUST</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">Attention</td>
+<td style="text-align:left">渐进采样策略，由易到难。网络用了attention</td>
+<td style="text-align:center">ResNet50</td>
+<td style="text-align:center">Euclidean distance</td>
+<td style="text-align:left">1. attention是根据SeNet的思想改进过来的，由仅通道维度扩展到通道与空间维度。2. 渐进采样会给样本分配根据距离定义的采样概率。3. 使用了重排序</td>
+<td style="text-align:center">700 manually R1 69.0 mAP 63.9<br>detected R1 65.5 mAP 60.5<br>100 manually R1 93.8 detected R1 92.4</td>
+<td style="text-align:left"><strong>Market1501</strong> SQ R1 93.1 mAP 82.3<br>MQ R1 95.4 mAP 87.5<br><strong>DukeMTMC-reID</strong> R1 84.9 mAP 71.8</td>
+</tr>
+<tr>
+<td style="text-align:center">Part-Aligned Bilinear Representations for Person Re-identification</td>
+<td style="text-align:center">Jingdong Wang<br>MSRA</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">Part</td>
+<td style="text-align:left">利用part帮助计算相似性</td>
+<td style="text-align:center">GoogleNet</td>
+<td style="text-align:center">Net</td>
+<td style="text-align:left">1. 用预训练的关键点检测器得到关键点相应图。计算两个人各个part相应图之间的相似性，用以加权特征描述之间的相似性</td>
+<td style="text-align:center">manually 91.5 detected 88.0</td>
+<td style="text-align:left"><strong>Market1501</strong><br> SQ R1 93.4 mAP 89.9<br>MQ R1 95.4 mAP 93.1<br><strong>CUHK01</strong> (100) R1 90.4 <br>(486) R1 80.7<br><strong>DukeMTMC</strong>R1 88.3 mAP 83.9<br><strong>MARS</strong> R1 85.1 mAP 83.9</td>
+</tr>
 </tbody>
 </table>
 </details>
@@ -1879,6 +1903,66 @@ pre.editor-colors .fold-marker:after {
 <td style="text-align:left">1. 同一时刻下，不同的采样ID不同，这是因为同一时刻人不会出现在不同位置。<br>2. 同一个camera下，过了一定的时间，重新分配标签。这是基于行人行走的速度，在经过一定时间后，便会出了摄像头的拍摄范围。<br>3. 对于带有tracking的数据集，要求采样时，选择场景空间中，同时出现且位置距离较远的目标。<br>4. 跨摄像头情况下，对于一个短视频，搜寻其他摄像头下的近邻视频，视为正样本，否则为负样本。并设计loss使得正样本距离变小，负样本距离变大</td>
 <td style="text-align:left"><strong>CUHK03</strong>(700) R1 44.7 mAP 31.2<br><strong>Market1501</strong> R1 63.7 mAP 41.2<br><strong>DukeMTMC</strong> R1 61.7 mAP 43.5<br><strong>PRID2011</strong> R1 49.4 <br><strong>iLIDS-VID</strong> R1 26.7<br><strong>MARS</strong> R1 43.8 mAP 29.1</td>
 </tr>
+<tr>
+<td style="text-align:center">Domain Adaptation through Synthesis for Unsupervised Person Re-identification</td>
+<td style="text-align:center">Jean-Francois<br>ULAVAL</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:left">提出新的数据集，使用合成数据</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">扫描真人，生成模型，虚拟光源，使用合成的人来创建数据集</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Generalizing A Person Retrieval Model Hetero- and Homogeneously</td>
+<td style="text-align:center">Liang Zheng<br>UTS</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:left">生成不同摄像头下的样本，可以当作正样本对</td>
+<td style="text-align:center">ResNet50</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">1. 目标数据集只知道训练集的摄像头ID。<br>2. 对于给定的目标图片，生成不同摄像头下的样本，这些便视为正样本对。<br>3. 对于目标数据集，训练集随机选取多张图片，每一张视为不同的行人，这样虽然可能会有两张图片属于同一个人的情况，但是目标数据集比较大的时候，影响比较小。</td>
+<td style="text-align:left"><strong>DukeMTMC -&gt; Market1501</strong><br>R1 62.2 mAP 31.4<br><strong>Market1501 -&gt; DukeMTMC</strong><br>R1 46.9 mAP 27.2</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>Person Search</summary>
+<h2>Person Search</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Author</th>
+<th style="text-align:center">Conference &amp; Year</th>
+<th style="text-align:center">Tag</th>
+<th style="text-align:left">Motivation</th>
+<th style="text-align:left">Feature</th>
+<th style="text-align:center">Detail</th>
+<th style="text-align:center">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">RCAA: Relational Context-Aware Agents for Person Search</td>
+<td style="text-align:center">Yi Yang<br>UTS</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">增强学习</td>
+<td style="text-align:left">用增强学习得到候选框</td>
+<td style="text-align:left">ResNet50</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search by Multi-Scale Matching</td>
+<td style="text-align:center">Shaogang Gong<br>QMUL</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:center">多尺度</td>
+<td style="text-align:left">多尺度匹配，利用不同层次的特征</td>
+<td style="text-align:left">ResNet50</td>
+<td style="text-align:center">1. person detection: Faster-RCNN</td>
+<td style="text-align:center"><strong>PRW</strong> R1 65.0 mAP 38.7<br><strong>CUHK-SYSU</strong> R1 88.5 mAP 87.2</td>
+</tr>
 </tbody>
 </table>
 </details>
@@ -1968,6 +2052,16 @@ pre.editor-colors .fold-marker:after {
 <td style="text-align:center">-</td>
 <td style="text-align:left">人的图片检测出来后，用mask将前景分出来，然后将包括背景的图片和前景图片的特征级联，用SEBlock做一次加权。</td>
 <td style="text-align:left"><strong>CUHK-SYSU</strong>(100) mAP 83.0 R1 83.7<br><strong>PRW</strong> mAP 32.6 R1 72.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Person Search in Videos with One Portrait Through Visual and Temporal Links</td>
+<td style="text-align:center">Dahua Lin<br>CUHK</td>
+<td style="text-align:center">ECCV 2018</td>
+<td style="text-align:left">给人脸寻找电影中的人</td>
+<td style="text-align:center">IDE…</td>
+<td style="text-align:center">-</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
 </tr>
 </tbody>
 </table>
@@ -2084,7 +2178,7 @@ pre.editor-colors .fold-marker:after {
 <td style="text-align:left"><strong>CUHK03</strong> detected 92.66<br><strong>Market1501</strong><br>SQ R1 95.52 mAP 89.94<br>MQ R1 95.90 mAP 91.37<br><strong>VIPeR</strong> 78.17<br><strong>DukeMTMC</strong>R1 91.47 mAP 81.39<br><strong>CUHK01</strong> 86.22</td>
 </tr>
 <tr>
-<td style="text-align:center">Beyond Part Models: Person Retrieval with Refined Part Pooling (and A Strong Convolutional Baseline)</td>
+<td style="text-align:center">Beyond Part Models: Person Retrieval with Refined Part Pooling (and A Strong Convolutional Baseline) [<a href="https://github.com/syfafterzy/PCB_RPP_for_reID">code</a>]</td>
 <td style="text-align:center">UTSA<br>Qi Tian</td>
 <td style="text-align:center">Arxiv 2018.01</td>
 <td style="text-align:left">1. 一个更好地基于part的baseline。2.part pooling策略,防止均分时太过粗糙</td>

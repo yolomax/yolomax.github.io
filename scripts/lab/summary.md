@@ -76,6 +76,7 @@
 |In Defense of the Classification Loss for Person Re-identification|Yan Lu<br>MSRA|Arxiv 2018.09|Multi Branch|将特征分为几组，每一组接一个分类损失函数|PCB|Euclidean Distance|1. 提取特征，沿通道分为若干组，每一组分别接一个全连接（权值共享），再分别接分类损失函数（含全连接）。|detected(700) R1 61.6 mAP 54.8|**Market1501**SQ R1 93.5 mAP 79.8<br>**DukeMTMC** R1 84.7 mAP 68.1|
 |FD-GAN: Pose-guided Feature Distilling GAN for Robust Person Re-identification|Hongsheng Li<br>CUHK|NIPS 2018|Pose GAN|希望获得不含有pose信息的图片特征，这样比较相似性时能减少姿态的干扰。|ResNet50|-|1. 给定一个pose和一个图片，生成此人的指定pose的图片，要求生成后的图片还是原来的人，生成后的图片的pose是指定的pose,相同人生成的指定的pose图片应当尽可能相似。<br>2. 测试时，只用image encoder提取到的特征|detected(100) R1 92.6 mAP 91.3|**Market1501** R1 90.5 mAP 77.7<br>**DukeMTMC-reID** R1 80.0 mAP 64.5|
 |Mancs: A Multi-task Attentional Network with Curriculum Sampling for Person Re-identification|Xinggang Wang<br>HUST|ECCV 2018|Attention|渐进采样策略，由易到难。网络用了attention|ResNet50|Euclidean distance|1. attention是根据SeNet的思想改进过来的，由仅通道维度扩展到通道与空间维度。2. 渐进采样会给样本分配根据距离定义的采样概率。3. 使用了重排序|700 manually R1 69.0 mAP 63.9<br>detected R1 65.5 mAP 60.5<br>100 manually R1 93.8 detected R1 92.4|**Market1501** SQ R1 93.1 mAP 82.3<br>MQ R1 95.4 mAP 87.5<br>**DukeMTMC-reID** R1 84.9 mAP 71.8|
+|Part-Aligned Bilinear Representations for Person Re-identification|Jingdong Wang<br>MSRA|ECCV 2018|Part|利用part帮助计算相似性|GoogleNet|Net|1. 用预训练的关键点检测器得到关键点相应图。计算两个人各个part相应图之间的相似性，用以加权特征描述之间的相似性|manually 91.5 detected 88.0|**Market1501**<br> SQ R1 93.4 mAP 89.9<br>MQ R1 95.4 mAP 93.1<br>**CUHK01** (100) R1 90.4 <br>(486) R1 80.7<br>**DukeMTMC**R1 88.3 mAP 83.9<br>**MARS** R1 85.1 mAP 83.9|
 
 </details>
 
@@ -162,9 +163,10 @@
 <summary>Person Search</summary>
 
 ## Person Search
-| Name | Author | Conference & Year |Tag| Motivation |Feature|Metric|Detail|Dataset|
+| Name | Author | Conference & Year |Tag| Motivation |Feature|Detail|Dataset|
 |:----:|:------:|:-----------------:|:---:|:----|:-----------|:-----:|:----:|:----:|:-----|:---:|:--:|:--:|
-|RCAA: Relational Context-Aware Agents for Person Search|Yi Yang<br>UTS|ECCV 2018|增强学习|用增强学习得到候选框|ResNet50|-|-|-|
+|RCAA: Relational Context-Aware Agents for Person Search|Yi Yang<br>UTS|ECCV 2018|增强学习|用增强学习得到候选框|ResNet50|-|-|
+|Person Search by Multi-Scale Matching|Shaogang Gong<br>QMUL|ECCV 2018|多尺度|多尺度匹配，利用不同层次的特征|ResNet50|1. person detection: Faster-RCNN|**PRW** R1 65.0 mAP 38.7<br>**CUHK-SYSU** R1 88.5 mAP 87.2|
 
 </details>
 
