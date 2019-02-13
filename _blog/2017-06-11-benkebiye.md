@@ -6,3 +6,5 @@ category: essay
 excerpt: "中国科学技术大学"
 image: "/images/2017/20170611_0838.jpg"
 ---
+
+从左至右依次为刘一衡，代育龙，方远强，刘香波。
