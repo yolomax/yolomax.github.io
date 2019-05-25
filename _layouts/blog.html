@@ -23,7 +23,8 @@
 			{% for group in groups %}
 			<h2>{{ group.name }}</h2>
 			<section class="posts">
-				{% for item in group.items %}
+				{% assign group_items = group.items | sort: "date" %}
+				{% for item in group_items %}
 				<article>
 					<header>
 						<h2><a href="{{ item.url | absolute_url }}">{{ item.title }}</h2> {% if item.date%}
