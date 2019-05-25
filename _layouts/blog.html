@@ -23,7 +23,7 @@
 			{% for group in groups %}
 			<h2>{{ group.name }}</h2>
 			<section class="posts">
-				{% assign group_items = group.items | sort: "date" %}
+				{% assign group_items = group.items | sort: "date" | reverse %}
 				{% for item in group_items %}
 				<article>
 					<header>
