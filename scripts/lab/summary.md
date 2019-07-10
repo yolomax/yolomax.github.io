@@ -1,8 +1,8 @@
 # <center>Person Re-Identification</center>
 
-新的论文改为在谷歌文档 [Person re-ID](https://docs.google.com/spreadsheets/d/16bpvB9ZVBkqr-H8pG9cSeFrsgpVjfm7J2WZI3A5M53U/edit?usp=sharing) 中总结（预览见下方），后续有时间的话会把旧总结迁移过去。
+新的论文改为在谷歌文档 [Person re-ID](https://docs.google.com/spreadsheets/d/e/2PACX-1vSZAKBk9tN23aeJKAFT-mcd9aACl9fKpM8_habG0rH7JpUWa6p3RvrTIut-0bRS_YrpcbWNzpBdbMLM/pubhtml?gid=0&single=true) 中总结（预览见下方），后续有时间的话会把旧总结迁移过去。
 
-<iframe width="100%" height=500 src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSZAKBk9tN23aeJKAFT-mcd9aACl9fKpM8_habG0rH7JpUWa6p3RvrTIut-0bRS_YrpcbWNzpBdbMLM/pubhtml?widget=true&amp;headers=false"></iframe>
+<iframe width="100%" height=500 src=""https://docs.google.com/spreadsheets/d/e/2PACX-1vSZAKBk9tN23aeJKAFT-mcd9aACl9fKpM8_habG0rH7JpUWa6p3RvrTIut-0bRS_YrpcbWNzpBdbMLM/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 
 <details>
 <summary>入门</summary>
