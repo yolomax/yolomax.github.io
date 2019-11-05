@@ -56,7 +56,7 @@ published: true
     <img src="{{ "/images/2019/20191005-005430-NM-17.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-004300-NM-19.jpg" | absolute_url }}" alt="" height="300"/>
 </center>
 
-黄花沟是在内蒙古的最后一站了，景点人还挺多的，没有太多的商业氛围，更多的是自然景观。我们坐上小火车到了沟边，边徒步往沟里走，一路上都是风景，很适合拍照。
+黄花沟是在内蒙古的最后一站了，景点人还挺多的，没有太多的商业氛围，更多的是自然景观。我们坐上小火车到了沟边，边徒步往沟里走，一路上都是风景，虽然秋季树木有些凋零，但有种别样的美，很适合拍照。
 
 <center class="half">
     <img src="{{ "/images/2019/20191005-161145-NM-101.jpg" | absolute_url }}" alt="" height="300" /> <img src="{{ "/images/2019/20191005-150058-NM-96.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-150607-NM-97.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-151155-NM-98.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-160657-NM-100.jpg" | absolute_url }}" alt="" height="300"/>
