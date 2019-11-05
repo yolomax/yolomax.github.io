@@ -34,26 +34,22 @@ published: true
     <img src="{{ "/images/2019/20191003-060818-NM-31.jpg" | absolute_url }}" alt="" height="300" /><img src="{{ "/images/2019/20191003-105949-NM-33.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191003-140306-NM-38.JPG" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191003-141018-NM-8.jpg" | absolute_url }}" alt="" height="300"/>
 </center>
 
+#### <center>锡林郭勒-黄花沟</center>
+
+锡林郭勒离呼和浩特距离还是比较远的，我们两个人和另外两个姐姐拼团包了一辆车。两个姐姐是朋友，性格很好，一个在北京工作，另一个在兰州。司机三十多岁的样子，有些胖，脚部中风有些不太灵活，两个姐姐看了还有些担心驾驶安全来着。我们早上八点多出发，天气超好，
+
+
+<center class="half">
+    <img src="{{ "/images/2019/20191005-095245-NM-75.jpg" | absolute_url }}" alt="" height="300" /> <img src="{{ "/images/2019/20191005-102059-NM-83.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-110215-NM-87.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-110424-NM-90.jpg" | absolute_url }}" alt="" height="300"/>
+</center>
+
+
+<center class="half">
+    <img src="{{ "/images/2019/20191005-161145-NM-101.jpg" | absolute_url }}" alt="" height="300" /><img src="{{ "/images/2019/20191005-150058-NM-96.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-150607-NM-97.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-151155-NM-98.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-160657-NM-100.jpg" | absolute_url }}" alt="" height="300"/>
+</center>
 
 #### <center>乌兰哈达火山群</center>
 
 <center class="half">
     <img src="{{ "/images/2019/20191004-011642-NM-18.jpg" | absolute_url }}" alt="" height="300" /><img src="{{ "/images/2019/20191004-082840-NM-22.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191004-090900-NM-14.jpg" | absolute_url }}" alt="" height="300"/>
 </center>
-
-
-
-#### <center>锡林郭勒</center>
-
-
-<center class="half">
-    <img src="{{ "/images/2019/20191005-095245-NM-75.jpg" | absolute_url }}" alt="" height="300" /><img src="{{ "/images/2019/20191005-102059-NM-83.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-110215-NM-87.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-110424-NM-90.jpg" | absolute_url }}" alt="" height="300"/>
-</center>
-
-
-#### <center>黄花沟</center>
-
-<center class="half">
-    <img src="{{ "/images/2019/20191005-161145-NM-101.jpg" | absolute_url }}" alt="" height="300" /><img src="{{ "/images/2019/20191005-150058-NM-96.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-150607-NM-97.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-151155-NM-98.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191005-160657-NM-100.jpg" | absolute_url }}" alt="" height="300"/>
-</center>
-
