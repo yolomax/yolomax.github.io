@@ -41,8 +41,14 @@ published: true
 在驱车开了两个小时左右的时候，我们基本上进了锡林郭勒，天气骤变。虽是上午，但天色阴暗，路边的草地上已经挂了霜，仿佛已经进入冬天。晚上要在草原上的蒙古包住宿。到了地方，刚下车便能感觉到明显的寒意，草原上风很大，草已经冰冻了起来。我们赶紧跑到蒙古包里暖和暖和。蒙古包很大，我跟乔康一个房间，圆形的房间一半是床。半圆形的床很大，有电炕，睡上四五个人也不是问题。我们两个都没有带羽绒服什么的，只能裤子套裤子，外套套外套，能穿的都穿上了。穿上衣服之后我们便出去溜达溜达，外面竟真的下起了小雪，早上还穿着卫衣阳光明媚，中午就要裹了一层又一层过冬了，草原上天气变化真的是快。
 
 <center class="half">
-    <img src="{{ "/images/2019/20191005-095245-NM-75.jpg" | absolute_url }}" alt="" height="300" /> <img src="{{ "/images/2019/20191005-102059-NM-83.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-110215-NM-87.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-110424-NM-90.jpg" | absolute_url }}" alt="" height="300"/>
+    <img src="{{ "/images/2019/20191005-095245-NM-75.jpg" | absolute_url }}" alt="" height="300" /> <img src="{{ "/images/2019/20191005-102059-NM-83.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-110215-NM-87.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-110424-NM-90.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-005430-NM-17.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-004300-NM-19.jpg" | absolute_url }}" alt="" height="300"/>
 </center>
+
+
+<center class="half">
+    <img src="{{ "/images/2019/20191005-005430-NM-17.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191005-004300-NM-19.jpg" | absolute_url }}" alt="" height="300"/>
+</center>
+
 
 
 <center class="half">
