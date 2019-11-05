@@ -31,7 +31,7 @@ published: true
 因为还要玩另一个岛，多以下午就去仙沙岛了。悦沙岛只玩了几个项目，国庆假期人太多了，排队要好久。仙沙岛，人不是很多，主要是参观，有沙雕，感觉沙雕像是水泥砌的一样。后来便下起了雨，我们冒雨爬了沙丘，身上衣服湿了很多，后面在馆里面看蒙古娶亲的话剧，中午没睡觉，坐着睡着了，身上还有些冷。因为下了雨，沙漠里面变得特别冷，即便如此我们还是去滑沙了。我们从大约45度的倾角，15米长的沙坡上面坐板子上滑下来，用手减速（真手刹）。
 
 <center class="half">
-    <img src="{{ "/images/2019/20191003-060818-NM-31.jpg" | absolute_url }}" alt="" height="300" /><img src="{{ "/images/2019/20191003-105949-NM-33.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191003-140306-NM-38.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191003-140306-NM-38.jpg" | absolute_url }}" alt="" height="300"/>
+    <img src="{{ "/images/2019/20191003-060818-NM-31.jpg" | absolute_url }}" alt="" height="300" /><img src="{{ "/images/2019/20191003-105949-NM-33.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191003-140306-NM-38.jpg" | absolute_url }}" alt="" height="300"/><img src="{{ "/images/2019/20191003-141018-NM-8.jpg" | absolute_url }}" alt="" height="300"/>
 </center>
 
 
