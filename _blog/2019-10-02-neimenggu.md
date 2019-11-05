@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "内蒙古-北京"
+title:  "内蒙古"
 date:   2019-10-02
 category: travel
-excerpt: "国庆假期游内蒙古与北京"
+excerpt: "国庆假期游内蒙古"
 image: "/images/2019/20191002-180828-NM-12.jpg"
 ---
 
