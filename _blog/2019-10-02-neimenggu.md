@@ -41,7 +41,7 @@ published: true
 		<div class="row 50% uniform">
 			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-115948-NM-12.jpg" | absolute_url }}" alt="" height="300"/></span></div>
 			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-180813-NM-11.jpg" | absolute_url }}" alt="" height="300"/></span></div>
-			<div class="4u$"><span class="image fit"><img src="{{ "/images/2019/20191002-183127-NM-20.JPG" | absolute_url }}" alt="" /></span></div>
+			<div class="4u$"><span class="image fit"><img src="{{ "/images/2019/20191002-183127-NM-20.JPG" | absolute_url }}" alt="" height="300"/></span></div>
 			<!-- Break -->
 			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-190049-NM-27.jpg" | absolute_url }}" alt="" height="300"/></span></div>
 			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-200757-NM-28.jpg" | absolute_url }}" alt="" height="300"/></span></div>
