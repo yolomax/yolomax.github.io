@@ -24,6 +24,32 @@ published: true
     <img src="{{ "/images/2019/20191002-115948-NM-12.jpg" | absolute_url }}" alt="" height="300" /> <img src="{{ "/images/2019/20191002-180813-NM-11.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191002-183127-NM-20.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191002-190049-NM-27.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191002-200757-NM-28.jpg" | absolute_url }}" alt="" height="300"/> <img src="{{ "/images/2019/20191002-201846-NM-29.jpg" | absolute_url }}" alt="" height="300"/>
 </center>
 
+
+<div class="box alt">
+		<div class="row 50% uniform">
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-115948-NM-12.jpg" | absolute_url }}" alt="" /></span></div>
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-180813-NM-11.jpg" | absolute_url }}" alt="" /></span></div>
+			<div class="4u$"><span class="image fit"><img src="/images/2019/20191002-183127-NM-20.jpg" alt="" /></span></div>
+			<!-- Break -->
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-190049-NM-27.jpg" | absolute_url }}" alt="" /></span></div>
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-200757-NM-28.jpg" | absolute_url }}" alt="" /></span></div>
+			<div class="4u$"><span class="image fit"><img src="{{ "/images/2019/20191002-201846-NM-29.jp" | absolute_url }}" alt="" /></span></div>
+		</div>
+</div>
+
+<div class="box alt">
+		<div class="row 50% uniform">
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-115948-NM-12.jpg" | absolute_url }}" alt="" height="300"/></span></div>
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-180813-NM-11.jpg" | absolute_url }}" alt="" height="300"/></span></div>
+			<div class="4u$"><span class="image fit"><img src="/images/2019/20191002-183127-NM-20.jpg" alt="" /></span></div>
+			<!-- Break -->
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-190049-NM-27.jpg" | absolute_url }}" alt="" height="300"/></span></div>
+			<div class="4u"><span class="image fit"><img src="{{ "/images/2019/20191002-200757-NM-28.jpg" | absolute_url }}" alt="" height="300"/></span></div>
+			<div class="4u$"><span class="image fit"><img src="{{ "/images/2019/20191002-201846-NM-29.jp" | absolute_url }}" alt="" height="300"/></span></div>
+		</div>
+</div>
+
+
 ### <center>响沙湾</center>
 
 响沙湾的名字源于沙鸣（虽然我并未听到沙鸣）。我们是跟团去的，导游是个女生，名翠平。名字可能稍有土气（她本人原话），但是性格很开朗，爱笑。我们团名字便是翠平团队，导游说，虽然名字土，但是辨识度高啊，景区这么多人，能叫翠平的，应该就她一个。我们先去的悦沙岛，骑了骆驼。骆驼我之前是骑过的，但是现在在沙漠里面骑更有感觉些。骆驼很高大，走起来还是很稳的，驼峰不是很大，身上有些许的味道，可惜就是走的距离不是很远，大概是怕骆驼累着吧。滑索限重80公斤，所以我不能玩（第一次作为胖子被区别对待）。上午又看了表演，做了旋转飞椅便去吃饭了。饭后做了沙漠摩托，在沙漠上开车真的很有感觉。
