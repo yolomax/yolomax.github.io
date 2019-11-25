@@ -55,3 +55,31 @@ date: 2018-03-01
 #### GPU
     sudo nvidia-persistenced --persistence-mode     # 设定持久模式，就是没人用GPU的时候，驱动不自动卸载，而是一直都处于加载状态.本次有效下次重启还需要重新设定。
     sudo fuser -v /dev/nvidia*       # 查找占用GPU资源的PID
+
+
+#### 自动挂载硬盘
+
+插上硬盘后运行下面命令找到对应的所属
+
+    sudo fdisk -l  
+根据编号对对硬盘格式化
+
+    sudo mkfs -t ext4 /dev/sdf
+
+创建想要挂载的目标文件夹
+
+    sudo mkdir /data5
+
+加入开机自动挂载，编辑文件 `/etc/fstab`
+
+    sudo vim /etc/fstab
+
+文件中加入
+
+    /dev/sdb  /data5  ext4  defaults     0 0
+
+运行以下命令检查设置是否正确，无误后即可重启电脑
+
+    sudo mount -a
+
+    
