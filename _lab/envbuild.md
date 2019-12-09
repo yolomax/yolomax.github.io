@@ -30,10 +30,10 @@ date: 2018-03-01
 1. **根据自己选择的深度学习框架的支持情况**，下载相应的CUDA安装包，用<code>.run</code>格式（选择Base Installer下载）。[[link](https://developer.nvidia.com/cuda-downloads)]
 2. 驱动更新（根据当前驱动是否支持所需CUDA版本决定）
 ```
-sudo apt-get autoremove --purge nvidia-* #删除旧版本
+sudo apt-get autoremove --purge nvidia-旧版本号 #删除旧版本
 sudo add-apt-repository ppa:graphics-drivers/ppa # 可选，若找不到最新的驱动，可以用这个命令添加第三方驱动源
 sudo apt-get update #获取最新list
-sudo apt-get install nvidia-版本号
+sudo apt-get install nvidia-新版本号
 ```
 3. 先进入文本模式：<code>CTRL+ALT+F1</code>。再依次执行
 ```
