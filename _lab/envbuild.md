@@ -11,7 +11,9 @@ date: 2018-03-01
 1. [安装Ubuntu系统](#ubuntu)
 2. [安装CUDA及cuDNN](#cuda)
 3. [安装Miniconda](#miniconda)
-4. 在conda里面创建虚拟环境，并安装选择的深度学习平台.
+在conda里面创建虚拟环境，并安装选择的深度学习平台.
+4. [升级Python](#python) 
+   若不想安装在miniconda里面，用这种方法升级以及管理
 5. [安装Pycharm](#pycharm)
 6. [一些常用库](#lib)
 7. 额外的小工具（非必要选项）
@@ -99,6 +101,32 @@ xfconfd &
 xfwm4 &
 ```
 
+## 升级Python(#python)
+
+1. 安装python3.7
+
+```
+sudo apt-get install python3.7      
+```
+若找不到安装包则运行下面的命令
+ ```
+sudo update-alternatives --config python3
+ ```
+2. 编号
+
+```
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+ ```
+
+3. 将默认的python3指向python3.7
+ ```
+ sudo update-alternatives --config python3   # 输入刚才的编号
+ ```
+4. 测试
+ ```
+ python3 -V
+ ```
 ## Utils
 
 ```
