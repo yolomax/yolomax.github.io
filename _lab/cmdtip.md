@@ -14,7 +14,7 @@ date: 2018-03-01
 
 #### 保存密码
     # 可以免输密码
-    ssh-keygen #Simply type enter all the way down
+    ssh-keygen # 创建密钥，只有第一次时才使用此命令，若之前创建过密钥就不用再执行此命令。Simply type enter all the way down
     ssh-copy-id -i liuyh@192.168.17.240   # Enter password
 
 #### 查看当前目录已经使用总大小及当前目录下一级文件或文件夹各自使用的总空间大小
