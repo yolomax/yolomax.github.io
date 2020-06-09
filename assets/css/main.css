@@ -1513,11 +1513,25 @@ hr {
   border-color: #eeeeee;
 }
 
-.box.small {
+.box.small2 {
+  padding: 0.5rem;
+  line-height: 1.2;
+}
+
+.box.small3 {
+  padding: 0.5rem;
+  line-height: 1.3;
+}
+
+.box.small4 {
   padding: 0.5rem;
   line-height: 1.4;
 }
 
+.box.small5 {
+  padding: 0.5rem;
+  line-height: 1.5;
+}
 
 /* Button */
 
