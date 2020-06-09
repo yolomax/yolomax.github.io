@@ -3981,6 +3981,11 @@ body.is-loading #intro:not(.hidden)+#header+#nav {
   padding-left: 60px;
 }
 
+#resume .timeline-content p {
+  line-height: 1.6;
+}
+
+
 #resume .timeline-content h4 {
   position: relative;
   padding-bottom: 1.8rem;
