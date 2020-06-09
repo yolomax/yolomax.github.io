@@ -1513,24 +1513,10 @@ hr {
   border-color: #eeeeee;
 }
 
-.box.smalll {
-  padding: 0.5rem;
-  line-height: 1.2;
-}
-
-.box.smallll {
-  padding: 0.5rem;
-  line-height: 1.3;
-}
-
-.box.smalllll {
-  padding: 0.5rem;
-  line-height: 1.4;
-}
-
-.box.smalllll {
-  padding: 0.5rem;
-  line-height: 1.5;
+.box.compact {
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+  line-height: 1.1;
 }
 
 /* Button */
@@ -3929,8 +3915,8 @@ body.is-loading #intro:not(.hidden)+#header+#nav {
 
 #resume .timeline-wrap {
   position: relative;
-  margin-top: 1.5rem;
-  margin-bottom: 6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #resume .timeline-wrap::before {
