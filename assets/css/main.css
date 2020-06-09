@@ -1513,6 +1513,12 @@ hr {
   border-color: #eeeeee;
 }
 
+.box.small {
+  padding: 0.5rem;
+  line-height: 0.5
+}
+
+
 /* Button */
 
 input[type="submit"], input[type="reset"], input[type="button"], button, .button {
