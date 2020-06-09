@@ -7,8 +7,7 @@ published: true
 date: 2018-12-17
 ---
 
-内容由王云峰、刘一衡、周浩贡献，欢迎大家参与编辑。
-如有错误请联系刘一衡更改。
+内容由王云峰、刘一衡、周浩贡献，欢迎大家参与编辑。如有错误请联系刘一衡更改。
 
 # 目录
 
@@ -21,7 +20,6 @@ date: 2018-12-17
   * [集群](#cluster)
   * [类脑计算平台](#leinao)
 * [Docker指南](https://www.cntofu.com/book/139/index.html)
-* [实验室人员](#persons)
 * [实验室闲置硬件](#hardware)
 
 
@@ -75,14 +73,11 @@ ssh username@192.168.6.232   # 访问232服务器。
 ```
 
 ### Samba 访问服务器
-Samba是一种方便的在Linux和Windows下传送文件的协议和软件，在WIndows环境下，在文件管理器中，输
-入<code>\\192.168.104.12</code>就可以访问服务器。 初始密码同ssh登录时的密码，可以在服务器的命令行下用<code>smbpasswd</code>来修改密码。
+Samba是一种方便的在Linux和Windows下传送文件的协议和软件，在WIndows环境下，在文件管理器中，输入<code>\\192.168.104.12</code>就可以访问服务器。 初始密码同ssh登录时的密码，可以在服务器的命令行下用<code>smbpasswd</code>来修改密码。
 
 ### VNC 访问服务器图形界面
-两台新加的服务器都安装了VNC服务，可以用VNC Viewer等VNC 客户端来连接到服务器的图形化界面，用来操作MATLAB的图形
-化界面，或者显示图像等。具体的使用方式如下：
-1. SSH连接到服务器，在命令行执行<code>vncserver -geometry 1920x1080</code>来创建会话，输出的最下面的 <code>:n</code>(n为一个整数)就是你创建
-的会话ID，初次执行<code>vncserver</code>需要创建一个VNC登录密码。
+两台新加的服务器都安装了VNC服务，可以用VNC Viewer等VNC 客户端来连接到服务器的图形化界面，用来操作MATLAB的图形化界面，或者显示图像等。具体的使用方式如下：
+1. SSH连接到服务器，在命令行执行<code>vncserver -geometry 1920x1080</code>来创建会话，输出的最下面的 <code>:n</code>(n为一个整数)就是你创建的会话ID，初次执行<code>vncserver</code>需要创建一个VNC登录密码。
 2. 在VNC Viewer里面，填入服务器地址+会话ID，如<code>192.168.104.12:23</code>，输入上一步创建的密码就可以登陆图像界面
 3. 如果会话卡死或不响应了， 可以用<code>vncserver -kill :n</code>来删除之前创建的编号为n的会话，然后重新执行<code>vncserver -geometry 1920x1080</code>即可。
 4. 如果忘记自己的VNC密码了，可以执行<code>vncpasswd</code>来重新设置密码
@@ -117,17 +112,13 @@ $ pkg-config --modversion opencv
 ```
 
 ### CUDA和CuDNN说明
-CUDA安装8.0版本，目录为<code>/usr/local/cuda</code>, CuDNN安装的是6.0.21版本，放在 <code>/usr/local/cuda/lib64</code>目录下，目前各个库已经
-都支持该版本。
+CUDA安装8.0版本，目录为<code>/usr/local/cuda</code>, CuDNN安装的是6.0.21版本，放在 <code>/usr/local/cuda/lib64</code>目录下，目前各个库已经都支持该版本。
 如果需要特定版本的CuDNN，可以这样操作：
-1. 复制<code>/usr/local/cuda/</code>到你自己的目录（如<code>/data1/username/cuda</code>），删除其中的 <code>lib64</code>目录下的所有以 <code>libdudnn</code>开头的文
-件和<code>include</code>目录中的<code>cudnn.h</code>文件
+1. 复制<code>/usr/local/cuda/</code>到你自己的目录（如<code>/data1/username/cuda</code>），删除其中的 <code>lib64</code>目录下的所有以 <code>libdudnn</code>开头的文件和<code>include</code>目录中的<code>cudnn.h</code>文件
 2. 从[这里](https://developer.nvidia.com/cudnn)下载特定版本的CuDNN
 3. 解压下载的压缩包，将解压得到的<code>cudnn.h</code>文件放置到你复制后的cuda的<code>include</code>目录下，将所有其余的文件放到<code>lib64</code>目录下
-4. 编辑<code>~/.bashrc</code>文件，修改<code>LD_LIBRARY_PATH</code>环境变量，将其中的<code>/usr/local/cuda/lib64</code>替换成你自己的目录
-(如<code>/data1/username/cuda/lib64</code>)
-5. 在命令行执行<code>source ~/.bashrc</code>来使修改生效
-如果在编译Caffe的时候要用自己路径下的CUDA和CuDNN，将<code>Makefile.config</code>中的28行左右的<code>CUDA_DIR</code>改成你自己的cuda目录（如<code>/data1/username/cuda</code>）
+4. 编辑<code>~/.bashrc</code>文件，修改<code>LD_LIBRARY_PATH</code>环境变量，将其中的<code>/usr/local/cuda/lib64</code>替换成你自己的目录(如<code>/data1/username/cuda/lib64</code>)
+5. 在命令行执行<code>source ~/.bashrc</code>来使修改生效。如果在编译Caffe的时候要用自己路径下的CUDA和CuDNN，将<code>Makefile.config</code>中的28行左右的<code>CUDA_DIR</code>改成你自己的cuda目录（如<code>/data1/username/cuda</code>）
 
 ### 深度学习库使用说明
 四台服务器上均已经安装Caffe, TensorFlow, Torch, Pytorch， Keras这几个框架，为了节省空间，建议使用系统默认安装的库，如果有特殊版本需求，可以再自己编译或用pip安装。
@@ -166,9 +157,7 @@ Torch安装在<code>/data1/public/torch</code>目录下，登录后在命令行�
 ```
 
 #### TensorFlow, Pytorch, Keras使用说明
-这三个库都是基于Python的，两台机器都装了Python 2 和Python 3 的最新版本。
-使用Keras或者TensorFlow的时候，可以在命令前面加<code>CUDA_VISIBLE_DEVICES=x ,x=0,1,2,3</code>来设置只用哪一块卡，以避免占用所有
-的卡：
+这三个库都是基于Python的，两台机器都装了Python 2 和Python 3 的最新版本。使用Keras或者TensorFlow的时候，可以在命令前面加<code>CUDA_VISIBLE_DEVICES=x ,x=0,1,2,3</code>来设置只用哪一块卡，以避免占用所有的卡：
 ```
 # 只用第0块GPU卡
 $ CUDA_VISIBLE_DEVICES=0 python train_net.py
