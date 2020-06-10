@@ -1,5 +1,5 @@
 <footer id="footer">
-  <section>
+  <!-- <section>
     <form method="POST" action="https://formspree.io/{{site.email}}">
       <div class="field">
         <label for="name">Name</label>
@@ -17,16 +17,19 @@
         <li><input type="submit" value="Send Message" /></li>
       </ul>
     </form>
-  </section>
+  </section> -->
+
   <section class="split contact">
+    <section class="alt">
+      <h3>Name</h3>
+      <p>{{site.name}}</p>
+    </section>
     <section class="alt">
       <h3>Location</h3>
       <p>{{site.location}}</p>
     </section>
-    <section>
-      <h3>Phone</h3>
-      <p><a href="tel:{{site.phone}}">{{site.phone}}</a></p>
-    </section>
+  </section>
+  <section class="split contact">
     <section>
       <h3>Email</h3>
       <p><a href="mailto:{{site.email}}">{{site.email}}</a></p>
