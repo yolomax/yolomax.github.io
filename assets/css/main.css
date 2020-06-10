@@ -3081,7 +3081,7 @@ body.is-loading #intro:not(.hidden)+#header+#nav {
 }
 
 #main>.post {
-  padding: 8rem 8rem 6rem 8rem;
+  padding: 2rem 8rem 2rem 8rem;
 }
 
 #main>.post header.major>.date {
@@ -3149,12 +3149,12 @@ body.is-loading #intro:not(.hidden)+#header+#nav {
 }
 
 #main>.posts>* {
-  width: 50%;
+  width: 33%;
 }
 
 #main>.posts>* {
-  padding: 4rem;
-  width: 50%;
+  padding: 2rem;
+  width: 33%;
 }
 
 #main>.posts>article {
