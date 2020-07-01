@@ -20,11 +20,9 @@
 		<!-- Main -->
 		<div id="main">
 
-			<div class="6u$ 12u$(small)">
-				<div class="box">
-				  这世上大部分抒情，都会被认作无病呻吟。能理解你得了什么病，基本就是知己。
-				</div>
-			</div>
+			<div class="box">
+				这世上大部分抒情，都会被认作无病呻吟。能理解你得了什么病，基本就是知己。
+			  </div>
 
 			{% assign groups = site.blog | group_by: "category" | sort: "name" | reverse %}
 			{% for group in groups %}
