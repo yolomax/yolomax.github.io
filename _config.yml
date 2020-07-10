@@ -1,7 +1,7 @@
 # Site
-title:              Yiheng Liu 刘一衡
+title:              Yiheng Liu
 bio:                'Lab'
-description:        "Lab"
+description:        "Yiheng Liu 刘一衡"
 locale:             China
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
