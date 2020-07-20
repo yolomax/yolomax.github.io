@@ -2602,7 +2602,7 @@ body.is-loading #wrapper.fade-in:before {
 
 @media screen and (orientation: portrait) {
   #wrapper>.bg {
-    background-size: auto, auto, auto 175%;
+    background-size: auto, auto 175%;
   }
 }
 
