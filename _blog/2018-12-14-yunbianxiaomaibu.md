@@ -18,7 +18,7 @@ published: true
   <div class="6u 12u$(small)">
 
   <center class="half">
-  <img src="{{ site.data.images.essay.yunbianxmb['root']}}{{ site.data.images.essay.yunbianxmb['yunbian03.jpeg'] }}" alt="" width="70%"/>
+  <img src="{{ site.data.images.essay.yunbianxmb['root']}}{{ site.data.images.essay.yunbianxmb['yunbian03.jpg'] }}" alt="" width="70%"/>
   </center>
 
   </div>
