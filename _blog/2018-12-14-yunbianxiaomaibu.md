@@ -4,7 +4,7 @@ title:  "云边有个小卖部"
 date:   2018-12-14
 category: essay
 excerpt: "有本事你别回来  没本事"
-image: "{ site.data.images.essay.yunbianxmb['root']}{ site.data.images.essay.yunbianxmb['yunbian02.jpeg'] }"
+image: "{{ site.data.images.essay.yunbianxmb['root']}}{{ site.data.images.essay.yunbianxmb['yunbian02.jpeg'] }}"
 published: true
 ---
 
@@ -18,7 +18,7 @@ published: true
   <div class="6u 12u$(small)">
 
   <center class="half">
-  <img src="{ site.data.images.essay.yunbianxmb['root']}{ site.data.images.essay.yunbianxmb['yunbian03.jpeg'] }" alt="" width="70%"/>
+  <img src="{{ site.data.images.essay.yunbianxmb['root']}}{{ site.data.images.essay.yunbianxmb['yunbian03.jpeg'] }}" alt="" width="70%"/>
   </center>
 
   </div>
@@ -43,7 +43,7 @@ published: true
   <div class="6u 12u$(small)">
 
   <center class="half">
-  <img src="{ site.data.images.essay.yunbianxmb['root']}{ site.data.images.essay.yunbianxmb['yunbian01.jpeg'] }" alt="" width="70%"/>
+  <img src="{{ site.data.images.essay.yunbianxmb['root']}}{{ site.data.images.essay.yunbianxmb['yunbian01.jpeg'] }}" alt="" width="70%"/>
   </center>
 
   </div>
