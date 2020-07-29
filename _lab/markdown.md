@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Git
-category: server
+title: Markdown
+category: Skills
 comments: false
 published: true
 date: 2020-07-28
