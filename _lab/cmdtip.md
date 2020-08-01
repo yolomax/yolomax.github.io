@@ -50,7 +50,7 @@ date: 2018-03-01
     sudo usermod -aG sudo 用户名
 
     # 删除管理员权限
-    sudo gpasswd  -d  tt  sudo
+    sudo gpasswd  -d  用户名  sudo
 
 #### GPU
     sudo nvidia-persistenced --persistence-mode     # 设定持久模式，就是没人用GPU的时候，驱动不自动卸载，而是一直都处于加载状态.本次有效下次重启还需要重新设定。

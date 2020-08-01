@@ -17,7 +17,7 @@ git push
 
 ### 同步到本机
 
-* `fetch`+`merger`
+* fetch+merger
   ``` shell
   git fetch   # 将远程主机的最新内容拉到本地，但是不合并
   git merge FETCH_HEAD # 将拉取下来的最新内容合并到当前所在的分支中
@@ -25,7 +25,7 @@ git push
       
       
 
-* `pull`
+* pull
   ``` shell
   git pull # 远程分支与当前分支合并
   ```
