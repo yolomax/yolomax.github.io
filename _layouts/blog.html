@@ -36,7 +36,7 @@
 						<span class="date">{{ item.date | date_to_string }}</span> {% endif %}
 					</header>
 					{% if item.image%}
-					<a href="{{ item.url | absolute_url }}" class="image fit"><img src="{{ item.image | absolute_url }}" alt="" /></a> {% endif %} {% if item.excerpt%}
+					<a href="{{ item.url | absolute_url }}" class="image fit"><img src="https://cdn.jsdelivr.net/gh/yolomax/yolomax.github.io{{ item.image}}" alt="" /></a> {% endif %} {% if item.excerpt%}
 					<p>{{ item.excerpt }}</p>
 					{% endif %}
 				</article>

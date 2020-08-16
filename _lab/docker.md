@@ -81,3 +81,10 @@ docker stats <container_id>  #查看某容器的消耗
 
       输完命令后系统会让你输入密码，因为我们已经将宿主机上的用户和密码都映射进来了，所以这里输入的密码就是你宿主机上的密码
 
+
+### 批量删除以停止的容器
+``` shell
+docker rm `docker ps -a|grep Exited|awk '{print $1}'`
+```
+
+
