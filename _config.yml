@@ -1,0 +1,83 @@
+# Site
+title:              Yiheng Liu
+bio:                'Lab'
+description:        "Yiheng Liu 刘一衡"
+locale:             China
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+name:               Yiheng Liu
+
+collections:
+ lab:
+   output: true
+   permalink: /:collection/:category/:title/
+ blog:
+   output: true
+   permalink: /:collection/:category/:title/
+
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    permalink: "/:categories/:title/"
+    layout: post
+- scope:
+    path: ''
+    type: lab
+  values:
+    permalink: "/:collection/:categories/:title/"
+    layout: post
+- scope:
+    path: ''
+    type: blog
+  values:
+    permalink: "/:collection/:categories/:title/"
+    layout: post
+
+# Jekyll
+permalink:          /:categories/:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
+
+# Comments
+disqus_shortname:   default
+
+# Social
+analytics-id:       "UA-116757730-1"
+twitter:            default
+facebook:           default
+instagram:          default
+github:             yolomax
+
+# personal
+location:           Hefei, Anhui
+phone:              xxx
+email:              yolomemos@gmail.com
+
+# Gems
+gems:
+  - jekyll-mentions
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+
+paginate: 6
+paginate_path: "/:categories/page:num/"
+
+jekyll-mentions:
+    base_url: https://github.com
+
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, old]
