@@ -1,1 +1,0 @@
-# yolomax.github.io
