@@ -36,6 +36,14 @@ git push
   git reset --hard origin/master
   ```
 
+### gitignore
+修改之后要先清理本地缓存，将文件改为未追踪状态
+
+``` shell
+  git rm -r --cached .
+  git add .
+  ```
+
 ### 工作区与暂存区
 
 * 重置工作区 
