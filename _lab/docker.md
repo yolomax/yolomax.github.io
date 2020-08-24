@@ -9,12 +9,6 @@ date: 2020-07-28
 
 ## <center>Docker 常用命令</center>
 
-### 监控容器资源消耗
-``` shell
-docker stats # 查看所有的容器的消耗
-docker stats <container_id>  #查看某容器的消耗
-```
-
 ---
 
 ### 以非root用户启动容器
@@ -85,6 +79,12 @@ docker stats <container_id>  #查看某容器的消耗
 ### 批量删除以停止的容器
 ``` shell
 docker rm `docker ps -a|grep Exited|awk '{print $1}'`
+```
+
+### 监控容器资源消耗
+``` shell
+docker stats # 查看所有的容器的消耗
+docker stats <container_id>  #查看某容器的消耗
 ```
 
 
