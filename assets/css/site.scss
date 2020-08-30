@@ -1,8 +1,4 @@
 // Customise bootstrap, and set site-wide variables.
-@import '../sass/variables';
-
-// Include Bootstrap.
-@import '../sass/bootstrap/bootstrap';
-
-// Include SCSS for the theme itself.
-@import '../sass/theme';
+@import 'variables';
+@import 'card';
+@import 'carousel';
