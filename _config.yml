@@ -34,6 +34,12 @@ defaults:
   values:
     permalink: "/:collection/:categories/:title/"
     layout: post
+- scope:
+    path: ''
+    type: gallery
+  values:
+    permalink: "/:collection/:categories/:title/"
+    layout: post
 
 # Jekyll
 permalink:          /:categories/:title/
