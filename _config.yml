@@ -14,6 +14,9 @@ collections:
  blog:
    output: true
    permalink: /:collection/:category/:title/
+ gallery:
+   output: true
+   permalink: /:collection/:category/:title/
 
 defaults:
 - scope:
