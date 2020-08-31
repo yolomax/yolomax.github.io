@@ -13,8 +13,9 @@ gallery_items: "mcc2017"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <div class="card-columns">
     {% for img in gallery["imgs"] %}
+    {% assign img_dir  = gallery["imgs"][img] %}
     <div class="card">
-        <img class="card-img-top" src="{{gallery['root']}}{{ gallery["imgs"][img] }}" />
+        <img class="card-img-top" src="{{gallery['root']}}{{ img_dir }}" />
     </div>
     {% endfor %}
 </div>
