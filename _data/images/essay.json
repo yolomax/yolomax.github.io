@@ -1,0 +1,16 @@
+{
+    "yunbian": {
+        "root":"https://s1.ax1x.com/",
+        "cover": ["yunbian02.jpeg", "2020/07/23/UOPS2D.jpg"],
+        "imgs": [
+            ["yunbian01.jpeg", "2020/07/23/UOCz8O.jpg"],
+            ["yunbian02.jpeg", "2020/07/23/UOPS2D.jpg"],
+            ["yunbian03.jpg", "2020/07/23/UOPCKH.jpg"]
+        ]
+    },
+    "movie": {
+        "root":"https://cdn.jsdelivr.net/gh/yolomax/yolomax.github.io/images/essay/movie/",
+        "cover": ["Shawshank.jpeg", "Shawshank.jpeg"],
+        "imgs": []
+    }
+}

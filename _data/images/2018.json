@@ -1,0 +1,37 @@
+{
+    "root":"https://s1.ax1x.com/",
+    "hangkong": {
+        "root": "https://s1.ax1x.com/",
+        "cover": ["20181117_hongkang00.jpg", "2020/07/23/UqJ5If.jpg"],
+        "imgs": [
+            ["20181117_hongkang00.jpg", "2020/07/23/UqJ5If.jpg"],
+            ["20181117_hongkang01.jpg", "2020/07/23/UqJ7Rg.jpg"],
+            ["20181117_hongkang02.jpg", "2020/07/23/UqJoi8.jpg"],
+            ["20181117_hongkang03.jpg", "2020/07/23/UqJTJS.jpg"],
+            ["20181117_hongkang04.jpg", "2020/07/23/UqJ4dP.jpg"],
+            ["20181117_hongkang05.jpg", "2020/07/23/UqJHzQ.jpg"]
+        ]
+    },
+    "taiwan": {
+        "root": "https://s1.ax1x.com/",
+        "cover": ["20181211_riyuetan00.jpg", "2020/07/23/UqJOLn.jpg"],
+        "imgs": []
+    },
+    "20181211_riyuetan00.jpg": "2020/07/23/UqJOLn.jpg",
+    "20181211_riyuetan01.jpg": "2020/07/23/UqJqMj.jpg",
+    "20181211_riyuetan02.jpg": "2020/07/23/UqJLss.jpg",
+    "20181211_riyuetan03.jpg": "2020/07/23/UqJjZq.jpg",
+    "20181211_riyuetan04.jpg": "2020/07/23/UqJxoV.jpg",
+    "20181211_riyuetan05.jpg": "2020/07/23/UqJvd0.jpg",
+    "20181211_riyuetan06.jpg": "2020/07/23/UqYpJU.jpg",
+    "20181211_riyuetan07.jpg": "2020/07/23/UqYSiT.jpg",
+    "20181211_riyuetan08.jpg": "2020/07/23/UqYCz4.jpg",
+    "20181211_riyuetan09.jpg": "2020/07/23/UqY9WF.jpg",
+    "20181211_riyuetan10.jpg": "2020/07/23/UqYiQJ.jpg",
+    "20181211_riyuetan11.jpg": "2020/07/23/UqYEe1.jpg",
+    "20181211_riyuetan12.jpg": "2020/07/23/UqYkLR.jpg",
+    "20181211_riyuetan13.jpg": "2020/07/23/UqYFy9.jpg",
+    "20181211_riyuetan14.jpg": "2020/07/23/UqYmFK.jpg",
+    "20181211_riyuetan15.jpg": "2020/07/23/UqYZo6.jpg",
+    "20181211_riyuetan16.jpg": "2020/07/23/UqYVdx.jpg"
+}
