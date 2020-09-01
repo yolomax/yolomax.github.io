@@ -35,8 +35,22 @@
 						<h2><a href="{{ item.url | absolute_url }}">{{ item.title }}</h2> {% if item.date%}
 						<span class="date">{{ item.date | date_to_string }}</span> {% endif %}
 					</header>
-					{% if item.image%}
-					<a href="{{ item.url | absolute_url }}" class="image fit"><img src="https://cdn.jsdelivr.net/gh/yolomax/yolomax.github.io{{ item.image}}" alt="" /></a> {% endif %} {% if item.excerpt%}
+					{% if item.gallery_file%}
+					{% if item.gallery_items%}
+					{% assign img_group  = site.data.images[item.gallery_file][item.gallery_items] %}
+					{% if img_group["cover"]%}
+					{% if img_group["root"]%}
+					{% if img_group["cover"][1]%}
+
+					<a href="{{ item.url | absolute_url }}" class="image fit"><img src="{{img_group["root"]}}{{img_group["cover"][1]}}" alt="" /></a>
+
+					{% endif%}
+					{% endif%}
+					{% endif%}
+					{% endif %}
+					{% endif %}
+
+					{% if item.excerpt%}
 					<p>{{ item.excerpt }}</p>
 					{% endif %}
 				</article>
