@@ -1,11 +1,17 @@
 {
     "root":"https://s1.ax1x.com/",
-    "20181117_hongkang00.jpg": "2020/07/23/UqJ5If.jpg",
-    "20181117_hongkang01.jpg": "2020/07/23/UqJ7Rg.jpg",
-    "20181117_hongkang02.jpg": "2020/07/23/UqJoi8.jpg",
-    "20181117_hongkang03.jpg": "2020/07/23/UqJTJS.jpg",
-    "20181117_hongkang04.jpg": "2020/07/23/UqJ4dP.jpg",
-    "20181117_hongkang05.jpg": "2020/07/23/UqJHzQ.jpg",
+    "hangkong": {
+        "root": "https://s1.ax1x.com/",
+        "cover": ["20181117_hongkang00.jpg", "2020/07/23/UqJ5If.jpg"],
+        "imgs": [
+            ["20181117_hongkang00.jpg", "2020/07/23/UqJ5If.jpg"],
+            ["20181117_hongkang01.jpg", "2020/07/23/UqJ7Rg.jpg"],
+            ["20181117_hongkang02.jpg", "2020/07/23/UqJoi8.jpg"],
+            ["20181117_hongkang03.jpg", "2020/07/23/UqJTJS.jpg"],
+            ["20181117_hongkang04.jpg", "2020/07/23/UqJ4dP.jpg"],
+            ["20181117_hongkang05.jpg", "2020/07/23/UqJHzQ.jpg"]
+        ]
+    },
     "20181211_riyuetan00.jpg": "2020/07/23/UqJOLn.jpg",
     "20181211_riyuetan01.jpg": "2020/07/23/UqJqMj.jpg",
     "20181211_riyuetan02.jpg": "2020/07/23/UqJLss.jpg",
