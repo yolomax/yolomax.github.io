@@ -36,9 +36,9 @@
 						<span class="date">{{ item.date | date_to_string }}</span> {% endif %}
 					</header>
 
-					{% if page.gallery_file%}
-					{% if page.gallery_items%}
-					{% assign img_group  = site.data.images[page.gallery_file][page.gallery_items] %}
+					{% if item.gallery_file%}
+					{% if item.gallery_items%}
+					{% assign img_group  = site.data.images[item.gallery_file][item.gallery_items] %}
 					{% if img_group["cover"]%}
 					{% if img_group["root"]%}
 					{% if img_group["cover"][1]%}
