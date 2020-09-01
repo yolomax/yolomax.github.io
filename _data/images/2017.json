@@ -1,4 +1,7 @@
 {
-    "root":"https://s1.ax1x.com/",
-    "20170611_0838.jpg": "2020/07/23/UqJarR.jpg"
+    "benkebiye": {
+        "root": "https://s1.ax1x.com/",
+        "cover": ["20170611_0838.jpg", "2020/07/23/UqJarR.jpg"],
+        "imgs": [["20170611_0838.jpg", "2020/07/23/UqJarR.jpg"]]
+    }
 }

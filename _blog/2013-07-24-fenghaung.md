@@ -1,11 +1,30 @@
 ---
-layout: post
+layout: simple
 title:  "高中毕业游"
 date:   2013-07-24
 category: travel
 excerpt: "张家界 凤凰古镇"
-image: "/images/2013/20130724_094629.jpg"
-published: false
+published: true
+gallery_file: "2013"
+gallery_items: "fenghuang"
 ---
 
-<span class="image fit"><img src="{{ site.data.images.2013['root']}}{{ site.data.images.2013['20130722_175116.jpg'] }}" alt="" /></span>
+
+{% assign group1  = site.data.images[page.gallery_file][page.gallery_items] %}
+<div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
+    <div class="carousel-inner">
+        {% for img in group1["imgs"] %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{group1['root']}}{{ img[1] }}" class="d-block w-100" alt="">
+            </div>
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

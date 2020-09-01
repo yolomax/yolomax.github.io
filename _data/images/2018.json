@@ -12,6 +12,11 @@
             ["20181117_hongkang05.jpg", "2020/07/23/UqJHzQ.jpg"]
         ]
     },
+    "taiwan": {
+        "root": "https://s1.ax1x.com/",
+        "cover": ["20181211_riyuetan00.jpg", "2020/07/23/UqJOLn.jpg"],
+        "imgs": []
+    },
     "20181211_riyuetan00.jpg": "2020/07/23/UqJOLn.jpg",
     "20181211_riyuetan01.jpg": "2020/07/23/UqJqMj.jpg",
     "20181211_riyuetan02.jpg": "2020/07/23/UqJLss.jpg",

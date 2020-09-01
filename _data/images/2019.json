@@ -1,4 +1,14 @@
 {
+    "hawaii": {
+        "root":"https://s1.ax1x.com/",
+        "cover": ["20190128_172530_00.jpg", "2020/07/23/UqTRZd.jpg"],
+        "imgs": []
+    },
+    "neimenggu": {
+        "root":"https://s1.ax1x.com/",
+        "cover": ["20191002-180828-NM-12.jpg", "2020/07/23/ULd4E9.jpg"],
+        "imgs": []
+    },
     "root":"https://s1.ax1x.com/",
     "20190126_163436_01.jpg": "2020/07/23/UqTtr4.jpg", 
     "20190127_011010_02.jpg": "2020/07/23/UqT1P0.jpg", 

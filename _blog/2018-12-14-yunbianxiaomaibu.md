@@ -6,6 +6,8 @@ category: essay
 excerpt: "有本事你别回来  没本事"
 image: "/images/essay/云边有个小卖部/yunbian02.jpeg"
 published: true
+gallery_file: "eassy"
+gallery_items: "yunbian"
 ---
 
 ---
@@ -17,8 +19,9 @@ published: true
 <div class="row">
   <div class="6u 12u$(small)">
 
+  {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
   <center class="half">
-  <img src="{{ site.data.images.essay.yunbianxmb['root']}}{{ site.data.images.essay.yunbianxmb['yunbian03.jpg'] }}" alt="" width="70%"/>
+  <img src="{{ gallery['root']}}{{ gallery[2][1] }}" alt="" width="70%"/>
   </center>
 
   </div>
@@ -42,8 +45,9 @@ published: true
 <div class="row">
   <div class="6u 12u$(small)">
 
+  {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
   <center class="half">
-  <img src="{{ site.data.images.essay.yunbianxmb['root']}}{{ site.data.images.essay.yunbianxmb['yunbian01.jpeg'] }}" alt="" width="70%"/>
+  <img src="{{ gallery['root']}}{{ gallery[0][1] }}" alt="" width="70%"/>
   </center>
 
   </div>
