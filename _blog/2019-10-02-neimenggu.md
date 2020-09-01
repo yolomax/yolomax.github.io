@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: cover
 title:  "内蒙古"
 date:   2019-10-02
 category: travel
 excerpt: "鄂尔多斯 呼和浩特 辉腾锡勒"
-image: "/images/2019/20191002-180828-NM-12.jpg" 
 published: true
 gallery_file: "2019"
 gallery_items: "neimenggu"
