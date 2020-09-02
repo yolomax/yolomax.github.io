@@ -9,7 +9,7 @@
         ]
     },
     "movie": {
-        "root":"https://cdn.jsdelivr.net/gh/yolomax/yolomax.github.io/images/essay/movie/",
+        "root":"https://cdn.jsdelivr.net/gh/yolomax/yolomax/images/essay/movie/",
         "cover": ["Shawshank.jpeg", "Shawshank.jpeg"],
         "imgs": []
     }
