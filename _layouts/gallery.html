@@ -20,7 +20,7 @@
 		<!-- Main -->
 		<div id="main">
 
-			{% assign groups = site.gallery | group_by: "category" | sort: "name" | reverse %}
+			{% assign groups = site.gallery | group_by: "category" | sort: "name" %}
 			{% for group in groups %}
 			<h2>{{ group.name }}</h2>
 			<section class="posts">

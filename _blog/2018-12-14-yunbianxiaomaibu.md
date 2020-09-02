@@ -5,7 +5,7 @@ date:   2018-12-14
 category: essay
 excerpt: "有本事你别回来  没本事"
 published: true
-gallery_file: "eassy"
+gallery_file: "essay"
 gallery_items: "yunbian"
 ---
 
