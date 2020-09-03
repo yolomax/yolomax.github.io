@@ -9,6 +9,12 @@ date: 2020-07-28
 
 ## <center>Docker 常用命令</center>
 
+当你完成了下面教程的所有设置后能达到什么效果？
+
+**用容器就像直接用宿主机一样，感受不到区别**！！！
+
+可远程直接登录容器内部，在容器内也是宿主机的用户身份，却也可以在容器中用sudo管理员权限，能直接装各种包。
+
 ---
 
 ### 以非root用户启动容器
@@ -69,14 +75,42 @@ date: 2020-07-28
 
    4. 下面我讲一个在容器中以管理员权限开启ssh服务的例子
 
-      这样我就可以在容器中开启ssh服务，并让本机的pycharm通过ssh获得容器中的python解释器。
+      这样我就可以在容器中开启ssh服务，可以远程登录此容器，也可让本机的pycharm通过ssh获得容器中的python解释器。
 
       在容器中我可以执行 <code>sudo /etc/init.d/ssh start</code>
 
       输完命令后系统会让你输入密码，因为我们已经将宿主机上的用户和密码都映射进来了，所以这里输入的密码就是你宿主机上的密码
 
+### 启动容器
 
-### 批量删除以停止的容器
+下面讲一个完整的启动容器的命令的例子
+
+``` shell
+docker run --gpus all -itd --user $(id -u ${USER}):$(id -g ${USER}) --name='my_container' -p 30000:6006 -p 30001:22  --shm-size 8G -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/shadow:/etc/shadow:ro -v /data4:/data -v /home/user_name:/home/user_name -w /home/user_name yolomax/pytorch:1.6.0 /bin/bash
+```
+
+我分别讲一下这里面参数的意思
+
+* <code>--gpus all</code>指挂载所有GPU卡，这个一般不用动
+* <code>-itd</code>以交互模式运行容器，并在后台运行，这个命令的详细内容可以百度docker的 -i, -t, -d这三个指令的分别的意思。加上-d后，启动容器后并不会立刻进到容器中，而是让容器后台运行，用的时候再连进去，给人的感觉比较像一个真正的主机，你可以在宿主机上开不同的命令窗口连到这个容器，分别跑实验。
+* <code>--user $(id -u ${USER}):$(id -g ${USER}) </code>就是上面讲的以自己在宿主机上的用户身份启动容器。
+* <code>--name='my_container'</code>非必选，给容器起别名，自己不设置的话docker也会自动分配一个，这个看个人喜好决定要不要设了。
+* <code>-p 31094:6006</code>端口映射，这个不一定要加，看个人需求，我加了两个，把容器中的6006端口映射到了宿主机的30000端口，用于tensorboard深度学习网页可视化，22端口映射到30001，这样我通过宿主机的IP和此端口号，能ssh直接登录到容器内部，
+* <code>--shm-size 8G</code>设定共享内存，当你的算法里面用到了多线程的时候就需要共享内存了，最直观的，如果你用Pytorch框架，num_worker设置的值大于0，就用了多线程读取数据，此时你不设置共享内存的话，算法就会卡着不动。共享内存不一定就设置为8G，看自己需求。
+* <code>-v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/shadow:/etc/shadow:ro</code>非必选，是前面讲的映射宿主机的账户和密码到容器中
+* <code>-v /data4:/data -v /home/user_name:/home/user_name</code>非必选，映射宿主机的文件夹到容器中，比如这里就是将宿主机的/data4映射到容器中的/data。挂载多个文件夹可以用多个-v，比如这里又加了一个，将/home下自己的文件夹映射了一下。
+* <code>-w /home/user_name</code>非必选，指定工作目录，这样进入容器后，当前所在文件夹就是此目录下，这个按需设定。
+* <code>yolomax/pytorch:1.6.0</code>指定容器基于的镜像
+* <code>/bin/bash</code>启动容器后自动执行的命令，可选，可自定义，比如你可以设置为运行自己的算法脚本。需要注意的是，这个命令执行完后容器就死掉了。/bin/bash这个命令比较特别，是启动bash，这个进程是长期存在的，所以不会让容器死掉。所以一般建议直接执行这个，想要跑实验可以连进容器后在容器中执行。
+
+### 进入容器
+上一个章节讲的是启动容器，因为用的是<code>-itd</code>而不是<code>-it</code>，所以只会启动容器，并没有进入容器。下面讲怎么进去
+``` shell
+docker exec -it container_id /bin/bash
+```
+其中container_id是容器的名字或者id，如果你在启动容器时设置了名字，这里就可以直接用这个名字。<code>/bin/bash</code>的作用和意义与上一章节相同，可自定义。
+
+### 批量删除已停止的容器
 ``` shell
 docker rm `docker ps -a|grep Exited|awk '{print $1}'`
 ```
