@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tip
+title: Command
 category: server
 comments: false
 published: true
@@ -9,41 +9,58 @@ date: 2018-03-01
 
 ## <center>Ubuntu 用户常用命令</center>
 
-#### 修改密码
+### 修改密码
     passwd 你的用户名
 
-#### 保存密码
+### 保存密码
     # 可以免输密码
     ssh-keygen # 创建密钥，只有第一次时才使用此命令，若之前创建过密钥就不用再执行此命令。Simply type enter all the way down
     ssh-copy-id -i liuyh@192.168.17.240   # Enter password
 
-#### 查看当前目录已经使用总大小及当前目录下一级文件或文件夹各自使用的总空间大小
+### 查看当前目录已经使用总大小及当前目录下一级文件或文件夹各自使用的总空间大小
     du -h --max-depth=1
 
-#### 查找某PID的信息
+### 查找某PID的信息
     ps -q pid_num -f
 
 
 ## <center>Ubuntu 管理员常用命令</center>
 
 
-#### 修改root密码
+### 修改root密码
     sudo passwd root
 
-#### 修改主机名
+### 修改主机名
     sudo vi /etc/hostname将其中的名字改为自己的名字
     sudo vi /etc/hosts将其中的名字改为自己的名字
 
-#### 修改用户名
+### 修改用户名
     sudo vi /etc/passwd找到原先的用户名，将其改为自己的用户名
     sudo  vi /etc/shadow找到原先用户名（所有的名字都要改），改为自己的用户名
     # 将home目录下的用户目录改为自己的用户名：例如原先目录名为xxxx， 现要改为用户 yyyy。用命令 mv xxxx yyyy即可
 
-#### 冻结用户
-    # 让某一用户无法登陆，即密码冻结。
+### 冻结用户
+让某一用户无法登陆，即冻结ssh登录，但无法阻止秘钥登录。
 
-    passwd -l username   # 冻结
-    passwd -u username   # 解冻
+``` shell
+passwd -l username   # 冻结
+passwd -u username   # 解冻
+```
+
+完全冻结
+``` shell
+passwd -l username    # 冻结ssh登录
+mv /home/username/.ssh/authorized_keys /home/username/.ssh/authorized_keys_bak #冻结秘钥登录，即将认证的秘钥文件改个名字，让系统找不到认证的秘钥
+smbpasswd -d username  # 冻结samba账户
+```
+
+解冻
+``` shell
+passwd -u username
+mv /home/username/.ssh/authorized_keys_bak /home/username/.ssh/authorized_keys
+smbpasswd -e username
+```
+    
 
 #### 管理员权限
     # 添加管理员权限
