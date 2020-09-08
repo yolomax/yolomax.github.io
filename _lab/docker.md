@@ -35,15 +35,9 @@ date: 2020-07-28
 
 * ##### 怎么以非root用户启动容器。 {#how_user}
 
-   {% highlight shell %}
-   docker run --user $(id -u ${USER}):$(id -g ${USER})  <其他参数>
-   {% endhighlight %}
-
-   <!-- 
    ``` shell
    docker run --user $(id -u ${USER}):$(id -g ${USER})  <其他参数>
    ``` 
-   -->
 
    通过 `--user $(id -u ${USER}):$(id -g ${USER})` 的参数可以指定以当前宿主机用户的身份启动容器。`–-user`是用来指定docker容器中用户的id的，`$(id -u ${USER}):$(id -g ${USER})` 是自动解析id命令返回的uid和组id，这样就不用自己去查询id了。
 
@@ -62,22 +56,6 @@ date: 2020-07-28
       可见这一段话的意思是安装sudo命令的，以方便你在获得管理员权限后能通过sudo操作。当然，如果你的当前镜像已经安装了sudo命令，可以不执行这一段话。可以通过在容器中执行sudo操作来试试自否有安装sudo命令。
 
    2. 第二段命令
-
-      {% highlight shell %}
-      cp /etc/sudoers /etc/sudoers.new && \
-      echo "%users ALL=(ALL:ALL) ALL" >> /etc/sudoers.new && \
-      visudo -c -f /etc/sudoers.new && \
-      cp /etc/sudoers.new /etc/sudoers && \
-      rm /etc/sudoers.new
-      {% endhighlight %}
-
-      {% highlight docker %}
-      cp /etc/sudoers /etc/sudoers.new && \
-      echo "%users ALL=(ALL:ALL) ALL" >> /etc/sudoers.new && \
-      visudo -c -f /etc/sudoers.new && \
-      cp /etc/sudoers.new /etc/sudoers && \
-      rm /etc/sudoers.new
-      {% endhighlight %}
 
       ``` shell
       cp /etc/sudoers /etc/sudoers.new && \
