@@ -12,6 +12,7 @@ date: 2020-07-28
     + [怎么以非root用户启动容器。](#how_user)
     + [如何以非root身份启动容器，但是能在容器中获得root权限。](#how_root)
 - [启动容器](#run)
+    + [参数解释](#args)
 - [进入容器](#exec)
 - [批量删除已停止的容器](#rm)
 - [监控容器资源消耗](#stats)
@@ -34,9 +35,13 @@ date: 2020-07-28
 
 * ##### 怎么以非root用户启动容器。 {#how_user}
 
-   ``` shell
+{% highlight shell %}
+docker run --user $(id -u ${USER}):$(id -g ${USER})  <其他参数>
+{% endhighlight %}
+
+   <!-- ``` shell
    docker run --user $(id -u ${USER}):$(id -g ${USER})  <其他参数>
-   ```
+   ``` -->
 
    通过 `--user $(id -u ${USER}):$(id -g ${USER})` 的参数可以指定以当前宿主机用户的身份启动容器。`–-user`是用来指定docker容器中用户的id的，`$(id -u ${USER}):$(id -g ${USER})` 是自动解析id命令返回的uid和组id，这样就不用自己去查询id了。
 
@@ -55,6 +60,22 @@ date: 2020-07-28
       可见这一段话的意思是安装sudo命令的，以方便你在获得管理员权限后能通过sudo操作。当然，如果你的当前镜像已经安装了sudo命令，可以不执行这一段话。可以通过在容器中执行sudo操作来试试自否有安装sudo命令。
 
    2. 第二段命令
+
+      {% highlight shell %}
+      cp /etc/sudoers /etc/sudoers.new && \
+      echo "%users ALL=(ALL:ALL) ALL" >> /etc/sudoers.new && \
+      visudo -c -f /etc/sudoers.new && \
+      cp /etc/sudoers.new /etc/sudoers && \
+      rm /etc/sudoers.new
+      {% endhighlight %}
+
+      {% highlight docker %}
+      cp /etc/sudoers /etc/sudoers.new && \
+      echo "%users ALL=(ALL:ALL) ALL" >> /etc/sudoers.new && \
+      visudo -c -f /etc/sudoers.new && \
+      cp /etc/sudoers.new /etc/sudoers && \
+      rm /etc/sudoers.new
+      {% endhighlight %}
 
       ``` shell
       cp /etc/sudoers /etc/sudoers.new && \
@@ -96,7 +117,7 @@ date: 2020-07-28
 docker run --gpus all -itd --user $(id -u ${USER}):$(id -g ${USER}) --name='my_container' -p 30000:6006 -p 30001:22  --shm-size 8G -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/shadow:/etc/shadow:ro -v /data4:/data -v /home/user_name:/home/user_name -w /home/user_name yolomax/pytorch:1.6.0 /bin/bash
 ```
 
-我分别讲一下这里面参数的意思
+#### 参数解释 {#args}
 
 * <code>--gpus all</code>指挂载所有GPU卡，这个一般不用动
 * <code>-itd</code>以交互模式运行容器，并在后台运行，这个命令的详细内容可以百度docker的 -i, -t, -d这三个指令的分别的意思。加上-d后，启动容器后并不会立刻进到容器中，而是让容器后台运行，用的时候再连进去，给人的感觉比较像一个真正的主机，你可以在宿主机上开不同的命令窗口连到这个容器，分别跑实验。
