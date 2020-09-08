@@ -35,13 +35,15 @@ date: 2020-07-28
 
 * ##### 怎么以非root用户启动容器。 {#how_user}
 
-{% highlight shell %}
-docker run --user $(id -u ${USER}):$(id -g ${USER})  <其他参数>
-{% endhighlight %}
-
-   <!-- ``` shell
+   {% highlight shell %}
    docker run --user $(id -u ${USER}):$(id -g ${USER})  <其他参数>
-   ``` -->
+   {% endhighlight %}
+
+   <!-- 
+   ``` shell
+   docker run --user $(id -u ${USER}):$(id -g ${USER})  <其他参数>
+   ``` 
+   -->
 
    通过 `--user $(id -u ${USER}):$(id -g ${USER})` 的参数可以指定以当前宿主机用户的身份启动容器。`–-user`是用来指定docker容器中用户的id的，`$(id -u ${USER}):$(id -g ${USER})` 是自动解析id命令返回的uid和组id，这样就不用自己去查询id了。
 
