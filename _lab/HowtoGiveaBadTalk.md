@@ -6,13 +6,10 @@ comments: false
 published: true
 date: 2020-09-09
 ---
-<center>
-<br>David A. Patterson</br>
-<br>Computer Science Division</br>
-<br>University of California-Berkeley</br>
-Circa 1983
-</center>
-
+<center>David A. Patterson</center>
+<center>Computer Science Division</center>
+<center>University of California-Berkeley</center>
+<center>Circa 1983</center>
 
 **Ten commandments** (with annotations gleaned from Patterson's talk by Mark D. Hill)
 
