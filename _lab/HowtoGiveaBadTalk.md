@@ -7,9 +7,9 @@ published: true
 date: 2020-09-09
 ---
 <center>
-David A. Patterson</br>
-Computer Science Division</br>
-University of California-Berkeley</br>
+<br>David A. Patterson</br>
+<br>Computer Science Division</br>
+<br>University of California-Berkeley</br>
 Circa 1983
 </center>
 
