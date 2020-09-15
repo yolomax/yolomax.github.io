@@ -45,43 +45,49 @@ date: 2020-07-28
 
 * ##### 如何以非root身份启动容器，但是能在容器中获得root权限。{#how_root}
 
-   要实现这个功能，需要在你当前镜像的dockerfile里面加上两段命令。在介绍完这两个命令之后我会给出一个完整的dockerfile帮助大家理解。
+   要实现这个功能，需要两步，一步是修改dockerfile文件，另一步是在启动容器时添加一段命令。
+   
+   1. 修改dockerfile
+     
+      修改的目标是安装sudo包和给某个你所在的组添加管理员权限。这样你就能在容器中使用sudo获得管理员权限。在介绍完修改命令后我会给出一个完整的dockerfile帮助大家理解。
+   
+      1.1 第一段命令
 
-   1. 第一段命令
+       ``` shell
+       apt-get update &&  apt-get install sudo
+       ```
 
-      ``` shell
-      apt-get update &&  apt-get install sudo
-      ```
+         可见这一段话的意思是安装sudo命令的，以方便你在获得管理员权限后能通过sudo操作。当然，如果你的当前镜像已经安装了sudo命令，可以不执行这一段话。可以通过在基础镜像开启的容器中执行sudo操作来试试自否有安装sudo命令。
 
-      可见这一段话的意思是安装sudo命令的，以方便你在获得管理员权限后能通过sudo操作。当然，如果你的当前镜像已经安装了sudo命令，可以不执行这一段话。可以通过在容器中执行sudo操作来试试自否有安装sudo命令。
+      1.2. 第二段命令
 
-   2. 第二段命令
+       ``` shell
+       cp /etc/sudoers /etc/sudoers.new && \
+       echo "%docker ALL=(ALL:ALL) ALL" >> /etc/sudoers.new && \
+       visudo -c -f /etc/sudoers.new && \
+       cp /etc/sudoers.new /etc/sudoers && \
+       rm /etc/sudoers.new
+       ```
 
-      ``` shell
-      cp /etc/sudoers /etc/sudoers.new && \
-      echo "%users ALL=(ALL:ALL) ALL" >> /etc/sudoers.new && \
-      visudo -c -f /etc/sudoers.new && \
-      cp /etc/sudoers.new /etc/sudoers && \
-      rm /etc/sudoers.new
-      ```
+       /etc/sudoers这个文件是管理sudo权限的，从名字就可以看出来。这一段命令的意思是给docker组内的所有成员添加管理员权限，如果你不是在docker组里，可以换成别的你在的组，将组名替换第二行的docker这个单词就行了。
 
-      这一段话的意思是给users组内的所有成员添加管理员权限
-
-      加上这两段话后就可以构建镜像并启动容器了。
+       加上这两段话后就可以构建镜像并启动容器了。
 
       dockerfile的例子 ： https://github.com/yolomax/docker/blob/pytorch1.6.0/pytorch
 
 
-   3. 用docker run 启动容器时也要加上一段参数 
+   2. 启动容器时添加的命令 
 
 
       ``` shell
-      docker run -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/shadow:/etc/shadow:ro  <其他参数>
+      docker run --user $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v /etc/shadow:/etc/shadow:ro  <其他参数>
       ```
 
-      这一段参数的意思是将宿主机上的用户组以及密码以只读的形式全部挂在到容器中
+      这一段参数的意思是将宿主机上的用户组以及密码以只读的形式全部挂在到容器中。
 
-   4. 下面我讲一个在容器中以管理员权限开启ssh服务的例子
+      为什么要做这个映射呢。在第一部修改dockerfile时，我们已经给容器中的某个用户组添加了管理员权限（比如我上面命令中的docker组）。但是直接启动容器时是没有组和用户的信息的，所以你要把宿主机上的组合用户的信息映射到容器中。
+
+   3. 下面我讲一个在容器中以管理员权限开启ssh服务的例子
 
       这样我就可以在容器中开启ssh服务，可以远程登录此容器，也可让本机的pycharm通过ssh获得容器中的python解释器。
 
