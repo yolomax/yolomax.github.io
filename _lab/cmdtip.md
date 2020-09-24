@@ -42,14 +42,14 @@ sudo passwd root
 
 ### 修改主机名
 ``` shell
-sudo vi /etc/hostname将其中的名字改为自己的名字
-sudo vi /etc/hosts将其中的名字改为自己的名字
+sudo vi /etc/hostname  # 将其中的名字改为自己的名字
+sudo vi /etc/hosts     # 将其中的名字改为自己的名字
 ```
 
 ### 修改用户名
 ``` shell
-sudo vi /etc/passwd找到原先的用户名，将其改为自己的用户名
-sudo  vi /etc/shadow找到原先用户名（所有的名字都要改），改为自己的用户名
+sudo vi /etc/passwd   #  找到原先的用户名，将其改为自己的用户名
+sudo  vi /etc/shadow  # 找到原先用户名（所有的名字都要改），改为自己的用户名
 # 将home目录下的用户目录改为自己的用户名：例如原先目录名为xxxx， 现要改为用户 yyyy。用命令 mv xxxx yyyy即可
 ```
 
@@ -64,7 +64,7 @@ passwd -u username   # 解冻
 完全冻结
 ``` shell
 passwd -l username    # 冻结ssh登录
-mv /home/username/.ssh/authorized_keys /home/username/.ssh/authorized_keys_bak #冻结秘钥登录，即将认证的秘钥文件改个名字，让系统找不到认证的秘钥
+mv /home/username/.ssh/authorized_keys /home/username/.ssh/authorized_keys_bak  # 冻结秘钥登录，即将认证的秘钥文件改个名字，让系统找不到认证的秘钥
 smbpasswd -d username  # 冻结samba账户
 ```
 
