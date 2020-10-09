@@ -56,12 +56,3 @@ gallery_items: "chongqing"
 鞋子湿了很难受，后面只能穿着湿的鞋子出景区了。出景区可以走山路或者坐电梯，山路40分钟左右，电梯排队大约一个多小时。尽管电梯要排很久，但我还是选择电梯，鞋子很难受，而且走了这么久，太累了。回到车上后，发现每个人身上都湿了。这时已经是秋季的晚上了，而且是雨天，天气很凉，尽管在车里，身上还是很冷。就这样忍着寒冷和不适我们开了大约五个小时才回到宾馆。
 
 虽然天冷，衣服鞋子也湿了，但是穿过瀑布这个体验还是很特别的。当时穿过去之后真的很开心，算是在武隆的最开心的时刻了。
-
-{% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
-<div class="card-columns">
-    {% for img in gallery["end"] %}
-    <div class="card">
-        <img class="card-img-top" src="{{gallery['root']}}{{ img[0] }}" />
-    </div>
-    {% endfor %}
-</div>
