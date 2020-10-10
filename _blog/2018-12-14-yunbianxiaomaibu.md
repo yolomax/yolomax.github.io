@@ -20,7 +20,7 @@ gallery_items: "yunbian"
 
   {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
   <center class="half">
-  <img src="{{ gallery['root']}}{{ gallery[2][1] }}" alt="" width="70%"/>
+  <img src="{{ gallery['root']}}{{ gallery['imgs'][2][1] }}" alt="" width="70%"/>
   </center>
 
   </div>
@@ -46,7 +46,7 @@ gallery_items: "yunbian"
 
   {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
   <center class="half">
-  <img src="{{ gallery['root']}}{{ gallery[0][1] }}" alt="" width="70%"/>
+  <img src="{{ gallery['root']}}{{ gallery['imgs'][0][1] }}" alt="" width="70%"/>
   </center>
 
   </div>
