@@ -11,12 +11,16 @@ gallery_items: "neimenggu"
 
 十一国庆七天假，自然是要出去嗨一下。本来约了谢乔康一同去鄂尔多斯玩两天，结果东航取消了四号回来的那一班飞机改到了6号，这样我们就被迫（欣然接受）延长了旅游规划，后来干脆就7号再回来，先去鄂尔多斯，再去呼和浩特，最后转到北京，从北京回来。
 
+---
+
 ### <center>郡王府</center>
 
 为这次旅行，特地买了帽子和墨镜。2号早上到机场之后，隐约觉得有些不对劲。然后反应过来，帽子落在滴滴上了，还没来得及戴上就丢了，大概是无缘吧。9点多到鄂尔多斯，一出机场就感受到了南北温差，赶紧穿上了外套。鄂尔多斯只安排了一个很近的景点，郡王府。景点不大，建筑风格稍与平常见到的古建筑不同，许是材质的原因，显得厚重又荒凉。鄂尔多斯真的是地广人稀，喧闹的城市呆久了，在这里真的有点不适应。
 <center class="half">
     <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-032439-NM-2.jpg'] }}" alt="" height="300" /> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-112846-NM-5.jpg'] }}" alt="" height="300"/> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-113249-NM-6.jpg'] }}" alt="" height="300"/>
 </center>
+
+---
 
 ### <center>大召寺</center>
 
@@ -25,20 +29,7 @@ gallery_items: "neimenggu"
     <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-115948-NM-12.jpg'] }}" alt="" height="300" /> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-183127-NM-20.JPG'] }}" alt="" height="300"/> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-190049-NM-27.jpg'] }}" alt="" height="300"/> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-200757-NM-28.jpg'] }}" alt="" height="300"/> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-201846-NM-29.jpg'] }}" alt="" height="300"/>
 </center>
 
-<!-- <div class="row">
-		<div class="4u 12u">
-        <div class="12u$"><span class="image fit"><img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-115948-NM-12.jpg'] }}" alt="" /></span></div>
-        <div class="12u$"><span class="image fit"><img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-180813-NM-11.jpg'] }}" alt="" /></span></div>
-		</div>
-        <div class="4u 12u">
-        <div class="12u$"><span class="image fit"><img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-183127-NM-20.JPG'] }}" alt="" /></span></div>
-        <div class="12u$"><span class="image fit"><img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-190049-NM-27.jpg'] }}" alt="" /></span></div>
-		</div>
-		<div class="4u$ 12u$">
-        <div class="12u$"><span class="image fit"><img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-200757-NM-28.jpg'] }}" alt="" /></span></div>
-        <div class="12u$"><span class="image fit"><img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191002-201846-NM-29.jpg'] }}" alt="" /></span></div>
-		</div>
-</div> -->
+---
 
 ### <center>响沙湾</center>
 
@@ -49,6 +40,8 @@ gallery_items: "neimenggu"
 <center class="half">
     <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191003-060818-NM-31.jpg'] }}" alt="" height="300" /> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191003-105949-NM-33.jpg'] }}" alt="" height="300"/> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191003-140306-NM-38.jpg'] }}" alt="" height="300"/> <img src="{{ site.data.images.2019['root']}}{{ site.data.images.2019['20191003-141018-NM-8.jpg'] }}" alt="" height="300"/>
 </center>
+
+---
 
 ### <center>辉腾锡勒-乌兰哈达火山群-黄花沟</center>
 
