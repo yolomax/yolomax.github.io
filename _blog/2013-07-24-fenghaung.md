@@ -1,6 +1,6 @@
 ---
 layout: simple
-title:  "高中毕业游"
+title:  "凤凰古城"
 date:   2013-07-24
 category: travel
 excerpt: "张家界 凤凰古镇"
