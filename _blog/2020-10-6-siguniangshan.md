@@ -21,7 +21,7 @@ gallery_items: "siguniang"
 <div class="card-columns">
     {% for img in gallery["shuangqiao"] %}
     <div class="card">
-        <img class="card-img-top" src="{{gallery['root']}}{{ img[0] }}" />
+        <img class="card-img" src="{{gallery['root']}}{{ img[0] }}" />
     </div>
     {% endfor %}
 </div>
@@ -38,7 +38,7 @@ gallery_items: "siguniang"
 <div class="card-columns">
     {% for img in gallery["changping"] %}
     <div class="card">
-        <img class="card-img-top" src="{{gallery['root']}}{{ img[0] }}" />
+        <img class="card-img" src="{{gallery['root']}}{{ img[0] }}" />
     </div>
     {% endfor %}
 </div>
