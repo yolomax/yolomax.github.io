@@ -19,7 +19,7 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["junwang"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="300" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="256" />
     {% endfor %}
 </center>
 
