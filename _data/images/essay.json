@@ -1,6 +1,6 @@
 {
     "yunbian": {
-        "root":"https://s1.ax1x.com/",
+        "root":"https://cdn.jsdelivr.net/gh/yolomax/yolomax/images/essay/yunbian/",
         "cover": ["yunbian03.jpg", "2020/10/10/0sJ5Zj.jpg"],
         "imgs": [
             ["yunbian01.jpeg", "2020/07/23/UOCz8O.jpg"],
