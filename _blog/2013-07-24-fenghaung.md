@@ -15,7 +15,7 @@ gallery_items: "fenghuang"
     <div class="carousel-inner">
         {% for img in group1["imgs"] %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <img src="{{group1['root']}}{{ img[1] }}" class="d-block w-100" alt="">
+                <img src="{{group1['root']}}{{ img[0] }}" class="d-block w-100" alt="">
             </div>
         {% endfor %}
     </div>

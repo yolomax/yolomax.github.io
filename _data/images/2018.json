@@ -1,7 +1,6 @@
 {
-    "root":"https://s1.ax1x.com/",
     "hangkong": {
-        "root": "https://s1.ax1x.com/",
+        "root": "https://cdn.jsdelivr.net/gh/yolomax/yolomax/images/2018/",
         "cover": ["20181117_hongkang00.jpg", "2020/07/23/UqJ5If.jpg"],
         "imgs": [
             ["20181117_hongkang00.jpg", "2020/07/23/UqJ5If.jpg"],
@@ -13,7 +12,7 @@
         ]
     },
     "taiwan": {
-        "root": "https://s1.ax1x.com/",
+        "root": "https://cdn.jsdelivr.net/gh/yolomax/yolomax/images/2018/",
         "cover": ["20181211_riyuetan00.jpg", "2020/07/23/UqJOLn.jpg"],
         "img1": [
             ["20181211_riyuetan01.jpg", "2020/07/23/UqJqMj.jpg"],

@@ -19,7 +19,7 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["junwang"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="256" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[0] }}" alt="" height="256" />
     {% endfor %}
 </center>
 
@@ -31,7 +31,7 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["dazhao"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="300" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[0] }}" alt="" height="300" />
     {% endfor %}
 </center>
 
@@ -45,7 +45,7 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["xiangsha"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="300" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[0] }}" alt="" height="300" />
     {% endfor %}
 </center>
 
@@ -59,7 +59,7 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["huitengxile"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="300" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[0] }}" alt="" height="300" />
     {% endfor %}
 </center>
 
@@ -67,7 +67,7 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["caoyuan"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="300" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[0] }}" alt="" height="300" />
     {% endfor %}
 </center>
 
@@ -75,7 +75,7 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["huoshan"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="300" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[0] }}" alt="" height="300" />
     {% endfor %}
 </center>
 
@@ -83,6 +83,6 @@ gallery_items: "neimenggu"
 {% assign gallery  = site.data.images[page.gallery_file][page.gallery_items] %}
 <center class="half">
     {% for img in gallery["huanghua"] %}
-    <img class="img-zoom" src="{{gallery['root']}}{{ img[1] }}" alt="" height="256" />
+    <img class="img-zoom" src="{{gallery['root']}}{{ img[0] }}" alt="" height="256" />
     {% endfor %}
 </center>

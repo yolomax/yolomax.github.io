@@ -1,6 +1,6 @@
 {
     "hawaii": {
-        "root":"https://s1.ax1x.com/",
+        "root":"https://cdn.jsdelivr.net/gh/yolomax/yolomax/images/2019/",
         "cover": ["20190128_172530_00.jpg", "2020/07/23/UqTRZd.jpg"],
         "img1": [
             ["20190127_011010_02.jpg", "2020/07/23/UqT1P0.jpg"],
@@ -42,7 +42,7 @@
         "end": ["20190201_194739_23.jpg", "2020/07/23/UqTbLQ.jpg"]
     },
     "neimenggu": {
-        "root":"https://s1.ax1x.com/",
+        "root":"https://cdn.jsdelivr.net/gh/yolomax/yolomax/images/2019/",
         "cover": ["20191002-115948-NM-12.jpg", "2020/07/23/ULdI41.jpg"],
         "junwang": [
             ["20191002-032439-NM-2.jpg", "2020/07/23/ULdgjU.jpg"],
