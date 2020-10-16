@@ -31,11 +31,9 @@ changefreq: weekly
 						href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>{% if forloop.last == false %},&nbsp;&nbsp;{% endif %}
 					{% endfor %} </p>
 				{% endfor %}
-
-                --- 
-
-                友链: [方远强](https://fongyq.github.io/blog/) [谢乔康](https://xieqiaokang.com/)
-
+			</section>
+            <section class="post">
+            友链: <a href="https://fongyq.github.io/blog/">方远强</a> <a href="https://xieqiaokang.com/">谢乔康</a>
 			</section>
 		</div>
 		{% include foot.html %}
