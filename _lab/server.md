@@ -14,6 +14,14 @@ date: 2020-08-24
 * [图形界面](#visual)
 * [Docker](https://www.yolomax.com/lab/skills/docker/)
 
+### 使用前准备
+
+1. 修改密码
+
+```shell
+passwd 你的用户名
+```
+
 
 ### 环境管理 {#env_manage}
 
@@ -45,9 +53,9 @@ ssh -p 端口号 username@目标服务器IP
 
 * #### 内网 通过VNC使用图形界面
 
-  SSH连接到服务器，在命令行执行vncserver -geometry 1920x1080来创建会话，输出的最下面的 :n(n为一个整数)就是你创建的会话ID，初次执行vncserver需要创建一个VNC登录密码。
-在VNC Viewer里面，填入服务器地址+会话ID，如192.168.104.12:23，输入上一步创建的密码就可以登陆图像界面
-如果会话卡死或不响应了， 可以用vncserver -kill :n来删除之前创建的编号为n的会话，然后重新执行vncserver -geometry 1920x1080即可。
+  SSH连接到服务器，在命令行执行`vncserver -geometry 1920x1080`来创建会话，输出的最下面的 `:n`(n为一个整数)就是你创建的会话ID，初次执行vncserver需要创建一个VNC登录密码。
+在VNC Viewer里面，填入`服务器地址+会话ID`，如`192.168.104.12:23`，输入上一步创建的密码就可以登陆图像界面
+如果会话卡死或不响应了， 可以用`vncserver -kill :n`来删除之前创建的编号为n的会话，然后重新执行`vncserver -geometry 1920x1080`即可。
 如果忘记自己的VNC密码了，可以执行vncpasswd来重新设置密码
 
 * #### 外网
