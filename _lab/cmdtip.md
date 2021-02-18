@@ -74,7 +74,12 @@ passwd -u username
 mv /home/username/.ssh/authorized_keys_bak /home/username/.ssh/authorized_keys
 smbpasswd -e username
 ```
-    
+
+异常检查
+``` shell
+ps -ef|more 看进程 
+netstat -anp|more 看网络链接情况
+```
 
 #### 管理员权限
 
