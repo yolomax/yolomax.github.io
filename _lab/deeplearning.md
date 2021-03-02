@@ -20,4 +20,13 @@ date: 2018-03-01
  * A类：[ICCV](http://openaccess.thecvf.com/menu.py), [CVPR](http://openaccess.thecvf.com/menu.py), IJCAI, AAAI, ICML, NIPS, [ACM MM](https://dl.acm.org/dl.cfm), IEEE TIP
  * B类：ECCV, BMVC
 
+
+In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)<br>
+In Proceedings of the European Conference on Computer Vision (ECCV)<br>
+In Proceedings of the IEEE International Conference on Computer Vision (ICCV)<br>
+In Advances in Neural Information Processing Systems (NeurIPS)<br>
+In Proceedings of the International Joint Conferences on Artificial Intelligence (IJCAI)<br>
+In Proceedings of the ACM International Conference on Multimedia (ACM MM)<br>
+In AAAI Conference on Artificial Intelligence (AAAI)<br>
+
 <div align="left">链接打不开的话请翻墙</div>
