@@ -2,7 +2,7 @@
 layout: simple
 title:  "本科毕业"
 date:   2017-06-11
-category: USTC
+category: 科大
 excerpt: "中国科学技术大学"
 image: "/images/2017/20170611_0838.jpg"
 published: ture
