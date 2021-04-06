@@ -2,7 +2,7 @@
 layout: cover
 title:  "内蒙古"
 date:   2019-10-02
-category: Travel
+category: 旅行
 excerpt: "鄂尔多斯 呼和浩特 辉腾锡勒"
 published: true
 gallery_file: "2019"

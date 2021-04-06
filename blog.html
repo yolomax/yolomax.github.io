@@ -34,7 +34,7 @@ changefreq: weekly
 				<center>这世上大部分抒情，都会被认作无病呻吟。能理解你得了什么病，基本就是知己。</center>
 			</div>
 
-			{% assign groups = site.blog | group_by: "category" | sort: "name" | reverse %}
+			{% assign groups = site.blog | group_by: "category" | sort: "name" %}
 			{% for group in groups %}
 			<h2>{{ group.name }}</h2>
 			<section class="posts">
