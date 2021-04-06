@@ -2,7 +2,7 @@
 layout: cover
 title:  "云边有个小卖部"
 date:   2018-12-14
-category: Essay
+category: 随笔
 excerpt: "有本事你别回来  没本事"
 published: true
 gallery_file: "essay"
