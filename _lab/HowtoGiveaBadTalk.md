@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Give a Bad Talk
-category: utiles
+category: Foundation
 comments: false
 published: true
 date: 2020-09-09

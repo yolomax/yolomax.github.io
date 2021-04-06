@@ -2,7 +2,7 @@
 layout: cover
 title:  "四姑娘山"
 date:   2020-10-06
-category: travel
+category: Travel
 excerpt: "阿坝藏族羌族自治州 "
 published: true
 gallery_file: "2020"

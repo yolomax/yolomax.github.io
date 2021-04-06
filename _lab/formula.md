@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Formula
-category: foundation
+category: Foundation
 comments: false
 published: true
 date: 2020-12-02

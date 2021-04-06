@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Paper Writing
-category: utiles
+category: Foundation
 comments: false
 published: true
 date: 2018-06-10

@@ -2,7 +2,7 @@
 layout: cover
 title:  "重庆"
 date:   2020-10-03
-category: travel
+category: Travel
 excerpt: "重庆 武隆 天坑地缝"
 published: true
 gallery_file: "2020"

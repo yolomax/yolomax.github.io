@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Machine Learning
-category: foundation
+category: Foundation
 comments: false
 published: true
 date: 2018-03-01

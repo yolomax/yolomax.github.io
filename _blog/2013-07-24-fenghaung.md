@@ -2,7 +2,7 @@
 layout: simple
 title:  "凤凰古城"
 date:   2013-07-24
-category: travel
+category: Travel
 excerpt: "张家界 凤凰古镇"
 published: true
 gallery_file: "2013"

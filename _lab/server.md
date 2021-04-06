@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Server
-category: server
+category: Server
 comments: false
 published: true
 date: 2020-08-24

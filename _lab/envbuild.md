@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Environment
-category: server
+category: Server
 comments: false
 published: true
 date: 2018-03-01
